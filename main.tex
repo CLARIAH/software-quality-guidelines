@@ -36,17 +36,222 @@ encompassing all of the following aspects:
 The guidelines for software quality will be formulated as a series of
 assessment criteria, posed as questions, divided over several categories. This
 makes them directly applicable as an instrument for software quality
+assessment. These guidelines target developers, managers and users of software.
+Developers will be more aware of the targets to meet, and able to identify and
+remedy weak areas. Managers and users will be able to assess whether software is of
+sufficient enough quality for their purposes. Although we intend to formulate
+the questions as plainly as possible, a certain degree of technical
+expertise is demanded of all of these in otder to attain a successful
 assessment.
 
+Each question, if applicable, should be answered affirmatively. This will lead
+to measurable quality levels. Full compliance with the guidelines is achieved
+when all questions are answered affirmatively. In practise, however, this is
+not realistic to happen. Evaluators will need to determined for themselves what
+compliance level, per category, constitutes an acceptable passing threshold.
+
 The criteria we yield, and their categories, are derived to large extent from
-the \emph{criteria-based software evaluation guide} by the Software
-Sustainability Institute. Their work, in turn, is modelled after \emph{ISO/IEC
+the \emph{criteria-based software evaluation guide} \cite{SSIGUIDE} by the Software
+Sustainability Institute (SSI). Their work, in turn, is modelled after \emph{ISO/IEC
 9126-1 Software Engineering - Product Quality}.  The Software
 Sustainability Institute is an academic institute explicitly geared towards
 researchers and software developers in science, and as-such its work is of
-great relevance to projects such as CLARIAH.
+great relevance to projects such as CLARIAH. 
+
+The SSI, following ISO 9126-1, has grouped assessment criteria as follows
+\cite{SSIGUIDE}.
+
+\begin{tabular}{|l|l|}
+\textbf{Usability} \\
+Understandability & Is the software easily understood? \\ 
+Documentation & Comprehensive well-structured documentation? \\
+Buildability  & Straightforward to build from source on a supported system? \\
+Installability  & Straightforward to install and deploy on a supported system? \\
+Learnability & Easy/intuitive to learn how to use its functions? \\
+\hline
+\textbf{Sustainability \& Manageability}
+Identity & Project/software identity is clear and unique? \\
+Copyright & Easy to see who owns the project/software? \\
+Licencing & Adoption of appropriate licence?
+Governance & Easy to understand how the project is run and the development managed? \\
+Community & Evidence of current/future community? \\
+Accessibility & Evidence of good facilities to obtain versions of the software? \\
+Testability & Easy to verify if the software functions correctly? \\
+Portability & Usable on multiple platforms? \\
+Supportability & Evidence of current/future developer support? \\
+Analysability & Easy to understand at the source-code level? \\
+Changeability & Easy to modify and contribute changes? \\
+Evolvability & Evidence of current/future development? \\
+Interoperability & Interoperable with other required/related software? \\
+\end{tabular}
+
+The next section will list all assessment criteria. %TODO: say something about difference  with SSI
+
+\section{Quality Assessment Criteria - Usability}
+
+\subsection{Understandability}
+
+\subsubsection{U1 -- Is it clear what the software does?}
+
+Software must be accompanied be a clear high-level description, describing what
+exactly it does. Both the README file that ships with the software as well as
+the project website should contain this information. 
+
+\subsubsection{U2 -- Is it clear for whom the software is intended?}
+
+It should be clear who are the intended users for the software. Software is
+usually not appropriate for all audiences. Gearing software at multiple
+audiences however, through for instance offering multiple interfaces (command
+line, GUI, webservice) is good practise. References to projects already using the
+software are suggested.
+
+\subsubsection{U3 -- Is it clear how the software works?}
+
+There should be a high-level description explaining how the software
+accomplishes its task. Links to publications are recommended. Also, a schema
+offering an architectural overview is suggested where appropriate. 
+
+\subsubsection{U4 -- Is the software motivated?}
+
+There should be a written motivation for why the software does things the way
+it does and why it was designed in the first place. It should be clear what
+problems are solved by it. Links to publications are suggested.
+
+\subsection{Documentation}
+
+When we refer to documentation, we refer to the set of all documentation
+available for the software. This may consists of different types of
+documentation for different audiences, and may include academic papers.
+
+\subsubsection{DOC1 -- Is there documentation?}
+
+All software should be properly documented. Software without any documentation
+is as good as useless. At the very least, documentation at a minimum level
+must be available. 
+
+\subsubsection{DOC2 -- Is the documentation accessible?}
+
+Documentation must be publicly accessible and in an acceptable standard format
+such as HTML or PDF.
+
+\subsubsection{DOC3 -- Is the documentation clear?}
+
+Is it clear enough? Does it clearly describe the software. Step-by-step
+and task-oriented instructions are recommended.
+
+\subsubsection{DOC4 -- Is the documentation complete?}
+
+Documentation should cover the entire software, including advanced features.
+
+\subsubsection{DOC5 -- Is the documentation accurate?}
+
+Documentation should describe the advertised version and not be out-of-date
+with the latest release. Example should be in line with how the tool looks and
+behaves.
+
+\subsubsection{DOC6 -- Does the documentation provide a high-level overview of the software?}
+
+Documentation should offer a high-level overview of the software, rather
+than immediately dive into the details.
+
+\subsubsection{DOC7 -- Does the address the necessary audiences, at their appropriate levels?}
+
+Different groups of users require different documentation. Developers require
+APIs if the software is a library, end-users require a walkthrough of the GUI
+if the software has one. A different level of expertise may be expected of
+different user groups, the documentation should assume the appropriate level.
+
+\subsubsection{DOC8 -- Does the documentation make use of adequate examples?}
+
+Documentation should contain examples appropriate for the interface that is
+described. Command-line interfaces should see examples of invocation and input
+and output. Graphical user interfaces should be illustrated through screenshots or
+screencasts. API references should contain source code examples of usage.
+
+\subsubsection{DOC9 -- Is there adequate troubleshooting information?}
+
+Documentation should include information on troubleshooting, i.e.\ a
+specification of possible error messages and explanation for resolution.
+
+\subsubsection{DOC10 -- Is the documentation available from the project website?}
+
+Documentation must be clearly linked from the project website.
+
+\subsubsection{DOC11 -- Is the documentation under version control?}
+
+The sources for documentation must be under version control like the source
+code, preferably alongside the code itself.
 
 
+\subsection{Buildability}
+
+Buildability applies to all software written in languages that compile to
+either native machine code or intermediate byte code to be interpeted by a VM.
+This can be constrasted to software that is interpreted at run-time from source
+code. This section is therefore applicable only to languages such as C, C++,
+Java, Pascal, Haskell, Scala, Rust, Cython but not to scripting language such
+as Python, Ruby, Perl, Go. 
+
+
+\subsubsection{BLD1 -- Are there good instructions for building/compiling the software?}
+
+Build/compilation instruction should be available and clear enough. They should
+be distributed alongside the software's source distribution (as part of an
+INSTALL file or README), and/or be addressed in the documentation. If the
+source distribution is the primary means of distribution, then build
+instructions should be prominently displayed on the project website as well.
+
+\subsubsection{BLD2 -- Is an established automated build system used?}
+
+Established build systems should be used. For example the GNU Build
+System\footnote{also known as the autotools} or CMake for C/C++; Ant or Maven
+for Java. 
+
+\subsubsection{BLD3 -- Are all the third-party dependencies listed?}
+
+All required or optional third-party dependencies should be listed (with
+references to their websites). If the build system supports automatically
+obtaining dependencies, then this is a preferred solution. If the platform has
+a package manager that can install these distributions, then add instructions
+(i.e, package names) to accomplish this.
+
+Moreover, all listed dependencies should be available, unobtainable software
+can not be used as a dependency. Higher-order dependencies need not be listed.
+
+\subsubsection{BLD4 -- Are there tests to verify the build has succeeded?}
+
+
+\subsection{Installability}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Quality Assessment Criteria - Sustainability \& Maintenance}
+
+
+
+
+\end{tabular}
+
+
+
+
+
+
+
+\section{Software Quality Assem}
 
 
 
