@@ -186,12 +186,12 @@ code, preferably alongside the code itself.
 \subsection{Buildability}
 
 Buildability applies to all software written in languages that compile to
-either native machine code or intermediate byte code to be interpeted by a VM.
-This can be constrasted to software that is interpreted at run-time from source
+either native machine code or any intermediate byte code to be interpeted by a VM.
+This is contrasted to software that is interpreted at run-time from source
 code. This section is therefore applicable only to languages such as C, C++,
 Java, Pascal, Haskell, Scala, Rust, Cython but not to scripting language such
-as Python, Ruby, Perl, Go. 
-
+as Python, Ruby, Perl, Go.  Note that buildability does not include
+installation, packaging, or deployment.
 
 \subsubsection{BLD1 -- Are there good instructions for building/compiling the software?}
 
@@ -204,16 +204,19 @@ instructions should be prominently displayed on the project website as well.
 \subsubsection{BLD2 -- Is an established automated build system used?}
 
 Established build systems should be used. For example the GNU Build
-System\footnote{also known as the autotools} or CMake for C/C++; Ant or Maven
-for Java. 
+System\footnote{also known as the autotools} or CMake for C/C++ (this is
+preferred over a static Makefile); or Ant or Maven for Java. 
 
-\subsubsection{BLD3 -- Are all the third-party dependencies listed?}
+Solutions that are not tied to a single IDE are always preferred.
 
-All required or optional third-party dependencies should be listed (with
-references to their websites). If the build system supports automatically
-obtaining dependencies, then this is a preferred solution. If the platform has
-a package manager that can install these distributions, then add instructions
-(i.e, package names) to accomplish this.
+\subsubsection{BLD3 -- Are all dependencies listed and available?}
+(related to IS2)
+
+All required or optional dependencies should be listed, including those by
+third parties (with references to their websites). If the build system supports
+automatically obtaining dependencies, then this is a preferred solution. If the
+platform has a package manager that can install these dependencies, then add
+instructions (i.e. package names) to accomplish this.
 
 Moreover, all listed dependencies should be available, unobtainable software
 can not be used as a dependency. Higher-order dependencies need not be listed.
@@ -223,6 +226,98 @@ can not be used as a dependency. Higher-order dependencies need not be listed.
 
 \subsection{Installability}
 
+Installability concerns the deployment of software on the target platform, also
+including configuration of the software to the user's needs.
+
+\subsubsection{IS1 -- Are there easily accessible installation instructions?}
+
+All software must come with installation instructions. Those instructions should
+be easily accessible and presented on the project website as well as shipped
+with the software in the README or INSTALL file. Build and installation
+instructions can be combined if the software is published as a source
+distribution.
+
+\subsubsection{IS2 -- Are all dependencies listed and available?}
+(related to BLD3)
+
+All required or optional dependencies should be listed, including those by
+third parties (with references to their websites). If the installation
+procedure supports automatically obtaining dependencies, then this is a
+preferred solution (see also IS3). If the platform has a package manager that
+can install these dependencies, then add instructions (i.e. package names) to
+accomplish this.
+
+Moreover, all listed dependencies should be available, unobtainable software
+can not be used as a dependency. Higher-order dependencies need not be listed.
+
+\subsubsection{IS3 -- Does the installation procedure comply to best practises
+in the ecosystem around the programming language?}
+
+The ecosystem surrounding programming languages may come with standard
+procedures for installation. Software should comply to these rather than use
+ad-hoc mechanisms. If the ecosystem has facilities for dependency management
+(automatic download of dependencies), these should be used.
+
+\begin{itemize}
+ \item Python software should have a \texttt{setup.py} based on Distutils,
+     Setuptools, or their relatives.
+ \item Installation of C/C++ software is generally an extension of the build
+     process, often culminating in a \texttt{make install}.
+ \item TODO: Java, R ?
+\end{itemize}
+
+\subsubsection{IS4 -- Is the software packaged according to standards for the target platform?}
+
+If the sofware has a well-defined target platform and is intended for adoption
+by a wider audicence, it is recommended to package it in the appropriate form.
+This may however conflict with IS3, be rendered obsolete by IS3, or render IS3
+obsolete. The decision form of installation takes takes precendence should be
+made on an individual basis, considering the nature and audience of the
+software.
+
+\begin{itemize}
+    \item Linux/BSD/Unix -- Distributions generally have their own package manager
+    \begin{itemize}
+        \item Arch Linux: Use the Arch User Repository (AUR)
+        \item Debian/Ubuntu (and other derivates): Use Debian Packages (deb)
+        \item RedHat/CentOS/Fedora (and other derivates): Use Red Hat Packages (rpm)
+    \end{itemize}
+    \item Mac OS X: Use PKG or DMG for traditional Mac applications intended for end-users; for the more Unix-style
+        software, use a system such as Homebrew or MacPorts
+    \item Android: Use Android Application Packages (APK)
+    \item iOS: (TODO) 
+    \item Windows: (TODO) 
+\end{itemize}
+
+It is not always time and cost effective to package the sofware, especially not
+when there are multiple target platforms. 
+
+\subsubsection{IS5 -- Is the software package properly structured?}
+
+If software is distributed as a plain archive (tar.gz, tar.bz2, zip or otherwise),
+it must create a single directory when unpacked rather than spread its contents
+over the current working directory.
+
+The contents of the archive should be properly organised in sub-directories
+(for documentation, headers, source, etc..). Conventions may differ between
+programming languages.
+
+\subsubsection{IS6 -- Is the software properly structured when installed?}
+
+If the software is installed, it should adhere to file placement standards set
+by the target platform. On Unix-like operating systems (excluding Mac OS X), the Filesystem
+Hierarchy Standard (FHS) should be followed.
+
+\subsubsection{IS7 -- The software must included a README}
+
+The README must contain links to the project website, as well as licence and copyright
+information.
+
+\subsubsection{IS8 -- There must be facilities to uninstall the software}
+
+This is usually trivial when the software complies to IS4 and/or IS3, or if the
+software installation is self-contained in a single directory. In all other
+instances, proper uninstallation procedures should be in place.
 
 
 
@@ -233,25 +328,6 @@ can not be used as a dependency. Higher-order dependencies need not be listed.
 
 
 
-
-
-
-
-
-\section{Quality Assessment Criteria - Sustainability \& Maintenance}
-
-
-
-
-\end{tabular}
-
-
-
-
-
-
-
-\section{Software Quality Assem}
 
 
 
