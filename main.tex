@@ -182,6 +182,37 @@ Documentation must be clearly linked from the project website.
 The sources for documentation must be under version control like the source
 code, preferably alongside the code itself.
 
+\subsection{Learnability}
+
+This category partially overlaps with the documentation category, but explicitly
+focusses on how straightforward it is to learn to use the sofware.
+
+\subsubsection{LRN1 -- Is there a getting started guide?}
+
+A getting started guide outlines how to quickly get started with the software
+using a basic example.
+
+\subsubsection{LRN2 -- Are there instructions for basic use cases?}
+
+Instructions should be provided for at least basic use cases, and ideally for
+all possible use cases.
+
+\subsubsection{LRN3 -- Does the interface provide a help reference?}
+
+Help options should be provided by the interface. Command line interfaces must
+have a -h/--help pair describing usage and all options. GUIs should use tooltips/hints to clarify
+their widgets (or through whatever convention is customary for the
+platform/ecosystem). Alternatively, they can provide a help option referring to
+the documentation.
+
+\subsubsection{LRN4 -- Is there API documentation for developers?}
+
+If the software is a programming library. API documentation must be provided.
+If the software is a webservice, a specification of the web API must be provided.
+
+\subsubsection{LRN5 -- If the software is configurable, are the configuration
+options clearly explained?}
+
 
 \subsection{Buildability}
 
@@ -318,6 +349,170 @@ information.
 This is usually trivial when the software complies to IS4 and/or IS3, or if the
 software installation is self-contained in a single directory. In all other
 instances, proper uninstallation procedures should be in place.
+
+
+\section{Quality Assessment Criteria - Sustainability and Maintainability}
+
+\subsection{Identity}
+
+\subsubsection{ID1 - Does the software provide a clear and unique identity?}
+
+Software should be identifiable by a clear name that does not clash with others
+in its application domain and in the wider generic software domain. An on-line
+search of 
+
+\subsubsection{ID2 - Does the software have a website?}
+
+The software should have a website that describes it, allows users to obtain
+it as well as its documentation. The website should be offer a portal to everything
+related to the sofware.
+
+It is recommended to have a dedicated domain name or subdomain.
+
+\subsubsection{ID3 - The project name does not violate an existing trade-mark?}
+
+\subsection{Copyright \& Licensing}
+
+\subsubsection{CP1 - Has an appropriate open-source licence been adopted?}
+
+Software should be released as open source under an appropriate licence. The
+licence should be recognised by the Open Source Initiative or Free Software
+Foundation.
+
+The licence may never not violate the licences of any of the software's
+dependencies, if their are linking clauses in those.
+
+Any form of closed-source software is strongly discouraged and not deemed
+compatible with the scientific method that demands methodological transparency,
+reproducibility and peer review.
+
+\subsubsection{CP2 - Is it clear who wrote the software, who owns the
+copyright, and what the licence is?}
+
+Authors, copyright and licence should be clearly mentioned on the project
+website, as well as in the source code.  We strongly recommend each source file
+to contain a comment header stating this information.
+
+\subsubsection{CP3 - Are the funders acknowledged?}
+
+The funders of the software should be publically acknowledged on the project
+website, and in the README.
+
+\subsection{Community}
+
+This aspects related to what extent and active user community exists for the
+software.
+
+
+\subsection{Accessibility}
+
+\subsubsection{AC1 -- Is the source code maintained in a version control system?}
+
+Source code must always be kept under version control to enable developers to
+collaborate and keep a track of changes. Absence of version control is bad
+development practise. 
+
+\subsubsection{AC2 -- Is the source code in a public version-controlled repository?}
+
+The version control repository should be public (read only) in the spirit of both open
+source, as well as the scientific method (transparency, peer review,
+reproducibility). 
+
+It is recommended to use a large sustainable third-party platform (GitHub,
+GitLab, BitBucket, Launchpad), as it offers a social dimensions and is more
+likely to live beyond the lifetime of any current project funding line.
+
+We motivate our reasoning in favour of public version control repositories as follows:
+
+\begin{enumerate}
+    \item Increased visibility for the project, especially if a major external platform is used.
+    \item facilitates judgement of development activity of a software project.
+    \item facilitates collaboration, especially from external partners.
+    \item invites peer review
+    \item allows users to be more intimately aware of changes, which in an
+        academic context may impact their experimental results.
+\end{enumerate}
+
+\subsubsection{AC3 -- Is there no restricted data in the public source code repository?}
+
+Privacy and security sensitive data (passwords, API keys), as well as other
+restricted data, should never be checked into public version control systems.
+
+\subsubsection{AC4 -- Are their clearly marked formal releases of the source code?}
+
+The source code of the software should be released, and each release should
+clearly marked with the version number of the software. The version control
+system should also have clearly identifiable tags that mark the state of the
+repository at the time of this release.
+
+We recommend that each source code release is also transferred to a persistant
+store and receives a DOI.
+
+\subsubsection{AC5 -- Are software releases deposited in a public
+    repository pertaining to the ecosystem surrounding the programming
+language?}
+
+The ecosystems surrounding various high-level programming languages offer
+public repositories in which installable software release packages should be
+deposited. These repositories function as a primary source for installation (see also
+IS3) and generally offer automatic dependency management.
+
+Use of these repositories is recommended practise if available.
+
+\begin{itemize}
+    \item \textbf{Python} -- Releases of Python software should be deposited in
+        the Python Package Index: \url{https://pypi.python.org}
+    \item \textbf{Perl} --  Perl modules should be deposited in the Comprehensive
+        Perl Archive Network (CPAN): \url{http://www.cpan.org}.
+    \item \textbf{R} -- R packages should be deposited in the Comprehensive R
+        Archive Network (CRAN): https://cran.r-project.org
+    \item \textbf{Javascript} -- Javascript software should be deposited in
+        NPM: https://www.npmjs.com
+\end{itemize}
+
+\subsubsection{AC6 - Is the software available in the target platform's software repository?}
+
+If the sofware has a well-defined target platform and the target platform has a
+public software repository available, and the software is intended for adoption by a
+wider audience; then it is recommended to submit the packages to this public
+repository.
+
+This may however conflict with AC5, be rendered obsolete by AC5, or render AC5
+obsolete. The decision which form of installation takes takes precendence should be
+made on an individual basis, considering the nature and audience of the
+software.
+
+\begin{itemize}
+    \item Linux/BSD/Unix -- Distributions generally have their repositories
+    \begin{itemize}
+        \item Arch Linux: Submit your package to the Arch User Repository (AUR)
+        \item Debian: Submit your package to Debian
+        \item Ubuntu: Ubuntu inherits Debian's packages, therefore submitting Debian is recommended.
+        \item RedHat/CentOS/Fedora (and other derivates): Use Red Hat Packages (rpm)
+    \end{itemize}
+    \item Mac OS X: Use the Apple Store for traditional Mac applications intended for end-users; for the more Unix-style
+        software, use a system such as Homebrew or MacPorts.
+    \item Android: use the Google Store, fully open-source software may also be
+        submitted to F-Droid
+    \item iOS: Use the Apple Store
+    \item Windows: (TODO) 
+\end{itemize}
+
+It is not always time and cost effective to package and deposit the sofware, especially not
+when there are multiple target platforms. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
