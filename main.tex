@@ -85,7 +85,18 @@ Evolvability & Evidence of current/future development? \\
 Interoperability & Interoperable with other required/related software? \\
 \end{tabular}
 
-The next section will list all assessment criteria. %TODO: say something about difference  with SSI
+We follow this with the following changes:
+
+\begin{itemize}
+\item Copyright \& Licensing are merged.
+\item Governance is omitted entirely.
+\item Evolvability was integrated into Changeability.
+\item A Security \& Privacy section is added.
+\end{itemize}
+
+The next section will list all assessment criteria. There are inspired by the
+SSI requirements but do not follow them to the letter. Our criteria are
+generally more condensed, but some criteria have been added as well.
 
 \section{Quality Assessment Criteria - Usability}
 
@@ -398,10 +409,6 @@ to contain a comment header stating this information.
 The funders of the software should be publically acknowledged on the project
 website, and in the README.
 
-\subsection{Community}
-
-This aspects related to what extent and active user community exists for the
-software.
 
 
 \subsection{Accessibility}
@@ -438,10 +445,10 @@ We motivate our reasoning in favour of public version control repositories as fo
 Privacy and security sensitive data (passwords, API keys), as well as other
 restricted data, should never be checked into public version control systems.
 
-\subsubsection{AC4 -- Are their clearly marked formal releases of the source code?}
+\subsubsection{AC4 -- Are there clearly marked formal releases the software?}
 
-The source code of the software should be released, and each release should
-clearly marked with the version number of the software. The version control
+The software should be formally released when the developers deem it a good
+time. Each release should be clearly marked with the version number of the software. The version control
 system should also have clearly identifiable tags that mark the state of the
 repository at the time of this release.
 
@@ -490,7 +497,7 @@ software.
         \item Ubuntu: Ubuntu inherits Debian's packages, therefore submitting Debian is recommended.
         \item RedHat/CentOS/Fedora (and other derivates): Use Red Hat Packages (rpm)
     \end{itemize}
-    \item Mac OS X: Use the Apple Store for traditional Mac applications intended for end-users; for the more Unix-style
+    \item Mac OS X: use the Apple Store for traditional Mac applications intended for end-users; for the more Unix-style
         software, use a system such as Homebrew or MacPorts.
     \item Android: use the Google Store, fully open-source software may also be
         submitted to F-Droid
@@ -503,29 +510,236 @@ when there are multiple target platforms.
 
 
 
+\subsection{Community}
+
+This aspects related to what extent and active user community exists for the
+software.
+
+\subsubsection{COM1 - Is there evidence of the software being in use already by
+other parties than primary developers and their institution?}
+
+It is recommended to list on the project website if the software has notable
+users, this may facilitate further adoption. It is also recommended to mention
+(on the project website) a citable publication that discusses software, and to
+actively recommend or even require others to cite this if they use the
+software.
+
+A list of third-party publications citing the software is also suggested for
+the project page. Alternatively, it is lightly suggested to
+incorporate success stories or quotes from satisfied users on the project
+website.
+
+In addition to the aforementioned, evidence for this activity may also be sought
+in contributions to the software by external developers (assuming
+compliance with AC2), or questions in the issue/bug tracker or mailing lists.
+
+\subsubsection{COM2 - Is there evidence of external developers independent of
+the original developers and their institution?}
+
+External developers are a good sign of community interest, as the threshold for
+contributing is relatively high. Assessment of this indicator is greatly facilitated by
+compliance with AC2.
 
 
+\subsection{Testability}
+
+\subsubsection{TST1 - Does the project have unit tests, is there sufficient coverage?}
+
+Software should have unit tests that automatically test individual units of the
+source code. They verify the data and logic flow by testing whether the output,
+given certain input, confirms to expectation.
+
+It is important that the tests cover enough of the source code, automated tools
+are available that can help in this assessment.
+
+\subsubsection{TST2 - Does the project have integration tests, is there sufficient coverage?}
+
+Software should have integration tests that combine invididual parts of modules and see how they function
+as a group.
+
+It is important that the tests cover enough of the source code, automated tools
+are available that can help in this assessment.
+
+\subsubsection{TST3 - Does the project have automated GUI/WUI tests?}
+
+If the sofware offers a GUI or WUI, it should have automated tests that verify
+the functionality of the interface.
+
+\subsubsection{TST4 - Tests are run automatically}
+
+It is recommended that test be run automatically, either through continuous
+integration testing or at a predefined interval.
+
+It is recommended that test results are publically available, so they can
+perform their function as a measure of quality control.
 
 
+\subsection{Portability}
+
+Portability concerns the extent to which software can be used on other
+platforms. 
+
+\subsubsection{PTB1 - Is is clear for what platforms the software is written?}
+
+It should be clear, from at least the project website, for what platforms the software
+is intended.
+
+\subsubsection{PTB2 - Is the software portable for multiple platforms?}
+
+It is recommended to support a wide variety of platforms rather than a single
+one. This, however, is not always feasibile or cost and time effective.
+
+\subsubsection{PTB3 - Does the software work on multiple browsers?}
+
+This concerns only web-based software with a significant client-side component.
+Such software should function under recent versions of all major browsers
+(Mozilla Firefox, Google Chrome, Internet Explorer / Edge, Safari, Opera), and
+never be limited to just one.
+
+Moreover, it is recommended that such software does not rely on browser plugins that
+are themselves not portable. Adobe Flash or Microsoft Silverlight are two
+examples of badly portable legacy technologies that should be avoided, always use
+modern substitutes (HTML5) instead.
+
+\subsection{Supportability}
+
+To what extent will the product be supported currently and in the future?
+
+\subsubsection{SUP1 -- Is it clear whom to contact for support?}
+
+It should be clear where to go for support. A project must have a contact
+e-mail address. If an issue tracker is present (SUP2), it should be clearly advertised
+as well.
+
+\subsubsection{SUP2 -- Is there a public issue tracker?}
+
+A public issue/bug tracker is strongly recommended. It allows everyone to post
+bugs or features requests and allows users to see what issues are current, how
+they are resolved, and if they are resolved in a timely fashion. It also
+prevents helps to prevent duplication of issues, and gives a platform for
+tracking feature requests.
+
+\subsubsection{SUP3 -- Is there a mailing list?}
+
+Projects with a fair amount of activity benefit from having a mailing list. It
+can function as a lesser subtitute of SUP2 (SUP2 therefore may make this
+obsolete), but can also serve as an extra line of communications between users
+and developers. The mailing list must allow anyone to subscribe and must have a
+public archive allowing users to follow any issues and follow development.
+
+\subsection{Analysability}
+
+This section concerns the extent to which the source code can be understood. At
+this level, the source code is inspected in closer detail.
+
+\subsubsection{ANY1 -- Is the source code structured adequately?}
+
+Source code should be modular, i.e. it should be structured into multiple
+modules/packages, following the requirements and conventions of the programming
+language. 
+
+The structure of the source code should bear a clear relationship to the
+architecture or design of the software.
+
+\subsubsection{ANY2 -- Is the source code commented adequately?}
+
+The source code should contain comments explaining what major blocks do.
+
+\subsubsection{ANY3 -- Do the comments generate API documentation?}
+
+The comments use a mark-up that allows them to be used directly as the
+source for the generation of the API reference documentation. This is
+accomplished using document generation tools such as Doxygen, Sphinx or
+Javadoc.
+
+\subsubsection{ANL4 -- Is the source code cleanly laid out?}
+
+The source code should follow a proper indentation convention. 
+
+\subsubsection{ANL5 -- Are sensible names used?}
+
+Do the classes, functions and variables in the source code use sensible names
+and do they follow a consistent naming scheme that is conventional for the
+programming language?
+
+\subsubsection{ANL6 -- Are there no blocks of commented out code or obsolete files?}
+
+There should be no large block of commented-out code, nor obsolete files.
+(this depends on compliance with AC1)
+
+\subsubsection{ANL7 -- Are all TODO comments resolved?}
+
+There should be no important TODO comments, or if they are they should be
+clearly described in the issue tracker (SUP2).
+
+\subsubsection{ANL8 -- Does the project have recommended coding standards?}
+
+A project should have recommended coding standard to which contributers
+should adhere. These standards should be consistent with the larger community
+of generic coding standards for the programming language.
+
+\subsection{Changeability}
+
+\subsubsection{CH1 -- Is the project open to contributions from third parties?}
+
+A project is recommended to be open to outside contributions. Community
+involvement is a major factor in the success of a software project. 
+
+This depends on AC1, AC2, and facilitates COM1 and COM2. 
+
+\subsubsection{CH2 -- Does the project have guidelines for contributions?}
+
+If contributions are desired, a project is suggested to have guidelines for
+contributors. These must be publically available.
+See also ANL8.
+
+\subsubsection{CH3 -- Are all source code changes, and their authorship, publically visible?} 
+
+Collaboration requires awareness of what changes, when it changes, and who
+changes it. This depends on AC1, heavily facilitated by AC2.
+
+Alternatively, commits messages can be forwarded to mailing lists, Slack, IRC chat, or
+whatever is deemed appropriate.
+
+\subsubsection{CH4 -- Is the sofware sufficiently backwards-compatible?}
+
+Sofware should be backwards compatible with old versions of itself with respect
+to public interfaces and data input. Backward-compatibility changes and
+deprecation may occur but should always be clearly announced.
+
+\subsubsection{CH5 -- Is there a roadmap for future changes?}
+
+Software still under active development should have roadmap. This may take
+shape either as an explicit roadmap or implicit in the issue tracker
+(SUP2) through the assingment of milestones.
+
+\subsubsection{CH6 -- Does the website mention how the software is funded and
+when funding ends?}
 
 
+\subsection{Interoperability}
 
+\subsubsection{IOP1 -- Does the software use appropriate open standards for data?}
 
+Software should adhere to appropriate open standards as much as possible, i.e.
+it should be able to read input files and write output files in open
+standards. Support of multiple open standards is recommended. Conversion may
+also be mediated through other third party tools.
 
+\subsection{Security \& Privacy}
 
+\subsubsection{SEC1 -- Is the software free of obvious security flaws?}
 
+Sofware should be secure and have no holes that allow unauthorised users to
+gain access. Developers should take care to avoid common attack vectors such as shell
+injection, SQL injection, cross-site request forgery, buffer overflow. 
 
+Assessment of security is an art in itself and non-trivial. 
 
+\subsubsection{SEC2 -- Is user privacy secured effectively?}
 
-
-
-
-
-
-
-
-
-
-
+Privacy-sensitive user data must be treated with care. Passwords must never be
+stored in unhashed form, private keys must never be shared. Strongly related to
+SEC1. Also see AC3.
 
 \end{document}
