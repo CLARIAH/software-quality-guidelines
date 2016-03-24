@@ -167,61 +167,61 @@ When we refer to documentation, we refer to the set of all documentation
 available for the software. This may consists of different types of
 documentation for different audiences, and may include academic papers.
 
-\criterion{DOC1 -- Is there documentation?}
+\criterion{D1 -- Is there documentation?}
 
 All software should be properly documented. Software without any documentation
 is as good as useless. At the very least, documentation at a minimum level
 must be available. 
 
-\criterion{DOC2 -- Is the documentation accessible?}
+\criterion{D2 -- Is the documentation accessible?}
 
 Documentation must be publicly accessible and in an acceptable standard format
 such as HTML or PDF.
 
-\criterion{DOC3 -- Is the documentation clear?}
+\criterion{D3 -- Is the documentation clear?}
 
 Is it clear enough? Does it clearly describe the software. Step-by-step
 and task-oriented instructions are recommended.
 
-\criterion{DOC4 -- Is the documentation complete?}
+\criterion{D4 -- Is the documentation complete?}
 
 Documentation should cover the entire software, including advanced features.
 
-\criterion{DOC5 -- Is the documentation accurate?}
+\criterion{D5 -- Is the documentation accurate?}
 
 Documentation should describe the advertised version and not be out-of-date
 with the latest release. Example should be in line with how the tool looks and
 behaves.
 
-\criterion{DOC6 -- Does the documentation provide a high-level overview of the software?}
+\criterion{D6 -- Does the documentation provide a high-level overview of the software?}
 
 Documentation should offer a high-level overview of the software, rather
 than immediately dive into the details.
 
-\criterion{DOC7 -- Does the address the necessary audiences, at their appropriate levels?}
+\criterion{D7 -- Does the address the necessary audiences, at their appropriate levels?}
 
 Different groups of users require different documentation. Developers require
 APIs if the software is a library, end-users require a walkthrough of the GUI
 if the software has one. A different level of expertise may be expected of
 different user groups, the documentation should assume the appropriate level.
 
-\criterion{DOC8 -- Does the documentation make use of adequate examples?}
+\criterion{D8 -- Does the documentation make use of adequate examples?}
 
 Documentation should contain examples appropriate for the interface that is
 described. Command-line interfaces should see examples of invocation and input
 and output. Graphical user interfaces should be illustrated through screenshots or
 screencasts. API references should contain source code examples of usage.
 
-\criterion{DOC9 -- Is there adequate troubleshooting information?}
+\criterion{D9 -- Is there adequate troubleshooting information?}
 
 Documentation should include information on troubleshooting, i.e.\ a
 specification of possible error messages and explanation for resolution.
 
-\criterion{DOC10 -- Is the documentation available from the project website?}
+\criterion{D10 -- Is the documentation available from the project website?}
 
 Documentation must be clearly linked from the project website.
 
-\criterion{DOC11 -- Is the documentation under version control?}
+\criterion{D11 -- Is the documentation under version control?}
 
 The sources for documentation must be under version control like the source
 code, preferably alongside the code itself.
@@ -231,17 +231,17 @@ code, preferably alongside the code itself.
 This category partially overlaps with the documentation category, but explicitly
 focusses on how straightforward it is to learn to use the sofware.
 
-\criterion{LRN1 -- Is there a getting started guide?}
+\criterion{L1 -- Is there a getting started guide?}
 
 A getting started guide outlines how to quickly get started with the software
 using a basic example.
 
-\criterion{LRN2 -- Are there instructions for basic use cases?}
+\criterion{L2 -- Are there instructions for basic use cases?}
 
 Instructions should be provided for at least basic use cases, and ideally for
 all possible use cases.
 
-\criterion{LRN3 -- Does the interface provide a help reference?}
+\criterion{L3 -- Does the interface provide a help reference?}
 
 Help options should be provided by the interface. Command line interfaces must
 have a -h/--help pair describing usage and all options. GUIs should use tooltips/hints to clarify
@@ -249,12 +249,12 @@ their widgets (or through whatever convention is customary for the
 platform/ecosystem). Alternatively, they can provide a help option referring to
 the documentation.
 
-\criterion{LRN4 -- Is there API documentation for developers?}
+\criterion{L4 -- Is there API documentation for developers?}
 
 If the software is a programming library. API documentation must be provided.
 If the software is a webservice, a specification of the web API must be provided.
 
-\criterion{LRN5 -- If the software is configurable, are the configuration
+\criterion{L5 -- If the software is configurable, are the configuration
 options clearly explained?}
 
 
@@ -268,7 +268,7 @@ Java, Pascal, Haskell, Scala, Rust, Cython but not to scripting language such
 as Python, Ruby, Perl, Go.  Note that buildability does not include
 installation, packaging, or deployment.
 
-\criterion{BLD1 -- Are there good instructions for building/compiling the software?}
+\criterion{B1 -- Are there good instructions for building/compiling the software?}
 
 Build/compilation instruction should be available and clear enough. They should
 be distributed alongside the software's source distribution (as part of an
@@ -276,7 +276,7 @@ INSTALL file or README), and/or be addressed in the documentation. If the
 source distribution is the primary means of distribution, then build
 instructions should be prominently displayed on the project website as well.
 
-\criterion{BLD2 -- Is an established automated build system used?}
+\criterion{B2 -- Is an established automated build system used?}
 
 Established build systems should be used. For example the GNU Build
 System\footnote{also known as the autotools} or CMake for C/C++ (this is
@@ -284,7 +284,7 @@ preferred over a static Makefile); or Ant or Maven for Java.
 
 Solutions that are not tied to a single IDE are always preferred.
 
-\criterion{BLD3 -- Are all dependencies listed and available?}
+\criterion{B3 -- Are all dependencies listed and available?}
 (related to IS2)
 
 All required or optional dependencies should be listed, including those by
@@ -446,13 +446,13 @@ website, and in the README.
 
 \subsection{Accessibility}
 
-\criterion{AC1 -- Is the source code maintained in a version control system?}
+\criterion{A1 -- Is the source code maintained in a version control system?}
 
 Source code must always be kept under version control to enable developers to
 collaborate and keep a track of changes. Absence of version control is bad
 development practise. 
 
-\criterion{AC2 -- Is the source code in a public version-controlled repository?}
+\criterion{A2 -- Is the source code in a public version-controlled repository?}
 
 The version control repository should be public (read only) in the spirit of both open
 source, as well as the scientific method (transparency, peer review,
@@ -473,12 +473,12 @@ We motivate our reasoning in favour of public version control repositories as fo
         academic context may impact their experimental results.
 \end{enumerate}
 
-\criterion{AC3 -- Is there no restricted data in the public source code repository?}
+\criterion{A3 -- Is there no restricted data in the public source code repository?}
 
 Privacy and security sensitive data (passwords, API keys), as well as other
 restricted data, should never be checked into public version control systems.
 
-\criterion{AC4 -- Are there clearly marked formal releases the software?}
+\criterion{A4 -- Are there clearly marked formal releases the software?}
 
 The software should be formally released when the developers deem it a good
 time. Each release should be clearly marked with the version number of the software. The version control
@@ -488,7 +488,7 @@ repository at the time of this release.
 We recommend that each source code release is also transferred to a persistant
 store and receives a DOI.
 
-\criterion{AC5 -- Are software releases deposited in a public
+\criterion{A5 -- Are software releases deposited in a public
     repository pertaining to the ecosystem surrounding the programming
 language?}
 
@@ -510,7 +510,7 @@ Use of these repositories is recommended practise if available.
         NPM: https://www.npmjs.com
 \end{itemize}
 
-\criterion{AC6 - Is the software available in the target platform's software repository?}
+\criterion{A6 - Is the software available in the target platform's software repository?}
 
 If the sofware has a well-defined target platform and the target platform has a
 public software repository available, and the software is intended for adoption by a
@@ -546,7 +546,7 @@ when there are multiple target platforms.
 This aspects related to what extent and active user community exists for the
 software.
 
-\criterion{COM1 - Is there evidence of the software being in use already by
+\criterion{CM1 - Is there evidence of the software being in use already by
 other parties than primary developers and their institution?}
 
 It is recommended to list on the project website if the software has notable
@@ -564,7 +564,7 @@ In addition to the aforementioned, evidence for this activity may also be sought
 in contributions to the software by external developers (assuming
 compliance with AC2), or questions in the issue/bug tracker or mailing lists.
 
-\criterion{COM2 - Is there evidence of external developers independent of
+\criterion{CM2 - Is there evidence of external developers independent of
 the original developers and their institution?}
 
 External developers are a good sign of community interest, as the threshold for
@@ -574,7 +574,7 @@ compliance with AC2.
 
 \subsection{Testability}
 
-\criterion{TST1 - Does the project have unit tests, is there sufficient coverage?}
+\criterion{TS1 - Does the project have unit tests, is there sufficient coverage?}
 
 Software should have unit tests that automatically test individual units of the
 source code. They verify the data and logic flow by testing whether the output,
@@ -583,7 +583,7 @@ given certain input, confirms to expectation.
 It is important that the tests cover enough of the source code, automated tools
 are available that can help in this assessment.
 
-\criterion{TST2 - Does the project have integration tests, is there sufficient coverage?}
+\criterion{TS2 - Does the project have integration tests, is there sufficient coverage?}
 
 Software should have integration tests that combine invididual parts of modules and see how they function
 as a group.
@@ -591,12 +591,12 @@ as a group.
 It is important that the tests cover enough of the source code, automated tools
 are available that can help in this assessment.
 
-\criterion{TST3 - Does the project have automated GUI/WUI tests?}
+\criterion{TS3 - Does the project have automated GUI/WUI tests?}
 
 If the sofware offers a GUI or WUI, it should have automated tests that verify
 the functionality of the interface.
 
-\criterion{TST4 - Tests are run automatically}
+\criterion{TS4 - Tests are run automatically}
 
 It is recommended that test be run automatically, either through continuous
 integration testing or at a predefined interval.
@@ -610,17 +610,17 @@ perform their function as a measure of quality control.
 Portability concerns the extent to which software can be used on other
 platforms. 
 
-\criterion{PTB1 - Is is clear for what platforms the software is written?}
+\criterion{PB1 - Is is clear for what platforms the software is written?}
 
 It should be clear, from at least the project website, for what platforms the software
 is intended.
 
-\criterion{PTB2 - Is the software portable for multiple platforms?}
+\criterion{PB2 - Is the software portable for multiple platforms?}
 
 It is recommended to support a wide variety of platforms rather than a single
 one. This, however, is not always feasibile or cost and time effective.
 
-\criterion{PTB3 - Does the software work on multiple browsers?}
+\criterion{PB3 - Does the software work on multiple browsers?}
 
 This concerns only web-based software with a significant client-side component.
 Such software should function under recent versions of all major browsers
@@ -636,13 +636,13 @@ modern substitutes (HTML5) instead.
 
 To what extent will the product be supported currently and in the future?
 
-\criterion{SUP1 -- Is it clear whom to contact for support?}
+\criterion{SP1 -- Is it clear whom to contact for support?}
 
 It should be clear where to go for support. A project must have a contact
 e-mail address. If an issue tracker is present (SUP2), it should be clearly advertised
 as well.
 
-\criterion{SUP2 -- Is there a public issue tracker?}
+\criterion{SP2 -- Is there a public issue tracker?}
 
 A public issue/bug tracker is strongly recommended. It allows everyone to post
 bugs or features requests and allows users to see what issues are current, how
@@ -650,7 +650,7 @@ they are resolved, and if they are resolved in a timely fashion. It also
 prevents helps to prevent duplication of issues, and gives a platform for
 tracking feature requests.
 
-\criterion{SUP3 -- Is there a mailing list?}
+\criterion{SP3 -- Is there a mailing list?}
 
 Projects with a fair amount of activity benefit from having a mailing list. It
 can function as a lesser subtitute of SUP2 (SUP2 therefore may make this
@@ -663,7 +663,7 @@ public archive allowing users to follow any issues and follow development.
 This section concerns the extent to which the source code can be understood. At
 this level, the source code is inspected in closer detail.
 
-\criterion{ANY1 -- Is the source code structured adequately?}
+\criterion{AN1 -- Is the source code structured adequately?}
 
 Source code should be modular, i.e. it should be structured into multiple
 modules/packages, following the requirements and conventions of the programming
@@ -672,38 +672,38 @@ language.
 The structure of the source code should bear a clear relationship to the
 architecture or design of the software.
 
-\criterion{ANY2 -- Is the source code commented adequately?}
+\criterion{AN2 -- Is the source code commented adequately?}
 
 The source code should contain comments explaining what major blocks do.
 
-\criterion{ANY3 -- Do the comments generate API documentation?}
+\criterion{AN3 -- Do the comments generate API documentation?}
 
 The comments use a mark-up that allows them to be used directly as the
 source for the generation of the API reference documentation. This is
 accomplished using document generation tools such as Doxygen, Sphinx or
 Javadoc.
 
-\criterion{ANL4 -- Is the source code cleanly laid out?}
+\criterion{AN4 -- Is the source code cleanly laid out?}
 
 The source code should follow a proper indentation convention. 
 
-\criterion{ANL5 -- Are sensible names used?}
+\criterion{AN5 -- Are sensible names used?}
 
 Do the classes, functions and variables in the source code use sensible names
 and do they follow a consistent naming scheme that is conventional for the
 programming language?
 
-\criterion{ANL6 -- Are there no blocks of commented out code or obsolete files?}
+\criterion{AN6 -- Are there no blocks of commented out code or obsolete files?}
 
 There should be no large block of commented-out code, nor obsolete files.
 (this depends on compliance with AC1)
 
-\criterion{ANL7 -- Are all TODO comments resolved?}
+\criterion{AN7 -- Are all TODO comments resolved?}
 
 There should be no important TODO comments, or if they are they should be
 clearly described in the issue tracker (SUP2).
 
-\criterion{ANL8 -- Does the project have recommended coding standards?}
+\criterion{AN8 -- Does the project have recommended coding standards?}
 
 A project should have recommended coding standard to which contributers
 should adhere. These standards should be consistent with the larger community
@@ -750,7 +750,7 @@ when funding ends?}
 
 \subsection{Interoperability}
 
-\criterion{IOP1 -- Does the software use appropriate open standards for data?}
+\criterion{IP1 -- Does the software use appropriate open standards for data?}
 
 Software should adhere to appropriate open standards as much as possible, i.e.
 it should be able to read input files and write output files in open
@@ -759,7 +759,7 @@ also be mediated through other third party tools.
 
 \subsection{Security \& Privacy}
 
-\criterion{SEC1 -- Is the software free of obvious security flaws?}
+\criterion{SC1 -- Is the software free of obvious security flaws?}
 
 Sofware should be secure and have no holes that allow unauthorised users to
 gain access. Developers should take care to avoid common attack vectors such as shell
@@ -767,7 +767,7 @@ injection, SQL injection, cross-site request forgery, buffer overflow.
 
 Assessment of security is an art in itself and non-trivial. 
 
-\criterion{SEC2 -- Is user privacy secured effectively?}
+\criterion{SC2 -- Is user privacy secured effectively?}
 
 Privacy-sensitive user data must be treated with care. Passwords must never be
 stored in unhashed form, private keys must never be shared. Strongly related to
