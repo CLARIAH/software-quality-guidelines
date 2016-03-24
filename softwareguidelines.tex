@@ -3,6 +3,7 @@
 \usepackage{hyperref}{}
 \usepackage{titling}
 \usepackage{titlesec}
+\usepackage{natbib}
 \usepackage[margin=3cm]{geometry}
 \usepackage{parskip}
 \newcommand{\subtitle}[1]{%
@@ -84,7 +85,7 @@ The criteria we yield, and their categories, are derived to large extent from
 the \emph{criteria-based software evaluation guide} \cite{SSIGUIDE} by the Software
 Sustainability Institute (SSI). Their work, in turn, is modelled after \emph{ISO/IEC
 9126-1 Software Engineering - Product Quality}.  The Software
-Sustainability Institute is an academic institute explicitly geared towards
+Sustainability Institute\cite{SSIGENERAL} is an academic institute explicitly geared towards
 researchers and software developers in science, and as-such its work is of
 great relevance to projects such as CLARIAH. 
 
@@ -146,7 +147,8 @@ the project website should contain this information.
 It should be clear who are the intended users for the software. Software is
 usually not appropriate for all audiences. Gearing software at multiple
 audiences however, through for instance offering multiple interfaces (command
-line, GUI, webservice) is good practise. References to projects already using the
+line interface (CLI) , graphical user interface (GUI), web-user interface
+(WUI), webservice) is good practise. References to projects already using the
 software are recommended (see also CM1).
 
 \criterion{U3 -- Is it clear how the software works?}
@@ -159,7 +161,8 @@ offering an architectural overview is suggested where appropriate.
 
 There should be a written motivation for why the software does things the way
 it does and why it was designed in the first place. It should be clear what
-problems are solved by it. Links to publications are suggested.
+problems are solved by it. Links to publications and comparisons with similar
+software are recommended.
 
 \subsection{Documentation}
 
@@ -198,7 +201,7 @@ behaves.
 Documentation should offer a high-level overview of the software, rather
 than immediately dive into the details.
 
-\criterion{D7 -- Does the address the necessary audiences, at their appropriate levels?}
+\criterion{D7 -- Are all the necessary audiences addressed, at their appropriate levels?}
 
 Different groups of users require different documentation. Developers require
 APIs if the software is a library, end-users require a walkthrough of the GUI
@@ -555,8 +558,8 @@ users, this may facilitate further adoption. It is also recommended to mention
 actively recommend or even require others to cite this if they use the
 software.
 
-A list of third-party publications citing the software is also suggested for
-the project page. Alternatively, it is lightly suggested to
+A list of third-party publications citing the software is also recommended for
+the project page. Alternatively, it is lightly recommended to
 incorporate success stories or quotes from satisfied users on the project
 website.
 
@@ -581,7 +584,8 @@ source code. They verify the data and logic flow by testing whether the output,
 given certain input, confirms to expectation.
 
 It is important that the tests cover enough of the source code, automated tools
-are available that can help in this assessment.
+and platforms are available that can help in this assessment, such as
+\url{https://coveralls.io} and \url{https://codacy.com}.
 
 \criterion{TS2 -- Does the project have integration tests, is there sufficient coverage?}
 
@@ -591,7 +595,7 @@ as a group.
 It is important that the tests cover enough of the source code, automated tools
 are available that can help in this assessment.
 
-\criterion{TS3 -- Does the project have automated GUI/WUI tests?}
+\criterion{TS3 -- Does the project have automated GUI tests?}
 
 If the software offers a GUI or WUI, it should have automated tests that verify
 the functionality of the interface.
@@ -599,9 +603,12 @@ the functionality of the interface.
 \criterion{TS4 -- Tests are run automatically}
 
 It is recommended that test be run automatically, either through continuous
-integration testing or at a predefined interval.
+integration testing or at a predefined interval. Public continuous integrations
+platforms such as Travis-CI, Gitlab-CI, Jenkins can be hooked into version
+control systems with minimal effort, resulting an an automatic run of the test suite upon
+each commit and notifying the developer when the test suite fails.
 
-It is recommended that test results are publically available, so they can
+It is strongly recommended that test results are publicly available, so they can
 perform their function as a measure of quality control.
 
 
@@ -680,8 +687,8 @@ The source code should contain comments explaining what major blocks do.
 
 The comments use a mark-up that allows them to be used directly as the
 source for the generation of the API reference documentation. This is
-accomplished using document generation tools such as Doxygen, Sphinx or
-Javadoc.
+accomplished using document generation tools such as Doxygen\footnote{\url{http://www.doxygen.org}}, Sphinx\footnote{\url{http://www.sphinx-doc.org}} or
+Javadoc\footnote{\url{http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html}}.
 
 \criterion{AN4 -- Is the source code cleanly laid out?}
 
@@ -700,12 +707,12 @@ There should be no large block of commented-out code, nor obsolete files.
 
 \criterion{AN7 -- Are all TODO comments resolved?}
 
-There should be no important TODO comments, or if they are they should be
+There should be no important TODO comments, if there are they should at least be
 clearly described in the issue tracker (SUP2).
 
 \criterion{AN8 -- Does the project have recommended coding standards?}
 
-A project should have recommended coding standard to which contributers
+A project should have recommended coding standards to which contributors
 should adhere. These standards should be consistent with the larger community
 of generic coding standards for the programming language.
 
@@ -720,11 +727,11 @@ This depends on AC1, AC2, and facilitates COM1 and COM2.
 
 \criterion{CH2 -- Does the project have guidelines for contributions?}
 
-If contributions are desired, a project is suggested to have guidelines for
-contributors. These must be publically available.
-See also ANL8.
+If contributions are desired, a project is recommended to have guidelines for
+contributors. These must be publicly available.
+See also AN8.
 
-\criterion{CH3 -- Are all source code changes, and their authorship, publically visible?} 
+\criterion{CH3 -- Are all source code changes, and their authorship, publicly visible?} 
 
 Collaboration requires awareness of what changes, when it changes, and who
 changes it. This depends on AC1, heavily facilitated by AC2.
@@ -734,9 +741,9 @@ whatever is deemed appropriate.
 
 \criterion{CH4 -- Is the software sufficiently backwards-compatible?}
 
-software should be backwards compatible with old versions of itself with respect
+Software should be backwards compatible with old versions of itself with respect
 to public interfaces and data input. Backward-compatibility changes and
-deprecation may occur but should always be clearly announced.
+deprecation may occur but should always be clearly announced ahead of time.
 
 \criterion{CH5 -- Is there a roadmap for future changes?}
 
@@ -761,7 +768,7 @@ also be mediated through other third party tools.
 
 \criterion{SC1 -- Is the software free of obvious security flaws?}
 
-software should be secure and have no holes that allow unauthorised users to
+Software should be secure and have no holes that allow unauthorised users to
 gain access. Developers should take care to avoid common attack vectors such as shell
 injection, SQL injection, cross-site request forgery, buffer overflow. 
 
@@ -772,5 +779,8 @@ Assessment of security is an art in itself and non-trivial.
 Privacy-sensitive user data must be treated with care. Passwords must never be
 stored in unhashed form, private keys must never be shared. Strongly related to
 SEC1. Also see AC3.
+
+\bibliographystyle{plain}
+\bibliography{softwareguidelines}
 
 \end{document}
