@@ -229,7 +229,7 @@ code, preferably alongside the code itself.
 \subsection{Learnability}
 
 This category partially overlaps with the documentation category, but explicitly
-focusses on how straightforward it is to learn to use the sofware.
+focusses on how straightforward it is to learn to use the software.
 
 \criterion{L1 -- Is there a getting started guide?}
 
@@ -261,7 +261,7 @@ options clearly explained?}
 \subsection{Buildability}
 
 Buildability applies to all software written in languages that compile to
-either native machine code or any intermediate byte code to be interpeted by a VM.
+either native machine code or any intermediate byte code to be interpreted by a VM.
 This is contrasted to software that is interpreted at run-time from source
 code. This section is therefore applicable only to languages such as C, C++,
 Java, Pascal, Haskell, Scala, Rust, Cython but not to scripting language such
@@ -343,8 +343,8 @@ ad-hoc mechanisms. If the ecosystem has facilities for dependency management
 
 \criterion{IS4 -- Is the software packaged according to standards for the target platform?}
 
-If the sofware has a well-defined target platform and is intended for adoption
-by a wider audicence, it is recommended to package it in the appropriate form.
+If the software has a well-defined target platform and is intended for adoption
+by a wider audience, it is recommended to package it in the appropriate form.
 This may however conflict with IS3, be rendered obsolete by IS3, or render IS3
 obsolete. The decision form of installation takes takes precendence should be
 made on an individual basis, considering the nature and audience of the
@@ -364,7 +364,7 @@ software.
     \item Windows: (TODO) 
 \end{itemize}
 
-It is not always time and cost effective to package the sofware, especially not
+It is not always time and cost effective to package the software, especially not
 when there are multiple target platforms. 
 
 \criterion{IS5 -- Is the software package properly structured?}
@@ -399,25 +399,25 @@ instances, proper uninstallation procedures should be in place.
 
 \subsection{Identity}
 
-\criterion{ID1 - Does the software provide a clear and unique identity?}
+\criterion{ID1 -- Does the software provide a clear and unique identity?}
 
 Software should be identifiable by a clear name that does not clash with others
 in its application domain and in the wider generic software domain. An on-line
 search of 
 
-\criterion{ID2 - Does the software have a website?}
+\criterion{ID2 -- Does the software have a website?}
 
 The software should have a website that describes it, allows users to obtain
 it as well as its documentation. The website should be offer a portal to everything
-related to the sofware.
+related to the software.
 
 It is recommended to have a dedicated domain name or subdomain.
 
-\criterion{ID3 - The project name does not violate an existing trade-mark?}
+\criterion{ID3 -- The project name does not violate an existing trade-mark?}
 
 \subsection{Copyright \& Licensing}
 
-\criterion{CP1 - Has an appropriate open-source licence been adopted?}
+\criterion{CP1 -- Has an appropriate open-source licence been adopted?}
 
 Software should be released as open source under an appropriate licence. The
 licence should be recognised by the Open Source Initiative or Free Software
@@ -430,16 +430,16 @@ Any form of closed-source software is strongly discouraged and not deemed
 compatible with the scientific method that demands methodological transparency,
 reproducibility and peer review.
 
-\criterion{CP2 - Is it clear who wrote the software, who owns the
+\criterion{CP2 i-- Is it clear who wrote the software, who owns the
 copyright, and what the licence is?}
 
 Authors, copyright and licence should be clearly mentioned on the project
 website, as well as in the source code.  We strongly recommend each source file
 to contain a comment header stating this information.
 
-\criterion{CP3 - Are the funders acknowledged?}
+\criterion{CP3 -- Are the funders acknowledged?}
 
-The funders of the software should be publically acknowledged on the project
+The funders of the software should be publicly acknowledged on the project
 website, and in the README.
 
 
@@ -485,7 +485,7 @@ time. Each release should be clearly marked with the version number of the softw
 system should also have clearly identifiable tags that mark the state of the
 repository at the time of this release.
 
-We recommend that each source code release is also transferred to a persistant
+We recommend that each source code release is also transferred to a persistent
 store and receives a DOI.
 
 \criterion{A5 -- Are software releases deposited in a public
@@ -512,7 +512,7 @@ Use of these repositories is recommended practise if available.
 
 \criterion{A6 - Is the software available in the target platform's software repository?}
 
-If the sofware has a well-defined target platform and the target platform has a
+If the software has a well-defined target platform and the target platform has a
 public software repository available, and the software is intended for adoption by a
 wider audience; then it is recommended to submit the packages to this public
 repository.
@@ -538,7 +538,7 @@ software.
     \item Windows: (TODO) 
 \end{itemize}
 
-It is not always time and cost effective to package and deposit the sofware, especially not
+It is not always time and cost effective to package and deposit the software, especially not
 when there are multiple target platforms. 
 
 \subsection{Community}
@@ -574,7 +574,7 @@ compliance with AC2.
 
 \subsection{Testability}
 
-\criterion{TS1 - Does the project have unit tests, is there sufficient coverage?}
+\criterion{TS1 -- Does the project have unit tests, is there sufficient coverage?}
 
 Software should have unit tests that automatically test individual units of the
 source code. They verify the data and logic flow by testing whether the output,
@@ -583,7 +583,7 @@ given certain input, confirms to expectation.
 It is important that the tests cover enough of the source code, automated tools
 are available that can help in this assessment.
 
-\criterion{TS2 - Does the project have integration tests, is there sufficient coverage?}
+\criterion{TS2 -- Does the project have integration tests, is there sufficient coverage?}
 
 Software should have integration tests that combine invididual parts of modules and see how they function
 as a group.
@@ -591,12 +591,12 @@ as a group.
 It is important that the tests cover enough of the source code, automated tools
 are available that can help in this assessment.
 
-\criterion{TS3 - Does the project have automated GUI/WUI tests?}
+\criterion{TS3 -- Does the project have automated GUI/WUI tests?}
 
-If the sofware offers a GUI or WUI, it should have automated tests that verify
+If the software offers a GUI or WUI, it should have automated tests that verify
 the functionality of the interface.
 
-\criterion{TS4 - Tests are run automatically}
+\criterion{TS4 -- Tests are run automatically}
 
 It is recommended that test be run automatically, either through continuous
 integration testing or at a predefined interval.
@@ -610,17 +610,17 @@ perform their function as a measure of quality control.
 Portability concerns the extent to which software can be used on other
 platforms. 
 
-\criterion{PB1 - Is is clear for what platforms the software is written?}
+\criterion{PB1 -- Is is clear for what platforms the software is written?}
 
 It should be clear, from at least the project website, for what platforms the software
 is intended.
 
-\criterion{PB2 - Is the software portable for multiple platforms?}
+\criterion{PB2 -- Is the software portable for multiple platforms?}
 
 It is recommended to support a wide variety of platforms rather than a single
 one. This, however, is not always feasibile or cost and time effective.
 
-\criterion{PB3 - Does the software work on multiple browsers?}
+\criterion{PB3 -- Does the software work on multiple browsers?}
 
 This concerns only web-based software with a significant client-side component.
 Such software should function under recent versions of all major browsers
@@ -732,9 +732,9 @@ changes it. This depends on AC1, heavily facilitated by AC2.
 Alternatively, commits messages can be forwarded to mailing lists, Slack, IRC chat, or
 whatever is deemed appropriate.
 
-\criterion{CH4 -- Is the sofware sufficiently backwards-compatible?}
+\criterion{CH4 -- Is the software sufficiently backwards-compatible?}
 
-Sofware should be backwards compatible with old versions of itself with respect
+software should be backwards compatible with old versions of itself with respect
 to public interfaces and data input. Backward-compatibility changes and
 deprecation may occur but should always be clearly announced.
 
@@ -742,7 +742,7 @@ deprecation may occur but should always be clearly announced.
 
 Software still under active development should have roadmap. This may take
 shape either as an explicit roadmap or implicit in the issue tracker
-(SUP2) through the assingment of milestones.
+(SUP2) through the assignment of milestones.
 
 \criterion{CH6 -- Does the website mention how the software is funded and
 when funding ends?}
@@ -761,7 +761,7 @@ also be mediated through other third party tools.
 
 \criterion{SC1 -- Is the software free of obvious security flaws?}
 
-Sofware should be secure and have no holes that allow unauthorised users to
+software should be secure and have no holes that allow unauthorised users to
 gain access. Developers should take care to avoid common attack vectors such as shell
 injection, SQL injection, cross-site request forgery, buffer overflow. 
 
