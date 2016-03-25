@@ -386,38 +386,44 @@ when there are multiple target platforms.
 
 \indicator{IS5 -- Is the software package properly structured?}
 
+The contents of the package should be properly organised in sub-directories
+(for documentation, headers, source, etc..). Conventions may differ between
+programming languages.
+
 If software is distributed as a plain archive (tar.gz, tar.bz2, zip or otherwise),
 it must create a single directory when unpacked rather than spread its contents
 over the current working directory.
 
-The contents of the archive should be properly organised in sub-directories
-(for documentation, headers, source, etc..). Conventions may differ between
-programming languages.
-
 \indicator{IS6 -- Is the software properly structured when installed?}
 
-If the software is installed, it should adhere to file placement standards set
+When the software is installed, it should adhere to file placement standards set
 by the target platform. On Unix-like operating systems (excluding Mac OS X), the Filesystem
-Hierarchy Standard (FHS) should be followed.
+Hierarchy Standard\footnote{\url{http://refspecs.linuxfoundation.org/fhs.shtml}} (FHS) should be followed.
 
 \indicator{IS7 -- The software must include a README}
 
 The \texttt{README} file must contain links to the project website, as well as
 licence and copyright information. The README should be either plain-text or
-preferably in an simple mark-up format such as Markdown or ReStructuredText.
+preferably in an unobtrusive mark-up format such as Markdown or ReStructuredText.
 
 If a public version control platform such as GitHub is used (see AC2), the
 README will usually be visualised on the repository page.
 
-\indicator{IS8 -- There must be facilities to uninstall the software}
+\indicator{IS8 -- Are there facilities to uninstall the software?}
 
 This is usually trivial when the software complies to IS4 and/or IS3, or if the
 software installation is self-contained in a single directory. In all other
-instances, proper uninstallation procedures should be in place.
+instances, proper uninstallation facilities should be in explicitly implemented.
+
+\indicator{IS9 -- Are the system requirements such as target platform clearly advertised?}
+
+The project website must be clearly state what target platform(s) the software is expected to run.
+System requirements in terms of computing resources must be stated if the software employs more than insignificant resources (see PF2).
+(related also to B3 and IS2)
 
 \subsection{Performance}
 
-\indicator{PF1 -- Does the software perform its function(s) as efficient as can be expected?}
+\indicator{PF1 -- Does the software perform its function(s) as efficiently as can be expected?}
 
 Software should employ efficient algorithms to perform its task. Obvious performance bottlenecks \emph{may} be an indication of sub-optimal design choices.
 (Consider also U4)
@@ -455,12 +461,14 @@ search of
 \indicator{ID2 -- Does the software have a website?}
 
 The software should have a website that describes it, allows users to obtain
-it as well as its documentation. The website should be offer a portal to everything
+it as well as its documentation. The website should be a portal to everything
 related to the software.
 
 It is recommended to have a dedicated domain name or subdomain.
 
 \indicator{ID3 -- The project name does not violate an existing trade-mark?}
+
+The project name should not infringe on existing trade-marks.
 
 \subsection{Copyright \& Licensing}
 
@@ -475,20 +483,22 @@ Foundation\footnote{http://fsf.org}. Open source licences generally fall somewhe
  \item Permissive licence (MIT, Apache Licence, BSD licence): Allows modifications and reuse with fewer restrictions. Generally anybody is free to use the code and use it in closed-source (non-free) software.
 \end{itemize}
 
-Note that none of the major licences prohibits commercial use.
+The decision which licence is most appropriate should be made on an individual
+basis. Note that none of the major licences prohibits commercial use, nor is it
+recommended to do so.
 
 The licence chosen by the software may never not violate the licences of any of
 the software's dependencies, if there are linking clauses in those. \footnote{This implies you that if you use GPL libraries, you can no longer release your software under a more permissive licence such as MIT}.
 
-Any form of closed-source software is strongly discouraged as it is foudn to be
-at odds with a scientific method that demands methodological transparency,
+Any form of closed-source software is strongly discouraged as it is found to be
+at odds with a scientific method that relies on methodological transparency,
 reproducibility and peer review. The CLARIAH project is explicitly committed to
 open source and ``aims to create an inclusive open-source engineering community
 that will carry on providing new tools and support for users after the end of
 the CLARIAH project'' \cite{CLARIAHTECHPLAN1}.
 
 
-\indicator{CP2 i-- Is it clear who wrote the software, who owns the
+\indicator{CP2 -- Is it clear who wrote the software, who owns the
 copyright, and what the licence is?}
 
 Authors, copyright and licence should be clearly mentioned on the project
@@ -497,16 +507,17 @@ to contain a comment header stating this information.
 
 \indicator{CP3 -- Are the funders acknowledged?}
 
-The funders of the software should be publicly acknowledged on the project
+Any external funders of the software should be publicly acknowledged on the project
 website, and in the \texttt{README}.
 
 \subsection{Accessibility}
 
 \indicator{AC1 -- Is the source code maintained in a version control system?}
 
-Source code must always be kept under version control to enable developers to
-collaborate and keep a track of changes. Absence of version control is bad
-development practise. 
+Source code must always be kept under version control. This enables developers
+to collaborate, maintains a perfect version history, and allows everyone keep a
+track of changes. Absence of version control is bad development practise and
+unsustainable.
 
 \indicator{AC2 -- Is the source code in a public version-controlled repository?}
 
@@ -537,23 +548,23 @@ We motivate our reasoning in favour of public version control repositories as fo
         academic context may impact their experimental results.
 \end{enumerate}
 
+(depends on AC1)
+
 \indicator{AC3 -- Is there no restricted data in the public source code repository?}
 
 Privacy and security sensitive data (passwords, API keys), as well as other
 restricted data, should never be checked into public version control systems.
 
-\indicator{AC4 -- Are there clearly marked formal releases the software?}
+\indicator{AC4 -- Are there clearly marked formal releases of software?}
 
 The software should be formally released when the developers deem it a good
-time. Each release should be clearly marked with the version number of the software. The version control
-system should also have clearly identifiable tags that mark the state of the
-repository at the time of this release.
+time. Each release should be clearly marked with the version number of the
+software, according to a consistent scheme. The version control system should
+also have clearly identifiable tags that mark the state of the repository at
+the time of this release.
 
-We recommend that each source code release is also transferred to a persistent
-store and receives a DOI.
 
-\indicator{AC5 -- Are software releases deposited in a public
-    repository for the language?}
+\indicator{AC5 -- Is the software deposited in a public repository for the language?}
 
 The ecosystems surrounding various high-level programming languages offer
 public repositories in which installable software release packages should be
@@ -606,6 +617,21 @@ It is not always time and cost effective to package and deposit the software,
 especially not when there are multiple target platforms. When the software is
 not intended for adoption by a wider audience, it can be considered to ignore
 this guideline.
+
+\indicator{AC7 -- Is each software release deposited in a persistent store with a unique DOI?}
+
+Persistent stores aim to preserve research output. They aim for a longevity
+that can not be guaranteed by normal software repositories. Each software
+release should be deposited in a persistant store and received a unique Digital
+Object Identifier (DOI), a persistent ID used primarily for electronic
+documents and ubiquitous in the academic world. The DOI can in turn be
+references in citations.
+
+Users using Github (see AC2) and Zenodo\footnote{\url{https://zenodo.org}, a
+research data repository} can set this up with little effort. \footnote{A guide
+for this is provided at https://guides.github.com/activities/citable-code/}.
+Any releases made on GitHub will then automatically transfer to Zenodo and
+receive a DOI, no user intervention is necessary. 
 
 \subsection{Community}
 
