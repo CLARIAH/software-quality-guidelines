@@ -82,12 +82,14 @@ not realistic to happen. Evaluators will need to determine for themselves what
 compliance level, per category, constitutes an acceptable passing threshold.
 
 The criteria we yield, and their categories, are derived to large extent from
-the \emph{criteria-based software evaluation guide} \cite{SSIGUIDE} by the Software
-Sustainability Institute (SSI). Their work, in turn, is modelled after \emph{ISO/IEC
-9126-1 Software Engineering - Product Quality}.  The Software
-Sustainability Institute\cite{SSIGENERAL} is an academic institute explicitly geared towards
-researchers and software developers in science, and as-such its work is of
-great relevance to projects such as CLARIAH. 
+the \emph{criteria-based software evaluation guide} \cite{SSIGUIDE} by the
+Software Sustainability Institute (SSI). Their work, in turn, is modelled after
+\emph{ISO/IEC 9126-1 Software Engineering - Product Quality} \cite{ISO9126}.  The Software
+Sustainability Institute\cite{SSIGENERAL} is an academic institute explicitly
+geared towards researchers and software developers in science, the criteria
+they drafted are therefore suitable for research projects such as CLARIAH. The
+guidelines included here are deemed relevant for CLARIAH, but are generally of
+a more generic nature and also find application in a wider context.
 
 The SSI, following ISO 9126-1, has grouped assessment criteria as follows
 \cite{SSIGUIDE}.
@@ -139,7 +141,7 @@ generally more condensed, but some criteria have been added as well.
 \criterion{U1 -- Is it clear what the software does?}
 
 Software must be accompanied be a clear high-level description, describing what
-exactly it does. Both the README file that ships with the software as well as
+exactly it does. Both the \texttt{README} file that ships with the software as well as
 the project website should contain this information. 
 
 \criterion{U2 -- Is it clear for whom the software is intended?}
@@ -275,7 +277,7 @@ installation, packaging, or deployment.
 
 Build/compilation instruction should be available and clear enough. They should
 be distributed alongside the software's source distribution (as part of an
-INSTALL file or README), and/or be addressed in the documentation. If the
+\texttt{INSTALL} file or \texttt{README}), and/or be addressed in the documentation. If the
 source distribution is the primary means of distribution, then build
 instructions should be prominently displayed on the project website as well.
 
@@ -386,10 +388,14 @@ If the software is installed, it should adhere to file placement standards set
 by the target platform. On Unix-like operating systems (excluding Mac OS X), the Filesystem
 Hierarchy Standard (FHS) should be followed.
 
-\criterion{IS7 -- The software must included a README}
+\criterion{IS7 -- The software must include a README}
 
-The README must contain links to the project website, as well as licence and copyright
-information.
+The \texttt{README} file must contain links to the project website, as well as
+licence and copyright information. The README should be either plain-text or
+preferably in an simple mark-up format such as Markdown or ReStructuredText.
+
+If a public version control platform such as GitHub is used (see AC2), the
+README will usually be visualised on the repository page.
 
 \criterion{IS8 -- There must be facilities to uninstall the software}
 
@@ -423,15 +429,26 @@ It is recommended to have a dedicated domain name or subdomain.
 \criterion{CP1 -- Has an appropriate open-source licence been adopted?}
 
 Software should be released as open source under an appropriate licence. The
-licence should be recognised by the Open Source Initiative or Free Software
-Foundation.
+licence should be recognised by the Open Source Initiative\footnote{https://opensource.org} or Free Software
+Foundation\footnote{http://fsf.org}. Open source licences generally fall somewhere on a spectrum between the following two flavours:
 
-The licence may never not violate the licences of any of the software's
-dependencies, if their are linking clauses in those.
+\begin{itemize}
+ \item Copyleft licence (GNU Public License (GPL) and variants): If the code is modified and distributed, the modified code must be distributed under the same licence. Also, if your code is licenced in this way and is used as a library or imported module by other software, then that software too is considered a derivate work and must be distributed under the same licence. This ensures that anybody derives a work from your code is obliged to distribute it as open source (free\footnote{Free as in free speech, not free beer} software) as well.
+ \item Permissive licence (MIT, Apache Licence, BSD licence): Allows modifications and reuse with fewer restrictions. Generally anybody is free to use the code and use it in closed-source (non-free) software.
+\end{itemize}
 
-Any form of closed-source software is strongly discouraged and not deemed
-compatible with the scientific method that demands methodological transparency,
-reproducibility and peer review.
+Note that none of the major licences prohibits commercial use.
+
+The licence chosen by the software may never not violate the licences of any of
+the software's dependencies, if there are linking clauses in those. \footnote{This implies you that if you use GPL libraries, you can no longer release your software under a more permissive licence such as MIT}.
+
+Any form of closed-source software is strongly discouraged as it is foudn to be
+at odds with a scientific method that demands methodological transparency,
+reproducibility and peer review. The CLARIAH project is explicitly committed to
+open source and ``aims to create an inclusive open-source engineering community
+that will carry on providing new tools and support for users after the end of
+the CLARIAH project'' \cite{CLARIAHTECHPLAN1}.
+
 
 \criterion{CP2 i-- Is it clear who wrote the software, who owns the
 copyright, and what the licence is?}
@@ -443,32 +460,38 @@ to contain a comment header stating this information.
 \criterion{CP3 -- Are the funders acknowledged?}
 
 The funders of the software should be publicly acknowledged on the project
-website, and in the README.
-
-
+website, and in the \texttt{README}.
 
 \subsection{Accessibility}
 
-\criterion{A1 -- Is the source code maintained in a version control system?}
+\criterion{AC1 -- Is the source code maintained in a version control system?}
 
 Source code must always be kept under version control to enable developers to
 collaborate and keep a track of changes. Absence of version control is bad
 development practise. 
 
-\criterion{A2 -- Is the source code in a public version-controlled repository?}
+\criterion{AC2 -- Is the source code in a public version-controlled repository?}
 
 The version control repository should be public (read only) in the spirit of both open
 source, as well as the scientific method (transparency, peer review,
 reproducibility). 
 
-It is recommended to use a large sustainable third-party platform (GitHub,
-GitLab, BitBucket, Launchpad), as it offers a social dimensions and is more
-likely to live beyond the lifetime of any current project funding line.
+It is recommended to use a large sustainable third-party platform
+(GitHub\footnote{\url{https://github.com}},
+GitLab\footnote{\url{https://gitlab.com}},
+BitBucket\footnote{\url{https://bitbucket.org}},
+Launchpad\footnote{\url{https://launchpad.net}}), as it offers a social
+dimension and is more likely to live beyond the lifetime of any current project
+funding line. Use of sourceforge.net, de-facto standard prior to the advent of
+current leader Github, is strongly discouraged as it is under ill management
+and no longer deemed secure. Public repositories tend to be free on these platforms and
+often come with many additional benefits, such as a good public issue tracker
+(see SP2).
 
 We motivate our reasoning in favour of public version control repositories as follows:
 
 \begin{enumerate}
-    \item Increased visibility for the project, especially if a major external platform is used.
+    \item increased visibility for the project, especially if a major external platform is used.
     \item facilitates judgement of development activity of a software project.
     \item facilitates collaboration, especially from external partners.
     \item invites peer review
@@ -476,12 +499,12 @@ We motivate our reasoning in favour of public version control repositories as fo
         academic context may impact their experimental results.
 \end{enumerate}
 
-\criterion{A3 -- Is there no restricted data in the public source code repository?}
+\criterion{AC3 -- Is there no restricted data in the public source code repository?}
 
 Privacy and security sensitive data (passwords, API keys), as well as other
 restricted data, should never be checked into public version control systems.
 
-\criterion{A4 -- Are there clearly marked formal releases the software?}
+\criterion{AC4 -- Are there clearly marked formal releases the software?}
 
 The software should be formally released when the developers deem it a good
 time. Each release should be clearly marked with the version number of the software. The version control
@@ -491,16 +514,15 @@ repository at the time of this release.
 We recommend that each source code release is also transferred to a persistent
 store and receives a DOI.
 
-\criterion{A5 -- Are software releases deposited in a public
-    repository pertaining to the ecosystem surrounding the programming
-language?}
+\criterion{AC5 -- Are software releases deposited in a public
+    repository for the language?}
 
 The ecosystems surrounding various high-level programming languages offer
 public repositories in which installable software release packages should be
 deposited. These repositories function as a primary source for installation (see also
 IS3) and generally offer automatic dependency management.
 
-Use of these repositories is recommended practise if available.
+Use of these repositories is strongly recommended practise if available.
 
 \begin{itemize}
     \item \textbf{Python} -- Releases of Python software should be deposited in
@@ -508,17 +530,18 @@ Use of these repositories is recommended practise if available.
     \item \textbf{Perl} --  Perl modules should be deposited in the Comprehensive
         Perl Archive Network (CPAN): \url{http://www.cpan.org}.
     \item \textbf{R} -- R packages should be deposited in the Comprehensive R
-        Archive Network (CRAN): https://cran.r-project.org
+        Archive Network (CRAN): \url{https://cran.r-project.org}
     \item \textbf{Javascript} -- Javascript software should be deposited in
-        NPM: https://www.npmjs.com
+        NPM: \url{https://www.npmjs.com}
+    \item \textbf{Ruby} -- Ruby software should be deposited to 
+        RubyGems: \url{https://rubygems.org}
 \end{itemize}
 
-\criterion{A6 - Is the software available in the target platform's software repository?}
+\criterion{AC6 - Is the software available in the target platform's software repository?}
 
-If the software has a well-defined target platform and the target platform has a
-public software repository available, and the software is intended for adoption by a
-wider audience; then it is recommended to submit the packages to this public
-repository.
+If the software has a well-defined target platform and the target platform has
+a public software repository available; then it is recommended to submit the
+packages to this public repository.
 
 This may however conflict with AC5, be rendered obsolete by AC5, or render AC5
 obsolete. The decision which form of installation takes takes precendence should be
@@ -526,23 +549,25 @@ made on an individual basis, considering the nature and audience of the
 software.
 
 \begin{itemize}
-    \item Linux/BSD/Unix -- Distributions generally have their repositories
+    \item Linux/BSD/Unix -- Distributions generally have their own official repositories. Package inclusion can be a lengthy process.
     \begin{itemize}
-        \item Arch Linux: Submit your package to the Arch User Repository (AUR)
-        \item Debian: Submit your package to Debian
-        \item Ubuntu: Ubuntu inherits Debian's packages, therefore submitting Debian is recommended.
-        \item RedHat/CentOS/Fedora (and other derivates): Use Red Hat Packages (rpm)
+        \item Arch Linux: Submit your package to the Arch User Repository\footnote{https://aur.archlinux.org} (AUR)
+		\item CentOS: Consult https://wiki.centos.org/HowTos/Packages/ContributeYourRPMs
+        \item Debian: Consult https://wiki.debian.org/Packaging
+        \item Fedora: Consult https://fedoraproject.org/wiki/Packaging:Guidelines
+        \item Ubuntu: Ubuntu inherits Debian's packages, therefore submitting Debian is recommended. Users can submit software submit software tol Package Archive (PPA).
     \end{itemize}
     \item Mac OS X: use the Apple Store for traditional Mac applications intended for end-users; for the more Unix-style
         software, use a system such as Homebrew or MacPorts.
-    \item Android: use the Google Store, fully open-source software may also be
-        submitted to F-Droid
+    \item Android: use the Google Store, fully open-source software may also be submitted to F-Droid\footnote{https://f-droid.org}
     \item iOS: Use the Apple Store
     \item Windows: (TODO) 
 \end{itemize}
 
-It is not always time and cost effective to package and deposit the software, especially not
-when there are multiple target platforms. 
+It is not always time and cost effective to package and deposit the software,
+especially not when there are multiple target platforms. When the software is
+not intended for adoption by a wider audience, it can be considered to ignore
+this guideline.
 
 \subsection{Community}
 
@@ -603,10 +628,12 @@ the functionality of the interface.
 \criterion{TS4 -- Tests are run automatically}
 
 It is recommended that test be run automatically, either through continuous
-integration testing or at a predefined interval. Public continuous integrations
-platforms such as Travis-CI, Gitlab-CI, Jenkins can be hooked into version
-control systems with minimal effort, resulting an an automatic run of the test suite upon
-each commit and notifying the developer when the test suite fails.
+integration testing or at a predefined interval. Free public continuous integrations
+platforms such as Travis-CI\footnote{https://travis-ci.org},
+Gitlab-CI\footnote{https://gitlab.com},
+Jenkins\footnote{https://jenkins-ci.org} can be hooked into version control
+systems with minimal effort, resulting an an automatic run of the test suite
+upon each commit and notifying the developer when the test suite fails.
 
 It is strongly recommended that test results are publicly available, so they can
 perform their function as a measure of quality control.
@@ -614,7 +641,7 @@ perform their function as a measure of quality control.
 
 \subsection{Portability}
 
-Portability concerns the extent to which software can be used on other
+Portability concerns the extent to which software can be used on multiple
 platforms. 
 
 \criterion{PB1 -- Is is clear for what platforms the software is written?}
@@ -625,7 +652,7 @@ is intended.
 \criterion{PB2 -- Is the software portable for multiple platforms?}
 
 It is recommended to support a wide variety of platforms rather than a single
-one. This, however, is not always feasibile or cost and time effective.
+one. This, however, is not always feasible or cost and time effective.
 
 \criterion{PB3 -- Does the software work on multiple browsers?}
 
@@ -646,7 +673,7 @@ To what extent will the product be supported currently and in the future?
 \criterion{SP1 -- Is it clear whom to contact for support?}
 
 It should be clear where to go for support. A project must have a contact
-e-mail address. If an issue tracker is present (SUP2), it should be clearly advertised
+e-mail address. If an issue tracker is present (SP2), it should be clearly advertised
 as well.
 
 \criterion{SP2 -- Is there a public issue tracker?}
@@ -660,7 +687,7 @@ tracking feature requests.
 \criterion{SP3 -- Is there a mailing list?}
 
 Projects with a fair amount of activity benefit from having a mailing list. It
-can function as a lesser subtitute of SUP2 (SUP2 therefore may make this
+can function as a lesser substitute of SP2 (SP2 therefore may make this
 obsolete), but can also serve as an extra line of communications between users
 and developers. The mailing list must allow anyone to subscribe and must have a
 public archive allowing users to follow any issues and follow development.
