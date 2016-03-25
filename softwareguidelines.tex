@@ -153,8 +153,9 @@ We adopt this scheme with the following changes:
 \item Copyright \& Licensing are merged.
 \item Governance is omitted entirely. %(proycon) we may want to resurrect it later in a more CLARIAH-specific sense?
 \item Evolvability was merged into Changeability.
-\item A Security \& Privacy criterion is added to Sustainainability \& Manageability
+\item Security \& Privacy criterion is added to Sustainability \& Manageability
 \item Performance criterion was added to Usability.
+\item Reusability criterion was added to Sustainability \& Manageability: To what extend is the software reusable?
 \item The Interoperability criterion is split into a generic section and a CLARIAH-specific section. The latter provides indicators to assess
 whether the software complies to requirements for integration into the CLARIAH infrastructure.
 \end{itemize}
@@ -796,6 +797,8 @@ language.
 The structure of the source code should bear a clear relationship to the
 architecture or design of the software.
 
+(See also R3)
+
 \indicator{AN2 -- Is the source code commented adequately?}
 
 The source code should contain comments explaining what major blocks do.
@@ -870,6 +873,50 @@ shape either as an explicit roadmap or implicit in the issue tracker
 
 \indicator{CH6 -- Does the website mention how the software is funded and
 when funding ends?}
+
+\subsection{Reusability}
+
+\indicator{R1 -- Does the software support multiple interfaces?}
+
+The use of multiple interfaces enables reusability. Different users should be
+able to access the software at different levels. End-users usually require a
+GUI or WUI, developer-users prefer a command line interface (CLI) and/or
+webservice interface, developers needs a software library with API.
+
+Assessment of this depends greatly on the intended audience of the software (see U2).
+
+\indicator{R2 -- Is the software modular, can the software support multiple interfaces?}
+
+Software should be set up in such a manner that higher-level interfaces can be
+constructed on its lower-level components. This implies that there should be a
+clear separation between front-end and back-end. In order to achieve this it we
+strongly recommend software to be set up in a modular fashion, allowing reuse
+of its components without the need to modify these components.
+
+Modularity can be expressed as layers, from low-level to high-level:
+
+\begin{itemize}
+ \item Classes and functions are defined at the source code level. (see R3)
+ \item Libraries group and expose these publicly, described by APIs. 
+ \item Command Line Interfaces use the libraries.
+ \item Servers/daemons use the libraries, networked clients use the server/daemons.
+ \item GUIs and WUIs use either the libraries, the CLI tools, or act as a networked client to the servers/daemons.
+\end{itemize}
+
+Whenever two or more of these layers are intrinsically merged, reusability potential is lost.
+For instance, monolithic software that offers only a GUI interface can not be
+readily adapted to add a CLI or web interface.
+
+Maximum reusability is not always desired or time and cost effective. The
+desired degree of of modularity and reusability is to be assessed on an
+individual basis.
+
+\indicator{R3 -- Is the software's source code set-up in a modular fashion?}
+
+The software's source code should define clearly delimited classes and
+functions, following the paradigm of the programming language. 
+
+(See also AN1)
 
 
 \subsection{Interoperability}
