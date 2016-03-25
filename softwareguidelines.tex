@@ -462,7 +462,18 @@ design choices.  If the software does make high demand on particular resources,
 then this should be clearly advertised and explained (in the documentation for
 instance) and also stated as part of the system requirements.
 
-\indicator{PF3 -- Is the interface responsive?}
+Be aware that there is often a trade-off between speed and memory usage. The
+developer of the decision must make an appropriate decision favouring one or the other
+given the task at hand. 
+
+\indicator{PF3 -- Does the software make efficient use of available resources?}
+
+Software should make use of available resources if is helps getting the job
+done faster. For instance, if multiple CPU cores are available and the task at hand
+would benefit significantly from parallelisation, then the implementation should be
+multithreaded to make use of said cores.
+
+\indicator{PF4 -- Is the interface responsive?}
 
 GUIs and WUIs should be responsive and deliver clear feedback when the user is
 to await the completion of the task. GUIs and WUIs should use asynchronous methods for
