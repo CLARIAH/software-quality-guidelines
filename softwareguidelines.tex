@@ -415,6 +415,32 @@ This is usually trivial when the software complies to IS4 and/or IS3, or if the
 software installation is self-contained in a single directory. In all other
 instances, proper uninstallation procedures should be in place.
 
+\subsection{Performance}
+
+\indicator{PF1 -- Does the software perform its function(s) as efficient as can be expected?}
+
+Software should employ efficient algorithms to perform its task. Obvious performance bottlenecks \emph{may} be an indication of sub-optimal design choices.
+(Consider also U4)
+
+\indicator{PF2 -- Does the software make a reasonable demand on computing resources?}
+
+Software should not place an unreasonable demand on computing resource (memory,
+CPU time). Overuse of resources \emph{may} be an indication of sub-optimal
+design choices.  If the software does make high demand on particular resources,
+then this should be clearly advertised and explained (in the documentation for
+instance) and also stated as part of the system requirements.
+
+\indicator{PF3 -- Is the interface responsive?}
+
+GUIs and WUIs should be responsive and deliver clear feedback when the user is
+to await the completion of the task. GUIs and WUIs should use asynchronous methods for
+handling user-interface interaction. Interaction with the interface should not
+be blocked needlessly.
+
+Webservice interfaces need to be similarly responsive and not time out. Server
+interfaces furthermore demands multi-threading and need to be able handle
+multiple clients concurrently.
+
 
 \section{Quality Assessment Criteria - Sustainability and Maintainability}
 
