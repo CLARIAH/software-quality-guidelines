@@ -31,6 +31,15 @@
 {0pt}% horizontal sep
 {}% before
 
+\newenvironment{notice}{
+\begin{center}
+    \begin{tabular}[h!]{|p{0.8\textwidth}|}
+    \hline
+    {\bf IMPORTANT NOTICE!}\\\hline}
+{   \\\hline
+    \end{tabular}
+\end{center}}
+
 \newcommand{\indicator}[1]{\subsubsection*{\underline{#1}}}
 
 \begin{document}
@@ -40,6 +49,12 @@
 \author{Maarten van Gompel \\ Centre for Language \& Speech Technology \\ Radboud University Nijmegen }
 
 \maketitle
+
+\begin{notice} 
+This is a draft document, everything in it is to be considered a
+proposal only. The guidelines have not been reviewed nor adopted yet.
+\end{notice}
+
 \tableofcontents
 
 \section{Introduction}
@@ -64,7 +79,7 @@ encompassing all of the following aspects:
     \item support infrastructure (version control, build systems, issue trackers)
 \end{itemize}
 
-These guidelines for software quality consists of a several of assessment
+These guidelines for software quality consists of various assessment
 criteria, such as ``Documentation'' and ``Installability''. Each criterion in turn
 consists of assessment indicators formulated as a series of questions. This
 makes them directly applicable as an instrument for software quality
@@ -86,18 +101,22 @@ affirmatively.  In practise, however, this is not realistic to happen.
 Evaluators will need to determine for themselves what compliance level, per
 category, constitutes an acceptable passing threshold.
 
-The criteria we yield, and their categories, are derived to large extent from
-the \emph{criteria-based software evaluation guide} \cite{SSIGUIDE} by the
-Software Sustainability Institute (SSI). Their work, in turn, is modelled after
-\emph{ISO/IEC 9126-1 Software Engineering - Product Quality} \cite{ISO9126}.  The Software
-Sustainability Institute\cite{SSIGENERAL} is an academic institute explicitly
-geared towards researchers and software developers in science, the criteria
-they drafted are therefore suitable for research projects such as CLARIAH. The
-guidelines included here are deemed relevant for CLARIAH, but are generally of
-a more generic nature and also find application in a wider context.
+The criteria we yield are adopted from to large extent from the
+\emph{Criteria-based Software Evaluation Guide} \citep{SSIGUIDE} by the Software
+Sustainability Institute (SSI). Their work, in turn, is modelled after
+\emph{ISO/IEC 9126-1 Software Engineering - Product Quality} \citep{ISO9126}.
+The Software Sustainability Institute\citep{SSIGENERAL} is an academic institute
+explicitly geared towards researchers and software developers in science, the
+criteria they drafted are therefore deemed to form a very relevant basis for
+research projects such as CLARIAH. Software quality assessment will have a
+large generic component regardless of the context of the larger project. A
+large portion of these guidelines is therefore applicable the broader contexts
+of software quality in academics, software quality for open source projects, and
+software quality in general.
 
-The SSI has grouped assessment criteria as follows \cite{SSIGUIDE}.
+The criteria used by the SSI are shown in Table~\ref{tab:criteria}.
 
+\begin{table}[hbt]
 \begin{tabular}{l|l}
 \hline
 \multicolumn{2}{c}{\textbf{Usability}} \\
@@ -124,12 +143,15 @@ Changeability & Easy to modify and contribute changes? \\
 Evolvability & Evidence of current/future development? \\
 Interoperability & Interoperable with other required/related software? \\
 \end{tabular}
+\caption{Software quality criteria according to the SSI \citep{SSIGUIDE}. (with some minor paraphrasing)}
+\label{tab:criteria}
+\end{table}
 
 We adopt this scheme with the following changes:
 
 \begin{itemize}
 \item Copyright \& Licensing are merged.
-\item Governance is omitted entirely.
+\item Governance is omitted entirely. %(proycon) we may want to resurrect it later in a more CLARIAH-specific sense?
 \item Evolvability was merged into Changeability.
 \item A Security \& Privacy criterion is added to Sustainainability \& Manageability
 \item Performance criterion was added to Usability.
@@ -138,9 +160,11 @@ whether the software complies to requirements for integration into the CLARIAH i
 \end{itemize}
 
 The next sections lay out all criteria with the individual assessment
-indicators. There are inspired on the SSI guidelines but do not follow them
-to the letter. Our indicators are generally more condensed, but some criteria
-have been added as well.
+indicators. The individual indicators are inspired on the SSI guidelines but
+are not directly copied. Our indicators are generally more condensed and may
+group issues that were expressed as multiple indicators in the SSI guide.
+Various indicators have also been added that did not exist in the SSI guide,
+and there were many various indicators we found too specific to use.
 
 Each indicator carries an ID code for easy reference. Cross-references will be
 made whenever there is a relationship between indicators.
@@ -218,7 +242,7 @@ than immediately dive into the details.
 \indicator{D7 -- Are all the necessary audiences addressed, at their appropriate levels?}
 
 Different groups of users require different documentation. Developers require
-APIs if the software is a library, end-users require a walkthrough of the GUI
+APIs if the software is a library (see L4), end-users require a walkthrough of the GUI
 if the software has one. A different level of expertise may be expected of
 different user groups, the documentation should assume the appropriate level.
 
@@ -313,8 +337,9 @@ instructions (i.e. package names) to accomplish this.
 Moreover, all listed dependencies should be available, unobtainable software
 can not be used as a dependency. Higher-order dependencies need not be listed.
 
-\indicator{BLD4 -- Are there tests to verify the build has succeeded?}
+\indicator{B4 -- Are there tests to verify the build has succeeded?}
 
+A build process should terminate with a testing stage that verifies its success.
 
 \subsection{Installability}
 
@@ -330,7 +355,7 @@ instructions can be combined if the software is published as a source
 distribution.
 
 \indicator{IS2 -- Are all dependencies listed and available?}
-(related to BLD3)
+(related to B3)
 
 All required or optional dependencies should be listed, including those by
 third parties (with references to their websites). If the installation
@@ -495,7 +520,7 @@ at odds with a scientific method that relies on methodological transparency,
 reproducibility and peer review. The CLARIAH project is explicitly committed to
 open source and ``aims to create an inclusive open-source engineering community
 that will carry on providing new tools and support for users after the end of
-the CLARIAH project'' \cite{CLARIAHTECHPLAN1}.
+the CLARIAH project'' \citep{CLARIAHTECHPLAN1}.
 
 
 \indicator{CP2 -- Is it clear who wrote the software, who owns the
@@ -622,10 +647,9 @@ this guideline.
 
 Persistent stores aim to preserve research output. They aim for a longevity
 that can not be guaranteed by normal software repositories. Each software
-release should be deposited in a persistant store and received a unique Digital
-Object Identifier (DOI), a persistent ID used primarily for electronic
-documents and ubiquitous in the academic world. The DOI can in turn be
-references in citations.
+release should be deposited in a persistent store and receive a unique Digital
+Object Identifier (DOI),  a persistent ID that is ubiquitous in the academic
+world. The DOI can in turn be referenced in citations from publications.
 
 Users using Github (see AC2) and Zenodo\footnote{\url{https://zenodo.org}, a
 research data repository} can set this up with little effort. \footnote{A guide
@@ -696,12 +720,11 @@ integration testing or at a predefined interval. Free public continuous integrat
 platforms such as Travis-CI\footnote{https://travis-ci.org},
 Gitlab-CI\footnote{https://gitlab.com},
 Jenkins\footnote{https://jenkins-ci.org} can be hooked into version control
-systems with minimal effort, resulting an an automatic run of the test suite
+systems with minimal effort, resulting in an automatic run of the test suite
 upon each commit and notifying the developer when the test suite fails.
 
 It is strongly recommended that test results are publicly available, so they can
 perform their function as a measure of quality control.
-
 
 \subsection{Portability}
 
@@ -864,8 +887,9 @@ also be mediated through other third party tools.
 \indicator{SC1 -- Is the software free of obvious security flaws?}
 
 Software should be secure and have no holes that allow unauthorised users to
-gain access. Developers should take care to avoid common attack vectors such as shell
-injection, SQL injection, cross-site request forgery, buffer overflow. 
+gain access. Developers should take care to avoid common attack vectors such as
+shell injection, SQL injection, cross-site request forgery, buffer overflow.
+Proper validation of user input is a major factor in preventing security holes
 
 Assessment of security is an art in itself and non-trivial. 
 
@@ -878,11 +902,23 @@ SEC1. Also see AC3.
 
 \section{Quality Measurement}
 
-(TODO)
+To achieve a measure of quality, evaluators can compute a quality score ($Q$,
+expressed as a percentage) per criterion, by counting how many of the
+indicators are answered with ``yes'' ($p$), and how many with ``no`` ($n$),
+following the simple formula in Equation~\ref{eq1}.
+
+\begin{equation}
+\label{eq1}
+Q = (p / (p + n)) \cdot 100
+\end{equation}
+
+A passing threshold can be defined, either on a per-criterion basis or just
+by applying the same threshold for all. 
+
+(TODO: section not finished)
 
 
-
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 \bibliography{softwareguidelines}
 
 \end{document}
