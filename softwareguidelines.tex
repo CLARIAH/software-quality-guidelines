@@ -46,7 +46,7 @@
 
 \title{Guidelines for Software Quality}
 \subtitle{CLARIAH Task 54.100} 
-\author{Maarten van Gompel \\ Centre for Language \& Speech Technology \\ Radboud University Nijmegen }
+\author{Maarten van Gompel \\ Centre for Language \& Speech Technology \\ Radboud University, Nijmegen }
 
 \maketitle
 
@@ -61,7 +61,7 @@ proposal only. The guidelines have not been reviewed nor adopted yet.
 
 CLARIAH aims to deliver a digital research infrastructure made explicitly
 accessible for researchers from the humanities. This makes the development of advanced ICT
-tools a core activity within CLARIAH. To be able assess the
+tools a core activity within CLARIAH. To be able to assess the
 quality of the research infrastructure as a whole, we need to be able to assess
 the quality of its individual software and data components. If we can establish
 a common set of software guidelines, we may more readily identify weaker
@@ -75,6 +75,13 @@ encompassing all of the following aspects:
     \item binary executables
     \item user interfaces (including application programming interfaces (APIs) and web APIs)
     \item associated essential data
+% * <reinierdevalk@gmail.com> 2016-03-30T15:01:35.204Z:
+%
+% > associated essential data
+%
+% What exactly would this be? In the light of a clear distinction between sustainability for data on the one hand and sustainability of software on the other, this might be confusing.
+%
+% ^.
     \item documentation (including tutorials, screencasts)
     \item support infrastructure (version control, build systems, issue trackers)
 \end{itemize}
@@ -97,14 +104,22 @@ Each question, can be be answered with ``yes'', ``no'' or ``not applicable'' in
 case the guideline has no relevance for the software. The correct answer is
 always the affirmative. This will lead to measurable quality levels. Full
 compliance with the guidelines is achieved when all questions are answered
-affirmatively.  In practise, however, this is not realistic to happen.
+affirmatively.  In practice, however, this is not realistic to happen.
 Evaluators will need to determine for themselves what compliance level, per
 category, constitutes an acceptable passing threshold.
 
-The criteria we yield are adopted from to large extent from the
+The criteria we yield are  to a large extent adopted from the
 \emph{Criteria-based Software Evaluation Guide} \citep{SSIGUIDE} by the Software
 Sustainability Institute (SSI). Their work, in turn, is modelled after
 \emph{ISO/IEC 9126-1 Software Engineering - Product Quality} \citep{ISO9126}.
+% * <reinierdevalk@gmail.com> 2016-03-30T15:24:10.327Z:
+%
+% > ISO/IEC 9126-1 Software Engineering - Product Quality
+%
+% Because I was unfamiliar with this standard, I googled it - and then found that it has been revised by this one: http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=35733 . Maybe also good to mention this (more recent) report from the SSI: http://knowledge-exchange.info/event/software-sustainability 
+%
+% ^.
+
 The Software Sustainability Institute\citep{SSIGENERAL} is an academic institute
 explicitly geared towards researchers and software developers in science, the
 criteria they drafted are therefore deemed to form a very relevant basis for
@@ -131,7 +146,7 @@ Learnability & Easy/intuitive to learn how to use its functions? \\
 \hline
 Identity & Project/software identity is clear and unique? \\
 Copyright & Easy to see who owns the project/software? \\
-Licencing & Adoption of appropriate licence? \\
+Licencing & Adoption of appropriate license? \\
 Governance & Easy to understand how the project is run and the development managed? \\
 Community & Evidence of current/future community? \\
 Accessibility & Evidence of good facilities to obtain versions of the software? \\
@@ -155,16 +170,23 @@ We adopt this scheme with the following changes:
 \item Security \& Privacy criterion is added to Sustainability \& Manageability
 \item Performance criterion was added to Usability.
 \item Reusability criterion was added to Sustainability \& Manageability: To what extend is the software reusable?
+% * <reinierdevalk@gmail.com> 2016-03-30T15:28:10.134Z:
+%
+% > Reusability
+%
+% What exactly is the difference between reusability and sustainability?
+%
+% ^.
 \item The Interoperability criterion is split into a generic section and a CLARIAH-specific section. The latter provides indicators to assess
 whether the software complies to requirements for integration into the CLARIAH infrastructure.
 \end{itemize}
 
 The next sections lay out all criteria with the individual assessment
-indicators. The individual indicators are inspired on the SSI guidelines but
+indicators. The individual indicators are inspired by the SSI guidelines but
 are not directly copied. Our indicators are generally more condensed and may
 group issues that were expressed as multiple indicators in the SSI guide.
 Various indicators have also been added that did not exist in the SSI guide,
-and there were many various indicators we found too specific to use.
+and there were various indicators we found too specific to use.
 
 Each indicator carries an ID code for easy reference. Cross-references will be
 made whenever there is a relationship between indicators.
@@ -186,7 +208,7 @@ It should be clear who are the intended users for the software. Software is
 usually not appropriate for all audiences. Gearing software at multiple
 audiences however, through for instance offering multiple interfaces (command
 line interface (CLI) , graphical user interface (GUI), web-user interface
-(WUI), webservice) is good practise. References to projects already using the
+(WUI), web service) is good practice. References to projects already using the
 software are recommended (see also CM1).
 
 \indicator{U3 -- Is it clear how the software works?}
@@ -211,10 +233,16 @@ documentation for different audiences, and may include published papers.
 \indicator{D1 -- Is there documentation?}
 
 All software should be properly documented. Software without any documentation
-is as good as useless. At the very least, documentation at a minimum level
-must be available. 
+is as good as useless. At the very least, documentation at a minimum level must be available.
+% * <reinierdevalk@gmail.com> 2016-03-30T15:35:50.608Z:
+%
+% > documentation at a minimum level
+%
+% What would this minimum level be? Source code level?
+%
+% ^.
 
-\indicator{D2 -- Is the documentation accessible?}
+ \indicator{D2 -- Is the documentation accessible?}
 
 Documentation must be publicly accessible and in an acceptable standard format
 such as HTML or PDF.
@@ -227,11 +255,18 @@ Step-by-step and task-oriented instructions are recommended.
 \indicator{D4 -- Is the documentation complete?}
 
 Documentation should cover the entire software, including advanced features.
+% * <reinierdevalk@gmail.com> 2016-03-30T15:37:41.996Z:
+%
+% > cover the entire software
+%
+% From my own experience I know that you can get carried away here. Is there some objective way of determining this? Also: does D4 not conflict with D6? 
+%
+% ^.
 
 \indicator{D5 -- Is the documentation accurate?}
 
 Documentation should describe the advertised version and not be out-of-date
-with the latest release. Example should be in line with how the tool looks and
+with the latest release. Examples should be in line with how the tool looks and
 behaves.
 
 \indicator{D6 -- Does the documentation provide a high-level overview of the software?}
@@ -281,6 +316,14 @@ using a basic example.
 
 Instructions should be provided for at least basic use cases, and ideally for
 all possible use cases.
+% * <reinierdevalk@gmail.com> 2016-03-30T15:43:20.362Z:
+%
+% > for
+% > all possible use cases
+%
+% I'm not sure whether this is always possible...
+%
+% ^.
 
 \indicator{L3 -- Does the interface provide a help reference?}
 
@@ -292,11 +335,16 @@ the documentation.
 
 \indicator{L4 -- Is there API documentation for developers?}
 
-If the software is a programming library. API documentation must be provided.
-If the software is a webservice, a specification of the web API must be provided.
+If the software is a programming library, API documentation must be provided.
+If the software is a web service, a specification of the web API must be provided.
 
 \indicator{L5 -- If the software is configurable, are the configuration
 options clearly explained?}
+% * <reinierdevalk@gmail.com> 2016-03-30T15:46:17.721Z:
+%
+% No further explanation of L5?
+%
+% ^.
 
 
 \subsection{Buildability}
@@ -366,8 +414,13 @@ accomplish this.
 
 Moreover, all listed dependencies should be available, unobtainable software
 can not be used as a dependency. Higher-order dependencies need not be listed.
+% * <reinierdevalk@gmail.com> 2016-03-30T15:54:41.426Z:
+%
+% This whole paragraph is almost a verbatim repetition of B3.  Maybe just cross-refer?
+%
+% ^.
 
-\indicator{IS3 -- Does the installation procedure comply to best practises
+\indicator{IS3 -- Does the installation procedure comply to best practices
 in the ecosystem around the programming language?}
 
 The ecosystem surrounding programming languages may come with standard
@@ -388,7 +441,14 @@ ad-hoc mechanisms. If the ecosystem has facilities for dependency management
 If the software has a well-defined target platform and is intended for adoption
 by a wider audience, it is recommended to package it in the appropriate form.
 This may however conflict with IS3, be rendered obsolete by IS3, or render IS3
-obsolete. The decision form of installation takes takes precendence should be
+obsolete. The decision form of installation that takes precedence should be
+% * <reinierdevalk@gmail.com> 2016-03-30T15:58:41.118Z:
+%
+% > decision form of installation that takes precedence
+%
+% I don't understand this sentence; it looks something is either missing or superfluous?
+%
+% ^.
 made on an individual basis, considering the nature and audience of the
 software.
 
@@ -406,7 +466,7 @@ software.
     \item Windows: (TODO) 
 \end{itemize}
 
-It is not always time and cost effective to package the software, especially not
+It is not always time- and cost-effective to package the software, especially not
 when there are multiple target platforms. 
 
 \indicator{IS5 -- Is the software package properly structured?}
@@ -428,7 +488,7 @@ Hierarchy Standard\footnote{\url{http://refspecs.linuxfoundation.org/fhs.shtml}}
 \indicator{IS7 -- The software must include a README}
 
 The \texttt{README} file must contain links to the project website, as well as
-licence and copyright information. The README should be either plain-text or
+license and copyright information. The README should be either plain-text or
 preferably in an unobtrusive mark-up format such as Markdown or ReStructuredText.
 
 If a public version control platform such as GitHub is used (see AC2), the
@@ -438,11 +498,11 @@ README will usually be visualised on the repository page.
 
 This is usually trivial when the software complies to IS4 and/or IS3, or if the
 software installation is self-contained in a single directory. In all other
-instances, proper uninstallation facilities should be in explicitly implemented.
+instances, proper uninstallation facilities should be explicitly implemented.
 
 \indicator{IS9 -- Are the system requirements such as target platform clearly advertised?}
 
-The project website must be clearly state what target platform(s) the software is expected to run.
+The project website must state clearly state what target platform(s) the software is expected to run on.
 System requirements in terms of computing resources must be stated if the software employs more than insignificant resources (see PF2).
 (related also to B3 and IS2)
 
@@ -451,6 +511,13 @@ System requirements in terms of computing resources must be stated if the softwa
 \indicator{PF1 -- Does the software perform its function(s) as efficiently as can be expected?}
 
 Software should employ efficient algorithms to perform its task. Obvious performance bottlenecks \emph{may} be an indication of sub-optimal design choices.
+% * <reinierdevalk@gmail.com> 2016-03-30T16:05:28.991Z:
+%
+% > should employ efficient algorithms
+%
+% Agreed, but is it feasible to check this? (Applies both to the party providing the software and the one preserving it.) 
+%
+% ^.
 (Consider also U4)
 
 \indicator{PF2 -- Does the software make a reasonable demand on computing resources?}
@@ -492,7 +559,7 @@ multiple clients concurrently.
 
 Software should be identifiable by a clear name that does not clash with others
 in its application domain and in the wider generic software domain. An on-line
-search of 
+search of TODO 
 
 \indicator{ID2 -- Does the software have a website?}
 
@@ -502,29 +569,29 @@ related to the software.
 
 It is recommended to have a dedicated domain name or subdomain.
 
-\indicator{ID3 -- The project name does not violate an existing trade-mark?}
+\indicator{ID3 -- Does the project name not violate an existing trade-mark?}
 
 The project name should not infringe on existing trade-marks.
 
 \subsection{Copyright \& Licensing}
 
-\indicator{CP1 -- Has an appropriate open-source licence been adopted?}
+\indicator{CP1 -- Has an appropriate open-source license been adopted?}
 
-Software should be released as open source under an appropriate licence. The
-licence should be recognised by the Open Source Initiative\footnote{https://opensource.org} or Free Software
-Foundation\footnote{http://fsf.org}. Open source licences generally fall somewhere on a spectrum between the following two flavours:
+Software should be released as open source under an appropriate license. The
+license should be recognised by the Open Source Initiative\footnote{https://opensource.org} or Free Software
+Foundation\footnote{http://fsf.org}. Open source licenses generally fall somewhere on a spectrum between the following two flavours:
 
 \begin{itemize}
- \item Copyleft licence (GNU Public License (GPL) and variants): If the code is modified and distributed, the modified code must be distributed under the same licence. Also, if your code is licenced in this way and is used as a library or imported module by other software, then that software too is considered a derivate work and must be distributed under the same licence. This ensures that anybody derives a work from your code is obliged to distribute it as open source (free\footnote{Free as in free speech, not free beer} software) as well.
- \item Permissive licence (MIT, Apache Licence, BSD licence): Allows modifications and reuse with fewer restrictions. Generally anybody is free to use the code and use it in closed-source (non-free) software.
+ \item Copyleft license (GNU Public License (GPL) and variants): If the code is modified and distributed, the modified code must be distributed under the same license. Also, if your code is licensed in this way and is used as a library or imported module by other software, then that software too is considered a derivate work and must be distributed under the same license. This ensures that anybody who derives a work from your code is obliged to distribute it as open source (free\footnote{Free as in free speech, not free beer} software) as well.
+ \item Permissive license (MIT, Apache License, BSD license): Allows modifications and reuse with fewer restrictions. Generally anybody is free to use the code and use it in closed-source (non-free) software.
 \end{itemize}
 
-The decision which licence is most appropriate should be made on an individual
-basis. Note that none of the major licences prohibits commercial use, nor is it
+The decision which license is most appropriate should be made on an individual
+basis. Note that none of the major licenses prohibits commercial use, nor is it
 recommended to do so.
 
-The licence chosen by the software may never not violate the licences of any of
-the software's dependencies, if there are linking clauses in those. \footnote{This implies you that if you use GPL libraries, you can no longer release your software under a more permissive licence such as MIT}.
+The license chosen for the software may never violate the licenses of any of
+the software's dependencies, if there are linking clauses in those. \footnote{This implies you that if you use GPL libraries, you can no longer release your software under a more permissive license such as MIT}.
 
 Any form of closed-source software is strongly discouraged as it is found to be
 at odds with a scientific method that relies on methodological transparency,
@@ -535,9 +602,9 @@ the CLARIAH project'' \citep{CLARIAHTECHPLAN1}.
 
 
 \indicator{CP2 -- Is it clear who wrote the software, who owns the
-copyright, and what the licence is?}
+copyright, and what the license is?}
 
-Authors, copyright and licence should be clearly mentioned on the project
+Authors, copyright and license should be clearly mentioned on the project
 website, as well as in the source code.  We strongly recommend each source file
 to contain a comment header stating this information.
 
@@ -552,7 +619,7 @@ website, and in the \texttt{README}.
 
 Source code must always be kept under version control. This enables developers
 to collaborate, maintains a perfect version history, and allows everyone keep a
-track of changes. Absence of version control is bad development practise and
+track of changes. Absence of version control is bad development practice and
 unsustainable.
 
 \indicator{AC2 -- Is the source code in a public version-controlled repository?}
@@ -607,7 +674,7 @@ public repositories in which installable software release packages should be
 deposited. These repositories function as a primary source for installation (see also
 IS3) and generally offer automatic dependency management.
 
-Use of these repositories is strongly recommended practise if available.
+Use of these repositories is strongly recommended practice if available.
 
 \begin{itemize}
     \item \textbf{Python} -- Releases of Python software should be deposited in
@@ -625,11 +692,11 @@ Use of these repositories is strongly recommended practise if available.
 \indicator{AC6 - Is the software available in the target platform's software repository?}
 
 If the software has a well-defined target platform and the target platform has
-a public software repository available; then it is recommended to submit the
+a public software repository available, then it is recommended to submit the
 packages to this public repository.
 
 This may however conflict with AC5, be rendered obsolete by AC5, or render AC5
-obsolete. The decision which form of installation takes takes precendence should be
+obsolete. The decision which form of installation takes precedence should be
 made on an individual basis, considering the nature and audience of the
 software.
 
@@ -640,7 +707,7 @@ software.
 		\item CentOS: Consult https://wiki.centos.org/HowTos/Packages/ContributeYourRPMs
         \item Debian: Consult https://wiki.debian.org/Packaging
         \item Fedora: Consult https://fedoraproject.org/wiki/Packaging:Guidelines
-        \item Ubuntu: Ubuntu inherits Debian's packages, therefore submitting Debian is recommended. Users can submit software submit software tol Package Archive (PPA).
+        \item Ubuntu: Ubuntu inherits Debian's packages, therefore submitting Debian is recommended. Users can submit software  to Package Archive (PPA).
     \end{itemize}
     \item Mac OS X: use the Apple Store for traditional Mac applications intended for end-users; for the more Unix-style
         software, use a system such as Homebrew or MacPorts.
@@ -649,7 +716,7 @@ software.
     \item Windows: (TODO) 
 \end{itemize}
 
-It is not always time and cost effective to package and deposit the software,
+It is not always time -and cost-effective to package and deposit the software,
 especially not when there are multiple target platforms. When the software is
 not intended for adoption by a wider audience, it can be considered to ignore
 this guideline.
@@ -670,7 +737,7 @@ receive a DOI, no user intervention is necessary.
 
 \subsection{Community}
 
-This aspects related to what extent an active user community exists for the
+This aspect concerns to what extent an active user community exists for the
 software.
 
 \indicator{CM1 - Is there evidence of the software being in use by others?}
@@ -712,7 +779,7 @@ Software should have unit tests that automatically test individual units of the
 source code. They verify the data and logic flow by testing whether the output,
 given certain input, confirms to expectation.
 
-It is important that the tests cover enough of the source code, automated tools
+It is important that the tests cover enough of the source code. Automated tools
 and platforms are available that can help in this assessment, such as
 \url{https://coveralls.io} and \url{https://codacy.com}.
 
@@ -726,9 +793,9 @@ as a group.
 If the software offers a non-trivial GUI or WUI, it should have automated tests
 that verify whether the interface functions as intended.
 
-\indicator{TS4 -- Do tests are run automatically?}
+\indicator{TS4 -- Are tests run automatically?}
 
-It is recommended that test be run automatically, either through continuous
+It is recommended that tests be run automatically, either through continuous
 integration testing or periodically at a predefined interval. Free public
 continuous integrations platforms such as
 Travis-CI\footnote{https://travis-ci.org},
@@ -817,6 +884,14 @@ The source code should contain comments explaining what major blocks do.
 
 The comments use a mark-up that allows them to be used directly as the
 source for the generation of the API reference documentation. This is
+% * <reinierdevalk@gmail.com> 2016-03-31T08:39:14.635Z:
+%
+% > use a mark-up that allows them to be used directly as the
+% > source for the generation of the API reference documentation
+%
+% This does not always apply to all comments
+%
+% ^.
 accomplished using document generation tools such as Doxygen\footnote{\url{http://www.doxygen.org}}, Sphinx\footnote{\url{http://www.sphinx-doc.org}} or
 Javadoc\footnote{\url{http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html}}.
 
@@ -832,7 +907,7 @@ programming language?
 
 \indicator{AN6 -- Are there no blocks of commented out code or obsolete files?}
 
-There should be no large block of commented-out code, nor obsolete files.
+There should be no large blocks of commented-out code, nor obsolete files.
 (this depends on compliance with AC1)
 
 \indicator{AN7 -- Are all TODO comments resolved?}
@@ -847,6 +922,13 @@ should adhere. These standards should be consistent with the larger community
 of generic coding standards for the programming language.
 
 \subsection{Changeability}
+% * <reinierdevalk@gmail.com> 2016-03-31T08:57:05.619Z:
+%
+% > Changeability
+%
+% This seems very important to me. Contribution of outside parties can complicate sustainability, preservation, or even just keeping things under control, quite a bit.
+%
+% ^.
 
 \indicator{CH1 -- Is the project open to contributions from third parties?}
 
@@ -866,18 +948,18 @@ See also AN8.
 Collaboration requires awareness of what changes, when it changes, and who
 changes it. This depends on AC1, heavily facilitated by AC2.
 
-Alternatively, commits messages can be forwarded to mailing lists, Slack, IRC chat, or
+Alternatively, commit messages can be forwarded to mailing lists, Slack, IRC chat, or
 whatever is deemed appropriate.
 
-\indicator{CH4 -- Is the software sufficiently backwards-compatible?}
+\indicator{CH4 -- Is the software sufficiently backward compatible?}
 
-Software should be backwards compatible with old versions of itself with respect
-to public interfaces and data input. Backward-compatibility changes and
+Software should be backward compatible with old versions of itself with respect
+to public interfaces and data input. Backward compatibility changes and
 deprecation may occur but should always be clearly announced ahead of time.
 
 \indicator{CH5 -- Is there a roadmap for future changes?}
 
-Software still under active development should have roadmap. This may take
+Software still under active development should have a roadmap. This may take
 shape either as an explicit roadmap or implicit in the issue tracker
 (SP2) through the assignment of milestones.
 
@@ -918,11 +1000,18 @@ Whenever two or more of these layers are intrinsically merged, reusability poten
 For instance, monolithic software that offers only a GUI interface can not be
 readily adapted to add a CLI or web interface.
 
-Maximum reusability is not always desired or time and cost effective. The
-desired degree of of modularity and reusability is to be assessed on an
+Maximum reusability is not always desired or time- and cost-effective. The
+desired degree of modularity and reusability is to be assessed on an
 individual basis.
 
-\indicator{R3 -- Is the software's source code set-up in a modular fashion?}
+\indicator{R3 -- Is the software's source code set up in a modular fashion?}
+% * <reinierdevalk@gmail.com> 2016-03-31T09:08:08.123Z:
+%
+% > R3 -- Is the software's source code set up in a modular fashion?
+%
+% Maybe superfluous (as already covered by R2)?
+%
+% ^.
 
 The software's source code should define clearly delimited classes and
 functions, following the paradigm of the programming language. 
