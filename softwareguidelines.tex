@@ -46,7 +46,8 @@
 
 \title{Guidelines for Software Quality}
 \subtitle{CLARIAH Task 54.100} 
-\author{Maarten van Gompel \\ Centre for Language \& Speech Technology \\ Radboud University, Nijmegen }
+\author{Maarten van Gompel \\ Centre for Language \& Speech Technology \\ Radboud University, Nijmegen, Reinier de Valk, Andrea Scharnhorst \\Data Archiving and Networked Services \\ Royal Netherlands Academy of Arts and Sciences}
+
 
 \maketitle
 
@@ -57,15 +58,21 @@ proposal only. The guidelines have not been reviewed nor adopted yet.
 
 \tableofcontents
 
-\section{Introduction}
+\section{Motivation}
 
 CLARIAH aims to deliver a digital research infrastructure made explicitly
 accessible for researchers from the humanities. This makes the development of advanced ICT
 tools a core activity within CLARIAH. To be able to assess the
 quality of the research infrastructure as a whole, we need to be able to assess
-the quality of its individual software and data components. If we can establish
+the quality of its individual software parts, and their function inside of the research infrastructure including data components. If we can establish
 a common set of software guidelines, we may more readily identify weaker
-components of the software infrastructure and work on their improvement.
+components of the software infrastructure and work on their improvement. We may also be able to better direct software production processes towards issues of interoperability and sustainability.
+A digital research infrastructure operates at the interface of of supporting ICT and research practices. For the humanities (and social sciences) those are far from being homogeneous. The practices served by the infrastructure differ concerning the object of analysis, the processes of analysis, and the required usability level. 
+
+We start in this document with the essentials: definitions and the state-of-art of discussions around software quality criteria. The aim is, in an iterative process, to taylor the guidelines to the needs of the involved partners (ICT, research and archives). For the context of questions of software quality in SSH research infrastructures see the last section in this document.
+
+\section{Introduction - glossary of terms}
+
 Assessing software or data quality, however, is not a trivial matter. 
 
 Whenever we refer to \emph{software}, we intend the term in a broad sense and
@@ -1067,7 +1074,25 @@ Q = (p / (p + n)) \cdot 100
 A passing threshold can be defined, either on a per-criterion basis or just
 by applying the same threshold for all. 
 
-(TODO: section not finished)
+\section{Context}
+Software Quality is an issue for software engineering. In the same way that experimental research depends on the quality of its instruments and the processes to use them properly; the quality of software influences the outcome of any computational processes: its accurancy (it should deliver for what is was build) as well as its efficiency (it should do this as efficient in time and with respect to use of resources. At a first glance, software quality concerns the quality of software code as a product (sometimes calles its functional quality). But, software products do not exist in isolation. They often part of an architecture. So the quality of software concerns not only the level of source code, of a unit, but its interplay with technology and systems (called structural quality). \footnote{\url{https://en.wikipedia.org/wiki/Software_quality}}
+While not suprisignly software quality is a term which emerges with software engineering in the 1950's, software sustainability is far less wide spread. One could also say that with a more mature level of relying on software technologies, the aspect of their sustainability becomes more prevailend. The more software (and hardware) become seamless, invisible and move to the background, the more important becomes their quality also for use in the long term. The latter being one aspect of sustainability.
+For infrastructures which aim themselves to be reliable and supportive, the reliability and sustainability of elements they are build of is a must.
+% picture on how software and infrastructure - architecture are related
+For research infrastructures an additional element occurs which enhances the complexity. Research practices in their very nature are changing in time. While we might rely on consolidated methods and theories to some extend - at least for the phases of normal science outside of the Kuhnian scientific revolutions - the research questions are supposed to change all time, to securely targeted towards the \textit{unknown}. As a concequence the application of methods and theories - their recombination (to use an evolutionary term) is at the heart of research. For research based on the application of digital methods on digital material this implies a kind of constant revolution in software tools - those digital instruments. 
+For science history that is actually not new. If we look into the history of instrumentation [find reference] we will see outsourcing of instrument-making to industries and re-appropriating them for lab research; and the taylor-made making of instruments both occuring at the same time. 
+For an evaluation of software as part of of a research infrastructure the differentiation between \textit{tools} which are explorative and \textit{tools} which are stable, and reproducible is crucial. It makes sense to require quality assessment for both, but not all levels of the above designed check-lists might be of equal importance for all tools developed. To differentiate between them is one add-on task in developping these guidelines. 
+
+\section{TODO: section not finished}
+%AS April 5
+%next steps: skype after April 12, possible steps:
+%identify main software developpers in each WP (with GeertJan)
+%share text with them for comments - do they understand it
+%set up a google sheet to collect tools by names - get an overview how much software we would like to have tested; 
+%set up a survey using the criteria and run this through those tools which have been identified prior as very important - otherwise we create a major software testing operation 
+
+%Content-wise: how is software quality related to software sustainability? How is software sustainability related to the expected lifetime of a software and its user community?
+%To be discussed by skype can we come up with a classification of tools: tools for internal (ICT) use versus tools for user with no knwoledge in code; tools which are inherent part of the infrastructure and should work in xxx years versus tools which are experimental or only supposed to work for shorter time periods and be replaced afterwards; could we organise a workshop and make people draw where their software tool live in such a space?
 
 
 \bibliographystyle{plainnat}
