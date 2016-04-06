@@ -280,6 +280,8 @@ Step-by-step and task-oriented instructions are recommended.
 \indicator{D4 -- Is the documentation complete?}
 
 Documentation should cover the entire software, including advanced features.
+Features that are not documented in any way are generally useless. 
+
 % * <reinierdevalk@gmail.com> 2016-03-30T15:37:41.996Z:
 %
 % > cover the entire software
@@ -289,10 +291,10 @@ Documentation should cover the entire software, including advanced features.
 % ^.
 % <proycon@anaproy.nl> 2016-04-06: I think it is indeed pretty hard to objectively
 % measure, but I do think that features that are not documented in any way, are
-% often useless.  Regarding D4 vs D6: No, I mean that the documentation should at
+% generally useless. (added that to the text now)
+% Regarding D4 vs D6: No, I mean that the documentation should at
 % least also offer a high-level view before it goes into the finer details, not that it
-% should go beyond a high-level view (it should). Some rephrasing might be in
-% order for D4 and D6 to make this clear?
+% should go beyond a high-level view (it should). I rephrased D6.
 
 \indicator{D5 -- Is the documentation accurate?}
 
@@ -302,8 +304,13 @@ behaves.
 
 \indicator{D6 -- Does the documentation provide a high-level overview of the software?}
 
-Documentation should offer a high-level overview of the software, rather
-than immediately dive into the details.
+A high-level overview of the software should be an integral part of the
+documentation, alongside more detailed instruction where appropriate.
+Documentation should not immediately dive into the details. It is important to
+first provide users with the necessary high-level insights so they can understand how
+these details form a part of the larger picture.
+
+% <proycon@anaproy.nl> 2016-04-06: I rephrased this after Reinier's comment for D4.
 
 \indicator{D7 -- Are all the necessary audiences addressed, at their appropriate levels?}
 
@@ -355,7 +362,8 @@ all possible use cases.
 % I'm not sure whether this is always possible...
 %
 % ^.
-% <proycon@anaproy.nl> 2016-04-06: Yeah, I don't think so either..
+% <proycon@anaproy.nl> 2016-04-06: Yeah, I don't think so either.. I used the
+% adverb ``ideally'' for that reason, perhaps we should weaken it a bit more.
 
 
 \indicator{L3 -- Does the interface provide a help reference?}
@@ -373,12 +381,17 @@ If the software is a web service, a specification of the web API must be provide
 
 \indicator{L5 -- If the software is configurable, are the configuration
 options clearly explained?}
+
 % * <reinierdevalk@gmail.com> 2016-03-30T15:46:17.721Z:
 %
 % No further explanation of L5?
 %
 % ^.
+%<proycon@anaproy.nl> 2016-04-06:  Added one now
 
+If the software is configurable, through for instance an external configuration
+files, a preferences window in a GUI, or by any other means, then the
+configuration options and their effect should be clearly documented. 
 
 \subsection{Buildability}
 
