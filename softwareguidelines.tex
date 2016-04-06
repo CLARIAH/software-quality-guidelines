@@ -89,6 +89,11 @@ encompassing all of the following aspects:
 % What exactly would this be? In the light of a clear distinction between sustainability for data on the one hand and sustainability of software on the other, this might be confusing.
 %
 % ^.
+% <proycon@anaproy.nl> 2016-04-06: Agreed, I kept this rather vague but we will indeed to
+% need to work out a clear distinction. With ``essential'' data I was
+% considering mandatory data without which the software would not work. Which
+% can be simply stuff such as associated imagery and configuration files; but also more
+% comprehensive models.
     \item documentation (including tutorials, screencasts)
     \item support infrastructure (version control, build systems, issue trackers)
 \end{itemize}
@@ -126,6 +131,10 @@ Sustainability Institute (SSI). Their work, in turn, is modelled after
 % Because I was unfamiliar with this standard, I googled it - and then found that it has been revised by this one: http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=35733 . Maybe also good to mention this (more recent) report from the SSI: http://knowledge-exchange.info/event/software-sustainability 
 %
 % ^.
+% <proycon@anaproy.nl> 2016-04-06: I came accross the newer standard as well,
+% but the SSI guidelines document is still modelled after the older one.. The
+% newer SSI report would indeed to good to mention and incorporate into our
+% work.
 
 The Software Sustainability Institute\citep{SSIGENERAL} is an academic institute
 explicitly geared towards researchers and software developers in science, the
@@ -184,6 +193,9 @@ We adopt this scheme with the following changes:
 % What exactly is the difference between reusability and sustainability?
 %
 % ^.
+% <proycon@anaproy.nl> 2016-04-06: As I see it, reusability is more a property
+% of the way the software is set-up, with respect to reuse of its components,
+% whilst sustainability is a broader concept.
 \item The Interoperability criterion is split into a generic section and a CLARIAH-specific section. The latter provides indicators to assess
 whether the software complies to requirements for integration into the CLARIAH infrastructure.
 \end{itemize}
@@ -240,7 +252,11 @@ documentation for different audiences, and may include published papers.
 \indicator{D1 -- Is there documentation?}
 
 All software should be properly documented. Software without any documentation
-is as good as useless. At the very least, documentation at a minimum level must be available.
+is as good as useless. At the very least, there should be some documentation at
+a minimum level, targeted at the intended audience. A README (see IS7) that
+attempts to meet some of guidelines in this section (such as D6,D8,D9) can be
+considered a bare minimum level of documentation.
+
 % * <reinierdevalk@gmail.com> 2016-03-30T15:35:50.608Z:
 %
 % > documentation at a minimum level
@@ -248,6 +264,8 @@ is as good as useless. At the very least, documentation at a minimum level must 
 % What would this minimum level be? Source code level?
 %
 % ^.
+% <proycon@anaproy.nl> 2016-04-06: No, I intended to mean a minimum level
+% targetted for the appropriate audience. I added to the text 
 
  \indicator{D2 -- Is the documentation accessible?}
 
@@ -269,6 +287,12 @@ Documentation should cover the entire software, including advanced features.
 % From my own experience I know that you can get carried away here. Is there some objective way of determining this? Also: does D4 not conflict with D6? 
 %
 % ^.
+% <proycon@anaproy.nl> 2016-04-06: I think it is indeed pretty hard to objectively
+% measure, but I do think that features that are not documented in any way, are
+% often useless.  Regarding D4 vs D6: No, I mean that the documentation should at
+% least also offer a high-level view before it goes into the finer details, not that it
+% should go beyond a high-level view (it should). Some rephrasing might be in
+% order for D4 and D6 to make this clear?
 
 \indicator{D5 -- Is the documentation accurate?}
 
@@ -331,6 +355,8 @@ all possible use cases.
 % I'm not sure whether this is always possible...
 %
 % ^.
+% <proycon@anaproy.nl> 2016-04-06: Yeah, I don't think so either..
+
 
 \indicator{L3 -- Does the interface provide a help reference?}
 
