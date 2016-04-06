@@ -467,6 +467,11 @@ can not be used as a dependency. Higher-order dependencies need not be listed.
 % This whole paragraph is almost a verbatim repetition of B3.  Maybe just cross-refer?
 %
 % ^.
+%<proycon@anaproy.nl> 2016-04-06: Technically, build and installation
+%dependencies may differ (though there will be substantial overlap).
+%The text is much the same indeed though, cross-referencing may be a solution
+%here, not sure what would be best.
+
 
 \indicator{IS3 -- Does the installation procedure comply to best practices
 in the ecosystem around the programming language?}
@@ -484,12 +489,18 @@ ad-hoc mechanisms. If the ecosystem has facilities for dependency management
  \item TODO: Java, R ?
 \end{itemize}
 
+%<proycon@anaproy.nl> 2016-04-06: Is any of us Java-based? would be nice to
+%finish the Java bullet point. I guess it will mention ant and/or maven, but
+%I'm not too up to date on what the current state of the Java ecosystem is.
+
 \indicator{IS4 -- Is the software packaged according to standards for the target platform?}
 
 If the software has a well-defined target platform and is intended for adoption
 by a wider audience, it is recommended to package it in the appropriate form.
 This may however conflict with IS3, be rendered obsolete by IS3, or render IS3
-obsolete. The decision form of installation that takes precedence should be
+obsolete. The decision whether to use packaging methods for the target platform
+and/or packaging methods for the ecosystem surrunding the programming language
+(IS3) should be
 % * <reinierdevalk@gmail.com> 2016-03-30T15:58:41.118Z:
 %
 % > decision form of installation that takes precedence
@@ -497,6 +508,7 @@ obsolete. The decision form of installation that takes precedence should be
 % I don't understand this sentence; it looks something is either missing or superfluous?
 %
 % ^.
+%<proycon@anaproy.nl> 2016-04-06:  Right, I rephrased it completely
 made on an individual basis, considering the nature and audience of the
 software.
 
