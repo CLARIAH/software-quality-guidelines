@@ -71,7 +71,7 @@ a common set of software guidelines, we may more readily identify weaker
 components of the software infrastructure and work on their improvement. We may also be able to better direct software production processes towards issues of interoperability and sustainability.
 A digital research infrastructure operates at the interface of of supporting ICT and research practices. For the humanities (and social sciences) those are far from being homogeneous. The practices served by the infrastructure differ concerning the object of analysis, the processes of analysis, and the required usability level. 
 
-We start in this document with the essentials: definitions and the state-of-art of discussions around software quality criteria. The aim is, in an iterative process, to taylor the guidelines to the needs of the involved partners (ICT, research and archives). For the context of questions of software quality in SSH research infrastructures see the last section in this document.
+We start in this document with the essentials: definitions and the state-of-art of discussions around software quality criteria. The aim is, in an iterative process, to tailor the guidelines to the needs of the involved partners (ICT, research and archives). For the context of questions of software quality in SSH research infrastructures see the last section in this document.
 
 \section{Introduction - glossary of terms}
 
@@ -1147,6 +1147,8 @@ already exist.
 %<proycon@anaproy.nl> 2016-04-06: What are quality indicators for how software
 %projects are run and managed? This is more on a high-level organizational and financial
 %level on which I personally don't have much input.
+[TODO] Reinier: can we find examples how these guidelines are implemented, how they are executed? Can we translate them into a survey, spreadsheet to compute the score
+if we could do so, and than run iterations, we could - hopefully - see that software quality is improving
 
 \section{Quality Measurement}
 
@@ -1167,10 +1169,10 @@ by applying the same threshold for all.
 
 Software Quality is an issue for software engineering. In the same way that
 experimental research depends on the quality of its instruments and the
-processes to use them properly; the quality of software influences the outcome
-of any computational processes: its accuracy (it should deliver for what it
-was build) as well as its efficiency (it should do this as efficient in
-time and with respect to use of resources. At a first glance, software
+processes to use them properly, the quality of software influences the outcome
+of any computational processes: its accuracy (it should deliver what it
+was built for) as well as its efficiency (it should do this as efficient in
+time and with respect to use of resources). At a first glance, software
 quality concerns the quality of software code as a product (sometimes
 calles its functional quality). But, software products do not exist in
 isolation. They often form part of an architecture. So the quality of software
@@ -1209,17 +1211,31 @@ quality assessment for both, but not all levels of the above designed
 check-lists might be of equal importance for all tools developed. To
 differentiate between them is one add-on task in developing these guidelines. 
 
-\section{TODO: section not finished}
+\section{TODO: section not finished, will become Implementation and a report how we used this later, for the time being it is our workflow with the document}
 %AS April 5
-%next steps: skype after April 12, possible steps:
-%identify main software developers in each WP (with GeertJan)
+next steps: skype after April 12, possible steps:
+identify main software developers in each WP (with GertJan)
     %(<proycon@anaproy.nl> 2016-04-06: This may be a good starting place: https://github.com/orgs/CLARIAH/people)
-%share text with them for comments - do they understand it
-%set up a google sheet to collect tools by names - get an overview how much software we would like to have tested; 
-%set up a survey using the criteria and run this through those tools which have been identified prior as very important - otherwise we create a major software testing operation 
+share text with them for comments - do they understand it
+set up a google sheet to collect tools by names - get an overview how much software we would like to have tested; 
+set up a survey using the criteria and run this through those tools which have been identified prior as very important - otherwise we create a major software testing operation 
 
-%Content-wise: how is software quality related to software sustainability? How is software sustainability related to the expected lifetime of a software and its user community?
-%To be discussed by skype can we come up with a classification of tools: tools for internal (ICT) use versus tools for user with no knwoledge in code; tools which are inherent part of the infrastructure and should work in xxx years versus tools which are experimental or only supposed to work for shorter time periods and be replaced afterwards; could we organise a workshop and make people draw where their software tool live in such a space?
+Content-wise: how is software quality related to software sustainability? How is software sustainability related to the expected lifetime of a software and its user community?
+To be discussed by skype can we come up with a classification of tools: tools for internal (ICT) use versus tools for user with no knowledge in code; tools which are inherent part of the infrastructure and should work in xxx years versus tools which are experimental or only supposed to work for shorter time periods and be replaced afterwards; could we organise a workshop and make people draw where their software tool live in such a space?
+
+workflow:
+1. Reinier (look link to data quality) April 22, Patrick/Peter (sustainability aspect) by end of April latest, Andrea would have another go on the document and make implementation section (use of the document until end of ….) - By April 22
+2. Andrea asks Peter who we know at the SSI in UK - could they look at our guidelines? [we added some dimensions, their feedback would be great] - April 15
+2. go back to Maarten for end-check - flag out where we need comments and where we need input [here - make visible in the PDF, i.e. Single-signon
+3. send it to Geert-Jan May 10-15 and ask him with whom to share further - would also ask him to make it more specific if needed; give scores to criteria depending on CLARIAH (may also depend on software) Emphasis given by the implementation for CLARIAH => thresholds we want to set 
+4.  share text with managers and developers (including implementation section) workshop (awareness raising, coupled to a more general infrastructure meeting, May 18 next/testing with specific people
+first run done pre-summer 
+
+ideally, developers have an assessment routine and we plugin 
+promote software which has run through it 
+interactive survey is a great idea
+SSI has also an interactive survey  
+
 
 
 \bibliographystyle{plainnat}
