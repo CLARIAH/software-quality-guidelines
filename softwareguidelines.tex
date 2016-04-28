@@ -40,6 +40,15 @@
     \end{tabular}
 \end{center}}
 
+\newenvironment{TODO}{
+\begin{center}
+    \begin{tabular}[h!]{|p{0.8\textwidth}|}
+    \hline
+    {\bf TODO}\\\hline}
+{   \\\hline
+    \end{tabular}
+\end{center}}
+
 \newcommand{\indicator}[1]{\subsubsection*{\underline{#1}}}
 
 \begin{document}
@@ -54,8 +63,10 @@
 \maketitle
 
 \begin{notice} 
-This is a draft document, everything in it is to be considered a
-proposal only. The guidelines have not been reviewed nor adopted yet.
+This is a \textbf{draft document}, everything in it is to be considered a
+\textbf{proposal only}! The guidelines have not been reviewed nor adopted yet!
+
+Please see also the \textbf{Request for Comment} notice at the end of this document.
 \end{notice}
 
 \tableofcontents
@@ -63,15 +74,25 @@ proposal only. The guidelines have not been reviewed nor adopted yet.
 \section{Motivation}
 
 CLARIAH aims to deliver a digital research infrastructure made explicitly
-accessible for researchers from the humanities. This makes the development of advanced ICT
-tools a core activity within CLARIAH. To be able to assess the
+accessible for researchers from the humanities. This makes the development of
+advanced ICT tools a core activity within CLARIAH. To be able to assess the
 quality of the research infrastructure as a whole, we need to be able to assess
-the quality of its individual software parts, and their function inside of the research infrastructure including data components. If we can establish
-a common set of software guidelines, we may more readily identify weaker
-components of the software infrastructure and work on their improvement. We may also be able to better direct software production processes towards issues of interoperability and sustainability.
-A digital research infrastructure operates at the interface of of supporting ICT and research practices. For the humanities (and social sciences) those are far from being homogeneous. The practices served by the infrastructure differ concerning the object of analysis, the processes of analysis, and the required usability level. 
+the quality of its individual software parts, and their function inside of the
+research infrastructure including data components. If we can establish a common
+set of software guidelines, we may more readily identify weaker components of
+the software infrastructure and work on their improvement. We may also be able
+to better direct software production processes towards issues of
+interoperability and sustainability.  A digital research infrastructure
+operates at the interface of of supporting ICT and research practices. For the
+humanities (and social sciences) those are far from being homogeneous. The
+practices served by the infrastructure differ concerning the object of
+analysis, the processes of analysis, and the required usability level. 
 
-We start in this document with the essentials: definitions and the state-of-art of discussions around software quality criteria. The aim is, in an iterative process, to tailor the guidelines to the needs of the involved partners (ICT, research and archives). For the context of questions of software quality in SSH research infrastructures see the last section in this document.
+We start in this document with the essentials: definitions and the state-of-art
+of discussions around software quality criteria. The aim is, in an iterative
+process, to tailor the guidelines to the needs of the involved partners (ICT,
+research and archives). For the context of questions of software quality in SSH
+research infrastructures see the last section in this document.
 
 \section{Introduction - glossary of terms}
 
@@ -1136,19 +1157,33 @@ already exist.
 
 \subsection{Interoperability for CLARIAH}
 
-(TODO)
+
+\begin{TODO} 
+What specific interoperabilities does CLARIAH demand from software for
+integration into the larger infrastructure?  External input is greatly
+appreciated here!
+\end{TODO}
+
 %<proycon@anaproy.nl> 2016-04-06: What does CLARIAH specifically demand from
 %software for integration into the infrastructure? This is something to
 %discuss, which I personally don't have a clear image of, and for which we will need input from others in CLARIAH.
 
 \subsection{Governance}
 
-(TODO)
 %<proycon@anaproy.nl> 2016-04-06: What are quality indicators for how software
 %projects are run and managed? This is more on a high-level organizational and financial
 %level on which I personally don't have much input.
-[TODO] Reinier: can we find examples how these guidelines are implemented, how they are executed? Can we translate them into a survey, spreadsheet to compute the score
-if we could do so, and than run iterations, we could - hopefully - see that software quality is improving
+
+%(Reinier) Can we find examples how these guidelines are implemented, how they are
+%executed? Can we translate them into a survey, spreadsheet to compute the score
+%if we could do so, and than run iterations, we could - hopefully - see that
+%software quality is improving.
+
+
+\begin{TODO} 
+What are quality indicators for how software projects are run and
+managed? This is more on a high-level organizational level.
+\end{TODO}
 
 \section{Quality Measurement}
 
@@ -1201,7 +1236,7 @@ theories - their recombination (to use an evolutionary term) is at the heart of
 research. For research based on the application of digital methods on digital
 material this implies a kind of constant revolution in software tools - those
 digital instruments.  For science history that is actually not new. If we look
-into the history of instrumentation [find reference] we will see outsourcing of %TODO: find reference
+into the history of instrumentation [TODO: find reference] we will see outsourcing of %TODO: find reference
 instrument-making to industries and re-appropriating them for lab research; and
 the taylor-made development of instruments both occuring at the same time.  For an
 evaluation of software as part of a research infrastructure the
@@ -1211,30 +1246,60 @@ quality assessment for both, but not all levels of the above designed
 check-lists might be of equal importance for all tools developed. To
 differentiate between them is one add-on task in developing these guidelines. 
 
-\section{TODO: section not finished, will become Implementation and a report how we used this later, for the time being it is our workflow with the document}
+\section{Implementation}
+
+\begin{TODO}
+How will these guidelines be implemented, used and reviewed?
+
+We are currently taking a closer look at the guidelines and looking for input
+from people in CLARIAH and beyond. The criteria and indicators will eventually
+be published as an interactive survey as well. The idea is that developers can
+self-assess their projects, and adopters of software can assess whether
+software is of sufficient quality for their usage.
+\end{TODO}
+
+\begin{notice}
+\textbf{Request for Comment:} In this first stage, this very first draft of the guidelines is being shared with
+people throughout CLARIAH with the request for initial feedback. 
+\begin{itemize}
+    \item Do these guidelines seem helpful in the assessment of software
+        quality and sustainability? Does it fill a need?
+    \item Are there specific criteria/indicators missing? Is there something more substantial missing?
+    \item Are there specific criteria/indicators you disagree with?
+    \item Which criteria/indicators would you consider particularly important?  Which not?
+    \item Do you have input on any of the TODO items?
+    \item Do you have suggestions for improvement?
+\end{itemize}
+
+Please send your reply to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl and andrea.scharnhorst@dans.knaw.nl
+\end{notice}
+
+
+
+%\section{TODO: section not finished, will become Implementation and a report how we used this later, for the time being it is our workflow with the document}
 %AS April 5
-next steps: skype after April 12, possible steps:
-identify main software developers in each WP (with GertJan)
+%next steps: skype after April 12, possible steps:
+%identify main software developers in each WP (with GertJan)
     %(<proycon@anaproy.nl> 2016-04-06: This may be a good starting place: https://github.com/orgs/CLARIAH/people)
-share text with them for comments - do they understand it
-set up a google sheet to collect tools by names - get an overview how much software we would like to have tested; 
-set up a survey using the criteria and run this through those tools which have been identified prior as very important - otherwise we create a major software testing operation 
+%share text with them for comments - do they understand it
+%set up a google sheet to collect tools by names - get an overview how much software we would like to have tested; 
+%set up a survey using the criteria and run this through those tools which have been identified prior as very important - otherwise we create a major software testing operation 
 
-Content-wise: how is software quality related to software sustainability? How is software sustainability related to the expected lifetime of a software and its user community?
-To be discussed by skype can we come up with a classification of tools: tools for internal (ICT) use versus tools for user with no knowledge in code; tools which are inherent part of the infrastructure and should work in xxx years versus tools which are experimental or only supposed to work for shorter time periods and be replaced afterwards; could we organise a workshop and make people draw where their software tool live in such a space?
+%Content-wise: how is software quality related to software sustainability? How is software sustainability related to the expected lifetime of a software and its user community?
+%To be discussed by skype can we come up with a classification of tools: tools for internal (ICT) use versus tools for user with no knowledge in code; tools which are inherent part of the infrastructure and should work in xxx years versus tools which are experimental or only supposed to work for shorter time periods and be replaced afterwards; could we organise a workshop and make people draw where their software tool live in such a space?
 
-workflow:
-1. Reinier (look link to data quality) April 22, Patrick/Peter (sustainability aspect) by end of April latest, Andrea would have another go on the document and make implementation section (use of the document until end of ….) - By April 22
-2. Andrea asks Peter who we know at the SSI in UK - could they look at our guidelines? [we added some dimensions, their feedback would be great] - April 15
-2. go back to Maarten for end-check - flag out where we need comments and where we need input [here - make visible in the PDF, i.e. Single-signon
-3. send it to Geert-Jan May 10-15 and ask him with whom to share further - would also ask him to make it more specific if needed; give scores to criteria depending on CLARIAH (may also depend on software) Emphasis given by the implementation for CLARIAH => thresholds we want to set 
-4.  share text with managers and developers (including implementation section) workshop (awareness raising, coupled to a more general infrastructure meeting, May 18 next/testing with specific people
-first run done pre-summer 
+%workflow:
+%1. Reinier (look link to data quality) April 22, Patrick/Peter (sustainability aspect) by end of April latest, Andrea would have another go on the document and make implementation section (use of the document until end of ….) - By April 22
+%2. Andrea asks Peter who we know at the SSI in UK - could they look at our guidelines? [we added some dimensions, their feedback would be great] - April 15
+%2. go back to Maarten for end-check - flag out where we need comments and where we need input [here - make visible in the PDF, i.e. Single-signon
+%3. send it to Geert-Jan May 10-15 and ask him with whom to share further - would also ask him to make it more specific if needed; give scores to criteria depending on CLARIAH (may also depend on software) Emphasis given by the implementation for CLARIAH => thresholds we want to set 
+%4.  share text with managers and developers (including implementation section) workshop (awareness raising, coupled to a more general infrastructure meeting, May 18 next/testing with specific people
+%first run done pre-summer 
 
-ideally, developers have an assessment routine and we plugin 
-promote software which has run through it 
-interactive survey is a great idea
-SSI has also an interactive survey  
+%ideally, developers have an assessment routine and we plugin 
+%promote software which has run through it 
+%interactive survey is a great idea
+%SSI has also an interactive survey  
 
 
 
