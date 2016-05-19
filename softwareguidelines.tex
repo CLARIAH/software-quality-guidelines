@@ -649,6 +649,14 @@ Webservice interfaces need to be similarly responsive and not time out. Server
 interfaces furthermore demands multi-threading and need to be able handle
 multiple clients concurrently.
 
+\indicator{PF5 - Does the software scale as intended?}
+
+Proper facilities should be implemented to allow scaling \emph{if} the software is
+intended to handle big data and/or large user bases. Performance should remain
+acceptable at such levels.  Scaling can be horizontal, where multiple CPU cores
+or multiple machines are put to work to distribute the load, or vertically by
+simply adding more resources. In a data-sense, horizontal scaling often implies
+a partitioning of the data.
 
 \section{Quality Assessment Criteria - Sustainability and Maintainability}
 
