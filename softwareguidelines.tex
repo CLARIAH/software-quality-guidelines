@@ -6,6 +6,8 @@
 \usepackage{natbib}
 \usepackage[margin=3cm]{geometry}
 \usepackage{parskip}
+\usepackage{calc} % Needed for Appendix table - rdv
+
 \newcommand{\subtitle}[1]{%
   \posttitle{%
     \par\end{center}
@@ -96,19 +98,65 @@ observe that good development practice is less followed in academia than in the
 commercial sector, which leads to problems in maintenance and adoption. They
 set out to promote good software development practice, good models of
 sustainability and dissemination of the best software across application
-areas/disciplines. We fully agree with these goals and these guidelines are
+areas/disciplines. We fully agree with these goals, and the guidelines presented here are
 intended to respond, on a practical level, to these with specific software
 quality criteria, explicitly encompassing sustainability as well.
 
-We start this document with the essentials: definitions and the state-of-art
+After a discussion of the context within which the issue of software quality is placed, we start the main part of this  document with the essentials: definitions and the state-of-art
 of discussions around software quality criteria. The aim is, in an iterative
 process, to tailor the guidelines to the needs of the involved partners (ICT,
 research and archives). For the context of questions of software quality in SSH
 research infrastructures see the last section in this document.
 
+\section{Context}
+
+Software Quality is an issue for software engineering. In the same way that
+experimental research depends on the quality of its instruments and the
+processes to use them properly, the quality of software influences the outcome
+of any computational processes: its accuracy (it should deliver what it
+was built for) as well as its efficiency (it should do this as efficient in
+time and with respect to use of resources). At a first glance, software
+quality concerns the quality of software code as a product (sometimes
+called its functional quality). But, software products do not exist in
+isolation. They often form part of an architecture. So the quality of software
+concerns not only the level of source code, of a unit, but also its interplay
+with technology and systems (called structural quality).
+\footnote{\url{https://en.wikipedia.org/wiki/Software\_quality}}
+
+Not surprisingly, \textit{software quality} is a term that emerged within software
+engineering in the 1950's. The term \textit{software sustainability}, however, is far less widespread. One
+could also say that with a more mature level of relying on software
+technologies, the aspect of their sustainability becomes more prevalent. The
+more software (and hardware) become seamless, invisible and move to the
+background, the more important becomes their quality also for use in the long
+term. The latter is one aspect of sustainability.
+
+For infrastructures that aim to be reliable and supportive, the
+reliability and sustainability of elements they are built of is a must.
+% picture on how software and infrastructure - architecture are related
+For research infrastructures, an additional element that enhances the
+complexity emerges. Research practices by their very nature are changing in time. While
+we might rely on consolidated methods and theories to some extent - at least
+for the phases of normal science outside of the Kuhnian scientific revolutions
+- the research questions are supposed to change all the time, securely targeted
+towards the \textit{unknown}. As a consequence, the application of methods and
+theories - their recombination (to use an evolutionary term) is at the heart of
+research. For research based on the application of digital methods on digital
+material this implies a kind of constant revolution in software tools - those
+digital instruments.  For science history that is actually not new. If we look
+into the history of instrumentation [TODO: find reference] we will see outsourcing of %TODO: find reference
+instrument-making to industries and re-appropriating them for lab research; and
+the tailor-made development of instruments both occurring at the same time.  For an
+evaluation of software as part of a research infrastructure the
+differentiation between tools which are \textit{explorative} and tools
+which are \textit{stable and reproducible} is crucial. It makes sense to require
+quality assessment for both, but not all levels of the
+checklists presented in these guidelines might be of equal importance for all tools developed. To
+differentiate between them is one add-on task in developing these guidelines. 
+
 \section{Introduction - glossary of terms}
 
-Assessing software or data quality, however, is not a trivial matter. 
+Assessing software or data quality is not a trivial matter. 
 
 Whenever we refer to \emph{software}, we intend the term in a broad sense and
 encompassing all of the following aspects:
@@ -208,6 +256,7 @@ Analysability & Easy to understand at the source-code level? \\
 Changeability & Easy to modify and contribute changes? \\
 Evolvability & Evidence of current/future development? \\
 Interoperability & Interoperable with other required/related software? \\
+\hline
 \end{tabular}
 \caption{Software quality criteria according to the SSI \citep{SSIGUIDE}. (with some minor paraphrasing)}
 \label{tab:criteria}
@@ -247,16 +296,24 @@ made whenever there is a relationship between indicators.
 
 \section{Quality Assessment Criteria - Usability}
 
-\subsection{Understandability}
+\subsection{Understandability}\label{sec:und}
 
-\indicator{U1 -- Is it clear what the software does?}
+\newcommand{\uOneName}{U1}
+\newcommand{\uOneID}{\uOneName}
+\newcommand{\uOneText}{Is it clear what the software does?}
+\indicator{\uOneName{ }--{ }\uOneText}\label{id:u1}
+%\indicator{U1 -- Is it clear what the software does?}
 
 Software must be accompanied be a clear and concise high-level description,
 describing what exactly it does. Both the \texttt{README} file that ships with
 the software (see IS7) as well as the project website (see ID2) should contain
 this information. 
 
-\indicator{U2 -- Is it clear for whom the software is intended?}
+\newcommand{\uTwoName}{U2}
+\newcommand{\uTwoID}{\uTwoName}
+\newcommand{\uTwoText}{Is it clear for whom the software is intended?}
+\indicator{\uTwoName{ }--{ }\uTwoText}\label{id:u2}
+%\indicator{U2 -- Is it clear for whom the software is intended?}
 
 It should be clear who are the intended users for the software. Software is
 usually not appropriate for all audiences. Gearing software at multiple
@@ -265,26 +322,38 @@ line interface (CLI) , graphical user interface (GUI), web-user interface
 (WUI), web service) is good practice. References to projects already using the
 software are recommended (see also CM1).
 
-\indicator{U3 -- Is it clear how the software works?}
+\newcommand{\uThreeName}{U3}
+\newcommand{\uThreeID}{\uThreeName}
+\newcommand{\uThreeText}{Is it clear how the software works?}
+\indicator{\uThreeName{ }--{ }\uThreeText}\label{id:u3}
+%\indicator{U3 -- Is it clear how the software works?}
 
 There should be a high-level description explaining how the software
 accomplishes its task. Links to publications are recommended. Also, a schema
 offering an architectural overview is suggested where appropriate. 
 
-\indicator{U4 -- Is the software motivated?}
+\newcommand{\uFourName}{U4}
+\newcommand{\uFourID}{\uFourName}
+\newcommand{\uFourText}{Is the software motivated?}
+\indicator{\uFourName{ }--{ }\uFourText}\label{id:u4}
+%\indicator{U4 -- Is the software motivated?}
 
 There should be a written motivation for why the software does things the way
 it does and why it was designed in the first place. It should be clear what
 problems are solved by it. Links to publications and comparisons to similar
 software are strongly recommended.
 
-\subsection{Documentation}
+\subsection{Documentation}\label{sec:doc}
 
 When we refer to documentation, we refer to the set of all documentation
 available for the software. This may consists of different types of
 documentation for different audiences, and may include published papers.
 
-\indicator{D1 -- Is there documentation?}
+\newcommand{\dOneName}{D1}
+\newcommand{\dOneID}{\dOneName}
+\newcommand{\dOneText}{Is there documentation?}
+\indicator{\dOneName{ }--{ }\dOneText}\label{id:d1}
+%\indicator{D1 -- Is there documentation?}
 
 All software should be properly documented. Software without any documentation
 is as good as useless. At the very least, there should be some documentation at
@@ -302,17 +371,29 @@ considered a bare minimum level of documentation.
 % <proycon@anaproy.nl> 2016-04-06: No, I intended to mean a minimum level
 % targetted for the appropriate audience. I added to the text 
 
-\indicator{D2 -- Is the documentation accessible?}
+\newcommand{\dTwoName}{D2}
+\newcommand{\dTwoID}{\dTwoName}
+\newcommand{\dTwoText}{Is the documentation accessible?}
+\indicator{\dTwoName{ }--{ }\dTwoText}\label{id:d2}
+%\indicator{D2 -- Is the documentation accessible?}
 
 Documentation must be publicly accessible and in an acceptable standard format
 such as HTML or PDF.
 
-\indicator{D3 -- Is the documentation clear?}
+\newcommand{\dThreeName}{D3}
+\newcommand{\dThreeID}{\dThreeName}
+\newcommand{\dThreeText}{Is the documentation clear?}
+\indicator{\dThreeName{ }--{ }\dThreeText}\label{id:d3}
+%\indicator{D3 -- Is the documentation clear?}
 
 Documentation should be written in clear language and clearly describe the software.
 Step-by-step and task-oriented instructions are recommended.
 
-\indicator{D4 -- Is the documentation complete?}
+\newcommand{\dFourName}{D4}
+\newcommand{\dFourID}{\dFourName}
+\newcommand{\dFourText}{Is the documentation complete?}
+\indicator{\dFourName{ }--{ }\dFourText}\label{id:d4}
+%\indicator{D4 -- Is the documentation complete?}
 
 Documentation should cover the entire software, including advanced features.
 Features that are not documented in any way are generally useless. 
@@ -331,13 +412,21 @@ Features that are not documented in any way are generally useless.
 % least also offer a high-level view before it goes into the finer details, not that it
 % should go beyond a high-level view (it should). I rephrased D6.
 
-\indicator{D5 -- Is the documentation accurate?}
+\newcommand{\dFiveName}{D5}
+\newcommand{\dFiveID}{\dFiveName}
+\newcommand{\dFiveText}{Is the documentation accurate?}
+\indicator{\dFiveName{ }--{ }\dFiveText}\label{id:d5}
+%\indicator{D5 -- Is the documentation accurate?}
 
 Documentation should describe the advertised version and not be out-of-date
 with the latest release. Examples should be in line with how the tool looks and
 behaves.
 
-\indicator{D6 -- Does the documentation provide a high-level overview of the software?}
+\newcommand{\dSixName}{D6}
+\newcommand{\dSixID}{\dSixName}
+\newcommand{\dSixText}{Does the documentation provide a high-level overview of the software?}
+\indicator{\dSixName{ }--{ }\dSixText}\label{id:d6}
+%\indicator{D6 -- Does the documentation provide a high-level overview of the software?}
 
 A high-level overview of the software should be an integral part of the
 documentation, alongside more detailed instruction where appropriate.
@@ -347,46 +436,73 @@ these details form a part of the larger picture.
 
 % <proycon@anaproy.nl> 2016-04-06: I rephrased this after Reinier's comment for D4.
 
-\indicator{D7 -- Are all the necessary audiences addressed, at their appropriate levels?}
+\newcommand{\dSevenName}{D7}
+\newcommand{\dSevenID}{\dSevenName}
+\newcommand{\dSevenText}{Are all the necessary audiences addressed, at their appropriate levels?}
+\indicator{\dSevenName{ }--{ }\dSevenText}\label{id:d7}
+%\indicator{D7 -- Are all the necessary audiences addressed, at their appropriate levels?}
 
 Different groups of users require different documentation. Developers require
 APIs if the software is a library (see L4), end-users require a walkthrough of the GUI
 if the software has one. A different level of expertise may be expected of
 different user groups, the documentation should assume the appropriate level.
 
-\indicator{D8 -- Does the documentation make use of adequate examples?}
+\newcommand{\dEightName}{D8}
+\newcommand{\dEightID}{\dEightName}
+\newcommand{\dEightText}{Does the documentation make use of adequate examples?}
+\indicator{\dEightName{ }--{ }\dEightText}\label{id:d8}
+%\indicator{D8 -- Does the documentation make use of adequate examples?}
 
 Documentation should contain examples appropriate for the interface that is
 described. Command-line interfaces should see examples of invocation and input
 and output. Graphical user interfaces should be illustrated through screenshots or
 screencasts. API references should contain source code examples of usage.
 
-\indicator{D9 -- Is there adequate troubleshooting information?}
+\newcommand{\dNineName}{D9}
+\newcommand{\dNineID}{\dNineName}
+\newcommand{\dNineText}{Is there adequate troubleshooting information?}
+\indicator{\dNineName{ }--{ }\dNineText}\label{id:d9}
+%\indicator{D9 -- Is there adequate troubleshooting information?}
 
 Documentation should include information on troubleshooting, i.e.\ a
 specification of possible error messages and explanation for resolution. A
 frequently asked questions (FAQ) section may be appropriate to cover this.
 
-\indicator{D10 -- Is the documentation available from the project website?}
+\newcommand{\dTenName}{D10}
+\newcommand{\dTenID}{\dTenName}
+\newcommand{\dTenText}{Is the documentation available from the project website?}
+\indicator{\dTenName{ }--{ }\dTenText}\label{id:d10}
+%\indicator{D10 -- Is the documentation available from the project website?}
 
 Documentation must be clearly linked from the project website.
 
-\indicator{D11 -- Is the documentation under version control?}
+\newcommand{\dElevenName}{D11}
+\newcommand{\dElevenID}{\dElevenName}
+\newcommand{\dElevenText}{Is the documentation under version control?}
+\indicator{\dElevenName{ }--{ }\dElevenText}\label{id:d11}
+%\indicator{D11 -- Is the documentation under version control?}
 
 The sources for documentation must be under version control like the source
 code, preferably alongside the code itself.
 
-\subsection{Learnability}
+\subsection{Learnability}\label{sec:lea}
 
 This category partially overlaps with the documentation criterion, but explicitly
 focusses on how straightforward it is to learn to use the software.
 
-\indicator{L1 -- Is there a getting started guide?}
+\newcommand{\lOneName}{L1}
+\newcommand{\lOneID}{\lOneName}
+\newcommand{\lOneText}{Is there a \textit{Getting started} guide?}
+\indicator{\lOneName{ }--{ }\lOneText}\label{id:l1} %TODO italics!
+%\indicator{L1 -- Is there a getting started guide?}
 
-A getting started guide outlines how to quickly get started with the software
-using a basic example.
+A \textit{Getting started} guide outlines how to quickly get started with the software using a basic example.
 
-\indicator{L2 -- Are there instructions for basic use cases?}
+\newcommand{\lTwoName}{L2}
+\newcommand{\lTwoID}{\lTwoName}
+\newcommand{\lTwoText}{Are there instructions for basic use cases?}
+\indicator{\lTwoName{ }--{ }\lTwoText}\label{id:l2} 
+%\indicator{L2 -- Are there instructions for basic use cases?}
 
 Instructions should be provided for at least basic use cases, and ideally for
 all possible use cases if this is feasible.
@@ -403,8 +519,11 @@ all possible use cases if this is feasible.
 % adverb ``ideally'' for that reason, I added another qualifier ``if this is
 % feasible''.
 
-
-\indicator{L3 -- Does the interface provide a help reference?}
+\newcommand{\lThreeName}{L3}
+\newcommand{\lThreeID}{\lThreeName}
+\newcommand{\lThreeText}{Does the interface provide a help reference?}
+\indicator{\lThreeName{ }--{ }\lThreeText}\label{id:l3} 
+%\indicator{L3 -- Does the interface provide a help reference?}
 
 Help options should be provided by the interface. Command line interfaces must
 have a -h/--help pair describing usage and all options. GUIs should use tooltips/hints to clarify
@@ -412,13 +531,20 @@ their widgets (or through whatever convention is customary for the
 platform/ecosystem). Alternatively, they can provide a help option referring to
 the documentation.
 
-\indicator{L4 -- Is there API documentation for developers?}
+\newcommand{\lFourName}{L4}
+\newcommand{\lFourID}{\lFourName}
+\newcommand{\lFourText}{Is there API documentation for developers?}
+\indicator{\lFourName{ }--{ }\lFourText}\label{id:l4} 
+%\indicator{L4 -- Is there API documentation for developers?}
 
 If the software is a programming library, API documentation must be provided.
 If the software is a web service, a specification of the web API must be provided.
 
-\indicator{L5 -- If the software is configurable, are the configuration
-options clearly explained?}
+\newcommand{\lFiveName}{L5}
+\newcommand{\lFiveID}{\lFiveName}
+\newcommand{\lFiveText}{If the software is configurable, are the configuration options clearly explained?}
+\indicator{\lFiveName{ }--{ }\lFiveText}\label{id:l5} 
+%\indicator{L5 -- If the software is configurable, are the configuration options clearly explained?}
 
 % * <reinierdevalk@gmail.com> 2016-03-30T15:46:17.721Z:
 %
@@ -434,7 +560,7 @@ configuration options and their effect should be clearly documented.
 Moreover, default values for configuration parameters, and their effect, should be
 clearly explained.
 
-\subsection{Buildability}
+\subsection{Buildability}\label{sec:bui}
 
 Buildability applies to all software written in languages that compile to
 either native machine code or any intermediate byte code to be interpreted by a VM.
@@ -444,7 +570,11 @@ Java, Pascal, Haskell, Scala, Rust, Cython but not to scripting language such
 as Python, Ruby, Perl, Go.  Note that buildability does not include
 installation, packaging, or deployment.
 
-\indicator{B1 -- Are there good instructions for building/compiling the software?}
+\newcommand{\bOneName}{B1}
+\newcommand{\bOneID}{\bOneName}
+\newcommand{\bOneText}{Are there good instructions for building/compiling the software?}
+\indicator{\bOneName{ }--{ }\bOneText}\label{id:b1} 
+%\indicator{B1 -- Are there good instructions for building/compiling the software?}
 
 Build/compilation instruction should be available and clear enough. They should
 be distributed alongside the software's source distribution (as part of an
@@ -452,7 +582,11 @@ be distributed alongside the software's source distribution (as part of an
 source distribution is the primary means of distribution, then build
 instructions should be prominently displayed on the project website as well.
 
-\indicator{B2 -- Is an established automated build system used?}
+\newcommand{\bTwoName}{B2}
+\newcommand{\bTwoID}{\bTwoName}
+\newcommand{\bTwoText}{Is an established automated build system used?}
+\indicator{\bTwoName{ }--{ }\bTwoText}\label{id:b2} 
+%\indicator{B2 -- Is an established automated build system used?}
 
 Established build systems should be used. For example the GNU Build
 System\footnote{Also known as the autotools.} or CMake for C/C++ (this is
@@ -460,7 +594,11 @@ preferred over a static Makefile); or Ant or Maven for Java.
 
 Solutions that are not tied to a single IDE are always preferred.
 
-\indicator{B3 -- Are all dependencies listed and available?}
+\newcommand{\bThreeName}{B3}
+\newcommand{\bThreeID}{\bThreeName}
+\newcommand{\bThreeText}{Are all dependencies listed and available?}
+\indicator{\bThreeName{ }--{ }\bThreeText}\label{id:b3}
+%\indicator{B3 -- Are all dependencies listed and available?}
 (related to IS2)
 
 All required or optional dependencies should be listed, including those by
@@ -472,16 +610,24 @@ instructions (i.e. package names) to accomplish this.
 Moreover, all listed dependencies should be available, unobtainable software
 can not be used as a dependency. Higher-order dependencies need not be listed.
 
-\indicator{B4 -- Are there tests to verify the build has succeeded?}
+\newcommand{\bFourName}{B4}
+\newcommand{\bFourID}{\bFourName}
+\newcommand{\bFourText}{Are there tests to verify the build has succeeded?}
+\indicator{\bFourName{ }--{ }\bFourText}\label{id:b4} 
+%\indicator{B4 -- Are there tests to verify the build has succeeded?}
 
 A build process should terminate with a testing stage that verifies its success.
 
-\subsection{Installability}
+\subsection{Installability}\label{sec:ins}
 
 Installability concerns the deployment of software on the target platform, also
 including configuration of the software to the user's needs.
 
-\indicator{IS1 -- Are there easily accessible installation instructions?}
+\newcommand{\isOneName}{IS1}
+\newcommand{\isOneID}{\isOneName}
+\newcommand{\isOneText}{Are there easily accessible installation instructions?}
+\indicator{\isOneName{ }--{ }\isOneText}\label{id:is1} 
+%\indicator{IS1 -- Are there easily accessible installation instructions?}
 
 All software must come with installation instructions. Those instructions should
 be easily accessible and presented on the project website as well as shipped
@@ -489,7 +635,11 @@ with the software in the README or INSTALL file (see also IS7). Build and instal
 instructions can be combined if the software is published as a source
 distribution.
 
-\indicator{IS2 -- Are all dependencies listed and available?}
+\newcommand{\isTwoName}{IS2}
+\newcommand{\isTwoID}{\isTwoName}
+\newcommand{\isTwoText}{Are all dependencies listed and available?}
+\indicator{\isTwoName{ }--{ }\isTwoText}\label{id:is2} 
+%\indicator{IS2 -- Are all dependencies listed and available?}
 (related to B3)
 
 All required or optional dependencies should be listed, including those by
@@ -511,9 +661,11 @@ can not be used as a dependency. Higher-order dependencies need not be listed.
 %The text is much the same indeed though, cross-referencing may be a solution
 %here, not sure what would be best.
 
-
-\indicator{IS3 -- Does the installation procedure comply to best practices
-in the ecosystem around the programming language?}
+\newcommand{\isThreeName}{IS3}
+\newcommand{\isThreeID}{\isThreeName}
+\newcommand{\isThreeText}{Does the installation procedure comply to best practices in the ecosystem around the programming language?}
+\indicator{\isThreeName{ }--{ }\isThreeText}\label{id:is3} 
+%\indicator{IS3 -- Does the installation procedure comply to best practices in the ecosystem around the programming language?}
 
 The ecosystem surrounding programming languages may come with standard
 procedures for installation. Software should comply to these rather than use
@@ -532,7 +684,11 @@ ad-hoc mechanisms. If the ecosystem has facilities for dependency management
 %finish the Java bullet point. I guess it will mention ant and/or maven, but
 %I'm not too up to date on what the current state of the Java ecosystem is.
 
-\indicator{IS4 -- Is the software packaged according to standards for the target platform?}
+\newcommand{\isFourName}{IS4}
+\newcommand{\isFourID}{\isFourName}
+\newcommand{\isFourText}{Is the software packaged according to standards for the target platform?}
+\indicator{\isFourName{ }--{ }\isFourText}\label{id:is4} 
+%\indicator{IS4 -- Is the software packaged according to standards for the target platform?}
 
 If the software has a well-defined target platform and is intended for adoption
 by a wider audience, it is recommended to package it in the appropriate form.
@@ -568,7 +724,11 @@ software.
 It is not always time- and cost-effective to package the software, especially not
 when there are multiple target platforms. 
 
-\indicator{IS5 -- Is the software package properly structured?}
+\newcommand{\isFiveName}{IS5}
+\newcommand{\isFiveID}{\isFiveName}
+\newcommand{\isFiveText}{Is the software package properly structured?}
+\indicator{\isFiveName{ }--{ }\isFiveText}\label{id:is5} 
+%\indicator{IS5 -- Is the software package properly structured?}
 
 The contents of the package should be properly organised in sub-directories
 (for documentation, headers, source, etc..). Conventions may differ between
@@ -578,38 +738,58 @@ If software is distributed as a plain archive (tar.gz, tar.bz2, zip or otherwise
 it must create a single directory when unpacked rather than spread its contents
 over the current working directory.
 
-\indicator{IS6 -- Is the software properly structured when installed?}
+\newcommand{\isSixName}{IS6}
+\newcommand{\isSixID}{\isSixName}
+\newcommand{\isSixText}{Is the software properly structured when installed?}
+\indicator{\isSixName{ }--{ }\isSixText}\label{id:is6} 
+%\indicator{IS6 -- Is the software properly structured when installed?}
 
 When the software is installed, it should adhere to file placement standards set
 by the target platform. On Unix-like operating systems (excluding Mac OS X), the Filesystem
 Hierarchy Standard\footnote{\url{http://refspecs.linuxfoundation.org/fhs.shtml}} (FHS) should be followed.
 
-\indicator{IS7 -- The software must include a README}
+\newcommand{\isSevenName}{IS7}
+\newcommand{\isSevenID}{\isSevenName}
+\newcommand{\isSevenText}{The software must include a README.}
+\indicator{\isSevenName{ }--{ }\isSevenText}\label{id:is7} 
+%\indicator{IS7 -- The software must include a README.}
 
 The \texttt{README} file must contain links to the project website, as well as
 license and copyright information. The README should be either plain-text or
 preferably in an unobtrusive mark-up format such as
 Markdown\footnote{\url{http://daringfireball.net/projects/markdown/}} or
-ReStructuredText\foornote{\url{http://docutils.sourceforge.net/rst.html}}.
+ReStructuredText\footnote{\url{http://docutils.sourceforge.net/rst.html}}.
 
 If a public version control platform such as GitHub is used (see AC2), the
 README will usually be visualised on the repository page.
 
-\indicator{IS8 -- Are there facilities to uninstall the software?}
+\newcommand{\isEightName}{IS8}
+\newcommand{\isEightID}{\isEightName}
+\newcommand{\isEightText}{Are there facilities to uninstall the software?}
+\indicator{\isEightName{ }--{ }\isEightText}\label{id:is8} 
+%\indicator{IS8 -- Are there facilities to uninstall the software?}
 
 This is usually trivial when the software complies to IS4 and/or IS3, or if the
 software installation is self-contained in a single directory. In all other
 instances, proper uninstallation facilities should be explicitly implemented.
 
-\indicator{IS9 -- Are the system requirements such as target platform clearly advertised?}
+\newcommand{\isNineName}{IS9}
+\newcommand{\isNineID}{\isNineName}
+\newcommand{\isNineText}{Are the system requirements such as target platform clearly advertised?}
+\indicator{\isNineName{ }--{ }\isNineText}\label{id:is9} 
+%\indicator{IS9 -- Are the system requirements such as target platform clearly advertised?}
 
 The project website must state clearly state what target platform(s) the software is expected to run on.
 System requirements in terms of computing resources must be stated if the software employs more than insignificant resources (see PF2).
 (related also to B3 and IS2)
 
-\subsection{Performance}
+\subsection{Performance}\label{sec:per}
 
-\indicator{PF1 -- Does the software perform its function(s) as efficiently as can be expected?}
+\newcommand{\pfOneName}{PF1}
+\newcommand{\pfOneID}{\pfOneName}
+\newcommand{\pfOneText}{Does the software perform its function(s) as efficiently as can be expected?}
+\indicator{\pfOneName{ }--{ }\pfOneText}\label{id:pf1} 
+%\indicator{PF1 -- Does the software perform its function(s) as efficiently as can be expected?}
 
 Software should employ efficient algorithms to perform its task. Obvious performance bottlenecks \emph{may} be an indication of sub-optimal design choices.
 % * <reinierdevalk@gmail.com> 2016-03-30T16:05:28.991Z:
@@ -625,7 +805,11 @@ Software should employ efficient algorithms to perform its task. Obvious perform
 %an indication that such a deeper check is warranted.
 (Consider also U4)
 
-\indicator{PF2 -- Does the software make a reasonable demand on computing resources?}
+\newcommand{\pfTwoName}{PF2}
+\newcommand{\pfTwoID}{\pfTwoName}
+\newcommand{\pfTwoText}{Does the software make a reasonable demand on computing resources?}
+\indicator{\pfTwoName{ }--{ }\pfTwoText}\label{id:pf2} 
+%\indicator{PF2 -- Does the software make a reasonable demand on computing resources?}
 
 Software should not place an unreasonable demand on computing resource (memory,
 CPU time). Overuse of resources \emph{may} be an indication of sub-optimal
@@ -637,25 +821,36 @@ Be aware that there is often a trade-off between speed and memory usage. The
 developer of the decision must make an appropriate decision favouring one or the other
 given the task at hand. 
 
-\indicator{PF3 -- Does the software make efficient use of available resources?}
+\newcommand{\pfThreeName}{PF3}
+\newcommand{\pfThreeID}{\pfThreeName}
+\newcommand{\pfThreeText}{Does the software make efficient use of available resources?}
+\indicator{\pfThreeName{ }--{ }\pfThreeText}\label{id:pf3} 
+%\indicator{PF3 -- Does the software make efficient use of available resources?}
 
 Software should make use of available resources if it helps getting the job
 done faster. For instance, if multiple CPU cores are available and the task at hand
 would benefit significantly from parallelisation, then the implementation should be
 multithreaded to make use of said cores.
 
-\indicator{PF4 -- Is the interface responsive?}
+\newcommand{\pfFourName}{PF4}
+\newcommand{\pfFourID}{\pfFourName}
+\newcommand{\pfFourText}{Is the interface responsive?}
+\indicator{\pfFourName{ }--{ }\pfFourText}\label{id:pf4}
+%\indicator{PF4 -- Is the interface responsive?}
 
 GUIs and WUIs should be responsive and deliver clear feedback when the user is
 to await the completion of the task. GUIs and WUIs should use asynchronous methods for
 handling user-interface interaction. Interaction with the interface should not
 be blocked needlessly.
 
-Webservice interfaces need to be similarly responsive and not time out. Server
-interfaces furthermore demand multi-threading and need to be able handle
+Webservice interfaces need to be similarly responsive and not time out. Server interfaces furthermore demand multi-threading and need to be able to handle
 multiple clients concurrently.
 
-\indicator{PF5 - Does the software scale as intended?}
+\newcommand{\pfFiveName}{PF5}
+\newcommand{\pfFiveID}{\pfFiveName}
+\newcommand{\pfFiveText}{Does the software scale as intended?}
+\indicator{\pfFiveName{ }--{ }\pfFiveText}\label{id:pf5} 
+%\indicator{PF5 - Does the software scale as intended?}
 
 Proper facilities should be implemented to allow scaling \emph{if} the software is
 intended to handle big data and/or large user bases. Performance should remain
@@ -666,14 +861,22 @@ a partitioning of the data.
 
 \section{Quality Assessment Criteria - Sustainability and Maintainability}
 
-\subsection{Identity}
+\subsection{Identity}\label{sec:ide}
 
-\indicator{ID1 -- Does the software provide a clear and unique identity?}
+\newcommand{\idOneName}{ID1}
+\newcommand{\idOneID}{\idOneName}
+\newcommand{\idOneText}{Does the software provide a clear and unique identity?}
+\indicator{\idOneName{ }--{ }\idOneText}\label{id:id1} 
+%\indicator{ID1 -- Does the software provide a clear and unique identity?}
 
 Software should be identifiable by a clear name that does not clash with others
 in its application domain and in the wider generic software domain. 
 
-\indicator{ID2 -- Does the software have a website?}
+\newcommand{\idTwoName}{ID2}
+\newcommand{\idTwoID}{\idTwoName}
+\newcommand{\idTwoText}{Does the software have a website?}
+\indicator{\idTwoName{ }--{ }\idTwoText}\label{id:id2} 
+%\indicator{ID2 -- Does the software have a website?}
 
 The software should have a website that describes it, allows users to obtain
 it as well as its documentation. The website should be a portal to everything
@@ -681,13 +884,21 @@ related to the software.
 
 It is recommended to have a dedicated domain name or subdomain.
 
-\indicator{ID3 -- Does the project name not violate an existing trade-mark?}
+\newcommand{\idThreeName}{ID3}
+\newcommand{\idThreeID}{\idThreeName}
+\newcommand{\idThreeText}{Does the project name not violate an existing trade-mark?}
+\indicator{\idThreeName{ }--{ }\idThreeText}\label{id:id3} 
+%\indicator{ID3 -- Does the project name not violate an existing trade-mark?}
 
 The project name should not infringe on existing trade-marks.
 
-\subsection{Copyright \& Licensing}
+\subsection{Copyright \& Licensing}\label{sec:cop}
 
-\indicator{CP1 -- Has an appropriate open-source license been adopted?}
+\newcommand{\cpOneName}{CP1}
+\newcommand{\cpOneID}{\cpOneName}
+\newcommand{\cpOneText}{Has an appropriate open-source license been adopted?}
+\indicator{\cpOneName{ }--{ }\cpOneText}\label{id:cp1} 
+%\indicator{CP1 -- Has an appropriate open-source license been adopted?}
 
 Software should be released as open source under an appropriate license. The
 license should be recognised by the Open Source Initiative\footnote{https://opensource.org} or Free Software
@@ -712,29 +923,43 @@ open source and ``aims to create an inclusive open-source engineering community
 that will carry on providing new tools and support for users after the end of
 the CLARIAH project'' \citep{CLARIAHTECHPLAN1}.
 
-
-\indicator{CP2 -- Is it clear who wrote the software, who owns the
+\newcommand{\cpTwoName}{CP2}
+\newcommand{\cpTwoID}{\cpTwoName}
+\newcommand{\cpTwoText}{Is it clear who wrote the software, who owns the
 copyright, and what the license is?}
+\indicator{\cpTwoName{ }--{ }\cpTwoText}\label{id:cp2} 
+%\indicator{CP2 -- Is it clear who wrote the software, who owns the copyright, and what the license is?}
 
 Authors, copyright and license should be clearly mentioned on the project
-website, as well as in the source code.  We strongly recommend each source file
-to contain a comment header stating this information.
+website, as well as in the source code.  We strongly recommend each source file to contain a comment header stating this information.
 
-\indicator{CP3 -- Are the funders acknowledged?}
+\newcommand{\cpThreeName}{CP3}
+\newcommand{\cpThreeID}{\cpThreeName}
+\newcommand{\cpThreeText}{Are the funders acknowledged?}
+\indicator{\cpThreeName{ }--{ }\cpThreeText}\label{id:cp3} 
+%\indicator{CP3 -- Are the funders acknowledged?}
 
 Any external funders of the software should be publicly acknowledged on the project
 website, and in the \texttt{README}.
 
-\subsection{Accessibility}
+\subsection{Accessibility}\label{sec:acc}
 
-\indicator{AC1 -- Is the source code maintained in a version control system?}
+\newcommand{\acOneName}{AC1}
+\newcommand{\acOneID}{\acOneName}
+\newcommand{\acOneText}{Is the source code maintained in a version control system?}
+\indicator{\acOneName{ }--{ }\acOneText}\label{id:ac1} 
+%\indicator{AC1 -- Is the source code maintained in a version control system?}
 
 Source code must always be kept under version control. This enables developers
 to collaborate, maintains a perfect version history, and allows everyone keep a
 track of changes. Absence of version control is bad development practice and
 unsustainable.
 
-\indicator{AC2 -- Is the source code in a public version-controlled repository?}
+\newcommand{\acTwoName}{AC2}
+\newcommand{\acTwoID}{\acTwoName}
+\newcommand{\acTwoText}{Is the source code in a public version-controlled repository?}
+\indicator{\acTwoName{ }--{ }\acTwoText}\label{id:ac2} 
+%\indicator{AC2 -- Is the source code in a public version-controlled repository?}
 
 The version control repository should be public (read only) in the spirit of both open
 source, as well as the scientific method (transparency, peer review,
@@ -765,12 +990,20 @@ We motivate our reasoning in favour of public version control repositories as fo
 
 (depends on AC1)
 
-\indicator{AC3 -- Is there no restricted data in the public source code repository?}
+\newcommand{\acThreeName}{AC3}
+\newcommand{\acThreeID}{\acThreeName}
+\newcommand{\acThreeText}{Is there no restricted data in the public source code repository?}
+\indicator{\acThreeName{ }--{ }\acThreeText}\label{id:ac3} 
+%\indicator{AC3 -- Is there no restricted data in the public source code repository?}
 
 Privacy and security sensitive data (passwords, API keys), as well as other
 restricted data, should never be checked into public version control systems.
 
-\indicator{AC4 -- Are there clearly marked formal releases of software?}
+\newcommand{\acFourName}{AC4}
+\newcommand{\acFourID}{\acFourName}
+\newcommand{\acFourText}{Are there clearly marked formal releases of software?}
+\indicator{\acFourName{ }--{ }\acFourText}\label{id:ac4} 
+%\indicator{AC4 -- Are there clearly marked formal releases of software?}
 
 The software should be formally released when the developers deem it a good
 time. Each release should be clearly marked with the version number of the
@@ -778,8 +1011,11 @@ software, according to a consistent scheme. The version control system should
 also have clearly identifiable tags that mark the state of the repository at
 the time of this release.
 
-
-\indicator{AC5 -- Is the software deposited in a public repository for the language?}
+\newcommand{\acFiveName}{AC5}
+\newcommand{\acFiveID}{\acFiveName}
+\newcommand{\acFiveText}{Is the software deposited in a public repository for the language?}
+\indicator{\acFiveName{ }--{ }\acFiveText}\label{id:ac5} 
+%\indicator{AC5 -- Is the software deposited in a public repository for the language?}
 
 The ecosystems surrounding various high-level programming languages offer
 public repositories in which installable software release packages should be
@@ -801,7 +1037,11 @@ Use of these repositories is strongly recommended practice if available.
         RubyGems: \url{https://rubygems.org}
 \end{itemize}
 
-\indicator{AC6 - Is the software available in the target platform's software repository?}
+\newcommand{\acSixName}{AC6}
+\newcommand{\acSixID}{\acSixName}
+\newcommand{\acSixText}{Is the software available in the target platform's software repository?}
+\indicator{\acSixName{ }--{ }\acSixText}\label{id:ac6} 
+%\indicator{AC6 - Is the software available in the target platform's software repository?}
 
 If the software has a well-defined target platform and the target platform has
 a public software repository available, then it is recommended to submit the
@@ -833,7 +1073,11 @@ especially not when there are multiple target platforms. When the software is
 not intended for adoption by a wider audience, it can be considered to ignore
 this guideline.
 
-\indicator{AC7 -- Is each software release deposited in a persistent store with a unique DOI?}
+\newcommand{\acSevenName}{AC7}
+\newcommand{\acSevenID}{\acSevenName}
+\newcommand{\acSevenText}{Is each software release deposited in a persistent store with a unique DOI?}
+\indicator{\acSevenName{ }--{ }\acSevenText}\label{id:ac7} 
+%\indicator{AC7 -- Is each software release deposited in a persistent store with a unique DOI?}
 
 Persistent stores aim to preserve research output. They aim for a longevity
 that can not be guaranteed by normal software repositories. Each software
@@ -847,12 +1091,16 @@ for this is provided at https://guides.github.com/activities/citable-code/.}.
 Any releases made on GitHub will then automatically transfer to Zenodo and
 receive a DOI, no user intervention is necessary. 
 
-\subsection{Community}
+\subsection{Community}\label{sec:com}
 
 This aspect concerns to what extent an active user community exists for the
 software.
 
-\indicator{CM1 - Is there evidence of the software being in use by others?}
+\newcommand{\cmOneName}{CM1}
+\newcommand{\cmOneID}{\cmOneName}
+\newcommand{\cmOneText}{Is there evidence of the software being in use by others?}
+\indicator{\cmOneName{ }--{ }\cmOneText}\label{id:cm1} 
+%\indicator{CM1 - Is there evidence of the software being in use by others?}
 
 It is recommended to list on the project website if the software has 
 users aside from the primary developers and their immediate institution, this
@@ -869,23 +1117,35 @@ In addition to the aforementioned, evidence for this activity may also be sought
 in contributions to the software by external developers (assuming
 compliance with AC2), or questions in the issue/bug tracker or mailing lists.
 
-\indicator{CM2 - Is there evidence of external developers?}
+\newcommand{\cmTwoName}{CM2}
+\newcommand{\cmTwoID}{\cmTwoName}
+\newcommand{\cmTwoText}{Is there evidence of external developers?}
+\indicator{\cmTwoName{ }--{ }\cmTwoText}\label{id:cm2} 
+%\indicator{CM2 - Is there evidence of external developers?}
 
 External developers, not related to the original developers or their
 institution, are a good sign of community interest. The threshold for
 contributing is relatively high. Compliance with this indicator is greatly
 facilitated by compliance with AC2.
 
-\indicator{CM3 - Are there statistics available on software use?}
+\newcommand{\cmThreeName}{CM3}
+\newcommand{\cmThreeID}{\cmThreeName}
+\newcommand{\cmThreeText}{Are there statistics available on software use?}
+\indicator{\cmThreeName{ }--{ }\cmThreeText}\label{id:cm3} 
+%\indicator{CM3 - Are there statistics available on software use?}
 
 To gain an impression of user interest, it is recommended to have statistics
 available on how often the software is downloaded or how often the project page
 is visited. Public availability of these statistics (stripped of any privacy
 sensitive information), is recommended.
 
-\subsection{Testability}
+\subsection{Testability}\label{sec:tes}
 
-\indicator{TS1 -- Does the project have unit tests, is there sufficient coverage?}
+\newcommand{\tsOneName}{TS1}
+\newcommand{\tsOneID}{\tsOneName}
+\newcommand{\tsOneText}{Does the project have unit tests, is there sufficient coverage?}
+\indicator{\tsOneName{ }--{ }\tsOneText}\label{id:ts1} 
+%\indicator{TS1 -- Does the project have unit tests, is there sufficient coverage?}
 
 Software should have unit tests that automatically test individual units of the
 source code. They verify the data and logic flow by testing whether the output,
@@ -895,17 +1155,29 @@ It is important that the tests cover enough of the source code. Automated tools
 and platforms are available that can help in this assessment, such as
 \url{https://coveralls.io} and \url{https://codacy.com}.
 
-\indicator{TS2 -- Does the project have integration tests, is there sufficient coverage?}
+\newcommand{\tsTwoName}{TS2}
+\newcommand{\tsTwoID}{\tsTwoName}
+\newcommand{\tsTwoText}{Does the project have integration tests, is there sufficient coverage?}
+\indicator{\tsTwoName{ }--{ }\tsTwoText}\label{id:ts2} 
+%\indicator{TS2 -- Does the project have integration tests, is there sufficient coverage?}
 
 Software should have integration tests that combine invididual parts of modules and see how they function
 as a group.
 
-\indicator{TS3 -- Does the project have automated GUI tests?}
+\newcommand{\tsThreeName}{TS3}
+\newcommand{\tsThreeID}{\tsThreeName}
+\newcommand{\tsThreeText}{Does the project have automated GUI tests?}
+\indicator{\tsThreeName{ }--{ }\tsThreeText}\label{id:ts3} 
+%\indicator{TS3 -- Does the project have automated GUI tests?}
 
 If the software offers a non-trivial GUI or WUI, it should have automated tests
 that verify whether the interface functions as intended.
 
-\indicator{TS4 -- Are tests run automatically?}
+\newcommand{\tsFourName}{TS4}
+\newcommand{\tsFourID}{\tsFourName}
+\newcommand{\tsFourText}{Are tests run automatically?}
+\indicator{\tsFourName{ }--{ }\tsFourText}\label{id:ts4} 
+%\indicator{TS4 -- Are tests run automatically?}
 
 It is recommended that tests be run automatically, either through continuous
 integration testing or periodically at a predefined interval. Free public
@@ -919,22 +1191,34 @@ upon each commit and notifying the developer when the test suite fails.
 It is strongly recommended that test results are publicly available, so users
 can more quickly assess software quality.
 
-\subsection{Portability}
+\subsection{Portability}\label{sec:por}
 
 Portability concerns the extent to which software can be used on multiple
 platforms. 
 
-\indicator{PB1 -- Is is clear for what platforms the software is written?}
+\newcommand{\pbOneName}{PB1}
+\newcommand{\pbOneID}{\pbOneName}
+\newcommand{\pbOneText}{Is it clear for what platforms the software is written?}
+\indicator{\pbOneName{ }--{ }\pbOneText}\label{id:pb1} 
+%\indicator{PB1 -- Is it clear for what platforms the software is written?}
 
 It should be clear, from at least the project website, for what platforms the software
 is intended.
 
-\indicator{PB2 -- Is the software portable for multiple platforms?}
+\newcommand{\pbTwoName}{PB2}
+\newcommand{\pbTwoID}{\pbTwoName}
+\newcommand{\pbTwoText}{Is the software portable for multiple platforms?}
+\indicator{\pbTwoName{ }--{ }\pbTwoText}\label{id:pb2} 
+%\indicator{PB2 -- Is the software portable for multiple platforms?}
 
 It is recommended to support a wide variety of platforms rather than a single
 one. This, however, is not always feasible or cost and time effective.
 
-\indicator{PB3 -- Does the software work on multiple browsers?}
+\newcommand{\pbThreeName}{PB3}
+\newcommand{\pbThreeID}{\pbThreeName}
+\newcommand{\pbThreeText}{Does the software work on multiple browsers?}
+\indicator{\pbThreeName{ }--{ }\pbThreeText}\label{id:pb3} 
+%\indicator{PB3 -- Does the software work on multiple browsers?}
 
 This concerns only web-based software with a significant client-side component.
 Such software should function under recent versions of all major browsers
@@ -946,17 +1230,25 @@ are themselves not portable. Adobe Flash or Microsoft Silverlight are two
 examples of badly portable legacy technologies that should be avoided, always use
 modern substitutes (HTML5) instead.
 
-\subsection{Supportability}
+\subsection{Supportability}\label{sec:sup}
 
 To what extent will the product be supported currently and in the future?
 
-\indicator{SP1 -- Is it clear whom to contact for support?}
+\newcommand{\spOneName}{SP1}
+\newcommand{\spOneID}{\spOneName}
+\newcommand{\spOneText}{Is it clear whom to contact for support?}
+\indicator{\spOneName{ }--{ }\spOneText}\label{id:sp1} 
+%\indicator{SP1 -- Is it clear whom to contact for support?}
 
 It should be clear where to go for support. A project must have a contact
 e-mail address. If an issue tracker is present (SP2), it should be clearly advertised
 as well.
 
-\indicator{SP2 -- Is there a public issue tracker?}
+\newcommand{\spTwoName}{SP2}
+\newcommand{\spTwoID}{\spTwoName}
+\newcommand{\spTwoText}{Is there a public issue tracker?}
+\indicator{\spTwoName{ }--{ }\spTwoText}\label{id:sp2} 
+%\indicator{SP2 -- Is there a public issue tracker?}
 
 A public issue/bug tracker is strongly recommended. It allows everyone to post
 bugs or features requests and allows users to see what issues are current, how
@@ -964,7 +1256,11 @@ they are resolved, and if they are resolved in a timely fashion. It also
 prevents helps to prevent duplication of issues, and gives a platform for
 tracking feature requests.
 
-\indicator{SP3 -- Is there a mailing list?}
+\newcommand{\spThreeName}{SP3}
+\newcommand{\spThreeID}{\spThreeName}
+\newcommand{\spThreeText}{Is there a mailing list?}
+\indicator{\spThreeName{ }--{ }\spThreeText}\label{id:sp3} 
+%\indicator{SP3 -- Is there a mailing list?}
 
 Projects with a fair amount of activity benefit from having a mailing list. It
 can function as a lesser substitute of SP2 (SP2 therefore may make this
@@ -972,12 +1268,16 @@ obsolete), but can also serve as an extra line of communications between users
 and developers. The mailing list must allow anyone to subscribe and must have a
 public archive allowing users to follow any issues and follow development.
 
-\subsection{Analysability}
+\subsection{Analysability}\label{sec:ana}
 
 This section concerns the extent to which the source code can be understood. At
 this level, the source code is inspected in closer detail.
 
-\indicator{AN1 -- Is the source code structured adequately?}
+\newcommand{\anOneName}{AN1}
+\newcommand{\anOneID}{\anOneName}
+\newcommand{\anOneText}{Is the source code structured adequately?}
+\indicator{\anOneName{ }--{ }\anOneText}\label{id:an1} 
+%\indicator{AN1 -- Is the source code structured adequately?}
 
 Source code should be modular, i.e. it should be structured into multiple
 modules/packages, following the requirements and conventions of the programming
@@ -988,11 +1288,19 @@ architecture or design of the software.
 
 (See also R3)
 
-\indicator{AN2 -- Is the source code commented adequately?}
+\newcommand{\anTwoName}{AN2}
+\newcommand{\anTwoID}{\anTwoName}
+\newcommand{\anTwoText}{Is the source code commented adequately?}
+\indicator{\anTwoName{ }--{ }\anTwoText}\label{id:an2} 
+%\indicator{AN2 -- Is the source code commented adequately?}
 
 The source code should contain comments explaining what major blocks do.
 
-\indicator{AN3 -- Do the comments generate API documentation?}
+\newcommand{\anThreeName}{AN3}
+\newcommand{\anThreeID}{\anThreeName}
+\newcommand{\anThreeText}{Do the comments generate API documentation?}
+\indicator{\anThreeName{ }--{ }\anThreeText}\label{id:an3} 
+%\indicator{AN3 -- Do the comments generate API documentation?}
 
 The comments use a mark-up that allows them to be used directly as the
 source for the generation of the API reference documentation. This is
@@ -1007,33 +1315,53 @@ source for the generation of the API reference documentation. This is
 accomplished using document generation tools such as Doxygen\footnote{\url{http://www.doxygen.org}}, Sphinx\footnote{\url{http://www.sphinx-doc.org}} or
 Javadoc\footnote{\url{http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html}}.
 
-\indicator{AN4 -- Is the source code cleanly laid out?}
+\newcommand{\anFourName}{AN4}
+\newcommand{\anFourID}{\anFourName}
+\newcommand{\anFourText}{Is the source code cleanly laid out?}
+\indicator{\anFourName{ }--{ }\anFourText}\label{id:an4} 
+%\indicator{AN4 -- Is the source code cleanly laid out?}
 
 The source code should follow a proper indentation convention. 
 
-\indicator{AN5 -- Are sensible names used?}
+\newcommand{\anFiveName}{AN5}
+\newcommand{\anFiveID}{\anFiveName}
+\newcommand{\anFiveText}{Are sensible names used?}
+\indicator{\anFiveName{ }--{ }\anFiveText}\label{id:an5} 
+%\indicator{AN5 -- Are sensible names used?}
 
 Do the classes, functions and variables in the source code use sensible names
 and do they follow a consistent naming scheme that is conventional for the
 programming language?
 
-\indicator{AN6 -- Are there no blocks of commented out code or obsolete files?}
+\newcommand{\anSixName}{AN6}
+\newcommand{\anSixID}{\anSixName}
+\newcommand{\anSixText}{Are there no (large) blocks of commented out code or obsolete files?}
+\indicator{\anSixName{ }--{ }\anSixText}\label{id:an6} 
+%\indicator{AN6 -- Are there no blocks of commented out code or obsolete files?}
 
 There should be no large blocks of commented-out code, nor obsolete files.
 (this depends on compliance with AC1)
 
-\indicator{AN7 -- Are all TODO comments resolved?}
+\newcommand{\anSevenName}{AN7}
+\newcommand{\anSevenID}{\anSevenName}
+\newcommand{\anSevenText}{Are all TODO comments resolved?}
+\indicator{\anSevenName{ }--{ }\anSevenText}\label{id:an7} 
+%\indicator{AN7 -- Are all TODO comments resolved?}
 
 There should be no important TODO comments, if there are they should at least be
 clearly described in the issue tracker (SP2).
 
-\indicator{AN8 -- Does the project have recommended coding standards?}
+\newcommand{\anEightName}{AN8}
+\newcommand{\anEightID}{\anEightName}
+\newcommand{\anEightText}{Does the project have recommended coding standards?}
+\indicator{\anEightName{ }--{ }\anEightText}\label{id:an8} 
+%\indicator{AN8 -- Does the project have recommended coding standards?}
 
 A project should have recommended coding standards to which contributors
 should adhere. These standards should be consistent with the larger community
 of generic coding standards for the programming language.
 
-\subsection{Changeability}
+\subsection{Changeability}\label{sec:cha}
 % * <reinierdevalk@gmail.com> 2016-03-31T08:57:05.619Z:
 %
 % > Changeability
@@ -1059,20 +1387,32 @@ of generic coding standards for the programming language.
 %Outside contribution also generally improves the quality as people generally
 %come with a fresher perspective and see things the original developers may not have spotted.
 
-\indicator{CH1 -- Is the project open to contributions from third parties?}
+\newcommand{\chOneName}{CH1}
+\newcommand{\chOneID}{\chOneName}
+\newcommand{\chOneText}{Is the project open to contributions from third parties?}
+\indicator{\chOneName{ }--{ }\chOneText}\label{id:ch1} 
+%\indicator{CH1 -- Is the project open to contributions from third parties?}
 
 A project is recommended to be open to outside contributions. Community
 involvement is a major factor in the success of a software project. 
 
 This depends on AC1, AC2, and facilitates COM1 and COM2. 
 
-\indicator{CH2 -- Does the project have guidelines for contributions?}
+\newcommand{\chTwoName}{CH2}
+\newcommand{\chTwoID}{\chTwoName}
+\newcommand{\chTwoText}{Does the project have guidelines for contributions?}
+\indicator{\chTwoName{ }--{ }\chTwoText}\label{id:ch2} 
+%\indicator{CH2 -- Does the project have guidelines for contributions?}
 
 If contributions are desired, a project is recommended to have guidelines for
 contributors. These must be publicly available.
 See also AN8.
 
-\indicator{CH3 -- Are all source code changes, and their authorship, publicly visible?} 
+\newcommand{\chThreeName}{CH3}
+\newcommand{\chThreeID}{\chThreeName}
+\newcommand{\chThreeText}{Are all source code changes, and their authorship, publicly visible?}
+\indicator{\chThreeName{ }--{ }\chThreeText}\label{id:ch3} 
+%\indicator{CH3 -- Are all source code changes, and their authorship, publicly visible?} 
 
 Collaboration requires awareness of what changes, when it changes, and who
 changes it. This depends on AC1, heavily facilitated by AC2.
@@ -1080,27 +1420,42 @@ changes it. This depends on AC1, heavily facilitated by AC2.
 Alternatively, commit messages can be forwarded to mailing lists, Slack, IRC chat, or
 whatever is deemed appropriate.
 
-\indicator{CH4 -- Is the software sufficiently backward compatible?}
+\newcommand{\chFourName}{CH4}
+\newcommand{\chFourID}{\chFourName}
+\newcommand{\chFourText}{Is the software sufficiently backward compatible?}
+\indicator{\chFourName{ }--{ }\chFourText}\label{id:ch4} 
+%\indicator{CH4 -- Is the software sufficiently backward compatible?}
 
 Software should be backward compatible with old versions of itself with respect
 to public interfaces and data input. Backward compatibility changes and
 deprecation may occur but should always be clearly announced ahead of time.
 
-\indicator{CH5 -- Is there a roadmap for future changes?}
+\newcommand{\chFiveName}{CH5}
+\newcommand{\chFiveID}{\chFiveName}
+\newcommand{\chFiveText}{Is there a roadmap for future changes?}
+\indicator{\chFiveName{ }--{ }\chFiveText}\label{id:ch5} 
+%\indicator{CH5 -- Is there a roadmap for future changes?}
 
 Software still under active development should have a roadmap. This may take
 shape either as an explicit roadmap or implicit in the issue tracker
 (SP2) through the assignment of milestones.
 
-\indicator{CH6 -- Does the website mention how the software is funded and
-when funding ends?}
+\newcommand{\chSixName}{CH6}
+\newcommand{\chSixID}{\chSixName}
+\newcommand{\chSixText}{Does the website mention how the software is funded and when funding ends?}
+\indicator{\chSixName{ }--{ }\chSixText}\label{id:ch6} 
+%\indicator{CH6 -- Does the website mention how the software is funded and when funding ends?}
 
 Funders should be acknowledged publicly and people should be aware when
 software is no longer actively developed.
 
-\subsection{Reusability}
+\subsection{Reusability}\label{sec:reu}
 
-\indicator{R1 -- Does the software offer all the appropriate interfaces?}
+\newcommand{\rOneName}{R1}
+\newcommand{\rOneID}{\rOneName}
+\newcommand{\rOneText}{Does the software offer all the appropriate interfaces?}
+\indicator{\rOneName{ }--{ }\rOneText}\label{id:r1} 
+%\indicator{R1 -- Does the software offer all the appropriate interfaces?}
 
 The use of multiple interfaces enables reusability. Different users should be
 able to access the software at different levels. End-users usually require a
@@ -1110,7 +1465,11 @@ webservice interface, developers needs a software library with API.
 Assessment of this depends greatly on the intended audience of the software
 (see U2) and desired level of reusability.
 
-\indicator{R2 -- Is the software modular, can the software support multiple interfaces?}
+\newcommand{\rTwoName}{R2}
+\newcommand{\rTwoID}{\rTwoName}
+\newcommand{\rTwoText}{Is the software modular, can the software support multiple interfaces?}
+\indicator{\rTwoName{ }--{ }\rTwoText}\label{id:r2} 
+%\indicator{R2 -- Is the software modular, can the software support multiple interfaces?}
 
 Software should be set up in such a manner that higher-level interfaces can be
 constructed on its lower-level components. This implies that there should be a
@@ -1136,7 +1495,11 @@ Maximum reusability is not always desired or time- and cost-effective. The
 desired degree of modularity and reusability is to be assessed on an
 individual basis.
 
-\indicator{R3 -- Is the software's source code set up in a modular fashion?}
+\newcommand{\rThreeName}{R3}
+\newcommand{\rThreeID}{\rThreeName}
+\newcommand{\rThreeText}{Is the software's source code set up in a modular fashion?}
+\indicator{\rThreeName{ }--{ }\rThreeText}\label{id:r3} 
+%\indicator{R3 -- Is the software's source code set up in a modular fashion?}
 % * <reinierdevalk@gmail.com> 2016-03-31T09:08:08.123Z:
 %
 % > R3 -- Is the software's source code set up in a modular fashion?
@@ -1152,9 +1515,13 @@ functions, following the paradigm of the programming language.
 
 (See also AN1)
 
-\subsection{Security \& Privacy}
+\subsection{Security \& Privacy}\label{sec:sec}
 
-\indicator{SC1 -- Is the software free of obvious security flaws?}
+\newcommand{\scOneName}{SC1}
+\newcommand{\scOneID}{\scOneName}
+\newcommand{\scOneText}{Is the software free of obvious security flaws?}
+\indicator{\scOneName{ }--{ }\scOneText}\label{id:sc1} 
+%\indicator{SC1 -- Is the software free of obvious security flaws?}
 
 Software should be secure and have no holes that allow unauthorised users to
 gain access. Developers should take care to avoid common attack vectors such as
@@ -1163,25 +1530,33 @@ Proper validation of user input is a major factor in preventing security holes
 
 Assessment of security is an art in itself and non-trivial. 
 
-\indicator{SC2 -- Is user privacy secured effectively?}
+\newcommand{\scTwoName}{SC2}
+\newcommand{\scTwoID}{\scTwoName}
+\newcommand{\scTwoText}{Is user privacy secured effectively?}
+\indicator{\scTwoName{ }--{ }\scTwoText}\label{id:sc2} 
+%\indicator{SC2 -- Is user privacy secured effectively?}
 
 Privacy-sensitive user data must be treated with care. Passwords must never be
 stored in unhashed form, private keys must never be shared. Any compromises to
 privacy must be clearly laid out in a privacy policy.  Strongly related to SC1.
 Also see AC3.
 
-\subsection{Interoperability}
+\subsection{Interoperability}\label{sec:int}
 
-\indicator{IP1 -- Does the software use appropriate open standards for data?}
+\newcommand{\ipOneName}{IP1}
+\newcommand{\ipOneID}{\ipOneName}
+\newcommand{\ipOneText}{Does the software use appropriate open standards for data?}
+\indicator{\ipOneName{ }--{ }\ipOneText}\label{id:ip1} 
+%\indicator{IP1 -- Does the software use appropriate open standards for data?}
 
 Software should adhere to appropriate open standards as much as possible, i.e.
 it should be able to read input files and write output files in open
 standards. Support of multiple open standards is recommended. Conversion may
 also be mediated through other third party tools. A counter indication for this
-is when software uses it's own ad hoc format when decent open alternatives
+is when software uses its own ad hoc format when decent open alternatives
 already exist.
 
-\subsection{Interoperability for CLARIAH}
+\subsection{Interoperability for CLARIAH}\label{sec:intCLA}
 
 
 \begin{TODO} 
@@ -1194,7 +1569,7 @@ appreciated here!
 %software for integration into the infrastructure? This is something to
 %discuss, which I personally don't have a clear image of, and for which we will need input from others in CLARIAH.
 
-\subsection{Governance}
+\subsection{Governance}\label{sec:gov}
 
 %<proycon@anaproy.nl> 2016-04-06: What are quality indicators for how software
 %projects are run and managed? This is more on a high-level organizational and financial
@@ -1232,51 +1607,7 @@ to institutions or even projects themselves? Do we need pre-set thresholds at
 all?
 \end{TODO}
 
-\section{Context}
 
-Software Quality is an issue for software engineering. In the same way that
-experimental research depends on the quality of its instruments and the
-processes to use them properly, the quality of software influences the outcome
-of any computational processes: its accuracy (it should deliver what it
-was built for) as well as its efficiency (it should do this as efficient in
-time and with respect to use of resources). At a first glance, software
-quality concerns the quality of software code as a product (sometimes
-calles its functional quality). But, software products do not exist in
-isolation. They often form part of an architecture. So the quality of software
-concerns not only the level of source code, of a unit, but its interplay
-with technology and systems (called structural quality).
-\footnote{\url{https://en.wikipedia.org/wiki/Software\_quality}}
-
-While not surprising, software quality is a term which emerges with software
-engineering in the 1950's, software sustainability is far less widespread. One
-could also say that with a more mature level of relying on software
-technologies, the aspect of their sustainability becomes more prevalent. The
-more software (and hardware) become seamless, invisible and move to the
-background, the more important becomes their quality also for use in the long
-term. The latter being one aspect of sustainability.
-
-For infrastructures which aim to be reliable and supportive, the
-reliability and sustainability of elements they are built of is a must.
-% picture on how software and infrastructure - architecture are related
-For research infrastructures an additional element occurs which enhances the
-complexity. Research practices in their very nature are changing in time. While
-we might rely on consolidated methods and theories to some extent - at least
-for the phases of normal science outside of the Kuhnian scientific revolutions
-- the research questions are supposed to change all the time, securely targeted
-towards the \textit{unknown}. As a consequence the application of methods and
-theories - their recombination (to use an evolutionary term) is at the heart of
-research. For research based on the application of digital methods on digital
-material this implies a kind of constant revolution in software tools - those
-digital instruments.  For science history that is actually not new. If we look
-into the history of instrumentation [TODO: find reference] we will see outsourcing of %TODO: find reference
-instrument-making to industries and re-appropriating them for lab research; and
-the taylor-made development of instruments both occuring at the same time.  For an
-evaluation of software as part of a research infrastructure the
-differentiation between \textit{tools} which are explorative and \textit{tools}
-which are stable, and reproducible is crucial. It makes sense to require
-quality assessment for both, but not all levels of the above designed
-check-lists might be of equal importance for all tools developed. To
-differentiate between them is one add-on task in developing these guidelines. 
 
 \section{Implementation}
 
@@ -1340,5 +1671,234 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 
 \bibliographystyle{plainnat}
 \bibliography{softwareguidelines}
+\addcontentsline{toc}{section}{References}
 
+\pagebreak % force appendix on new page for printing convenience
+\appendix
+\newcommand{\appname}{Appendix A: Checklist}
+\section*{\appname}
+\addcontentsline{toc}{section}{\appname}
+\begin{table}[hbt]
+	\begin{tabular}
+		{ p{0.1\textwidth-2\tabcolsep} | 
+		  p{0.6\textwidth-2\tabcolsep} |
+		  p{0.1\textwidth-2\tabcolsep} |
+		  p{0.1\textwidth-2\tabcolsep} |
+		  p{0.1\textwidth-2\tabcolsep} }
+%		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
+		\hline
+		\textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:und}{ }\nameref{sec:und}} \\
+		\hline
+		\hyperref[id:u1]{\uOneID} & \uOneText & & & \\
+		\hyperref[id:u2]{\uTwoID} & \uTwoText & & & \\
+		\hyperref[id:u3]{\uThreeID} & \uThreeText & & & \\
+		\hyperref[id:u4]{\uFourID} & \uFourText & & & \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:doc}{ }\nameref{sec:doc}} \\
+		\hline
+		\hyperref[id:d1]{\dOneID} & \dOneText & & & \\
+		\hyperref[id:d2]{\dTwoID} & \dTwoText & & & \\
+		\hyperref[id:d3]{\dThreeID} & \dThreeText & & & \\
+		\hyperref[id:d4]{\dFourID} & \dFourText & & & \\
+		\hyperref[id:d5]{\dFiveID} & \dFiveText & & & \\
+		\hyperref[id:d6]{\dSixID} & \dSixText & & & \\
+		\hyperref[id:d7]{\dSevenID} & \dSevenText & & & \\
+		\hyperref[id:d8]{\dEightID} & \dEightText & & & \\
+		\hyperref[id:d9]{\dNineID} & \dNineText & & & \\
+		\hyperref[id:d10]{\dTenID} & \dTenText & & & \\
+		\hyperref[id:d11]{\dElevenID} & \dElevenText & & & \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:lea}{ }\nameref{sec:lea}} \\
+		\hline
+		\hyperref[id:l1]{\lOneID} & \lOneText & & & \\
+		\hyperref[id:l2]{\lTwoID} & \lTwoText & & & \\
+		\hyperref[id:l3]{\lThreeID} & \lThreeText & & & \\
+		\hyperref[id:l4]{\lFourID} & \lFourText & & & \\
+		\hyperref[id:l5]{\lFiveID} & \lFiveText & & & \\
+		\hline
+		\end{tabular}
+		\caption{Quality Assessment Criteria - Usability (1)}
+		\label{tab:criteriaUsab1}
+\end{table}	
+	
+\begin{table}[hbt]
+	\begin{tabular}
+		{ p{0.1\textwidth-2\tabcolsep} | 
+			p{0.6\textwidth-2\tabcolsep} |
+			p{0.1\textwidth-2\tabcolsep} |
+			p{0.1\textwidth-2\tabcolsep} |
+			p{0.1\textwidth-2\tabcolsep} }
+		%		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
+		\hline
+		\textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+        \hline
+        \multicolumn{5}{l}{\ref{sec:bui}{ }\nameref{sec:bui}} \\
+		\hline
+		\hyperref[id:b1]{\bOneID} & \bOneText & & & \\
+		\hyperref[id:b2]{\bTwoID} & \bTwoText & & & \\
+		\hyperref[id:b3]{\bThreeID} & \bThreeText & & & \\
+		\hyperref[id:b4]{\bFourID} & \bFourText & & & \\
+		\hline			
+		\multicolumn{5}{l}{\ref{sec:ins}{ }\nameref{sec:ins}} \\
+		\hline
+		\hyperref[id:is1]{\isOneID} & \isOneText & & & \\
+		\hyperref[id:is2]{\isTwoID} & \isTwoText & & & \\
+		\hyperref[id:is3]{\isThreeID} & \isThreeText & & & \\
+		\hyperref[id:is4]{\isFourID} & \isFourText & & & \\
+		\hyperref[id:is5]{\isFiveID} & \isFiveText & & & \\
+		\hyperref[id:is6]{\isSixID} & \isSixText & & & \\
+		\hyperref[id:is7]{\isSevenID} & \isSevenText & & & \\
+		\hyperref[id:is8]{\isEightID} & \isEightText & & & \\
+		\hyperref[id:is9]{\isNineID} & \isNineText & & & \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:per}{ }\nameref{sec:per}} \\
+		\hline	
+		\hyperref[id:pf1]{\pfOneID} & \pfOneText & & & \\
+		\hyperref[id:pf2]{\pfTwoID} & \pfTwoText & & & \\
+		\hyperref[id:pf3]{\pfThreeID} & \pfThreeText & & & \\
+		\hyperref[id:pf4]{\pfFourID} & \pfFourText & & & \\
+		\hyperref[id:pf5]{\pfFiveID} & \pfFiveText & & & \\
+		\hline		
+		\end{tabular}
+		\caption{Quality Assessment Criteria - Usability (2)}
+		\label{tab:criteriaUsab2}
+\end{table}
+
+\begin{table}[hbt]
+	\begin{tabular}
+		{ p{0.1\textwidth-2\tabcolsep} | 
+		  p{0.6\textwidth-2\tabcolsep} |
+		  p{0.1\textwidth-2\tabcolsep} |
+		  p{0.1\textwidth-2\tabcolsep} |
+		  p{0.1\textwidth-2\tabcolsep} }
+		%		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
+		\hline
+		\textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:ide}{ }\nameref{sec:ide}} \\
+		\hline
+		\hyperref[id:id1]{\idOneID} & \idOneText & & & \\
+		\hyperref[id:id2]{\idTwoID} & \idTwoText & & & \\
+		\hyperref[id:id3]{\idThreeID} & \idThreeText & & & \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:cop}{ }\nameref{sec:cop}} \\
+		\hline
+		\hyperref[id:cp1]{\cpOneID} & \cpOneText & & & \\
+		\hyperref[id:cp2]{\cpTwoID} & \cpTwoText & & & \\
+		\hyperref[id:cp3]{\cpThreeID} & \cpThreeText & & & \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:acc}{ }\nameref{sec:acc}} \\
+		\hline
+		\hyperref[id:ac1]{\acOneID} & \acOneText & & & \\
+		\hyperref[id:ac2]{\acTwoID} & \acTwoText & & & \\
+		\hyperref[id:ac3]{\acThreeID} & \acThreeText & & & \\
+		\hyperref[id:ac4]{\acFourID} & \acFourText & & & \\
+		\hyperref[id:ac5]{\acFiveID} & \acFiveText & & & \\
+		\hyperref[id:ac6]{\acSixID} & \acSixText & & & \\
+		\hyperref[id:ac7]{\acSevenID} & \acSevenText & & & \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:com}{ }\nameref{sec:com}} \\
+		\hline
+		\hyperref[id:cm1]{\cmOneID} & \cmOneText & & & \\
+		\hyperref[id:cm2]{\cmTwoID} & \cmTwoText & & & \\
+		\hyperref[id:cm3]{\cmThreeID} & \cmThreeText & & & \\
+		\hline
+	\end{tabular}
+	\caption{Quality Assessment Criteria - Sustainability and Maintainability (1)}
+	\label{tab:criteriaSustMaint1}
+\end{table}
+
+\begin{table}[hbt]
+	\begin{tabular}
+		{ p{0.1\textwidth-2\tabcolsep} | 
+			p{0.6\textwidth-2\tabcolsep} |
+			p{0.1\textwidth-2\tabcolsep} |
+			p{0.1\textwidth-2\tabcolsep} |
+			p{0.1\textwidth-2\tabcolsep} }
+        \hline
+        \textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+        \hline 
+        		\multicolumn{5}{l}{\ref{sec:tes}{ }\nameref{sec:tes}} \\
+		\hline
+		\hyperref[id:ts1]{\tsOneID} & \tsOneText & & & \\
+		\hyperref[id:ts2]{\tsTwoID} & \tsTwoText & & & \\
+		\hyperref[id:ts3]{\tsThreeID} & \tsThreeText & & & \\
+		\hyperref[id:ts4]{\tsFourID} & \tsFourText & & & \\
+		\hline
+        \multicolumn{5}{l}{\ref{sec:por}{ }\nameref{sec:por}} \\
+		\hline	
+		\hyperref[id:pb1]{\pbOneID} & \pbOneText & & & \\
+		\hyperref[id:pb2]{\pbTwoID} & \pbTwoText & & & \\
+		\hyperref[id:pb3]{\pbThreeID} & \pbThreeText & & & \\
+		\hline	
+		\multicolumn{5}{l}{\ref{sec:sup}{ }\nameref{sec:sup}} \\
+		\hline	
+		\hyperref[id:sp1]{\spOneID} & \spOneText & & & \\
+		\hyperref[id:sp2]{\spTwoID} & \spTwoText & & & \\
+		\hyperref[id:sp3]{\spThreeID} & \spThreeText & & & \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:ana}{ }\nameref{sec:ana}} \\
+		\hline	
+		\hyperref[id:an1]{\anOneID} & \anOneText & & & \\
+		\hyperref[id:an2]{\anTwoID} & \anTwoText & & & \\
+		\hyperref[id:an3]{\anThreeID} & \anThreeText & & & \\
+		\hyperref[id:an4]{\anFourID} & \anFourText & & & \\
+		\hyperref[id:an5]{\anFiveID} & \anFiveText & & & \\
+		\hyperref[id:an6]{\anSixID} & \anSixText & & & \\
+		\hyperref[id:an7]{\anSevenID} & \anSevenText & & & \\
+		\hyperref[id:an8]{\anEightID} & \anEightText & & & \\
+		\hline
+	\end{tabular}
+	\caption{Quality Assessment Criteria - Sustainability and Maintainability (2)}
+	\label{tab:criteriaSustMaint2}
+\end{table}
+
+\begin{table}[hbt]
+	\begin{tabular}
+		{ p{0.1\textwidth-2\tabcolsep} | 
+			p{0.6\textwidth-2\tabcolsep} |
+			p{0.1\textwidth-2\tabcolsep} |
+			p{0.1\textwidth-2\tabcolsep} |
+			p{0.1\textwidth-2\tabcolsep} }
+        \hline
+        \textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+        \hline 
+		\multicolumn{5}{l}{\ref{sec:cha}{ }\nameref{sec:cha}} \\
+		\hline	
+		\hyperref[id:ch1]{\chOneID} & \chOneText & & & \\
+		\hyperref[id:ch2]{\chTwoID} & \chTwoText & & & \\
+		\hyperref[id:ch3]{\chThreeID} & \chThreeText & & & \\
+		\hyperref[id:ch4]{\chFourID} & \chFourText & & & \\
+		\hyperref[id:ch5]{\chFiveID} & \chFiveText & & & \\
+		\hyperref[id:ch6]{\chSixID} & \chSixText & & & \\
+		\hline
+        \multicolumn{5}{l}{\ref{sec:reu}{ }\nameref{sec:reu}} \\
+		\hline	
+		\hyperref[id:r1]{\rOneID} & \rOneText & & & \\
+		\hyperref[id:r2]{\rTwoID} & \rTwoText & & & \\
+		\hyperref[id:r3]{\rThreeID} & \rThreeText & & & \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:sec}{ }\nameref{sec:sec}} \\
+		\hline	
+		\hyperref[id:sc1]{\scOneID} & \scOneText & & & \\
+		\hyperref[id:sc2]{\scTwoID} & \scTwoText & & & \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:int}{ }\nameref{sec:int}} \\
+		\hline	
+		\hyperref[id:ip1]{\ipOneID} & \ipOneText & & & \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:intCLA}{ }\nameref{sec:intCLA}} \\
+		\hline	
+		&  [TODO] & & & \\
+		\hline
+		\multicolumn{5}{l}{\ref{sec:gov}{ }\nameref{sec:gov}} \\
+		\hline	
+		& [TODO] & & & \\
+		\hline
+\end{tabular}
+	\caption{Quality Assessment Criteria - Sustainability and Maintainability (3)}
+	\label{tab:criteriaSustMaint3}
+\end{table}
 \end{document}
