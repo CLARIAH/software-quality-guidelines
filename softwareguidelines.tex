@@ -663,7 +663,7 @@ can not be used as a dependency. Higher-order dependencies need not be listed.
 
 \newcommand{\isThreeName}{IS3}
 \newcommand{\isThreeID}{\isThreeName}
-\newcommand{\isThreeText}{Does the installation procedure comply to best practices in the ecosystem around the programming language?}
+\newcommand{\isThreeText}{Are programming language's best installation practices followed?}
 \indicator{\isThreeName{ }--{ }\isThreeText}\label{id:is3} 
 %\indicator{IS3 -- Does the installation procedure comply to best practices in the ecosystem around the programming language?}
 
@@ -677,12 +677,12 @@ ad-hoc mechanisms. If the ecosystem has facilities for dependency management
      Setuptools, or their relatives.
  \item Installation of C/C++ software is generally an extension of the build
      process, often culminating in a \texttt{make install}.
- \item TODO: Java, R ?
+ \item Java software is delivered as a \texttt{jar} file.
+ \item Perl software should use systems such as \texttt{Module::Build},
+     \texttt{ExtUtils::MakeMaker}, or \texttt{Module::Install}. Resulting in a
+     \texttt{Build.PL} or \texttt{Makefile.PL}.
+ %TODO: add more languages (R?)
 \end{itemize}
-
-%<proycon@anaproy.nl> 2016-04-06: Is any of us Java-based? would be nice to
-%finish the Java bullet point. I guess it will mention ant and/or maven, but
-%I'm not too up to date on what the current state of the Java ecosystem is.
 
 \newcommand{\isFourName}{IS4}
 \newcommand{\isFourID}{\isFourName}
@@ -1029,6 +1029,8 @@ Use of these repositories is strongly recommended practice if available.
         the Python Package Index: \url{https://pypi.python.org}
     \item \textbf{Perl} --  Perl modules should be deposited in the Comprehensive
         Perl Archive Network (CPAN): \url{http://www.cpan.org}.
+    \item \textbf{Java} -- Java components built using Maven and various other
+        build systems should be deposited in The Central Repository: \url{http://central.sonatype.org/}
     \item \textbf{R} -- R packages should be deposited in the Comprehensive R
         Archive Network (CRAN): \url{https://cran.r-project.org}
     \item \textbf{Javascript} -- Javascript software should be deposited in
