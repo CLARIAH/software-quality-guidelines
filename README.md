@@ -3,7 +3,7 @@ Software Quality Guidelines
 ==============================
 
 This repository contains guidelines for software quality & sustainability for
-CLARIAH. It has been composed as a part of WP2 task 54.100. Please access the
+[CLARIAH](http://www.clariah.nl). It has been composed as a part of WP2 task 54.100. Please access the
 [PDF document](https://github.com/CLARIAH/software-quality-guidelines/blob/master/softwareguidelines.pdf) in this repository to read the latest version.
 
 The document came about in response to the need for increasing attention to
