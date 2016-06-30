@@ -5,6 +5,7 @@ from __future__ import print_function, unicode_literals, division, absolute_impo
 import io #python 2 compatibility
 import os
 import sys
+import argparse
 from collections import OrderedDict
 
 def latextomarkdown(s):
@@ -39,7 +40,6 @@ def getcomments():
     return comments
 
 def main():
-    import argparse
     parser = argparse.ArgumentParser(description="Software Quality Survey", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--template','-t', help="Output a template, do not survey interactively", action='store_true',default="",required=False)
     args = parser.parse_args()
