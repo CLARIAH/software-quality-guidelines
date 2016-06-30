@@ -1023,7 +1023,7 @@ restricted data, should never be checked into public version control systems.
 
 \newcommand{\acFourName}{AC4}
 \newcommand{\acFourID}{\acFourName}
-\newcommand{\acFourText}{Are there clearly marked formal releases of software?}
+\newcommand{\acFourText}{Are there clearly marked formal releases of the software?}
 \indicator{\acFourName{ }--{ }\acFourText}\label{id:ac4} 
 %\indicator{AC4 -- Are there clearly marked formal releases of software?}
 
@@ -1175,7 +1175,8 @@ Software should have unit tests that automatically test individual units of the
 source code. They verify the data and logic flow by testing whether the output,
 given certain input, confirms to expectation.
 
-It is important that the tests cover enough of the source code. Automated tools
+It is important that the tests cover enough of the source code. This is not
+trivial to assess, but automated tools
 and platforms are available that can help in this assessment, such as
 \url{https://coveralls.io} and \url{https://codacy.com}.
 
@@ -1360,7 +1361,8 @@ programming language?
 \indicator{\anSixName{ }--{ }\anSixText}\label{id:an6} 
 %\indicator{AN6 -- Are there no blocks of commented out code or obsolete files?}
 
-There should be no large blocks of commented-out code, nor obsolete files.
+There should be no large blocks of commented-out code, nor obsolete or
+alternate versions of files that bypass proper version control.
 (this depends on compliance with AC1)
 
 \newcommand{\anSevenName}{AN7}
