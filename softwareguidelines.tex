@@ -799,13 +799,20 @@ System requirements in terms of computing resources must be stated if the softwa
 
 \subsection{Performance}\label{sec:per}
 
+The guidelines in this category are typically hard to assess, as they require
+an intricate knowledge of the design of the system. 
+
 \newcommand{\pfOneName}{PF1}
 \newcommand{\pfOneID}{\pfOneName}
-\newcommand{\pfOneText}{Does the software perform its function(s) as efficiently as can be expected?}
+\newcommand{\pfOneText}{Does the software perform its function(s) efficiently?}
 \indicator{\pfOneName{ }--{ }\pfOneText}\label{id:pf1} 
 %\indicator{PF1 -- Does the software perform its function(s) as efficiently as can be expected?}
 
-Software should employ efficient algorithms to perform its task. Obvious performance bottlenecks \emph{may} be an indication of sub-optimal design choices.
+Software should employ efficient algorithms to perform its task. This is quite
+non-trivial to assess, especially from a third party perspective, but obvious
+performance bottlenecks \emph{may} be an indication of sub-optimal design
+choices.
+
 % * <reinierdevalk@gmail.com> 2016-03-30T16:05:28.991Z:
 %
 % > should employ efficient algorithms
@@ -827,9 +834,10 @@ Software should employ efficient algorithms to perform its task. Obvious perform
 
 Software should not place an unreasonable demand on computing resource (memory,
 CPU time). Overuse of resources \emph{may} be an indication of sub-optimal
-design choices.  If the software does make high demand on particular resources,
-then this should be clearly advertised and explained (in the documentation for
-instance) and also stated as part of the system requirements.
+design choices.  This is not easy to assess, but if the software does make high
+demand on particular resources, then this should be clearly advertised and
+explained (in the documentation for instance) and also stated as part of the
+system requirements.
 
 Be aware that there is often a trade-off between speed and memory usage. The
 developer of the decision must make an appropriate decision favouring one or the other
