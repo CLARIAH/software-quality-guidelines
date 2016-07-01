@@ -109,26 +109,42 @@ academic context is stressed by
 \cite{RESEARCHSOFTWARE}.
 They recognize the fundamental role software plays in modern research and
 observe that good development practice is less followed in academia than in the
-commercial sector, which leads to problems in maintenance and adoption. They thus set out to promote good software development practice, good models of
+commercial sector, which leads to problems in maintenance and adoption. They
+thus set out to promote good software development practice, good models of
 sustainability and dissemination of the best software across application
-areas/disciplines. We fully agree with these goals, and the guidelines presented here are
-intended to respond, on a practical level, to these with specific software
-quality criteria, explicitly encompassing sustainability as well.
+areas/disciplines. We fully agree with these goals, and the guidelines
+presented here are intended to respond, on a practical level, to these with
+specific software quality criteria, explicitly encompassing sustainability as
+well.
 
 \subsection{Structure of the Document}\label{sec:struc}
-After a discussion of the context of questions of software quality in social sciences and humanities research infrastructures,
-%within which the issue of software quality is placed, 
-we start the main part of this document with the essentials: definitions and the state-of-art
-of discussions around software quality criteria. 
-Following that, the guidelines---a number of actionable steps, intended to make software more usable and discoverable for users and other developers---are described. Two categories of guidelines are discerned: 
+
+After a discussion of the context of questions of software quality in social
+sciences and humanities research infrastructures, we start the main part of
+this document with the essentials: definitions and the state-of-art of
+discussions around software quality criteria.  Following that, the
+guidelines---a number of actionable steps, intended to make software more
+usable and discoverable for users and other developers---are described. Two
+categories of guidelines are discerned: 
+
 \begin{itemize}
 	\item strict requirements
 	\item additional guidelines %TODO-rdv hier moeten we  misschien een andere term dan guidelines gebuiken. Ik heb zitten denken: protocols? instructions? procedures? 
 \end{itemize}
-While the former are minimal requirements that software should adhere to, the latter constitute more generic guidelines that can help to achieve software of a higher quality. 
-The requirements are specified in a form that leaves little room for discussion. They are but one way of meeting the more generic guidelines. It is encouraged to follow them as-is; doing so will make their implementation easier. It will also make consuming the results easier, as there will be a firm structure that can be relied on.
-The additional guidelines, on the other hand, are not simply boxes to tick. Instead, they offer ways to look at quality in software and tips to make software better and more useful. The guidelines are presented as open questions that can be answered in order to explain, for example, any trade-offs made while developing. 
-It should be noted that throughout this document, both these terms are captured under the umbrella term \textit{guidelines}. 
+
+While the former are minimal requirements that software should adhere to, the
+latter constitute more generic guidelines that can help to achieve software of
+a higher quality.  The requirements are specified in a form that leaves little
+room for discussion. They are but one way of meeting the more generic
+guidelines. It is encouraged to follow them as-is; doing so will make their
+implementation easier. It will also make consuming the results easier, as there
+will be a firm structure that can be relied on.  The additional guidelines, on
+the other hand, are not simply boxes to tick. Instead, they offer ways to look
+at quality in software and tips to make software better and more useful. The
+guidelines are presented as open questions that can be answered in order to
+explain, for example, any trade-offs made while developing.  It should be noted
+that throughout this document, both these terms are captured under the umbrella
+term \textit{guidelines}. 
 The aim of this document %TODO-rdv aim waarvan? dit document? 
 is, in an iterative
 process, to tailor the guidelines to the needs of the involved partners (ICT, research and archives). 
@@ -326,14 +342,24 @@ Before the description of these more generic guidelines, a number of strict, min
 
 \section{Minimal Requirements}\label{sec:req}
 
-This section describes a set of guidelines that are very straightforward to implement. They follow common practice where possible, and take a firm stand where interoperability benefits when a choice must be made. However, depending on the context, more (or less) may be expected from peers or collaborators.
+This section describes a set of guidelines that are very straightforward to
+implement. They follow common practice where possible, and take a firm stand
+where interoperability benefits when a choice must be made. However, depending
+on the context, more (or less) may be expected from peers or collaborators.
 
-It should be noted that there are two sets of opposing scenarios: the first concerns end user software versus experimental software, and the second software receiving active support versus unsupported software.  
+It should be noted that there are two sets of opposing scenarios: the first
+concerns end user software versus experimental software, and the second
+software receiving active support versus unsupported software.  
+
 \begin{itemize}
 	\item Not all software is intended exclusively for \textbf{end users}: some software is \textbf{experimental}, and intended only for people who can modify the code. This makes such software less usable---but when the goal of a project is to verify if something is at all possible, this might be a valid trade-off.
 	\item While everyone wants the software they use to receive \textbf{active support}, in practice this is not always feasible. It is acceptable to release \textbf{unsupported} software---provided that users are notified clearly and in advance.
 \end{itemize} 
-Which of the following requirements apply depends on which configuration of these two sets of opposing scenarios is applicable. Below are written out all four configurations: in each case, non-applicable guidelines are grayed-out.
+
+Which of the following requirements apply depends on which configuration of
+these two sets of opposing scenarios is applicable. Below are written out all
+four configurations: in each case, non-applicable guidelines are grayed-out.
+
 
 %TODO-rdv add (altered) ID(s) where appropriate
 \newcommand{\one}{The software must be stored in a \textbf{version control system} (VCS).
