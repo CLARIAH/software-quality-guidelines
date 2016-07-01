@@ -65,9 +65,12 @@
 
 \title{Guidelines for Software Quality}
 \subtitle{CLARIAH Task 54.100} 
-\author{Maarten van Gompel \\ \emph{Centre for Language \& Speech Technology} \\
-\emph{Radboud University, Nijmegen} \\  Reinier de Valk \& Andrea Scharnhorst
-\\ \emph{Data Archiving and Networked Services} \\ \emph{Royal Netherlands Academy of Arts and Sciences}}
+\author{Maarten van Gompel \\ 
+\emph{Centre for Language \& Speech Technology} \\ \emph{Radboud University, Nijmegen} \\  
+Jauco Noordzij \\	
+\emph{Huygens ING} \\
+Reinier de Valk \& Andrea Scharnhorst \\ 
+\emph{Data Archiving and Networked Services (DANS)} \\ \emph{Royal Netherlands Academy of Arts and Sciences}}
 
 
 \maketitle
@@ -88,7 +91,7 @@ Please see also the \textbf{Request for Comment} notice at the end of this docum
 \section{Motivation}
 
 CLARIAH aims to deliver a digital research infrastructure made explicitly
-accessible for researchers from the humanities. This makes the development of
+accessible for researchers from the social sciences and humanities (SSH). This makes the development of
 advanced ICT tools a core activity within CLARIAH. To be able to assess the
 quality of the research infrastructure as a whole, we need to be able to assess
 the quality of its individual software parts, and their function inside of the
@@ -97,8 +100,7 @@ set of software guidelines, we may more readily identify weaker components of
 the software infrastructure and work on their improvement. We may also be able
 to better direct software production processes towards issues of
 interoperability and sustainability.  A digital research infrastructure
-operates at the interface of supporting ICT and research practices. For the
-humanities (and social sciences) those are far from being homogeneous. The
+operates at the intersection of supporting ICT and research practices. For the SSH those are far from being homogeneous. The
 practices served by the infrastructure differ concerning the object of
 analysis, the processes of analysis, and the required usability level. 
 
@@ -107,35 +109,47 @@ academic context is stressed by
 \cite{RESEARCHSOFTWARE}.
 They recognize the fundamental role software plays in modern research and
 observe that good development practice is less followed in academia than in the
-commercial sector, which leads to problems in maintenance and adoption. They
-set out to promote good software development practice, good models of
+commercial sector, which leads to problems in maintenance and adoption. They thus set out to promote good software development practice, good models of
 sustainability and dissemination of the best software across application
 areas/disciplines. We fully agree with these goals, and the guidelines presented here are
 intended to respond, on a practical level, to these with specific software
 quality criteria, explicitly encompassing sustainability as well.
 
-After a discussion of the context within which the issue of software quality is placed, we start the main part of this  document with the essentials: definitions and the state-of-art
-of discussions around software quality criteria. The aim is, in an iterative
-process, to tailor the guidelines to the needs of the involved partners (ICT,
-research and archives). For the context of questions of software quality in SSH
-research infrastructures see the last section in this document.
+\subsection{Structure of the Document}\label{sec:struc}
+After a discussion of the context of questions of software quality in social sciences and humanities research infrastructures,
+%within which the issue of software quality is placed, 
+we start the main part of this document with the essentials: definitions and the state-of-art
+of discussions around software quality criteria. 
+Following that, the guidelines---a number of actionable steps, intended to make software more usable and discoverable for users and other developers---are described. Two categories of guidelines are discerned: 
+\begin{itemize}
+	\item strict requirements
+	\item additional guidelines %TODO-rdv hier moeten we  misschien een andere term dan guidelines gebuiken. Ik heb zitten denken: protocols? instructions? procedures? 
+\end{itemize}
+While the former are minimal requirements that software should adhere to, the latter constitute more generic guidelines that can help to achieve software of a higher quality. 
+The requirements are specified in a form that leaves little room for discussion. They are but one way of meeting the more generic guidelines. It is encouraged to follow them as-is; doing so will make their implementation easier. It will also make consuming the results easier, as there will be a firm structure that can be relied on.
+The additional guidelines, on the other hand, are not simply boxes to tick. Instead, they offer ways to look at quality in software and tips to make software better and more useful. The guidelines are presented as open questions that can be answered in order to explain, for example, any trade-offs made while developing. 
+It should be noted that throughout this document, both these terms are captured under the umbrella term \textit{guidelines}. 
+The aim of this document %TODO-rdv aim waarvan? dit document? 
+is, in an iterative
+process, to tailor the guidelines to the needs of the involved partners (ICT, research and archives). 
+%For the context of questions of software quality in SSH research infrastructures see the last section in this document.
 
 \section{Context}
 
-Software Quality is an issue for software engineering. In the same way that
+Software quality is an issue for software engineering. In the same way that
 experimental research depends on the quality of its instruments and the
 processes to use them properly, the quality of software influences the outcome
 of any computational processes: its accuracy (it should deliver what it
-was built for) as well as its efficiency (it should do this as efficient in
+was built for) as well as its efficiency (it should do this efficiently in
 time and with respect to use of resources). At a first glance, software
 quality concerns the quality of software code as a product (sometimes
-called its functional quality). But, software products do not exist in
-isolation. They often form part of an architecture. So the quality of software
+called its \emph{functional quality}). However, software products do not exist in
+isolation, but they often form part of an architecture. So the quality of software
 concerns not only the level of source code, of a unit, but also its interplay
-with technology and systems (called structural quality).
+with technology and systems (called \emph{structural quality}).
 \footnote{\url{https://en.wikipedia.org/wiki/Software\_quality}}
 
-Not surprisingly, \textit{software quality} is a term that emerged within software
+\textit{Software quality} is a term that emerged within software
 engineering in the 1950's. The term \textit{software sustainability}, however, is far less widespread. One
 could also say that with a more mature level of relying on software
 technologies, the aspect of their sustainability becomes more prevalent. The
@@ -145,19 +159,18 @@ term. The latter is one aspect of sustainability.
 
 For infrastructures that aim to be reliable and supportive, the
 reliability and sustainability of elements they are built of is a must.
-% picture on how software and infrastructure - architecture are related
+% picture on how software and infrastructure-architecture are related
 For research infrastructures, an additional element that enhances the
 complexity emerges. Research practices by their very nature are changing in time. While
-we might rely on consolidated methods and theories to some extent - at least
-for the phases of normal science outside of the Kuhnian scientific revolutions
-- the research questions are supposed to change all the time, securely targeted
+we might rely on consolidated methods and theories to some extent---at least
+for the phases of normal science outside of the Kuhnian scientific revolutions---the research questions are supposed to change all the time, securely targeted
 towards the \textit{unknown}. As a consequence, the application of methods and
-theories - their recombination (to use an evolutionary term) is at the heart of
+theories---their recombination (to use an evolutionary term)---is at the heart of
 research. For research based on the application of digital methods on digital
-material this implies a kind of constant revolution in software tools - those
+material this implies a kind of constant revolution in software tools---those
 digital instruments.  For science history that is actually not new. If we look
 into the history of instrumentation we will see outsourcing of %TODO: find reference
-instrument-making to industries and re-appropriating them for lab research; and
+instrument-making to industries and re-appropriating them for lab research and
 the tailor-made development of instruments both occurring at the same time.  For an
 evaluation of software as part of a research infrastructure the
 differentiation between tools which are \textit{explorative} and tools
@@ -168,7 +181,7 @@ differentiate between them is one add-on task in developing these guidelines.
 
 \section{Introduction - glossary of terms}
 
-Assessing software or data quality is not a trivial matter. 
+Assessing software (or data) quality is not a trivial matter. 
 
 Whenever we refer to \emph{software}, we intend the term in a broad sense and
 encompassing all of the following aspects:
@@ -193,12 +206,13 @@ encompassing all of the following aspects:
     \item support infrastructure (version control, build systems, issue trackers)
 \end{itemize}
 
-These guidelines for software quality consist of various assessment
+The following guidelines for software quality consist of various assessment
 criteria, such as ``Documentation'' and ``Installability''. Each criterion in turn
 consists of assessment indicators formulated as a series of questions. This
 makes them directly applicable as an instrument for software quality
 assessment. 
 
+% TODO issue #5, rdv
 These guidelines target developers, managers and users of software.
 Developers will be more aware of the targets to meet, and able to identify and
 remedy weak areas. Managers and users will be able to assess whether software
@@ -207,6 +221,7 @@ formulate the questions as plainly as possible, a certain degree of technical
 expertise is demanded of all of these in order to attain a successful
 assessment.
 
+% TODO issue #2, rdv
 Each question, can be be answered with ``yes'', ``no'' or ``not applicable'' in
 case the guideline has no relevance for the software. The correct answer is
 always the affirmative. This will lead to measurable quality levels. Full
@@ -270,7 +285,7 @@ Evolvability & Evidence of current/future development? \\
 Interoperability & Interoperable with other required/related software? \\
 \hline
 \end{tabular}
-\caption{Software quality criteria according to the SSI \citep{SSIGUIDE}. (with some minor paraphrasing)}
+\caption{Software quality criteria according to the SSI \citep{SSIGUIDE} (with some minor paraphrasing).}
 \label{tab:criteria}
 \end{table}
 
@@ -296,7 +311,8 @@ We adopt this scheme with the following changes:
 whether the software complies to requirements for integration into the CLARIAH infrastructure.
 \end{itemize}
 
-The next sections lay out all criteria with the individual assessment
+%The next sections
+Sections \ref{sec:usab} and \ref{sec:sustAndMaint} lay out all criteria with the individual assessment
 indicators. The individual indicators are inspired by the SSI guidelines but
 are not directly copied. Our indicators are generally more condensed and may
 group issues that were expressed as multiple indicators in the SSI guide.
@@ -306,7 +322,92 @@ and there were various indicators we found too specific to use.
 Each indicator carries an ID code for easy reference. Cross-references will be
 made whenever there is a relationship between indicators.
 
-\section{Quality Assessment Criteria - Usability}
+Before the description of these more generic guidelines, a number of strict, minimal, requirements that software should adhere to (see Section \ref{sec:struc}), are described in the now following Section \ref{sec:req}.
+
+\section{Minimal Requirements}\label{sec:req}
+
+This section describes a set of guidelines that are very straightforward to implement. They follow common practice where possible, and take a firm stand where interoperability benefits when a choice must be made. However, depending on the context, more (or less) may be expected from peers or collaborators.
+
+It should be noted that there are two sets of opposing scenarios: the first concerns end user software versus experimental software, and the second software receiving active support versus unsupported software.  
+\begin{itemize}
+	\item Not all software is intended exclusively for \textbf{end users}: some software is \textbf{experimental}, and intended only for people who can modify the code. This makes such software less usable---but when the goal of a project is to verify if something is at all possible, this might be a valid trade-off.
+	\item While everyone wants the software they use to receive \textbf{active support}, in practice this is not always feasible. It is acceptable to release \textbf{unsupported} software---provided that users are notified clearly and in advance.
+\end{itemize} 
+Which of the following requirements apply depends on which configuration of these two sets of opposing scenarios is applicable. Below are written out all four configurations: in each case, non-applicable guidelines are grayed-out.
+
+%TODO-rdv add (altered) ID(s) where appropriate
+\newcommand{\one}{The software must be stored in a \textbf{version control system} (VCS).
+The source code must be published.
+To lower the barrier of entry the VCS must be either in a Git, Mercurial or SVN repository. 
+As much as possible should be stored alongside the code %TODO-rdv add link to "Everything in VCS" (as in html)/add text here
+in the VCS.}
+\newcommand{\two}{There must be \textbf{one command that installs all dependencies} on the supported operating systems (OSs).}
+\newcommand{\three}{The software must be \textbf{built with one command}. This command must not write to the file system outside of the source code directory and the temp directories (installation actions should be part of a separate script). Of course, the code will not be buildable on all OSs, and the command needs not to be platform independent---but there must be one OS on which it works without further configuration necessary. The command must call the multiple build steps if necessary. If there are tests, the command should run them as part of the build.}
+\newcommand{\four}{The software must either result in a directory with artefacts that can be moved to an arbitrary location on the system and still work, or it must contain \textbf{one command that will perform the installation}.}
+\newcommand{\five}{The software must be able to \textbf{run in the foreground} after installation.}
+\newcommand{\six}{All \textbf{runtime dependencies} must be available after installation.}
+\newcommand{\seven}{If the software can be installed it must also have \textbf{one uninstall script}. This script must provide a switch to also remove config files and leave them alone by default.}
+\newcommand{\eight}{The above requirements regarding installation can be omitted if the software can be run from the source directory and during running will not write outside of the source directory or temporary directories.}
+\newcommand{\nine}{The root folder of the software project contains a file called \textbf{README} (fully capitilized), which must be a readable plain text file. It may link to images, but the reader must be able to follow along without them. A \textbf{readable plain text} file is a file that can be read by a human using both wordpad.exe and vi. Formats such as markdown and ReST are readable as plain text, but LaTeX and HTML are not. A UTF-8 encoding should be chosen; however, the use of ANSI, UTf-16 or UCS2 is also acceptable when forced by some technical constraint. (Though you must then mention that using the ascii subset at the start of the file itself.} %TODO-rdv die laatste zin tussen haakjes snap ik niet 
+
+	\newcommand{\nineOne}{The readme must start by explicitly mentioning the experimental nature of the software.}
+	\newcommand{\nineTwo}{Accurate support contact information must be provided at the top of the readme, and an end date, until which this information can be assumed to be valid, must also be added here. A suitable end date is the current end time of the project. If no clear end date exists, it should be set no further than a year away, and it should be reset regularly.}
+	\newcommand{\nineThree}{It must be mentioned explicitly that the software is unsupported }
+	\newcommand{\nineFour}{The readme must contain an explanation of the intended audience of the software, where the different user groups should be clearly named and described.}
+	\newcommand{\nineFive}{The readme must describe the problems that these users face, which resulted in the software.}
+	\newcommand{\nineSix}{The readme must describe what the software does to help solving these problems.}
+	\newcommand{\nineSeven}{The readme must contain a list of similar or related software, and a description how the current software fits in.}
+	\newcommand{\nineEight}{The readme must specify the commands used to build and install from point 2-6 above. Also, it should specifiy the OSes the commands will work on.}
+	\newcommand{\nineNine}{The readme must contain either a quick start, explaining how the first task can be performed with the system, or, in the more extensive documentation, a link to the quick start.}
+	\newcommand{\nineTen}{The readme must specify observed memory/file/processing usage while doing the happy path and a moderate load path.}
+	\newcommand{\nineEleven}{The readme must contain a description of how the software scales (the load can be shared over multiple instances, explicitly mentioning if this is not possible).}
+	\newcommand{\nineTwelve}{The readme must contain a non-exhaustive list of places where the software is running.)}
+	\newcommand{\nineThirteen}{The readme must specify until when the project is currently funded, as well as a list of the funders.}
+\newcommand{\ten}{Any \textbf{documentation must be stored alongside the code}. Long-form texts should live in the folder docs/ in the root of the project.}
+\newcommand{\eleven}{All \textbf{documentation must be also stored in an archivable format}. Such documentation can of course be generated from another source format, but the archivable version must also be stored in the VCS. An \textbf{archivable format} is a file format that will, with great probability, still be readable in ten years' time. Such formats are readable plain text (see above), HTML that does not depend on styles/js, and PDF/A. In the case of PDF/A, the source format must also be included---though it may be a non-archivable format such as a Word file, a LaTeX file, etc.}
+\newcommand{\twelve}{The project must have a \textbf{website}, containing, at the very least:
+	\begin{itemize}
+		\item a typeset version of the readme 
+		\item screenshots/screencasts of the application
+		\item a link to the source code
+		\item contact information, or a link to the bug tracker
+		\item a link to the documentation: either a direct link to the pdf or html, if available, or a browseable list of the text files
+		\item the website must be registered on Google, and a link must be provided to the project
+	\end{itemize}
+	Note that the readme as typeset by GitHub fulfils almost all these criteria. 
+}
+\newcommand{\thirteen}{The \textbf{user interface of the application should point to the website}. If this user interface is a website, where possible, a link should be visible on every page. If the user interface is a command line app, a main page should be provided, or a text file that contains a link to the home page should be distributed with the binaries.}
+\newcommand{\fourteen}{The application's \textbf{user interface should point to the contact information} or to a place to report bugs.}
+\newcommand{\fifteen}{Almost every application provides an API. This \textbf{API must be discoverable}. For a Java project this means adding Javadoc where needed, and using descriptive names otherwise. For Javascript this means providing a document containing the API. What must be provided is a list of function names, their parameter names, and the constraints placed on their values. It would be helpful to know under what condition which function is expected to be called.}
+\newcommand{\sixteen}{If the software contains a configuration file, then the root of the repository must contain \textbf{a configuration file containing all options} set to the sane defaults or commented out containing a description when you want to use them.} %TODO-rdv deze snap ik niet
+\newcommand{\seventeen}{The software must be \textbf{distributed under an OSI approved licence} in a LICENSE file in root. Also copyright holder} %TODO-rdv wat wordt met dat laatste zinnetje bedoeld?
+\newcommand{\eighteen}{The software must have a \textbf{CONTRIBUTING file}. (The template could be used---but it must be noted that that means one must be open to all PRs. Specifying some details in this file thus is very useful.} %TODO-rdv wat zijn PRs?
+\newcommand{\nineteen}{Data must be made available as \textbf{a log or rdf quads}.} %TODO-rdv OK?
+\newcommand{\twenty}{The software must \textbf{not store usernames and passwords}; instead, it must use the instruments provided by the project.}
+\newcommand{\twentyOne}{Experimental software MUST NOT allow external users to store data (for this renders it production software).}
+\newcommand{\twentyTwo}{This list of requirements must be \textbf{distributed alongside the code}.}
+
+%TODO-rdv add kopje "Implementation Patterns" met voorbeeld van README file?
+\subsection{Configuration 1: Actively Supported End User Software} 
+\one 
+\two 
+\three
+\four
+\five
+\six \seven \eight \nine \ten \eleven \twelve \thirteen \fourteen \fifteen
+\nineOne \nineTwo \nineThree \nineFour \nineFive \nineSix \nineSeven \nineEight \nineNine \nineTen \nineEleven \nineTwelve \nineThirteen
+
+\subsection{Configuration 2: Unsupported End User Software} 
+
+\subsection{Configuration 3: Actively Supported Experimental Software} 
+
+\subsection{Configuration 4: Unsupported Experimental Software} 
+
+
+
+
+
+\section{Quality Assessment Criteria - Usability}\label{sec:usab}
 
 %BEGINCRITERIA
 
@@ -891,7 +992,7 @@ or multiple machines are put to work to distribute the load, or vertically by
 simply adding more resources. In a data-sense, horizontal scaling often implies
 a partitioning of the data.
 
-\section{Quality Assessment Criteria - Sustainability and Maintainability}
+\section{Quality Assessment Criteria - Sustainability and Maintainability}\label{sec:sustAndMaint}
 
 \subsection{Identity}\label{sec:ide}
 
