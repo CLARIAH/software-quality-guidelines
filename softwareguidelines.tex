@@ -513,7 +513,7 @@ documentation for different audiences, and may include published papers.
 
 \newcommand{\dOneName}{D1}
 \newcommand{\dOneID}{\dOneName}
-\newcommand{\dOneText}{Is there documentation?}
+\newcommand{\dOneText}{Is the software documented?}
 \criterion{\dOneName{ }--{ }\dOneText}\label{id:d1}
 %\criterion{D1 -- Is there documentation?}
 
@@ -627,7 +627,7 @@ screencasts. API references should contain source code examples of usage.
 
 \newcommand{\dNineName}{D9}
 \newcommand{\dNineID}{\dNineName}
-\newcommand{\dNineText}{Is there adequate troubleshooting information?}
+\newcommand{\dNineText}{Is there troubleshooting information?}
 \criterion{\dNineName{ }--{ }\dNineText}\label{id:d9}
 %\criterion{D9 -- Is there adequate troubleshooting information?}
 
@@ -664,7 +664,10 @@ focusses on how straightforward it is to learn to use the software.
 \criterion{\lOneName{ }--{ }\lOneText}\label{id:l1} %TODO italics!
 %\criterion{L1 -- Is there a getting started guide?}
 
-A \textit{Getting started} guide outlines how to quickly get started with the software using a basic example.
+A \textit{Getting started} guide, or similar, outlines how to quickly get
+started with the software using a basic yet practical example and is usually task-oriented.
+It helps people to quickly get their hands dirty prior to diving in the
+remainder of the documentation. 
 
 \newcommand{\lTwoName}{L2}
 \newcommand{\lTwoID}{\lTwoName}
@@ -693,8 +696,8 @@ all possible use cases if this is feasible.
 \criterion{\lThreeName{ }--{ }\lThreeText}\label{id:l3} 
 %\criterion{L3 -- Does the interface provide a help reference?}
 
-Help options should be provided by the interface. Command line interfaces must
-have a -h/--help pair describing usage and all options. GUIs should use tooltips/hints to clarify
+Help options should be provided by the interface. Command line interfaces
+\emph{must} have a \texttt{-h}/\texttt{--help} pair describing usage and all options. GUIs should use tooltips/hints to clarify
 their widgets (or through whatever convention is customary for the
 platform/ecosystem). Alternatively, they can provide a help option referring to
 the documentation.
@@ -726,7 +729,7 @@ files, a preferences window in a GUI, or by any other means, then the
 configuration options and their effect should be clearly documented.
 
 Moreover, default values for configuration parameters, and their effect, should be
-clearly explained.
+made clear.
 
 \subsection{Buildability}\label{sec:bui}
 
@@ -764,7 +767,7 @@ Solutions that are not tied to a single IDE are always preferred.
 
 \newcommand{\bThreeName}{B3}
 \newcommand{\bThreeID}{\bThreeName}
-\newcommand{\bThreeText}{Are all dependencies listed and available?}
+\newcommand{\bThreeText}{Are the dependencies listed and available?}
 \criterion{\bThreeName{ }--{ }\bThreeText}\label{id:b3}
 %\criterion{B3 -- Are all dependencies listed and available?}
 (related to IS2)
@@ -805,7 +808,7 @@ distribution.
 
 \newcommand{\isTwoName}{IS2}
 \newcommand{\isTwoID}{\isTwoName}
-\newcommand{\isTwoText}{Are all dependencies listed and available?}
+\newcommand{\isTwoText}{Are the dependencies listed and available?}
 \criterion{\isTwoName{ }--{ }\isTwoText}\label{id:is2} 
 %\criterion{IS2 -- Are all dependencies listed and available?}
 (related to B3)
