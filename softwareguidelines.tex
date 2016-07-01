@@ -348,12 +348,12 @@ whether the software complies to requirements for integration into the CLARIAH i
 Sections \ref{sec:usab} and \ref{sec:sustAndMaint} lay out all dimensions with the individual assessment
 criteria. The individual criteria are inspired by the SSI guidelines but
 are not directly copied. Our criteria are generally more condensed and may
-group issues that were expressed as multiple indicators in the SSI guide.
+group issues that were expressed as multiple criteria in the SSI guide.
 Various criteria have also been added that did not exist in the SSI guide,
 and there were a few we found too specific to use.
 
 Each criterion carries an ID code for easy reference. Cross-references will be
-made whenever there is a relationship between indicators.
+made whenever there is a relationship between criteria.
 
 Before the description of the full assessment criteria, a number of strict,
 minimal, requirements that software should adhere to (see Section
@@ -1306,7 +1306,7 @@ compliance with AC2), or questions in the issue/bug tracker or mailing lists.
 
 External developers, not related to the original developers or their
 institution, are a good sign of community interest. The threshold for
-contributing is relatively high. Compliance with this indicator is greatly
+contributing is relatively high. Compliance with this criterion is greatly
 facilitated by compliance with AC2.
 
 \newcommand{\cmThreeName}{CM3}
@@ -1762,7 +1762,7 @@ appreciated here!
 
 
 \begin{TODO} 
-What are quality indicators for how software projects are run and
+What are quality criteria for how software projects are run and
 managed? This is more on a high-level organizational level.
 \end{TODO}
 
@@ -1771,17 +1771,21 @@ managed? This is more on a high-level organizational level.
 \section{Quality Measurement}
 
 To achieve a measure of quality, evaluators can compute a quality score ($Q$,
-expressed as a percentage) per criterion, by counting how many of the
-indicators are answered with ``yes'' ($p$), and how many with ``no`` ($n$),
-following the simple formula in Equation~\ref{eq1}.
+expressed as a percentage) per dimension, by taking the sum of the scores for
+the individual criteria. Responses yield scores on a scale from 0 (No) to 4 (Perfect). 
+
+A score for the dimension can be computed following the simple formula in
+Equation~\ref{eq1}, here $s$ corresponds to the cummulative score, and $n$ is
+the number of questions, except those that are deemed not applicable.
 
 \begin{equation}
 \label{eq1}
-Q = (p / (p + n)) \cdot 100
+Q = (s / (4n)) \cdot 100
 \end{equation}
 
-A passing threshold can be defined, either on a per-criterion basis or just
-by applying the same threshold for all. 
+A score of 100 is achieved if all criteria are adhered to perfectly. This
+threshold may be lowered by using for instance $2n$ or $3n$ instead of $4n$, in
+which case scores over $100$ are possible.
 
 \begin{TODO}
 What quality thresholds do we set for CLARIAH, or is it up
@@ -1800,7 +1804,7 @@ We are currently taking a closer look at the guidelines and looking for input
 from people in CLARIAH and beyond.The connection between data and software has
 to be worked out still.
 
-The criteria and indicators will eventually be published as an interactive
+The criteria will eventually be published as an interactive
 survey as well. The idea is that developers can self-assess their projects, and
 adopters of software can assess whether software is of sufficient quality for
 their usage.
@@ -1812,9 +1816,9 @@ people throughout CLARIAH with the request for initial feedback.
 \begin{itemize}
     \item Do these guidelines seem helpful in the assessment of software
         quality and sustainability? Does it fill a need?
-    \item Are there specific criteria/indicators missing? Is there something more substantial missing?
-    \item Are there specific criteria/indicators you disagree with?
-    \item Which criteria/indicators would you consider particularly important?  Which not?
+    \item Are there specific criteria/dimensions missing? Is there something more substantial missing?
+    \item Are there specific criteria/dimensions you disagree with?
+    \item Which criteria/dimensions would you consider particularly important?  Which not?
     \item Do you have input on any of the TODO items?
     \item Do you have suggestions for improvement?
 \end{itemize}
@@ -1869,7 +1873,7 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 		  p{0.1\textwidth-2\tabcolsep} }
 %		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
 		\hline
-		\textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
 		\hline
 		\multicolumn{5}{l}{\ref{sec:und}{ }\nameref{sec:und}} \\
 		\hline
@@ -1914,7 +1918,7 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 			p{0.1\textwidth-2\tabcolsep} }
 		%		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
 		\hline
-		\textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
         \hline
         \multicolumn{5}{l}{\ref{sec:bui}{ }\nameref{sec:bui}} \\
 		\hline
@@ -1957,7 +1961,7 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 		  p{0.1\textwidth-2\tabcolsep} }
 		%		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
 		\hline
-		\textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
 		\hline
 		\multicolumn{5}{l}{\ref{sec:ide}{ }\nameref{sec:ide}} \\
 		\hline
@@ -2000,7 +2004,7 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 			p{0.1\textwidth-2\tabcolsep} |
 			p{0.1\textwidth-2\tabcolsep} }
         \hline
-        \textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+        \textbf{ID} & \textbf{Criterion} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
         \hline 
         		\multicolumn{5}{l}{\ref{sec:tes}{ }\nameref{sec:tes}} \\
 		\hline
@@ -2044,7 +2048,7 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 			p{0.1\textwidth-2\tabcolsep} |
 			p{0.1\textwidth-2\tabcolsep} }
         \hline
-        \textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+        \textbf{ID} & \textbf{Criterion} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
         \hline 
 		\multicolumn{5}{l}{\ref{sec:cha}{ }\nameref{sec:cha}} \\
 		\hline	
