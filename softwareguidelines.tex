@@ -57,7 +57,9 @@
 \newcommand\CheckTable{%
   \begin{tabular}{ccccc}
     No & Minimal & Adequate & Good & Perfect \\
-    $$\square$$ & $$\square$$ & $$\square$$ & $$\square$$ & $$\square$$ \\
+    0 & 1 & 2 & 3 & 4 \\
+    \hline
+    $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
   \end{tabular}%
 }
 
@@ -470,6 +472,8 @@ describing what exactly it does. Both the \texttt{README} file that ships with
 the software (see IS7) as well as the project website (see ID2) should contain
 this information. 
 
+\CheckTable
+
 \newcommand{\uTwoID}{U2}
 \newcommand{\uTwoText}{Is it clear for whom the software is intended?}
 \criterion{\uTwoID{ }--{ }\uTwoText}\label{id:u2}
@@ -482,6 +486,8 @@ line interface (CLI) , graphical user interface (GUI), web-user interface
 (WUI), web service) is good practice. References to projects already using the
 software are recommended (see also CM1).
 
+\CheckTable
+
 \newcommand{\uThreeID}{U3}
 \newcommand{\uThreeText}{Is it clear how the software works?}
 \criterion{\uThreeID{ }--{ }\uThreeText}\label{id:u3}
@@ -490,6 +496,8 @@ software are recommended (see also CM1).
 There should be a high-level description explaining how the software
 accomplishes its task. Links to publications are recommended. Also, a schema
 offering an architectural overview is suggested where appropriate. 
+
+\CheckTable
 
 \newcommand{\uFourID}{U4}
 \newcommand{\uFourText}{Is the software motivated?}
@@ -500,6 +508,8 @@ There should be a written motivation for why the software does things the way
 it does and why it was designed in the first place. It should be clear what
 problems are solved by it. Links to publications and comparisons to similar
 software are strongly recommended.
+
+\CheckTable
 
 \subsection{Documentation}\label{sec:doc}
 
@@ -517,6 +527,8 @@ is as good as useless. At the very least, there should be some documentation at
 a minimum level, targeted at the intended audience. A README (see IS7) that
 attempts to meet some of guidelines in this section (such as D6,D8,D9) can be
 considered a bare minimum level of documentation.
+
+\CheckTable
 
 % * <reinierdevalk@gmail.com> 2016-03-30T15:35:50.608Z:
 %
@@ -536,6 +548,8 @@ considered a bare minimum level of documentation.
 Documentation must be publicly accessible and in an acceptable standard format
 such as HTML or PDF.
 
+\CheckTable
+
 \newcommand{\dThreeID}{D3}
 \newcommand{\dThreeText}{Is the documentation clear?}
 \criterion{\dThreeID{ }--{ }\dThreeText}\label{id:d3}
@@ -546,6 +560,8 @@ clearly describe the software. Step-by-step and task-oriented instructions are
 recommended.
 
 See also D7.
+
+\CheckTable
 
 \newcommand{\dFourID}{D4}
 \newcommand{\dFourText}{Is the documentation complete?}
@@ -571,6 +587,8 @@ software can perform that are not properly explained?
 % least also offer a high-level view before it goes into the finer details, not that it
 % should go beyond a high-level view (it should). I rephrased D6.
 
+\CheckTable
+
 \newcommand{\dFiveID}{D5}
 \newcommand{\dFiveText}{Is the documentation accurate?}
 \criterion{\dFiveID{ }--{ }\dFiveText}\label{id:d5}
@@ -579,6 +597,8 @@ software can perform that are not properly explained?
 Documentation should describe the advertised version and not be out-of-date
 with the latest release. Examples should be in line with how the tool looks and
 behaves.
+
+\CheckTable
 
 \newcommand{\dSixID}{D6}
 \newcommand{\dSixText}{Does the documentation provide a high-level overview of the software?}
@@ -593,6 +613,8 @@ these details form a part of the larger picture.
 
 % <proycon@anaproy.nl> 2016-04-06: I rephrased this after Reinier's comment for D4.
 
+\CheckTable
+
 \newcommand{\dSevenID}{D7}
 \newcommand{\dSevenText}{Are all the necessary audiences addressed, at their appropriate levels?}
 \criterion{\dSevenID{ }--{ }\dSevenText}\label{id:d7}
@@ -602,6 +624,8 @@ Different groups of users require different documentation. Developers require
 APIs if the software is a library (see L4), end-users require a walkthrough of the GUI
 if the software has one. A different level of expertise may be expected of
 different user groups, the documentation should assume the appropriate level.
+
+\CheckTable
 
 \newcommand{\dEightID}{D8}
 \newcommand{\dEightText}{Does the documentation make use of adequate examples?}
@@ -613,6 +637,8 @@ described. Command-line interfaces should see examples of invocation and input
 and output. Graphical user interfaces should be illustrated through screenshots or
 screencasts. API references should contain source code examples of usage.
 
+\CheckTable
+
 \newcommand{\dNineID}{D9}
 \newcommand{\dNineText}{Is there troubleshooting information?}
 \criterion{\dNineID{ }--{ }\dNineText}\label{id:d9}
@@ -623,12 +649,16 @@ specification of possible error messages and explanation for resolution. A
 frequently asked questions (FAQ) section is appropriate to cover questions
 that are repeatedly asked by the user base.
 
+\CheckTable
+
 \newcommand{\dTenID}{D10}
 \newcommand{\dTenText}{Is the documentation available from the project website?}
 \criterion{\dTenID{ }--{ }\dTenText}\label{id:d10}
 %\criterion{D10 -- Is the documentation available from the project website?}
 
 Documentation must be clearly linked from the project website.
+
+\CheckTable
 
 \newcommand{\dElevenID}{D11}
 \newcommand{\dElevenText}{Is the documentation under version control?}
@@ -637,6 +667,8 @@ Documentation must be clearly linked from the project website.
 
 The sources for documentation must be under version control like the source
 code, preferably alongside the code itself.
+
+\CheckTable
 
 \subsection{Learnability}\label{sec:lea}
 
@@ -652,6 +684,8 @@ A \textit{Getting started} guide, or similar, outlines how to quickly get
 started with the software using a basic yet practical example and is usually task-oriented.
 It helps people to quickly get their hands dirty prior to diving in the
 remainder of the documentation. 
+
+\CheckTable
 
 \newcommand{\lTwoID}{L2}
 \newcommand{\lTwoText}{Are there instructions for basic use cases?}
@@ -673,6 +707,8 @@ all possible use cases if this is feasible.
 % adverb ``ideally'' for that reason, I added another qualifier ``if this is
 % feasible''.
 
+\CheckTable
+
 \newcommand{\lThreeID}{L3}
 \newcommand{\lThreeText}{Does the interface provide a help reference?}
 \criterion{\lThreeID{ }--{ }\lThreeText}\label{id:l3} 
@@ -684,6 +720,8 @@ their widgets (or through whatever convention is customary for the
 platform/ecosystem). Alternatively, they can provide a help option referring to
 the documentation.
 
+\CheckTable
+
 \newcommand{\lFourID}{L4}
 \newcommand{\lFourText}{Is there API documentation for developers?}
 \criterion{\lFourID{ }--{ }\lFourText}\label{id:l4} 
@@ -691,6 +729,8 @@ the documentation.
 
 If the software is a programming library, API documentation must be provided.
 If the software is a web service, a specification of the web API must be provided.
+
+\CheckTable
 
 \newcommand{\lFiveID}{L5}
 \newcommand{\lFiveText}{If the software is configurable, are the configuration options clearly explained?}
@@ -721,6 +761,8 @@ Java, Pascal, Haskell, Scala, Rust, Cython but not to scripting language such
 as Python, Ruby, Perl, Go.  Note that buildability does not include
 installation, packaging, or deployment.
 
+\CheckTable
+
 \newcommand{\bOneID}{B1}
 \newcommand{\bOneText}{Are there good instructions for building/compiling the software?}
 \criterion{\bOneID{ }--{ }\bOneText}\label{id:b1} 
@@ -732,6 +774,8 @@ be distributed alongside the software's source distribution (as part of an
 source distribution is the primary means of distribution, then build
 instructions should be prominently displayed on the project website as well.
 
+\CheckTable
+
 \newcommand{\bTwoID}{B2}
 \newcommand{\bTwoText}{Is an established automated build system used?}
 \criterion{\bTwoID{ }--{ }\bTwoText}\label{id:b2} 
@@ -742,6 +786,8 @@ System\footnote{Also known as the autotools.} or CMake for C/C++ (this is
 preferred over a static Makefile); or Ant or Maven for Java. 
 
 Solutions that are not tied to a single IDE are always preferred.
+
+\CheckTable
 
 \newcommand{\bThreeID}{B3}
 \newcommand{\bThreeText}{Are the dependencies listed and available?}
@@ -758,12 +804,16 @@ instructions (i.e. package names) to accomplish this.
 Moreover, all listed dependencies should be available, unobtainable software
 can not be used as a dependency. Higher-order dependencies need not be listed.
 
+\CheckTable
+
 \newcommand{\bFourID}{B4}
 \newcommand{\bFourText}{Are there tests to verify the build has succeeded?}
 \criterion{\bFourID{ }--{ }\bFourText}\label{id:b4} 
 %\criterion{B4 -- Are there tests to verify the build has succeeded?}
 
 A build process should terminate with a testing stage that verifies its success.
+
+\CheckTable
 
 \subsection{Installability}\label{sec:ins}
 
@@ -780,6 +830,8 @@ be easily accessible and presented on the project website as well as shipped
 with the software in the README or INSTALL file (see also IS7). Build and installation
 instructions can be combined if the software is published as a source
 distribution.
+
+\CheckTable
 
 \newcommand{\isTwoID}{IS2}
 \newcommand{\isTwoText}{Are the dependencies listed and available?}
@@ -806,6 +858,8 @@ can not be used as a dependency. Higher-order dependencies need not be listed.
 %The text is much the same indeed though, cross-referencing may be a solution
 %here, not sure what would be best.
 
+\CheckTable
+
 \newcommand{\isThreeID}{IS3}
 \newcommand{\isThreeText}{Are programming language's best installation practices followed?}
 \criterion{\isThreeID{ }--{ }\isThreeText}\label{id:is3} 
@@ -831,6 +885,8 @@ ad-hoc mechanisms. If the ecosystem has facilities for dependency management
 Complying to these installation practices often means your installable package
 is fit for inclusion into the programming language's public package repository
 (see AC5).
+
+\CheckTable
 
 \newcommand{\isFourID}{IS4}
 \newcommand{\isFourText}{Is the software packaged according to standards for the target platform?}
@@ -871,6 +927,8 @@ software.
 It is not always time- and cost-effective to package the software, especially not
 when there are multiple target platforms. 
 
+\CheckTable
+
 \newcommand{\isFiveID}{IS5}
 \newcommand{\isFiveText}{Is the software package properly structured?}
 \criterion{\isFiveID{ }--{ }\isFiveText}\label{id:is5} 
@@ -884,6 +942,8 @@ If software is distributed as a plain archive (tar.gz, tar.bz2, zip or otherwise
 it must create a single directory when unpacked rather than spread its contents
 over the current working directory.
 
+\CheckTable
+
 \newcommand{\isSixID}{IS6}
 \newcommand{\isSixText}{Is the software properly structured when installed?}
 \criterion{\isSixID{ }--{ }\isSixText}\label{id:is6} 
@@ -892,6 +952,8 @@ over the current working directory.
 When the software is installed, it should adhere to file placement standards set
 by the target platform. On Unix-like operating systems (excluding Mac OS X), the Filesystem
 Hierarchy Standard\footnote{\url{http://refspecs.linuxfoundation.org/fhs.shtml}} (FHS) should be followed.
+
+\CheckTable
 
 \newcommand{\isSevenID}{IS7}
 \newcommand{\isSevenText}{The software must include a README.}
@@ -907,6 +969,8 @@ ReStructuredText\footnote{\url{http://docutils.sourceforge.net/rst.html}}.
 If a public version control platform such as GitHub is used (see AC2), the
 README will usually be visualised on the repository page.
 
+\CheckTable
+
 \newcommand{\isEightID}{IS8}
 \newcommand{\isEightText}{Are there facilities to uninstall the software?}
 \criterion{\isEightID{ }--{ }\isEightText}\label{id:is8} 
@@ -916,6 +980,8 @@ This is usually trivial when the software complies to IS4 and/or IS3, or if the
 software installation is self-contained in a single directory. In all other
 instances, proper uninstallation facilities should be explicitly implemented.
 
+\CheckTable
+
 \newcommand{\isNineID}{IS9}
 \newcommand{\isNineText}{Are the system requirements such as target platform clearly advertised?}
 \criterion{\isNineID{ }--{ }\isNineText}\label{id:is9} 
@@ -924,6 +990,8 @@ instances, proper uninstallation facilities should be explicitly implemented.
 The project website must state clearly state what target platform(s) the software is expected to run on.
 System requirements in terms of computing resources must be stated if the software employs more than insignificant resources (see PF2).
 (related also to B3 and IS2)
+
+\CheckTable
 
 \subsection{Performance}\label{sec:per}
 
@@ -953,6 +1021,8 @@ choices.
 %an indication that such a deeper check is warranted.
 (Consider also U4)
 
+\CheckTable
+
 \newcommand{\pfTwoID}{PF2}
 \newcommand{\pfTwoText}{Does the software make a reasonable demand on computing resources?}
 \criterion{\pfTwoID{ }--{ }\pfTwoText}\label{id:pf2} 
@@ -969,6 +1039,8 @@ Be aware that there is often a trade-off between speed and memory usage. The
 developer of the decision must make an appropriate decision favouring one or the other
 given the task at hand. 
 
+\CheckTable
+
 \newcommand{\pfThreeID}{PF3}
 \newcommand{\pfThreeText}{Does the software make efficient use of available resources?}
 \criterion{\pfThreeID{ }--{ }\pfThreeText}\label{id:pf3} 
@@ -978,6 +1050,8 @@ Software should make use of available resources if it helps getting the job
 done faster. For instance, if multiple CPU cores are available and the task at hand
 would benefit significantly from parallelisation, then the implementation should be
 multithreaded to make use of said cores.
+
+\CheckTable
 
 \newcommand{\pfFourID}{PF4}
 \newcommand{\pfFourText}{Is the interface responsive?}
@@ -992,6 +1066,8 @@ be blocked needlessly.
 Webservice interfaces need to be similarly responsive and not time out. Server interfaces furthermore demand multi-threading and need to be able to handle
 multiple clients concurrently.
 
+\CheckTable
+
 \newcommand{\pfFiveID}{PF5}
 \newcommand{\pfFiveText}{Does the software scale as intended?}
 \criterion{\pfFiveID{ }--{ }\pfFiveText}\label{id:pf5} 
@@ -1003,6 +1079,8 @@ acceptable at such levels.  Scaling can be horizontal, where multiple CPU cores
 or multiple machines are put to work to distribute the load, or vertically by
 simply adding more resources. In a data-sense, horizontal scaling often implies
 a partitioning of the data.
+
+\CheckTable
 
 \section{Quality Assessment Criteria - Sustainability and Maintainability}\label{sec:sustAndMaint}
 
@@ -1016,6 +1094,8 @@ a partitioning of the data.
 Software should be identifiable by a clear name that does not clash with others
 in its application domain and in the wider generic software domain. 
 
+\CheckTable
+
 \newcommand{\idTwoID}{ID2}
 \newcommand{\idTwoText}{Does the software have a website?}
 \criterion{\idTwoID{ }--{ }\idTwoText}\label{id:id2} 
@@ -1027,12 +1107,16 @@ related to the software.
 
 It is recommended to have a dedicated domain name or subdomain.
 
+\CheckTable
+
 \newcommand{\idThreeID}{ID3}
 \newcommand{\idThreeText}{Does the project name not violate an existing trade-mark?}
 \criterion{\idThreeID{ }--{ }\idThreeText}\label{id:id3} 
 %\criterion{ID3 -- Does the project name not violate an existing trade-mark?}
 
 The project name should not infringe on existing trade-marks.
+
+\CheckTable
 
 \subsection{Copyright \& Licensing}\label{sec:cop}
 
@@ -1064,6 +1148,8 @@ open source and ``aims to create an inclusive open-source engineering community
 that will carry on providing new tools and support for users after the end of
 the CLARIAH project'' \citep{CLARIAHTECHPLAN1}.
 
+\CheckTable
+
 \newcommand{\cpTwoID}{CP2}
 \newcommand{\cpTwoText}{Is it clear who wrote the software, who owns the copyright, and what the license is?}
 \criterion{\cpTwoID{ }--{ }\cpTwoText}\label{id:cp2} 
@@ -1072,6 +1158,8 @@ the CLARIAH project'' \citep{CLARIAHTECHPLAN1}.
 Authors, copyright and license should be clearly mentioned on the project
 website, as well as in the source code.  We strongly recommend each source file to contain a comment header stating this information.
 
+\CheckTable
+
 \newcommand{\cpThreeID}{CP3}
 \newcommand{\cpThreeText}{Are the funders acknowledged?}
 \criterion{\cpThreeID{ }--{ }\cpThreeText}\label{id:cp3} 
@@ -1079,6 +1167,8 @@ website, as well as in the source code.  We strongly recommend each source file 
 
 Any external funders of the software should be publicly acknowledged on the project
 website, and in the \texttt{README}.
+
+\CheckTable
 
 \subsection{Accessibility}\label{sec:acc}
 
@@ -1091,6 +1181,8 @@ Source code must always be kept under version control. This enables developers
 to collaborate, maintains a perfect version history, and allows everyone keep a
 track of changes. Absence of version control is bad development practice and
 unsustainable.
+
+\CheckTable
 
 \newcommand{\acTwoID}{AC2}
 \newcommand{\acTwoText}{Is the source code in a public version-controlled repository?}
@@ -1126,6 +1218,8 @@ We motivate our reasoning in favour of public version control repositories as fo
 
 (depends on AC1)
 
+\CheckTable
+
 \newcommand{\acThreeID}{AC3}
 \newcommand{\acThreeText}{Is there no restricted data in the public source code repository?}
 \criterion{\acThreeID{ }--{ }\acThreeText}\label{id:ac3} 
@@ -1133,6 +1227,8 @@ We motivate our reasoning in favour of public version control repositories as fo
 
 Privacy and security sensitive data (passwords, API keys), as well as other
 restricted data, should never be checked into public version control systems.
+
+\CheckTable
 
 \newcommand{\acFourID}{AC4}
 \newcommand{\acFourText}{Are there clearly marked formal releases of the software?}
@@ -1144,6 +1240,8 @@ time. Each release should be clearly marked with the version number of the
 software, according to a consistent scheme. The version control system should
 also have clearly identifiable tags that mark the state of the repository at
 the time of this release.
+
+\CheckTable
 
 \newcommand{\acFiveID}{AC5}
 \newcommand{\acFiveText}{Is the software deposited in a public repository for the language?}
@@ -1171,6 +1269,8 @@ Use of these repositories is strongly recommended practice if available.
     \item \textbf{Ruby} -- Ruby software should be deposited to 
         RubyGems: \url{https://rubygems.org}
 \end{itemize}
+
+\CheckTable
 
 \newcommand{\acSixID}{AC6}
 \newcommand{\acSixText}{Is the software available in the target platform's software repository?}
@@ -1207,6 +1307,8 @@ especially not when there are multiple target platforms. When the software is
 not intended for adoption by a wider audience, it can be considered to ignore
 this guideline.
 
+\CheckTable
+
 \newcommand{\acSevenID}{AC7}
 \newcommand{\acSevenText}{Is each software release deposited in a persistent store with a unique DOI?}
 \criterion{\acSevenID{ }--{ }\acSevenText}\label{id:ac7} 
@@ -1223,6 +1325,8 @@ research data repository.} can set this up with little effort. \footnote{A guide
 for this is provided at https://guides.github.com/activities/citable-code/.}.
 Any releases made on GitHub will then automatically transfer to Zenodo and
 receive a DOI, no user intervention is necessary. 
+
+\CheckTable
 
 \subsection{Community}\label{sec:com}
 
@@ -1249,6 +1353,8 @@ In addition to the aforementioned, evidence for this activity may also be sought
 in contributions to the software by external developers (assuming
 compliance with AC2), or questions in the issue/bug tracker or mailing lists.
 
+\CheckTable
+
 \newcommand{\cmTwoID}{CM2}
 \newcommand{\cmTwoText}{Is there evidence of external developers?}
 \criterion{\cmTwoID{ }--{ }\cmTwoText}\label{id:cm2} 
@@ -1259,6 +1365,8 @@ institution, are a good sign of community interest. The threshold for
 contributing is relatively high. Compliance with this criterion is greatly
 facilitated by compliance with AC2.
 
+\CheckTable
+
 \newcommand{\cmThreeID}{CM3}
 \newcommand{\cmThreeText}{Are there statistics available on software use?}
 \criterion{\cmThreeID{ }--{ }\cmThreeText}\label{id:cm3} 
@@ -1268,6 +1376,8 @@ To gain an impression of user interest, it is recommended to have statistics
 available on how often the software is downloaded or how often the project page
 is visited. Public availability of these statistics (stripped of any privacy
 sensitive information), is recommended.
+
+\CheckTable
 
 \subsection{Testability}\label{sec:tes}
 
@@ -1285,6 +1395,8 @@ trivial to assess, but automated tools
 and platforms are available that can help in this assessment, such as
 \url{https://coveralls.io} and \url{https://codacy.com}.
 
+\CheckTable
+
 \newcommand{\tsTwoID}{TS2}
 \newcommand{\tsTwoText}{Does the project have integration tests, is there sufficient coverage?}
 \criterion{\tsTwoID{ }--{ }\tsTwoText}\label{id:ts2} 
@@ -1293,6 +1405,8 @@ and platforms are available that can help in this assessment, such as
 Software should have integration tests that combine invididual parts of modules and see how they function
 as a group.
 
+\CheckTable
+
 \newcommand{\tsThreeID}{TS3}
 \newcommand{\tsThreeText}{Does the project have automated GUI tests?}
 \criterion{\tsThreeID{ }--{ }\tsThreeText}\label{id:ts3} 
@@ -1300,6 +1414,8 @@ as a group.
 
 If the software offers a non-trivial GUI or WUI, it should have automated tests
 that verify whether the interface functions as intended.
+
+\CheckTable
 
 \newcommand{\tsFourID}{TS4}
 \newcommand{\tsFourText}{Are tests run automatically?}
@@ -1331,6 +1447,8 @@ platforms.
 It should be clear, from at least the project website, for what platforms the software
 is intended.
 
+\CheckTable
+
 \newcommand{\pbTwoID}{PB2}
 \newcommand{\pbTwoText}{Is the software portable for multiple platforms?}
 \criterion{\pbTwoID{ }--{ }\pbTwoText}\label{id:pb2} 
@@ -1338,6 +1456,8 @@ is intended.
 
 It is recommended to support a wide variety of platforms rather than a single
 one. This, however, is not always feasible or cost and time effective.
+
+\CheckTable
 
 \newcommand{\pbThreeID}{PB3}
 \newcommand{\pbThreeText}{Does the software work on multiple browsers?}
@@ -1354,6 +1474,8 @@ are themselves not portable. Adobe Flash or Microsoft Silverlight are two
 examples of badly portable legacy technologies that should be avoided, always use
 modern substitutes (HTML5) instead.
 
+\CheckTable
+
 \subsection{Supportability}\label{sec:sup}
 
 To what extent will the product be supported currently and in the future?
@@ -1366,6 +1488,8 @@ To what extent will the product be supported currently and in the future?
 It should be clear where to go for support. A project must have a contact
 e-mail address. If an issue tracker is present (SP2), it should be clearly advertised
 as well.
+
+\CheckTable
 
 \newcommand{\spTwoID}{SP2}
 \newcommand{\spTwoText}{Are there public support channels available?}
@@ -1387,6 +1511,8 @@ Other extra support channels may take the form of an IRC channel or services
 such as Slack\footnote{\url{https://slack.com/}} or
 Gitter\footnote{\url{https://gitter.com}}.
 
+\CheckTable
+
 \subsection{Analysability}\label{sec:ana}
 
 This section concerns the extent to which the source code can be understood. At
@@ -1406,12 +1532,16 @@ architecture or design of the software.
 
 (See also R3)
 
+\CheckTable
+
 \newcommand{\anTwoID}{AN2}
 \newcommand{\anTwoText}{Is the source code commented adequately?}
 \criterion{\anTwoID{ }--{ }\anTwoText}\label{id:an2} 
 %\criterion{AN2 -- Is the source code commented adequately?}
 
 The source code should contain comments explaining what major blocks do.
+
+\CheckTable
 
 \newcommand{\anThreeID}{AN3}
 \newcommand{\anThreeText}{Do the comments generate API documentation?}
@@ -1431,12 +1561,16 @@ source for the generation of the API reference documentation. This is
 accomplished using document generation tools such as Doxygen\footnote{\url{http://www.doxygen.org}}, Sphinx\footnote{\url{http://www.sphinx-doc.org}} or
 Javadoc\footnote{\url{http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html}}.
 
+\CheckTable
+
 \newcommand{\anFourID}{AN4}
 \newcommand{\anFourText}{Is the source code cleanly laid out?}
 \criterion{\anFourID{ }--{ }\anFourText}\label{id:an4} 
 %\criterion{AN4 -- Is the source code cleanly laid out?}
 
 The source code should follow a proper indentation convention. 
+
+\CheckTable
 
 \newcommand{\anFiveID}{AN5}
 \newcommand{\anFiveText}{Are sensible names used?}
@@ -1447,6 +1581,8 @@ Do the classes, functions and variables in the source code use sensible names
 and do they follow a consistent naming scheme that is conventional for the
 programming language?
 
+\CheckTable
+
 \newcommand{\anSixID}{AN6}
 \newcommand{\anSixText}{Are there no (large) blocks of commented out code or obsolete files?}
 \criterion{\anSixID{ }--{ }\anSixText}\label{id:an6} 
@@ -1456,6 +1592,8 @@ There should be no large blocks of commented-out code, nor obsolete or
 alternate versions of files that bypass proper version control.
 (this depends on compliance with AC1)
 
+\CheckTable
+
 \newcommand{\anSevenID}{AN7}
 \newcommand{\anSevenText}{Are all TODO comments resolved?}
 \criterion{\anSevenID{ }--{ }\anSevenText}\label{id:an7} 
@@ -1463,6 +1601,8 @@ alternate versions of files that bypass proper version control.
 
 There should be no important TODO comments, if there are they should at least be
 clearly described in the issue tracker (SP2).
+
+\CheckTable
 
 \newcommand{\anEightID}{AN8}
 \newcommand{\anEightText}{Does the project have recommended coding standards?}
@@ -1499,6 +1639,8 @@ of generic coding standards for the programming language.
 %Outside contribution also generally improves the quality as people generally
 %come with a fresher perspective and see things the original developers may not have spotted.
 
+\CheckTable
+
 \newcommand{\chOneID}{CH1}
 \newcommand{\chOneText}{Is the project open to contributions from third parties?}
 \criterion{\chOneID{ }--{ }\chOneText}\label{id:ch1} 
@@ -1509,6 +1651,8 @@ involvement is a major factor in the success of a software project.
 
 This depends on AC1, AC2, and facilitates COM1 and COM2. 
 
+\CheckTable
+
 \newcommand{\chTwoID}{CH2}
 \newcommand{\chTwoText}{Does the project have guidelines for contributions?}
 \criterion{\chTwoID{ }--{ }\chTwoText}\label{id:ch2} 
@@ -1517,6 +1661,8 @@ This depends on AC1, AC2, and facilitates COM1 and COM2.
 If contributions are desired, a project is recommended to have guidelines for
 contributors. These must be publicly available.
 See also AN8.
+
+\CheckTable
 
 \newcommand{\chThreeID}{CH3}
 \newcommand{\chThreeText}{Are all source code changes, and their authorship, publicly visible?}
@@ -1529,6 +1675,8 @@ changes it. This depends on AC1, heavily facilitated by AC2.
 Alternatively, commit messages can be forwarded to mailing lists, Slack, IRC chat, or
 whatever is deemed appropriate.
 
+\CheckTable
+
 \newcommand{\chFourID}{CH4}
 \newcommand{\chFourText}{Is the software sufficiently backward compatible?}
 \criterion{\chFourID{ }--{ }\chFourText}\label{id:ch4} 
@@ -1537,6 +1685,8 @@ whatever is deemed appropriate.
 Software should be backward compatible with old versions of itself with respect
 to public interfaces and data input. Backward compatibility changes and
 deprecation may occur but should always be clearly announced ahead of time.
+
+\CheckTable
 
 \newcommand{\chFiveID}{CH5}
 \newcommand{\chFiveText}{Is there a roadmap for future changes?}
@@ -1547,6 +1697,8 @@ Software still under active development should have a roadmap. This may take
 shape either as an explicit roadmap or implicit in the issue tracker
 (SP2) through the assignment of milestones.
 
+\CheckTable
+
 \newcommand{\chSixID}{CH6}
 \newcommand{\chSixText}{Does the website mention how the software is funded and when funding ends?}
 \criterion{\chSixID{ }--{ }\chSixText}\label{id:ch6} 
@@ -1554,6 +1706,8 @@ shape either as an explicit roadmap or implicit in the issue tracker
 
 Funders should be acknowledged publicly and people should be aware when
 software is no longer actively developed.
+
+\CheckTable
 
 \subsection{Reusability}\label{sec:reu}
 
@@ -1569,6 +1723,8 @@ webservice interface, developers needs a software library with API.
 
 Assessment of this depends greatly on the intended audience of the software
 (see U2) and desired level of reusability.
+
+\CheckTable
 
 \newcommand{\rTwoID}{R2}
 \newcommand{\rTwoText}{Is the software modular, can the software support multiple interfaces?}
@@ -1599,6 +1755,8 @@ Maximum reusability is not always desired or time- and cost-effective. The
 desired degree of modularity and reusability is to be assessed on an
 individual basis.
 
+\CheckTable
+
 \newcommand{\rThreeID}{R3}
 \newcommand{\rThreeText}{Is the software's source code set up in a modular fashion?}
 \criterion{\rThreeID{ }--{ }\rThreeText}\label{id:r3} 
@@ -1618,6 +1776,8 @@ functions, following the paradigm of the programming language.
 
 (See also AN1)
 
+\CheckTable
+
 \subsection{Security \& Privacy}\label{sec:sec}
 
 \newcommand{\scOneID}{SC1}
@@ -1632,6 +1792,8 @@ Proper validation of user input is a major factor in preventing security holes
 
 Assessment of security is an art in itself and non-trivial. 
 
+\CheckTable
+
 \newcommand{\scTwoID}{SC2}
 \newcommand{\scTwoText}{Is user privacy secured effectively?}
 \criterion{\scTwoID{ }--{ }\scTwoText}\label{id:sc2} 
@@ -1641,6 +1803,8 @@ Privacy-sensitive user data must be treated with care. Passwords must never be
 stored in unhashed form, private keys must never be shared. Any compromises to
 privacy must be clearly laid out in a privacy policy.  Strongly related to SC1.
 Also see AC3.
+
+\CheckTable
 
 \subsection{Interoperability}\label{sec:int}
 
@@ -1655,6 +1819,8 @@ standards. Support of multiple open standards is recommended. Conversion may
 also be mediated through other third party tools. A counter indication for this
 is when software uses its own ad hoc format when decent open alternatives
 already exist.
+
+\CheckTable
 
 \subsection{Interoperability for CLARIAH}\label{sec:intCLA}
 
