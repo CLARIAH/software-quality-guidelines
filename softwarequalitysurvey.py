@@ -65,7 +65,7 @@ def main():
                 category = latextomarkdown(line[12:line.find('}')])
                 criteria[category] = OrderedDict()
             elif line.startswith('\\criterion'):
-                code = buffer[-3][buffer[-3].rfind('{')+1:-1]
+                code = buffer[-2][buffer[-2].rfind('{')+1:-1]
                 label = buffer[-1][buffer[-1].rfind('{')+1:-1]
                 criteria[category][code] = latextomarkdown(label)
             else:
