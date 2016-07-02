@@ -57,7 +57,7 @@
 \newcommand\CheckTable{%
   \begin{tabular}{ccccc}
     No & Minimal & Adequate & Good & Perfect \\
-    $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+    $$\square$$ & $$\square$$ & $$\square$$ & $$\square$$ & $$\square$$ \\
   \end{tabular}%
 }
 
@@ -1787,42 +1787,44 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 \begin{table}[hbt]
 	\begin{tabular}
 		{ p{0.1\textwidth-2\tabcolsep} | 
-		  p{0.6\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} }
+		  p{0.5\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} }
 %		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
 		\hline
-		\textbf{ID} & \textbf{Criterion} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{No} & \textbf{Min} & \textbf{Adq} & \textbf{Good} & \textbf{Perfect} \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:und}{ }\nameref{sec:und}} \\
+		\multicolumn{7}{l}{\ref{sec:und}{ }\nameref{sec:und}} \\
 		\hline
-		\hyperref[id:u1]{\uOneID} & \uOneText & & & \\
-		\hyperref[id:u2]{\uTwoID} & \uTwoText & & & \\
-		\hyperref[id:u3]{\uThreeID} & \uThreeText & & & \\
-		\hyperref[id:u4]{\uFourID} & \uFourText & & & \\
+        \hyperref[id:u1]{\uOneID} & \uOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:u2]{\uTwoID} & \uTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:u3]{\uThreeID} & \uThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:u4]{\uFourID} & \uFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:doc}{ }\nameref{sec:doc}} \\
+		\multicolumn{7}{l}{\ref{sec:doc}{ }\nameref{sec:doc}} \\
 		\hline
-		\hyperref[id:d1]{\dOneID} & \dOneText & & & \\
-		\hyperref[id:d2]{\dTwoID} & \dTwoText & & & \\
-		\hyperref[id:d3]{\dThreeID} & \dThreeText & & & \\
-		\hyperref[id:d4]{\dFourID} & \dFourText & & & \\
-		\hyperref[id:d5]{\dFiveID} & \dFiveText & & & \\
-		\hyperref[id:d6]{\dSixID} & \dSixText & & & \\
-		\hyperref[id:d7]{\dSevenID} & \dSevenText & & & \\
-		\hyperref[id:d8]{\dEightID} & \dEightText & & & \\
-		\hyperref[id:d9]{\dNineID} & \dNineText & & & \\
-		\hyperref[id:d10]{\dTenID} & \dTenText & & & \\
-		\hyperref[id:d11]{\dElevenID} & \dElevenText & & & \\
+		\hyperref[id:d1]{\dOneID} & \dOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:d2]{\dTwoID} & \dTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:d3]{\dThreeID} & \dThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:d4]{\dFourID} & \dFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:d5]{\dFiveID} & \dFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:d6]{\dSixID} & \dSixText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:d7]{\dSevenID} & \dSevenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:d8]{\dEightID} & \dEightText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:d9]{\dNineID} & \dNineText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:d10]{\dTenID} & \dTenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:d11]{\dElevenID} & \dElevenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:lea}{ }\nameref{sec:lea}} \\
+		\multicolumn{7}{l}{\ref{sec:lea}{ }\nameref{sec:lea}} \\
 		\hline
-		\hyperref[id:l1]{\lOneID} & \lOneText & & & \\
-		\hyperref[id:l2]{\lTwoID} & \lTwoText & & & \\
-		\hyperref[id:l3]{\lThreeID} & \lThreeText & & & \\
-		\hyperref[id:l4]{\lFourID} & \lFourText & & & \\
-		\hyperref[id:l5]{\lFiveID} & \lFiveText & & & \\
+		\hyperref[id:l1]{\lOneID} & \lOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:l2]{\lTwoID} & \lTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:l3]{\lThreeID} & \lThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:l4]{\lFourID} & \lFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:l5]{\lFiveID} & \lFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
 		\end{tabular}
 		\caption{Quality Assessment Criteria - Usability (1)}
@@ -1832,40 +1834,42 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 \begin{table}[hbt]
 	\begin{tabular}
 		{ p{0.1\textwidth-2\tabcolsep} | 
-			p{0.6\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} }
+		  p{0.5\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} }
 		%		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
 		\hline
-		\textbf{ID} & \textbf{Criterion} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{No} & \textbf{Min} & \textbf{Adq} & \textbf{Good} & \textbf{Perfect} \\
         \hline
-        \multicolumn{5}{l}{\ref{sec:bui}{ }\nameref{sec:bui}} \\
+        \multicolumn{7}{l}{\ref{sec:bui}{ }\nameref{sec:bui}} \\
 		\hline
-		\hyperref[id:b1]{\bOneID} & \bOneText & & & \\
-		\hyperref[id:b2]{\bTwoID} & \bTwoText & & & \\
-		\hyperref[id:b3]{\bThreeID} & \bThreeText & & & \\
-		\hyperref[id:b4]{\bFourID} & \bFourText & & & \\
+		\hyperref[id:b1]{\bOneID} & \bOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:b2]{\bTwoID} & \bTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:b3]{\bThreeID} & \bThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:b4]{\bFourID} & \bFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline			
-		\multicolumn{5}{l}{\ref{sec:ins}{ }\nameref{sec:ins}} \\
+		\multicolumn{7}{l}{\ref{sec:ins}{ }\nameref{sec:ins}} \\
 		\hline
-		\hyperref[id:is1]{\isOneID} & \isOneText & & & \\
-		\hyperref[id:is2]{\isTwoID} & \isTwoText & & & \\
-		\hyperref[id:is3]{\isThreeID} & \isThreeText & & & \\
-		\hyperref[id:is4]{\isFourID} & \isFourText & & & \\
-		\hyperref[id:is5]{\isFiveID} & \isFiveText & & & \\
-		\hyperref[id:is6]{\isSixID} & \isSixText & & & \\
-		\hyperref[id:is7]{\isSevenID} & \isSevenText & & & \\
-		\hyperref[id:is8]{\isEightID} & \isEightText & & & \\
-		\hyperref[id:is9]{\isNineID} & \isNineText & & & \\
+		\hyperref[id:is1]{\isOneID} & \isOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:is2]{\isTwoID} & \isTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:is3]{\isThreeID} & \isThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:is4]{\isFourID} & \isFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:is5]{\isFiveID} & \isFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:is6]{\isSixID} & \isSixText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:is7]{\isSevenID} & \isSevenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:is8]{\isEightID} & \isEightText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:is9]{\isNineID} & \isNineText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:per}{ }\nameref{sec:per}} \\
+		\multicolumn{7}{l}{\ref{sec:per}{ }\nameref{sec:per}} \\
 		\hline	
-		\hyperref[id:pf1]{\pfOneID} & \pfOneText & & & \\
-		\hyperref[id:pf2]{\pfTwoID} & \pfTwoText & & & \\
-		\hyperref[id:pf3]{\pfThreeID} & \pfThreeText & & & \\
-		\hyperref[id:pf4]{\pfFourID} & \pfFourText & & & \\
-		\hyperref[id:pf5]{\pfFiveID} & \pfFiveText & & & \\
+		\hyperref[id:pf1]{\pfOneID} & \pfOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:pf2]{\pfTwoID} & \pfTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:pf3]{\pfThreeID} & \pfThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:pf4]{\pfFourID} & \pfFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:pf5]{\pfFiveID} & \pfFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline		
 		\end{tabular}
 		\caption{Quality Assessment Criteria - Usability (2)}
@@ -1875,41 +1879,43 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 \begin{table}[hbt]
 	\begin{tabular}
 		{ p{0.1\textwidth-2\tabcolsep} | 
-		  p{0.6\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} }
+		  p{0.5\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} }
 		%		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
 		\hline
-		\textbf{ID} & \textbf{Criterion} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{No} & \textbf{Min} & \textbf{Adq} & \textbf{Good} & \textbf{Perfect} \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:ide}{ }\nameref{sec:ide}} \\
+		\multicolumn{7}{l}{\ref{sec:ide}{ }\nameref{sec:ide}} \\
 		\hline
-		\hyperref[id:id1]{\idOneID} & \idOneText & & & \\
-		\hyperref[id:id2]{\idTwoID} & \idTwoText & & & \\
-		\hyperref[id:id3]{\idThreeID} & \idThreeText & & & \\
+		\hyperref[id:id1]{\idOneID} & \idOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:id2]{\idTwoID} & \idTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:id3]{\idThreeID} & \idThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:cop}{ }\nameref{sec:cop}} \\
+		\multicolumn{7}{l}{\ref{sec:cop}{ }\nameref{sec:cop}} \\
 		\hline
-		\hyperref[id:cp1]{\cpOneID} & \cpOneText & & & \\
-		\hyperref[id:cp2]{\cpTwoID} & \cpTwoText & & & \\
-		\hyperref[id:cp3]{\cpThreeID} & \cpThreeText & & & \\
+		\hyperref[id:cp1]{\cpOneID} & \cpOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:cp2]{\cpTwoID} & \cpTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:cp3]{\cpThreeID} & \cpThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:acc}{ }\nameref{sec:acc}} \\
+		\multicolumn{7}{l}{\ref{sec:acc}{ }\nameref{sec:acc}} \\
 		\hline
-		\hyperref[id:ac1]{\acOneID} & \acOneText & & & \\
-		\hyperref[id:ac2]{\acTwoID} & \acTwoText & & & \\
-		\hyperref[id:ac3]{\acThreeID} & \acThreeText & & & \\
-		\hyperref[id:ac4]{\acFourID} & \acFourText & & & \\
-		\hyperref[id:ac5]{\acFiveID} & \acFiveText & & & \\
-		\hyperref[id:ac6]{\acSixID} & \acSixText & & & \\
-		\hyperref[id:ac7]{\acSevenID} & \acSevenText & & & \\
+		\hyperref[id:ac1]{\acOneID} & \acOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ac2]{\acTwoID} & \acTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ac3]{\acThreeID} & \acThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ac4]{\acFourID} & \acFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ac5]{\acFiveID} & \acFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ac6]{\acSixID} & \acSixText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ac7]{\acSevenID} & \acSevenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:com}{ }\nameref{sec:com}} \\
+		\multicolumn{7}{l}{\ref{sec:com}{ }\nameref{sec:com}} \\
 		\hline
-		\hyperref[id:cm1]{\cmOneID} & \cmOneText & & & \\
-		\hyperref[id:cm2]{\cmTwoID} & \cmTwoText & & & \\
-		\hyperref[id:cm3]{\cmThreeID} & \cmThreeText & & & \\
+		\hyperref[id:cm1]{\cmOneID} & \cmOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:cm2]{\cmTwoID} & \cmTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:cm3]{\cmThreeID} & \cmThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
 	\end{tabular}
 	\caption{Quality Assessment Criteria - Sustainability and Maintainability (1)}
@@ -1919,41 +1925,43 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 \begin{table}[hbt]
 	\begin{tabular}
 		{ p{0.1\textwidth-2\tabcolsep} | 
-			p{0.6\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} }
+		  p{0.5\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} }
         \hline
-        \textbf{ID} & \textbf{Criterion} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{No} & \textbf{Min} & \textbf{Adq} & \textbf{Good} & \textbf{Perfect} \\
         \hline 
-        		\multicolumn{5}{l}{\ref{sec:tes}{ }\nameref{sec:tes}} \\
+        		\multicolumn{7}{l}{\ref{sec:tes}{ }\nameref{sec:tes}} \\
 		\hline
-		\hyperref[id:ts1]{\tsOneID} & \tsOneText & & & \\
-		\hyperref[id:ts2]{\tsTwoID} & \tsTwoText & & & \\
-		\hyperref[id:ts3]{\tsThreeID} & \tsThreeText & & & \\
-		\hyperref[id:ts4]{\tsFourID} & \tsFourText & & & \\
+		\hyperref[id:ts1]{\tsOneID} & \tsOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ts2]{\tsTwoID} & \tsTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ts3]{\tsThreeID} & \tsThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ts4]{\tsFourID} & \tsFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-        \multicolumn{5}{l}{\ref{sec:por}{ }\nameref{sec:por}} \\
+        \multicolumn{7}{l}{\ref{sec:por}{ }\nameref{sec:por}} \\
 		\hline	
-		\hyperref[id:pb1]{\pbOneID} & \pbOneText & & & \\
-		\hyperref[id:pb2]{\pbTwoID} & \pbTwoText & & & \\
-		\hyperref[id:pb3]{\pbThreeID} & \pbThreeText & & & \\
+		\hyperref[id:pb1]{\pbOneID} & \pbOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:pb2]{\pbTwoID} & \pbTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:pb3]{\pbThreeID} & \pbThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline	
-		\multicolumn{5}{l}{\ref{sec:sup}{ }\nameref{sec:sup}} \\
+		\multicolumn{7}{l}{\ref{sec:sup}{ }\nameref{sec:sup}} \\
 		\hline	
-		\hyperref[id:sp1]{\spOneID} & \spOneText & & & \\
-		\hyperref[id:sp2]{\spTwoID} & \spTwoText & & & \\
+		\hyperref[id:sp1]{\spOneID} & \spOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:sp2]{\spTwoID} & \spTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:ana}{ }\nameref{sec:ana}} \\
+		\multicolumn{7}{l}{\ref{sec:ana}{ }\nameref{sec:ana}} \\
 		\hline	
-		\hyperref[id:an1]{\anOneID} & \anOneText & & & \\
-		\hyperref[id:an2]{\anTwoID} & \anTwoText & & & \\
-		\hyperref[id:an3]{\anThreeID} & \anThreeText & & & \\
-		\hyperref[id:an4]{\anFourID} & \anFourText & & & \\
-		\hyperref[id:an5]{\anFiveID} & \anFiveText & & & \\
-		\hyperref[id:an6]{\anSixID} & \anSixText & & & \\
-		\hyperref[id:an7]{\anSevenID} & \anSevenText & & & \\
-		\hyperref[id:an8]{\anEightID} & \anEightText & & & \\
+		\hyperref[id:an1]{\anOneID} & \anOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:an2]{\anTwoID} & \anTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:an3]{\anThreeID} & \anThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:an4]{\anFourID} & \anFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:an5]{\anFiveID} & \anFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:an6]{\anSixID} & \anSixText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:an7]{\anSevenID} & \anSevenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:an8]{\anEightID} & \anEightText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
 	\end{tabular}
 	\caption{Quality Assessment Criteria - Sustainability and Maintainability (2)}
@@ -1963,44 +1971,46 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 \begin{table}[hbt]
 	\begin{tabular}
 		{ p{0.1\textwidth-2\tabcolsep} | 
-			p{0.6\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} }
+		  p{0.5\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} }
         \hline
-        \textbf{ID} & \textbf{Criterion} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{No} & \textbf{Min} & \textbf{Adq} & \textbf{Good} & \textbf{Perfect} \\
         \hline 
-		\multicolumn{5}{l}{\ref{sec:cha}{ }\nameref{sec:cha}} \\
+		\multicolumn{7}{l}{\ref{sec:cha}{ }\nameref{sec:cha}} \\
 		\hline	
-		\hyperref[id:ch1]{\chOneID} & \chOneText & & & \\
-		\hyperref[id:ch2]{\chTwoID} & \chTwoText & & & \\
-		\hyperref[id:ch3]{\chThreeID} & \chThreeText & & & \\
-		\hyperref[id:ch4]{\chFourID} & \chFourText & & & \\
-		\hyperref[id:ch5]{\chFiveID} & \chFiveText & & & \\
-		\hyperref[id:ch6]{\chSixID} & \chSixText & & & \\
+		\hyperref[id:ch1]{\chOneID} & \chOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ch2]{\chTwoID} & \chTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ch3]{\chThreeID} & \chThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ch4]{\chFourID} & \chFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ch5]{\chFiveID} & \chFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ch6]{\chSixID} & \chSixText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-        \multicolumn{5}{l}{\ref{sec:reu}{ }\nameref{sec:reu}} \\
+        \multicolumn{7}{l}{\ref{sec:reu}{ }\nameref{sec:reu}} \\
 		\hline	
-		\hyperref[id:r1]{\rOneID} & \rOneText & & & \\
-		\hyperref[id:r2]{\rTwoID} & \rTwoText & & & \\
-		\hyperref[id:r3]{\rThreeID} & \rThreeText & & & \\
+		\hyperref[id:r1]{\rOneID} & \rOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:r2]{\rTwoID} & \rTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:r3]{\rThreeID} & \rThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:sec}{ }\nameref{sec:sec}} \\
+		\multicolumn{7}{l}{\ref{sec:sec}{ }\nameref{sec:sec}} \\
 		\hline	
-		\hyperref[id:sc1]{\scOneID} & \scOneText & & & \\
-		\hyperref[id:sc2]{\scTwoID} & \scTwoText & & & \\
+		\hyperref[id:sc1]{\scOneID} & \scOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:sc2]{\scTwoID} & \scTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:int}{ }\nameref{sec:int}} \\
+		\multicolumn{7}{l}{\ref{sec:int}{ }\nameref{sec:int}} \\
 		\hline	
-		\hyperref[id:ip1]{\ipOneID} & \ipOneText & & & \\
+		\hyperref[id:ip1]{\ipOneID} & \ipOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:intCLA}{ }\nameref{sec:intCLA}} \\
+		\multicolumn{7}{l}{\ref{sec:intCLA}{ }\nameref{sec:intCLA}} \\
 		\hline	
-		&  [TODO] & & & \\
+		&  [TODO] & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:gov}{ }\nameref{sec:gov}} \\
+		\multicolumn{7}{l}{\ref{sec:gov}{ }\nameref{sec:gov}} \\
 		\hline	
-		& [TODO] & & & \\
+		& [TODO] & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
 \end{tabular}
 	\caption{Quality Assessment Criteria - Sustainability and Maintainability (3)}
