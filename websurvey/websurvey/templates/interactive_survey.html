@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>CLARIAH Software Quality Survey</title>
+    <style type="text/css" media="all">
+                
+    </style>
+ </head>
+</html>
+<body>
+<h1>CLARIAH Software Quality Survey</h1>
+
+<form action="" method="post" accept-charset="utf-8">
+{% csrf_token %} 
+<table>
+<tr>
+    <th>Code</th>
+    <th>Criterion</th>
+    <th>Not Applicable</th>
+    <th>No</th>
+    <th>Minimal</th>
+    <th>Adequate</th>
+    <th>Good</th>
+    <th>Perfect</th>
+</tr>
+{% for category, categorydata in criteria.items %}
+<tr>
+    <th colspan="8">
+        {{ category }}
+    </th>
+</tr>
+{% for code, itemdata in categorydata.items %}
+<tr>
+    <th>
+        {{ code }}
+    </th>
+    <td>
+        {{ itemdata.label }}
+    </td>
+    <td><input type="radio" name="{{code}}" value="NA" /></td>
+    <td><input type="radio" name="{{code}}" value="0" /></td>
+    <td><input type="radio" name="{{code}}" value="1" /></td>
+    <td><input type="radio" name="{{code}}" value="2" /></td>
+    <td><input type="radio" name="{{code}}" value="3" /></td>
+    <td><input type="radio" name="{{code}}" value="4" /></td>
+</tr>
+{% endfor %}
+{% endfor %}
+</table>
+<input type="submit" value="Submit" /> 
+</form>
+
+
+</body>
+</html>
