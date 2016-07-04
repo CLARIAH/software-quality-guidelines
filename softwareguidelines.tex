@@ -8,6 +8,8 @@
 \usepackage[margin=3cm]{geometry}
 \usepackage{parskip}
 \usepackage{calc} % Needed for Appendix table - rdv
+\usepackage{xcolor}
+\usepackage{enumerate}
 
 \newcommand{\subtitle}[1]{%
   \posttitle{%
@@ -123,7 +125,7 @@ of discussions around software quality criteria.
 Following that, the guidelines---a number of actionable steps, intended to make software more usable and discoverable for users and other developers---are described. Two categories of guidelines are discerned: 
 \begin{itemize}
 	\item strict requirements
-	\item additional guidelines %TODO-rdv hier moeten we  misschien een andere term dan guidelines gebuiken. Ik heb zitten denken: protocols? instructions? procedures? 
+	\item additional guidelines %TODO-rdv hier moeten we  misschien een andere term dan guidelines gebuiken. Ik heb zitten denken: protocols? instructions? procedures? van de andere kant: als we dit doen moeten we in het hele document doorvoeren... misschien de moeite niet waard
 \end{itemize}
 While the former are minimal requirements that software should adhere to, the latter constitute more generic guidelines that can help to achieve software of a higher quality. 
 The requirements are specified in a form that leaves little room for discussion. They are but one way of meeting the more generic guidelines. It is encouraged to follow them as-is; doing so will make their implementation easier. It will also make consuming the results easier, as there will be a firm structure that can be relied on.
@@ -212,7 +214,7 @@ consists of assessment indicators formulated as a series of questions. This
 makes them directly applicable as an instrument for software quality
 assessment. 
 
-% TODO issue #5, rdv
+% TODO-rdv: issue #5. consumer vs developer
 These guidelines target developers, managers and users of software.
 Developers will be more aware of the targets to meet, and able to identify and
 remedy weak areas. Managers and users will be able to assess whether software
@@ -221,7 +223,7 @@ formulate the questions as plainly as possible, a certain degree of technical
 expertise is demanded of all of these in order to attain a successful
 assessment.
 
-% TODO issue #2, rdv
+% TODO-rdv: issue #2. open vragen vs meetbare punten: likertschaal + toelichting  
 Each question, can be be answered with ``yes'', ``no'' or ``not applicable'' in
 case the guideline has no relevance for the software. The correct answer is
 always the affirmative. This will lead to measurable quality levels. Full
@@ -365,47 +367,236 @@ in the VCS.}
 	\newcommand{\nineThirteen}{The readme must specify until when the project is currently funded, as well as a list of the funders.}
 \newcommand{\ten}{Any \textbf{documentation must be stored alongside the code}. Long-form texts should live in the folder docs/ in the root of the project.}
 \newcommand{\eleven}{All \textbf{documentation must be also stored in an archivable format}. Such documentation can of course be generated from another source format, but the archivable version must also be stored in the VCS. An \textbf{archivable format} is a file format that will, with great probability, still be readable in ten years' time. Such formats are readable plain text (see above), HTML that does not depend on styles/js, and PDF/A. In the case of PDF/A, the source format must also be included---though it may be a non-archivable format such as a Word file, a LaTeX file, etc.}
-\newcommand{\twelve}{The project must have a \textbf{website}, containing, at the very least:
-	\begin{itemize}
-		\item a typeset version of the readme 
-		\item screenshots/screencasts of the application
-		\item a link to the source code
-		\item contact information, or a link to the bug tracker
-		\item a link to the documentation: either a direct link to the pdf or html, if available, or a browseable list of the text files
-		\item the website must be registered on Google, and a link must be provided to the project
-	\end{itemize}
-	Note that the readme as typeset by GitHub fulfils almost all these criteria. 
+\newcommand{\twelveA}{a typeset version of the readme}
+\newcommand{\twelveB}{screenshots/screencasts of the application}
+\newcommand{\twelveC}{a link to the source code}
+\newcommand{\twelveD}{contact information, or a link to the bug tracker}
+\newcommand{\twelveE}{a link to the documentation: either a direct link to the pdf or html, if available, or a browseable list of the text files}
+\newcommand{\twelveF}{the website must be registered on Google, and a link must be provided to the project}
+\newcommand{\twelve}{The project must have a \textbf{website}, containing, at the very least:	
+%	\begin{itemize}
+%		\item \itemA 
+%		\item \itemB
+%		\item \itemC
+%		\item \itemD
+%		\item \itemE
+%		\item \itemF
+%	\end{itemize}
 }
+\newcommand{\twelveNB}{Note that the readme as typeset by GitHub fulfils almost all these criteria.} 
+
 \newcommand{\thirteen}{The \textbf{user interface of the application should point to the website}. If this user interface is a website, where possible, a link should be visible on every page. If the user interface is a command line app, a main page should be provided, or a text file that contains a link to the home page should be distributed with the binaries.}
 \newcommand{\fourteen}{The application's \textbf{user interface should point to the contact information} or to a place to report bugs.}
 \newcommand{\fifteen}{Almost every application provides an API. This \textbf{API must be discoverable}. For a Java project this means adding Javadoc where needed, and using descriptive names otherwise. For Javascript this means providing a document containing the API. What must be provided is a list of function names, their parameter names, and the constraints placed on their values. It would be helpful to know under what condition which function is expected to be called.}
-\newcommand{\sixteen}{If the software contains a configuration file, then the root of the repository must contain \textbf{a configuration file containing all options} set to the sane defaults or commented out containing a description when you want to use them.} %TODO-rdv deze snap ik niet
+\newcommand{\sixteen}{If the software contains a configuration file, then the root of the repository must contain a \textbf{configuration file containing all options} set to the sane defaults or commented out containing a description when you want to use them.} %TODO-rdv deze snap ik niet
 \newcommand{\seventeen}{The software must be \textbf{distributed under an OSI approved licence} in a LICENSE file in root. Also copyright holder} %TODO-rdv wat wordt met dat laatste zinnetje bedoeld?
 \newcommand{\eighteen}{The software must have a \textbf{CONTRIBUTING file}. (The template could be used---but it must be noted that that means one must be open to all PRs. Specifying some details in this file thus is very useful.} %TODO-rdv wat zijn PRs?
-\newcommand{\nineteen}{Data must be made available as \textbf{a log or rdf quads}.} %TODO-rdv OK?
+\newcommand{\nineteen}{Data must be made available as \textbf{a log or rdf quads}.} %TODO-rdv of --> or: OK?
 \newcommand{\twenty}{The software must \textbf{not store usernames and passwords}; instead, it must use the instruments provided by the project.}
 \newcommand{\twentyOne}{Experimental software MUST NOT allow external users to store data (for this renders it production software).}
 \newcommand{\twentyTwo}{This list of requirements must be \textbf{distributed alongside the code}.}
 
 %TODO-rdv add kopje "Implementation Patterns" met voorbeeld van README file?
-\subsection{Configuration 1: Actively Supported End User Software} 
-\one 
-\two 
-\three
-\four
-\five
-\six \seven \eight \nine \ten \eleven \twelve \thirteen \fourteen \fifteen
-\nineOne \nineTwo \nineThree \nineFour \nineFive \nineSix \nineSeven \nineEight \nineNine \nineTen \nineEleven \nineTwelve \nineThirteen
+
+\subsection{Configuration 1: Actively Supported End User Software}
+\begin{enumerate} 
+\item \one 
+\item \two 
+\item \three 
+\item \four 
+\item \five 
+\item \six 
+\item \seven 
+\color{lightgray}\item \eight \color{black} 
+\item \nine 
+	\begin{enumerate} [1.]
+	\color{lightgray} \item \nineOne \color{black} 
+	\item \nineTwo 
+	\color{lightgray} \item \nineThree \color{black} 
+	\item \nineFour 
+	\item \nineFive 
+	\item \nineSix 
+	\item \nineSeven 
+	\item \nineEight 
+	\item \nineNine 
+	\item \nineTen 
+	\item \nineEleven 
+	\item \nineTwelve 
+	\item \nineThirteen
+	\end{enumerate} 
+\item \ten 
+\item \eleven 
+\item \twelve 
+	\begin{enumerate}
+	\item \twelveA 
+	\item \twelveB 
+	\item \twelveC 
+	\item \twelveD 
+	\item \twelveE 
+	\item \twelveF
+	\end{enumerate}
+	\twelveNB
+\item \thirteen 
+\item \fourteen
+\item \fifteen 
+\item \sixteen 
+\item \seventeen 
+\item \eighteen 
+\item \nineteen 
+\item \twenty 
+\color{lightgray} \item \twentyOne \color{black} 
+\item \twentyTwo 
+\end{enumerate}
 
 \subsection{Configuration 2: Unsupported End User Software} 
+\begin{enumerate} 
+	\item \one 
+	\item \two 
+	\item \three 
+	\item \four 
+	\item \five 
+	\item \six 
+	\item \seven 
+	\color{lightgray}\item \eight \color{black} 
+	\item \nine 
+	\begin{enumerate} [1.]
+		\color{lightgray} \item \nineOne  
+		\item \nineTwo \color{black}
+		\item \nineThree  
+		\item \nineFour 
+		\item \nineFive 
+		\item \nineSix 
+		\item \nineSeven 
+		\item \nineEight 
+		\item \nineNine 
+		\item \nineTen 
+		\item \nineEleven 
+		\item \nineTwelve 
+		\item \nineThirteen
+	\end{enumerate} 
+	\item \ten 
+	\item \eleven 
+	\item \twelve 
+	\begin{enumerate}
+		\item \twelveA 
+		\item \twelveB 
+		\item \twelveC 
+		\color{lightgray} \item \twelveD \color{black} 
+		\item \twelveE 
+		\item \twelveF
+	\end{enumerate}
+	\twelveNB
+	\item \thirteen 
+	\color{lightgray} \item \fourteen \color{black}
+	\item \fifteen 
+	\item \sixteen 
+	\item \seventeen 
+	\color{lightgray} \item \eighteen \color{black} 
+	\item \nineteen 
+	\item \twenty 
+	\color{lightgray} \item \twentyOne \color{black} 
+	\item \twentyTwo 
+\end{enumerate}
 
-\subsection{Configuration 3: Actively Supported Experimental Software} 
+\subsection{Configuration 3: Actively Supported Experimental Software}
+\begin{enumerate} 
+	\item \one 
+	\item \two 
+	\item \three 
+	\color{lightgray}\item \four 
+	\item \five 
+	\item \six 
+	\item \seven \color{black}  
+	\item \eight 
+	\item \nine 
+	\begin{enumerate} [1.]
+		\item \nineOne 
+		\item \nineTwo 
+		\color{lightgray} \item \nineThree \color{black} 
+		\item \nineFour 
+		\item \nineFive 
+		\item \nineSix 
+		\item \nineSeven 
+		\item \nineEight 
+		\color{lightgray} \item \nineNine 
+		\item \nineTen 
+		\item \nineEleven 
+		\item \nineTwelve \color{black}  
+		\item \nineThirteen
+	\end{enumerate} 
+	\item \ten 
+	\item \eleven 
+	\color{lightgray} \item \twelve 
+	\begin{enumerate}
+		\item \twelveA 
+		\item \twelveB 
+		\item \twelveC 
+		\item \twelveD 
+		\item \twelveE 
+		\item \twelveF
+	\end{enumerate}
+	\twelveNB
+	\item \thirteen \color{black} 
+	\item \fourteen
+	\color{lightgray} \item \fifteen 
+	\item \sixteen \color{black}  
+	\item \seventeen 
+	\item \eighteen 
+	\color{lightgray} \item \nineteen 
+	\item \twenty \color{black} 
+	\item \twentyOne 
+	\item \twentyTwo 
+\end{enumerate} 
 
 \subsection{Configuration 4: Unsupported Experimental Software} 
-
-
-
-
+\begin{enumerate} 
+	\item \one 
+	\item \two 
+	\item \three 
+	\color{lightgray}\item \four 
+	\item \five 
+	\item \six 
+	\item \seven \color{black}  
+	\item \eight 
+	\item \nine 
+	\begin{enumerate} [1.]
+		\item \nineOne 
+		\color{lightgray} \item \nineTwo \color{black}
+		\item \nineThree 
+		\item \nineFour 
+		\item \nineFive 
+		\item \nineSix 
+		\item \nineSeven 
+		\item \nineEight 
+		\color{lightgray} \item \nineNine 
+		\item \nineTen 
+		\item \nineEleven 
+		\item \nineTwelve \color{black}  
+		\item \nineThirteen
+	\end{enumerate} 
+	\item \ten 
+	\item \eleven 
+	\color{lightgray} \item \twelve 
+	\begin{enumerate}
+		\item \twelveA 
+		\item \twelveB 
+		\item \twelveC 
+		\item \twelveD 
+		\item \twelveE 
+		\item \twelveF
+	\end{enumerate}
+	\twelveNB
+	\item \thirteen
+	\item \fourteen
+	\item \fifteen 
+	\item \sixteen \color{black}  
+	\item \seventeen 
+	\color{lightgray} \item \eighteen 
+	\item \nineteen 
+	\item \twenty \color{black} 
+	\item \twentyOne 
+	\item \twentyTwo 
+\end{enumerate} 
 
 \section{Quality Assessment Criteria - Usability}\label{sec:usab}
 
