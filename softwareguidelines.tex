@@ -65,6 +65,12 @@
   \end{tabular}%
 }
 
+\newcommand{\refcrit}[1]{%
+ \framebox[1.1\width]{\hyperref[id:#1]{#1}}
+}
+
+
+
 \begin{document}
 
 \title{Guidelines for Software Quality}
@@ -383,42 +389,87 @@ these two sets of opposing scenarios is applicable.  Below are written out all f
 
 
 %TODO-rdv add (altered) ID(s) where appropriate
-\newcommand{\one}{The software must be stored in a \textbf{version control system} (VCS).
-The source code must be published.
+\newcommand{\one}{The software must be stored in a \textbf{version control
+    system} (VCS). \refcrit{AC1} \refcrit{CH3}
+    The source code must be published. \refcrit{AC2}
 To lower the barrier of entry the VCS must be either in a Git, Mercurial or SVN repository. 
 As much as possible should be stored alongside the code %TODO-rdv add link to "Everything in VCS" (as in html)/add text here
 in the VCS.}
 \newcommand{\two}{There must be \textbf{one command that installs all dependencies} on the supported operating systems (OSs).}
-\newcommand{\three}{The software must be \textbf{built with one command}. This command must not write to the file system outside of the source code directory and the temp directories (installation actions should be part of a separate script). Of course, the code will not be buildable on all OSs, and the command needs not to be platform independent---but there must be one OS on which it works without further configuration necessary. The command must call the multiple build steps if necessary. If there are tests, the command should run them as part of the build.}
-\newcommand{\four}{The software must either result in a directory with artefacts that can be moved to an arbitrary location on the system and still work, or it must contain \textbf{one command that will perform the installation}.}
+\newcommand{\three}{The software must be \textbf{built with one command}. This
+command must not write to the file system outside of the source code directory
+and the temp directories (installation actions should be part of a separate
+script). Of course, the code will not be buildable on all OSs, and the command
+needs not to be platform independent---but there must be one OS on which it
+works without further configuration necessary. The command must call the
+multiple build steps if necessary. If there are tests, the command should run
+them as part of the build. \refcrit{B1} \refcrit{IS9} \refcrit{TS4}
+\refcrit{PB1} }
+\newcommand{\four}{The software must either result in a directory with
+artefacts that can be moved to an arbitrary location on the system and still
+work, or it must contain \textbf{one command that will perform the
+installation}. \refcrit{IS1}}
 \newcommand{\five}{The software must be able to \textbf{run in the foreground} after installation.}
 \newcommand{\six}{All \textbf{runtime dependencies} must be available after installation.}
-\newcommand{\seven}{If the software can be installed it must also have \textbf{one uninstall script}. This script must provide a switch to also remove config files and leave them alone by default.}
+\newcommand{\seven}{If the software can be installed it must also have
+\textbf{one uninstall script}. This script must provide a switch to also remove
+config files and leave them alone by default. \refcrit{IS8}}
 \newcommand{\eight}{The above requirements regarding installation can be omitted if the software can be run from the source directory and during running will not write outside of the source directory or temporary directories.}
-\newcommand{\nine}{The root folder of the software project contains a file called \textbf{README} (fully capitilized), which must be a readable plain text file. It may link to images, but the reader must be able to follow along without them. A \textbf{readable plain text} file is a file that can be read by a human using both wordpad.exe and vi. Formats such as markdown and ReST are readable as plain text, but LaTeX and HTML are not. A UTF-8 encoding should be chosen; however, the use of ANSI, UTf-16 or UCS2 is also acceptable when forced by some technical constraint. (Though you must then mention that using the ascii subset at the start of the file itself.} %TODO-rdv die laatste zin tussen haakjes snap ik niet 
+\newcommand{\nine}{The root folder of the software project contains a file
+    called \textbf{README} (fully capitalised) \refcrit{D1} \refcrit{IS7}, which must be a readable plain text file. It may link to images, but the reader must be able to follow along without them. A \textbf{readable plain text} file is a file that can be read by a human using both wordpad.exe and vi. Formats such as markdown and ReST are readable as plain text, but LaTeX and HTML are not. A UTF-8 encoding should be chosen; however, the use of ANSI, UTf-16 or UCS2 is also acceptable when forced by some technical constraint. (Though you must then mention that using the ascii subset at the start of the file itself.} %TODO-rdv die laatste zin tussen haakjes snap ik niet 
 
 	\newcommand{\nineOne}{The readme must start by explicitly mentioning the experimental nature of the software.}
-	\newcommand{\nineTwo}{Accurate support contact information must be provided at the top of the readme, and an end date, until which this information can be assumed to be valid, must also be added here. A suitable end date is the current end time of the project. If no clear end date exists, it should be set no further than a year away, and it should be reset regularly.}
+	\newcommand{\nineTwo}{Accurate support contact information must be provided
+    at the top of the readme, and an end date, until which this information can
+be assumed to be valid, must also be added here. A suitable end date is the
+current end time of the project. If no clear end date exists, it should be set
+no further than a year away, and it should be reset regularly. \refcrit{SP1}}
 	\newcommand{\nineThree}{It must be mentioned explicitly that the software is unsupported }
-	\newcommand{\nineFour}{The readme must contain an explanation of the intended audience of the software, where the different user groups should be clearly named and described.}
-	\newcommand{\nineFive}{The readme must describe the problems that these users face, which resulted in the software.}
-	\newcommand{\nineSix}{The readme must describe what the software does to help solving these problems.}
-	\newcommand{\nineSeven}{The readme must contain a list of similar or related software, and a description how the current software fits in.}
+	\newcommand{\nineFour}{The readme must contain an explanation of the
+    intended audience of the software, where the different user groups should
+be clearly named and described. \refcrit{U2}}
+	\newcommand{\nineFive}{The readme must describe the problems that these
+    users face, which resulted in the software. \refcrit{U4}}
+	\newcommand{\nineSix}{The readme must describe what the software does to
+    help solving these problems. \refcrit{U1} \refcrit{U4} \refcrit{D6}
+\refcrit{D7}}
+	\newcommand{\nineSeven}{The readme must contain a list of similar or
+    related software, and a description how the current software fits in.
+\refcrit{U4}}
 	\newcommand{\nineEight}{The readme must specify the commands used to build and install from point 2-6 above. Also, it should specifiy the OSes the commands will work on.}
-	\newcommand{\nineNine}{The readme must contain either a quick start, explaining how the first task can be performed with the system, or, in the more extensive documentation, a link to the quick start.}
-	\newcommand{\nineTen}{The readme must specify observed memory/file/processing usage while doing the happy path and a moderate load path.}
-	\newcommand{\nineEleven}{The readme must contain a description of how the software scales (the load can be shared over multiple instances, explicitly mentioning if this is not possible).}
-	\newcommand{\nineTwelve}{The readme must contain a non-exhaustive list of places where the software is running.)}
-	\newcommand{\nineThirteen}{The readme must specify until when the project is currently funded, as well as a list of the funders.}
-\newcommand{\ten}{Any \textbf{documentation must be stored alongside the code}. Long-form texts should live in the folder docs/ in the root of the project.}
-\newcommand{\eleven}{All \textbf{documentation must be also stored in an archivable format}. Such documentation can of course be generated from another source format, but the archivable version must also be stored in the VCS. An \textbf{archivable format} is a file format that will, with great probability, still be readable in ten years' time. Such formats are readable plain text (see above), HTML that does not depend on styles/js, and PDF/A. In the case of PDF/A, the source format must also be included---though it may be a non-archivable format such as a Word file, a LaTeX file, etc.}
+	\newcommand{\nineNine}{The readme must contain either a quick start,
+    explaining how the first task can be performed with the system, or, in the
+    more extensive documentation, a link to the quick start. \refcrit{U3}
+\refcrit{L1}}
+	\newcommand{\nineTen}{The readme must specify observed
+    memory/file/processing usage while doing the happy path and a moderate load
+path. \refcrit{PF2} \refcrit{PF3}}
+	\newcommand{\nineEleven}{The readme must contain a description of how the
+    software scales (the load can be shared over multiple instances, explicitly
+mentioning if this is not possible). \refcrit{PF5}}
+	\newcommand{\nineTwelve}{The readme must contain a non-exhaustive list of
+    places where the software is running. \refcrit{CM1}}
+	\newcommand{\nineThirteen}{The readme must specify until when the project
+    is currently funded, as well as a list of the funders. \refcrit{CP3}}
+\newcommand{\ten}{Any \textbf{documentation must be stored alongside the code}.
+Long-form texts should live in the folder \texttt{docs/} in the root of the
+project. \refcrit{D11}}
+\newcommand{\eleven}{All \textbf{documentation must be also stored in an
+archivable format}. Such documentation can of course be generated from another
+source format, but the archivable version must also be stored in the VCS. An
+\textbf{archivable format} is a file format that will, with great probability,
+still be readable in ten years' time. Such formats are readable plain text (see
+above), HTML that does not depend on styles/js, and PDF/A. In the case of
+PDF/A, the source format must also be included---though it may be a
+non-archivable format such as a Word file, a LaTeX file, etc. \refcrit{D2}}
 \newcommand{\twelveA}{a typeset version of the readme}
 \newcommand{\twelveB}{screenshots/screencasts of the application}
 \newcommand{\twelveC}{a link to the source code}
 \newcommand{\twelveD}{contact information, or a link to the bug tracker}
 \newcommand{\twelveE}{a link to the documentation: either a direct link to the pdf or html, if available, or a browseable list of the text files}
 \newcommand{\twelveF}{the website must be registered on Google, and a link must be provided to the project}
-\newcommand{\twelve}{The project must have a \textbf{website}, containing, at the very least:	
+\newcommand{\twelve}{The project must have a \textbf{website}, containing, at
+    the very least:	 \refcrit{ID2}
 %	\begin{itemize}
 %		\item \itemA 
 %		\item \itemB
@@ -430,16 +481,34 @@ in the VCS.}
 }
 \newcommand{\twelveNB}{Note that the readme as typeset by GitHub fulfils almost all these criteria.} 
 
-\newcommand{\thirteen}{The \textbf{user interface of the application should point to the website}. If this user interface is a website, where possible, a link should be visible on every page. If the user interface is a command line app, a main page should be provided, or a text file that contains a link to the home page should be distributed with the binaries.}
+\newcommand{\thirteen}{The \textbf{user interface of the application should
+point to the website}. If this user interface is a website, where possible, a
+link should be visible on every page. If the user interface is a command line
+app, a main page should be provided, or a text file that contains a link to the
+home page should be distributed with the binaries. \refcrit{L3}}
 \newcommand{\fourteen}{The application's \textbf{user interface should point to the contact information} or to a place to report bugs.}
-\newcommand{\fifteen}{Almost every application provides an API. This \textbf{API must be discoverable}. For a Java project this means adding Javadoc where needed, and using descriptive names otherwise. For Javascript this means providing a document containing the API. What must be provided is a list of function names, their parameter names, and the constraints placed on their values. It would be helpful to know under what condition which function is expected to be called.}
-\newcommand{\sixteen}{If the software contains a configuration file, then the root of the repository must contain a \textbf{configuration file containing all options} set to the sane defaults or commented out containing a description when you want to use them.} %TODO-rdv deze snap ik niet
-\newcommand{\seventeen}{The software must be \textbf{distributed under an OSI approved licence} in a LICENSE file in root. Also copyright holder} %TODO-rdv wat wordt met dat laatste zinnetje bedoeld?
-\newcommand{\eighteen}{The software must have a \textbf{CONTRIBUTING file}.
+\newcommand{\fifteen}{Almost every application provides an API. This
+\textbf{API must be discoverable}. For a Java project this means adding Javadoc
+where needed, and using descriptive names otherwise. For Javascript this means
+providing a document containing the API. What must be provided is a list of
+function names, their parameter names, and the constraints placed on their
+values. It would be helpful to know under what condition which function is
+expected to be called. \refcrit{L4}}
+\newcommand{\sixteen}{If the software contains a configuration file, then the
+root of the repository must contain a \textbf{configuration file containing all
+options} set to the sane defaults or commented out containing a description
+when you want to use them. \refcrit{L5}} %TODO-rdv deze snap ik niet
+\newcommand{\seventeen}{The software must be \textbf{distributed under an OSI
+approved licence} in a LICENSE file in root. \refcrit{CP1} Also copyright
+holderi \refcrit{CP2}} %TODO-rdv wat wordt met dat laatste zinnetje bedoeld?
+\newcommand{\eighteen}{The software must have a \textbf{CONTRIBUTING file}
+    \refcrit{CH2}.
     (The template could be used---but it must be noted that that means one must
     be open to all pull requests. Specifying some details in this file thus is very useful.} 
-\newcommand{\nineteen}{Data must be made available as \textbf{a log or rdf quads}.} %TODO-rdv OK?
-\newcommand{\twenty}{The software must \textbf{not store usernames and passwords}; instead, it must use the instruments provided by the project.}
+\newcommand{\nineteen}{Data must be made available as \textbf{a log or rdf
+quads}. \refcrit{IP1}} %TODO-rdv OK?
+\newcommand{\twenty}{The software must \textbf{not store usernames and
+passwords} \refcrit{SC2}; instead, it must use the instruments provided by the project.}
 \newcommand{\twentyOne}{Experimental software MUST NOT allow external users to store data (for this renders it production software).}
 \newcommand{\twentyTwo}{This list of requirements must be \textbf{distributed alongside the code}.}
 
