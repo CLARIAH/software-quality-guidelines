@@ -38,6 +38,13 @@
         }
         table {
             width: 80%;
+            max-width: 1024px;
+        }
+        td {
+            border-bottom: 1px solid white;
+        }
+        tr:hover td {
+            border-bottom: 1px solid black;
         }
                 
     </style>
@@ -81,12 +88,12 @@
     <td class="collabel">
         {{ itemdata.label }}
     </td>
-    <td class="colna"><input type="radio" name="{{code}}" value="NA" /></td>
-    <td class="col0"><input type="radio" name="{{code}}" value="0" /></td>
-    <td class="col1"><input type="radio" name="{{code}}" value="1" /></td>
-    <td class="col2"><input type="radio" name="{{code}}" value="2" /></td>
-    <td class="col3"><input type="radio" name="{{code}}" value="3" /></td>
-    <td class="col4"><input type="radio" name="{{code}}" value="4" /></td>
+    <td class="colna"><input type="radio" name="{{code}}" value="NA" title="Not available" /></td>
+    <td class="col0"><input type="radio" name="{{code}}" value="0" title="No" /></td>
+    <td class="col1"><input type="radio" name="{{code}}" value="1" title="Minimal" /></td>
+    <td class="col2"><input type="radio" name="{{code}}" value="2" title="Adequate" /></td>
+    <td class="col3"><input type="radio" name="{{code}}" value="3" title="Good" /></td>
+    <td class="col4"><input type="radio" name="{{code}}" value="4" title="Perfect" /></td>
 </tr>
 {% endfor %}
 {% endfor %}
