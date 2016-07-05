@@ -1637,14 +1637,15 @@ that verify whether the interface functions as intended.
 \newcommand{\tsFourText}{Are tests run automatically?}
 \criterion{\tsFourID}{\tsFourText}
 
-It is recommended that tests be run automatically, either through continuous
-integration testing or periodically at a predefined interval. Free public
-continuous integrations platforms such as
-Travis-CI\footnote{https://travis-ci.org},
+It is recommended that tests be run automatically at the end of the build
+or installation process. This is best accomplished through continuous
+integration testing. Free public continuous integration
+platforms such as Travis-CI\footnote{https://travis-ci.org},
 Gitlab-CI\footnote{https://gitlab.com},
 Jenkins\footnote{https://jenkins-ci.org} can be hooked into version control
-systems (see \refcrit{AC1}, \refcrit{AC2}) with minimal effort, resulting in an automatic run of the test suite
-upon each commit and notifying the developer when the test suite fails.
+systems (see \refcrit{AC1}, \refcrit{AC2}) with minimal effort, resulting in an
+automatic run of the test suite upon each commit and notifying the developer
+when the test suite fails.
 
 It is strongly recommended that test results are publicly available, so users
 can more quickly assess software quality.
