@@ -450,7 +450,7 @@ be clearly named and described. \refcrit{U2}}
     explaining how the first task can be performed with the system, or, in the
     more extensive documentation, a link to the quick start. \refcrit{U3}
 \refcrit{L1}}
-	\newcommand{\nineTen}{The readme must specify observed
+	\newcommand{\nineTen}{The readme must specify system requirements, i.e.\ observed
     memory/file/processing usage while doing the happy path and a moderate load
 path. \refcrit{PF2} \refcrit{PF3}}
 	\newcommand{\nineEleven}{The readme must contain a description of how the
@@ -468,13 +468,13 @@ archivable format}. Such documentation can of course be generated from another
 source format, but the archivable version must also be stored in the VCS. An
 \textbf{archivable format} is a file format that will, with great probability,
 still be readable in ten years' time. Such formats are readable plain text (see
-above), HTML that does not depend on styles/js, and PDF/A. In the case of
+above), HTML that does not depend on external stylesheets or scripts, and PDF/A. In the case of
 PDF/A, the source format must also be included---though it may be a
 non-archivable format such as a Word file, a LaTeX file, etc. \refcrit{D2}}
 \newcommand{\twelveA}{a typeset version of the readme}
 \newcommand{\twelveB}{screenshots/screencasts of the application}
 \newcommand{\twelveC}{a link to the source code}
-\newcommand{\twelveD}{contact information, or a link to the bug tracker}
+\newcommand{\twelveD}{contact information, or a link to the bug tracker \refcrit{SP2}}
 \newcommand{\twelveE}{a link to the documentation: either a direct link to the pdf or html, if available, or a browseable list of the text files}
 \newcommand{\twelveF}{the website must be registered on Google, and a link must be provided to the project}
 \newcommand{\twelve}{The project must have a \textbf{website}, containing, at
@@ -493,8 +493,8 @@ non-archivable format such as a Word file, a LaTeX file, etc. \refcrit{D2}}
 \newcommand{\thirteen}{The \textbf{user interface of the application should
 point to the website}. If this user interface is a website, where possible, a
 link should be visible on every page. If the user interface is a command line
-app, a main page should be provided, or a text file that contains a link to the
-home page should be distributed with the binaries. \refcrit{L3}}
+tool, a man page should ideally be provided that mentions the website. The help output
+should mention it as well. \refcrit{L3}}
 \newcommand{\fourteen}{The application's \textbf{user interface should point to the contact information} or to a place to report bugs.}
 \newcommand{\fifteen}{Almost every application provides an API. This
 \textbf{API must be discoverable}. API documentation must be written as
@@ -962,10 +962,13 @@ all possible use cases if this is feasible.
 \criterion{\lThreeID}{\lThreeText}
 
 Help options should be provided by the interface. Command line interfaces
-\emph{must} have a \texttt{-h}/\texttt{--help} pair describing usage and all options. GUIs should use tooltips/hints to clarify
+\emph{must} have a \texttt{-h}/\texttt{--help} pair describing usage and all
+options, and ideally also a man page. GUIs should use tooltips/hints to clarify
 their widgets (or through whatever convention is customary for the
 platform/ecosystem). Alternatively, they can provide a help option referring to
 the documentation.
+
+The project website should be mentioned from the help reference.
 
 \CheckTable
 
