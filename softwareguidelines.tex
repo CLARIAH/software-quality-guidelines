@@ -386,7 +386,7 @@ software receiving active support versus unsupported software.
 
 Which of the following requirements apply depends on which configuration of
 these two sets of opposing scenarios is applicable.  Below are written out all four configurations: in each case, non-applicable guidelines are grayed-out. 
-
+The guidelines in these configurations may summarise one or more of the full assessment criteria, as indicated by the codes.
 
 \newcommand{\one}{The software must be stored in a \textbf{version control
     system} (VCS). \refcrit{AC1} \refcrit{CH3}
@@ -485,14 +485,6 @@ can be obtained}
 be provided to the project} %MvG: @jauco: Bedoel je met die laatste zin dat CLARIAH een link moet krijgen? Beter expliciet zeggen dan
 \newcommand{\twelve}{The project must have a \textbf{website}, containing, at
     the very least:	 \refcrit{ID2}
-%	\begin{itemize}
-%		\item \itemA 
-%		\item \itemB
-%		\item \itemC
-%		\item \itemD
-%		\item \itemE
-%		\item \itemF
-%	\end{itemize}
 }
 \newcommand{\twelveNB}{Note that the readme as typeset by GitHub fulfils almost all these criteria.} 
 
@@ -528,7 +520,11 @@ quads}. \refcrit{IP1}} %TODO-rdv OK? (MvG: Wat mij betreft niet, deze moet een s
 passwords} \refcrit{SC2}; instead, it must use the instruments provided by the project.}
 \newcommand{\twentyOne}{Experimental software MUST NOT allow external users to
     store data (for this renders it production software).} %MvG: extra toelichting nodig denk ik
-\newcommand{\twentyTwo}{This list of requirements must be \textbf{distributed alongside the code}.}
+\newcommand{\twentyTwo}{This list of requirements must be \textbf{distributed
+alongside the code}. If a software quality self-assessment is made using the
+full criteria described in this document, then include these results alongside
+the code as well. All of this can be achieved by simply filling our web-based
+survey at \url{http://applejack.science.ru.nl/clariah-software-quality}, and committing the resulting markdown document to your VCS. }
 
 %TODO-rdv add kopje "Implementation Patterns" met voorbeeld van README file?
 \subsection{Configuration 1: Actively Supported End User Software} 
@@ -2085,35 +2081,14 @@ all?
 
 \section{Implementation}
 
-\begin{TODO}
-How will these guidelines be implemented, used and reviewed?
+The guidelines have been implemented as an interactive survey on
+\url{http://applejack.science.ru.nl/clariah-software-quality}. Developers can
+use this to self-assess their projects. Project managers or end users can use
+this to assess other's software.
 
-We are currently taking a closer look at the guidelines and looking for input
-from people in CLARIAH and beyond.The connection between data and software has
-to be worked out still.
-
-The criteria will eventually be published as an interactive
-survey as well. The idea is that developers can self-assess their projects, and
-adopters of software can assess whether software is of sufficient quality for
-their usage.
-\end{TODO}
-
-\begin{notice}
-\textbf{Request for Comment:} In this first stage, this very first draft of the guidelines is being shared with
-people throughout CLARIAH with the request for initial feedback. 
-\begin{itemize}
-    \item Do these guidelines seem helpful in the assessment of software
-        quality and sustainability? Does it fill a need?
-    \item Are there specific criteria/dimensions missing? Is there something more substantial missing?
-    \item Are there specific criteria/dimensions you disagree with?
-    \item Which criteria/dimensions would you consider particularly important?  Which not?
-    \item Do you have input on any of the TODO items?
-    \item Do you have suggestions for improvement?
-\end{itemize}
-
-Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl and andrea.scharnhorst@dans.knaw.nl
-\end{notice}
-
+For developers, filling the interactive survey will result in a
+MarkDown document which is to be checked in alongside the code in the
+software's version control repository.
 
 
 %\section{TODO: section not finished, will become Implementation and a report how we used this later, for the time being it is our workflow with the document}
