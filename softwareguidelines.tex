@@ -493,7 +493,7 @@ can be automatically extracted using tools like
 doxygen, javadoc or sphinx. The result must be published. Use descriptive names. What must be provided is a list of
 function names, their parameter names, and the constraints placed on their
 values. It would be helpful to know under what condition which function is
-expected to be called. \refcrit{L4}}
+expected to be called. \refcrit{L4} \refcrit{AN3}}
 \newcommand{\sixteen}{If the software contains a configuration file, then the
 root of the repository must contain a \textbf{configuration file containing all
 options} set to the sane defaults or commented out containing a description
@@ -720,7 +720,8 @@ passwords} \refcrit{SC2}; instead, it must use the instruments provided by the p
 
 Software must be accompanied be a clear and concise high-level description,
 describing what exactly it does. Both the \texttt{README} file that ships with
-the software (see IS7) as well as the project website (see ID2) should contain
+the software (see \refcrit{IS7}) as well as the project website (see
+\refcrit{ID2}) should contain
 this information. 
 
 \CheckTable
@@ -734,7 +735,7 @@ usually not appropriate for all audiences. Gearing software at multiple
 audiences however, through for instance offering multiple interfaces (command
 line interface (CLI) , graphical user interface (GUI), web-user interface
 (WUI), web service) is good practice. References to projects already using the
-software are recommended (see also CM1).
+software are recommended (see also \refcrit{CM1}).
 
 \CheckTable
 
@@ -771,8 +772,9 @@ documentation for different audiences, and may include published papers.
 
 All software should be properly documented. Software without any documentation
 is as good as useless. At the very least, there should be some documentation at
-a minimum level, targeted at the intended audience. A README (see IS7) that
-attempts to meet some of guidelines in this section (such as D6,D8,D9) can be
+a minimum level, targeted at the intended audience. A README (see \refcrit{IS7}) that
+attempts to meet some of guidelines in this section (such as
+\refcrit{D6},\refcrit{D8},\refcrit{D9}) can be
 considered a bare minimum level of documentation.
 
 \CheckTable
@@ -804,7 +806,7 @@ Documentation should be written in clear language, use proper spelling, and
 clearly describe the software. Step-by-step and task-oriented instructions are
 recommended.
 
-See also D7.
+See also \refcrit{D7}.
 
 \CheckTable
 
@@ -862,7 +864,7 @@ these details form a part of the larger picture.
 \criterion{\dSevenID}{\dSevenText}
 
 Different groups of users require different documentation. Developers require
-APIs if the software is a library (see L4), end-users require a walkthrough of the GUI
+APIs if the software is a library (see \refcrit{L4}), end-users require a walkthrough of the GUI
 if the software has one. A different level of expertise may be expected of
 different user groups, the documentation should assume the appropriate level.
 
@@ -961,7 +963,10 @@ the documentation.
 \criterion{\lFourID}{\lFourText}
 
 If the software is a programming library, API documentation must be provided.
-If the software is a web service, a specification of the web API must be provided.
+If the software is a web service, a specification of the web API must be provided. 
+
+API documentation should be auto-generated from comments in the source code,
+see \refcrit{AN3}.
 
 \CheckTable
 
@@ -1054,7 +1059,7 @@ including configuration of the software to the user's needs.
 
 All software must come with installation instructions. Those instructions should
 be easily accessible and presented on the project website as well as shipped
-with the software in the README or INSTALL file (see also IS7). Build and installation
+with the software in the README or INSTALL file (see also \refcrit{IS7}). Build and installation
 instructions can be combined if the software is published as a source
 distribution.
 
@@ -1068,7 +1073,7 @@ distribution.
 All required or optional dependencies should be listed, including those by
 third parties (with references to their websites). If the installation
 procedure supports automatically obtaining dependencies, then this is a
-preferred solution (see also IS3). If the platform has a package manager that
+preferred solution (see also \refcrit{IS3}). If the platform has a package manager that
 can install these dependencies, then add instructions (i.e. package names) to
 accomplish this.
 
@@ -1110,7 +1115,7 @@ ad-hoc mechanisms. If the ecosystem has facilities for dependency management
 
 Complying to these installation practices often means your installable package
 is fit for inclusion into the programming language's public package repository
-(see AC5).
+(see \refcrit{AC5}).
 
 \CheckTable
 
@@ -1120,10 +1125,11 @@ is fit for inclusion into the programming language's public package repository
 
 If the software has a well-defined target platform and is intended for adoption
 by a wider audience, it is recommended to package it in the appropriate form.
-This may however conflict with IS3, be rendered obsolete by IS3, or render IS3
+This may however conflict with IS3, be rendered obsolete by \refcrit{IS3}, or
+render \refcrit{IS3}
 obsolete. The decision whether to use packaging methods for the target platform
 and/or packaging methods for the ecosystem surrunding the programming language
-(IS3) should be
+(\refcrit{IS3}) should be
 % * <reinierdevalk@gmail.com> 2016-03-30T15:58:41.118Z:
 %
 % > decision form of installation that takes precedence
@@ -1188,7 +1194,7 @@ preferably in an unobtrusive mark-up format such as
 Markdown\footnote{\url{http://daringfireball.net/projects/markdown/}} or
 ReStructuredText\footnote{\url{http://docutils.sourceforge.net/rst.html}}.
 
-If a public version control platform such as GitHub is used (see AC2), the
+If a public version control platform such as GitHub is used (see \refcrit{AC2}), the
 README will usually be visualised on the repository page.
 
 \CheckTable
@@ -1208,8 +1214,9 @@ instances, proper uninstallation facilities should be explicitly implemented.
 \criterion{\isNineID}{\isNineText}
 
 The project website must state clearly state what target platform(s) the software is expected to run on.
-System requirements in terms of computing resources must be stated if the software employs more than insignificant resources (see PF2).
-(related also to B3 and IS2)
+System requirements in terms of computing resources must be stated if the
+software employs more than insignificant resources (see \refcrit{PF2}).
+(related also to \refcrit{B3} and \refcrit{IS2})
 
 \CheckTable
 
@@ -1410,7 +1417,7 @@ funding line. Use of sourceforge.net, de-facto standard prior to the advent of
 current leader Github, is strongly discouraged as it is under ill management
 and no longer deemed secure. Public repositories tend to be free on these platforms and
 often come with many additional benefits, such as a good public issue tracker
-(see SP2).
+(see \refcrit{SP2}).
 
 We motivate our reasoning in favour of public version control repositories as follows:
 
@@ -1423,7 +1430,7 @@ We motivate our reasoning in favour of public version control repositories as fo
         academic context may impact their experimental results.
 \end{enumerate}
 
-(depends on AC1)
+(depends on \refcrit{AC1})
 
 \CheckTable
 
@@ -1455,7 +1462,7 @@ the time of this release.
 The ecosystems surrounding various high-level programming languages offer
 public repositories in which installable software release packages should be
 deposited. These repositories function as a primary source for installation (see also
-IS3) and generally offer automatic dependency management.
+\refcrit{IS3}) and generally offer automatic dependency management.
 
 Use of these repositories is strongly recommended practice if available.
 
@@ -1522,7 +1529,7 @@ release should be deposited in a persistent store and receive a unique Digital
 Object Identifier (DOI),  a persistent ID that is ubiquitous in the academic
 world. The DOI can in turn be referenced in citations from publications.
 
-Users using Github (see AC2) and Zenodo\footnote{\url{https://zenodo.org}, a
+Users using Github (see \refcrit{AC2}) and Zenodo\footnote{\url{https://zenodo.org}, a
 research data repository.} can set this up with little effort. \footnote{A guide
 for this is provided at https://guides.github.com/activities/citable-code/.}.
 Any releases made on GitHub will then automatically transfer to Zenodo and
@@ -1623,7 +1630,7 @@ continuous integrations platforms such as
 Travis-CI\footnote{https://travis-ci.org},
 Gitlab-CI\footnote{https://gitlab.com},
 Jenkins\footnote{https://jenkins-ci.org} can be hooked into version control
-systems (see AC1, AC2) with minimal effort, resulting in an automatic run of the test suite
+systems (see \refcrit{AC1}, \refcrit{AC2}) with minimal effort, resulting in an automatic run of the test suite
 upon each commit and notifying the developer when the test suite fails.
 
 It is strongly recommended that test results are publicly available, so users
@@ -1719,7 +1726,7 @@ language.
 The structure of the source code should bear a clear relationship to the
 architecture or design of the software.
 
-(See also R3)
+(See also \refcrit{R3})
 
 \CheckTable
 
@@ -1774,7 +1781,7 @@ programming language?
 
 There should be no large blocks of commented-out code, nor obsolete or
 alternate versions of files that bypass proper version control.
-(this depends on compliance with AC1)
+(this depends on compliance with \refcrit{AC1})
 
 \CheckTable
 
@@ -1783,7 +1790,7 @@ alternate versions of files that bypass proper version control.
 \criterion{\anSevenID}{\anSevenText}
 
 There should be no important TODO comments, if there are they should at least be
-clearly described in the issue tracker (SP2).
+clearly described in the issue tracker (See \refcrit{SP2}).
 
 \CheckTable
 
@@ -1830,7 +1837,7 @@ of generic coding standards for the programming language.
 A project is recommended to be open to outside contributions. Community
 involvement is a major factor in the success of a software project. 
 
-This depends on AC1, AC2, and facilitates COM1 and COM2. 
+This depends on \refcrit{AC1}, \refcrit{AC2}, and facilitates \refcrit{CM1} and \refcrit{CM2}. 
 
 \CheckTable
 
@@ -1840,7 +1847,7 @@ This depends on AC1, AC2, and facilitates COM1 and COM2.
 
 If contributions are desired, a project is recommended to have guidelines for
 contributors. These must be publicly available.
-See also AN8.
+See also \refcrit{AN8}.
 
 \CheckTable
 
@@ -1897,7 +1904,7 @@ GUI or WUI, developer-users prefer a command line interface (CLI) and/or
 webservice interface, developers needs a software library with API.
 
 Assessment of this depends greatly on the intended audience of the software
-(see U2) and desired level of reusability.
+(see \refcrit{U2}) and desired level of reusability.
 
 \CheckTable
 
@@ -1914,7 +1921,8 @@ of its components without the need to modify these components.
 Modularity can be expressed as layers, from low-level to high-level:
 
 \begin{itemize}
- \item Classes and functions are defined at the source code level. (see R3)
+ \item Classes and functions are defined at the source code level. (see
+     \refcrit{R3})
  \item Libraries group and expose these publicly, described by APIs. 
  \item Command Line Interfaces use the libraries.
  \item Servers/daemons use the libraries, networked clients use the server/daemons.
@@ -1947,7 +1955,7 @@ individual basis.
 The software's source code should define clearly delimited classes and
 functions, following the paradigm of the programming language. 
 
-(See also AN1)
+(See also \refcrit{AN1})
 
 \CheckTable
 
@@ -1973,7 +1981,7 @@ Assessment of security is an art in itself and non-trivial.
 Privacy-sensitive user data must be treated with care. Passwords must never be
 stored in unhashed form, private keys must never be shared. Any compromises to
 privacy must be clearly laid out in a privacy policy.  Strongly related to SC1.
-Also see AC3.
+Also see \refcrit{AC3}.
 
 \CheckTable
 
