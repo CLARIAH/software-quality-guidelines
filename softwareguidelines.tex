@@ -415,8 +415,15 @@ installation}. \refcrit{IS1}}
 config files and leave them alone by default. \refcrit{IS8}}
 \newcommand{\eight}{The above requirements regarding installation can be omitted if the software can be run from the source directory and during running will not write outside of the source directory or temporary directories.}
 \newcommand{\nine}{The root folder of the software project contains a file
-    called \textbf{README} (fully capitalised) \refcrit{D1} \refcrit{IS7}, which must be a readable plain text file. It may link to images, but the reader must be able to follow along without them. A \textbf{readable plain text} file is a file that can be read by a human using both wordpad.exe and vi. Formats such as markdown and ReST are readable as plain text, but LaTeX and HTML are not. A UTF-8 encoding should be chosen; however, the use of ANSI, UTf-16 or UCS2 is also acceptable when forced by some technical constraint. (Though you must then mention that using the ascii subset at the start of the file itself.} %TODO-rdv die laatste zin tussen haakjes snap ik niet 
-
+    called \textbf{README} (fully capitalised) \refcrit{D1} \refcrit{IS7},
+    which must be a readable plain text file. It may link to images, but the
+    reader must be able to follow along without them. A \textbf{readable plain
+    text} file is a file that can be read by a human using both wordpad.exe and
+    vi. Formats such as markdown and ReST are readable as plain text, but LaTeX
+    and HTML are not. A UTF-8 encoding should be chosen; however, the use of
+    ANSI, UTf-16 or UCS2 is also acceptable when forced by some technical
+    constraint. (Though you must then mention that using the ascii subset at
+    the start of the file itself.} %TODO-rdv die laatste zin tussen haakjes snap ik niet   (MvG: De uitzondering is wat mij betreft iets te specifiek, ik zou gewoon utf-8 eisen)
 	\newcommand{\nineOne}{The readme must start by explicitly mentioning the experimental nature of the software.}
 	\newcommand{\nineTwo}{Accurate support contact information must be provided
     at the top of the readme, and an end date, until which this information can
@@ -494,10 +501,10 @@ doxygen, javadoc or sphinx. The result must be published. Use descriptive names.
 function names, their parameter names, and the constraints placed on their
 values. It would be helpful to know under what condition which function is
 expected to be called. \refcrit{L4} \refcrit{AN3}}
-\newcommand{\sixteen}{If the software contains a configuration file, then the
-root of the repository must contain a \textbf{configuration file containing all
-options} set to the sane defaults or commented out containing a description
-when you want to use them. \refcrit{L5}} %TODO-rdv deze snap ik niet
+\newcommand{\sixteen}{If the software depends on configuration files, then a
+    template or sample must be provided in the repository  for each, \textbf{containing all
+available options} and set to sane defaults. Comments in the configuration file
+should give clear descriptions what the options do. \refcrit{L5}} %TODO-rdv deze snap ik niet (MvG: rephrased, nu wel?)
 \newcommand{\seventeen}{The software must be \textbf{distributed under an OSI
 approved licence} in a LICENSE file in root. \refcrit{CP1} Also copyright
 holderi \refcrit{CP2}} %TODO-rdv wat wordt met dat laatste zinnetje bedoeld?
@@ -915,7 +922,7 @@ This category partially overlaps with the documentation criterion, but explicitl
 focusses on how straightforward it is to learn to use the software.
 
 \newcommand{\lOneID}{L1}
-\newcommand{\lOneText}{Is there a \textit{Getting started} guide?}
+\newcommand{\lOneText}{Is there a ``Getting started'' guide?}
 \criterion{\lOneID}{\lOneText}
 
 A \textit{Getting started} guide, or similar, outlines how to quickly get
@@ -1027,13 +1034,14 @@ Solutions that are not tied to a single IDE are always preferred.
 \newcommand{\bThreeID}{B3}
 \newcommand{\bThreeText}{Are the dependencies listed and available?}
 \criterion{\bThreeID}{\bThreeText}
-(related to IS2)
+(related to \refcrit{IS2})
 
-All required or optional dependencies should be listed, including those by
-third parties (with references to their websites). If the build system supports
-automatically obtaining dependencies, then this is a preferred solution. If the
-platform has a package manager that can install these dependencies, then add
-instructions (i.e. package names) to accomplish this.
+All required or optional dependencies necessary to build the software should be
+listed, including those by third parties (with references to their websites).
+If the build system supports automatically obtaining dependencies, then this is
+a preferred solution. If the platform has a package manager that can install
+these dependencies, then add instructions (i.e. package names) to accomplish
+this. Ideally all dependencies should be installable by one command.
 
 Moreover, all listed dependencies should be available, unobtainable software
 can not be used as a dependency. Higher-order dependencies need not be listed.
@@ -1068,14 +1076,15 @@ distribution.
 \newcommand{\isTwoID}{IS2}
 \newcommand{\isTwoText}{Are the dependencies listed and available?}
 \criterion{\isTwoID}{\isTwoText}
-(related to B3)
+(related to \refcrit{B3})
 
 All required or optional dependencies should be listed, including those by
 third parties (with references to their websites). If the installation
 procedure supports automatically obtaining dependencies, then this is a
 preferred solution (see also \refcrit{IS3}). If the platform has a package manager that
 can install these dependencies, then add instructions (i.e. package names) to
-accomplish this.
+accomplish this. Ideally all dependencies should be installable with one
+command.
 
 Moreover, all listed dependencies should be available, unobtainable software
 can not be used as a dependency. Higher-order dependencies need not be listed.
