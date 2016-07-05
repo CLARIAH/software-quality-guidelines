@@ -54,11 +54,13 @@
     \end{tabular}
 \end{center}}
 
-\newcommand{\indicator}[1]{\subsubsection*{\underline{#1}}}
+\newcommand{\criterion}[2]{\subsubsection*{\underline{#1 - #2}}\label{id:#1}}
 
 \newcommand\CheckTable{%
   \begin{tabular}{ccccc}
     No & Minimal & Adequate & Good & Perfect \\
+    0 & 1 & 2 & 3 & 4 \\
+    \hline
     $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
   \end{tabular}%
 }
@@ -111,30 +113,54 @@ academic context is stressed by
 \cite{RESEARCHSOFTWARE}.
 They recognize the fundamental role software plays in modern research and
 observe that good development practice is less followed in academia than in the
-commercial sector, which leads to problems in maintenance and adoption. They thus set out to promote good software development practice, good models of
+commercial sector, which leads to problems in maintenance and adoption. They
+thus set out to promote good software development practice, good models of
 sustainability and dissemination of the best software across application
-areas/disciplines. We fully agree with these goals, and the guidelines presented here are
-intended to respond, on a practical level, to these with specific software
-quality criteria, explicitly encompassing sustainability as well.
+areas/disciplines. We fully agree with these goals, and the guidelines
+presented here are intended to respond, on a practical level, to these with
+specific software quality criteria, explicitly encompassing sustainability as
+well.
 
 \subsection{Structure of the Document}\label{sec:struc}
-After a discussion of the context of questions of software quality in social sciences and humanities research infrastructures,
-%within which the issue of software quality is placed, 
-we start the main part of this document with the essentials: definitions and the state-of-art
-of discussions around software quality criteria. 
-Following that, the guidelines---a number of actionable steps, intended to make software more usable and discoverable for users and other developers---are described. Two categories of guidelines are discerned: 
+
+After a discussion of the context of questions of software quality in social
+sciences and humanities research infrastructures, we start the main part of
+this document with the essentials: definitions and the state-of-art of
+discussions around software quality criteria.  Following that, the
+guidelines---a number of actionable steps, intended to make software more
+usable and discoverable for users and other developers---are described. Two
+categories of guidelines are discerned: 
+
 \begin{itemize}
-	\item strict requirements
-	\item additional guidelines %TODO-rdv hier moeten we  misschien een andere term dan guidelines gebuiken. Ik heb zitten denken: protocols? instructions? procedures? van de andere kant: als we dit doen moeten we in het hele document doorvoeren... misschien de moeite niet waard
+	\item developer guidelines
+	\item full assessment criteria 
 \end{itemize}
-While the former are minimal requirements that software should adhere to, the latter constitute more generic guidelines that can help to achieve software of a higher quality. 
-The requirements are specified in a form that leaves little room for discussion. They are but one way of meeting the more generic guidelines. It is encouraged to follow them as-is; doing so will make their implementation easier. It will also make consuming the results easier, as there will be a firm structure that can be relied on.
-The additional guidelines, on the other hand, are not simply boxes to tick. Instead, they offer ways to look at quality in software and tips to make software better and more useful. The guidelines are presented as open questions that can be answered in order to explain, for example, any trade-offs made while developing. 
-It should be noted that throughout this document, both these terms are captured under the umbrella term \textit{guidelines}. 
-The aim of this document %TODO-rdv aim waarvan? dit document? 
-is, in an iterative
-process, to tailor the guidelines to the needs of the involved partners (ICT, research and archives). 
-%For the context of questions of software quality in SSH research infrastructures see the last section in this document.
+
+While the former are minimal requirements that software should adhere to, the
+latter constitute more comprehensive guidelines that can help to achieve software of
+a higher quality. The developer guidelines are specified in a form that leaves little
+room for discussion. They are but one way of meeting the more generic
+assessment criteria. It is encouraged to follow them as-is; doing so will make their
+implementation easier. It will also make consuming the results easier, as there
+will be a firm structure that can be relied on.  The full body of assessment
+criteria does not just consist of boxes to tick, but offers ways to look at quality in software and tips to make software
+better and more useful. 
+
+The assessment criteria are presented as questions that can be answered on a
+5-point scale to indicate the level of compliance. In addition to these
+answers, there is room for open-ended comments here.  In order to explain, for
+example, any trade-offs made while developing. 
+
+It should be noted that throughout this document, both categories are captured
+under the umbrella term \textit{guidelines}.  
+
+The aim of this document
+%TODO-rdv aim waarvan? dit document?    (MvG: Van mij mag dit hele paragraafje wel weg)
+is, in an iterative process, to tailor
+the guidelines to the needs of the involved partners (ICT, research and
+archives). 
+%For the context of questions of software quality in SSH research
+%infrastructures see the last section in this document.
 
 \section{Context}
 
@@ -208,9 +234,9 @@ encompassing all of the following aspects:
     \item support infrastructure (version control, build systems, issue trackers)
 \end{itemize}
 
-The following guidelines for software quality consist of various assessment
-criteria, such as ``Documentation'' and ``Installability''. Each criterion in turn
-consists of assessment indicators formulated as a series of questions. This
+The assesment criteria for software quality are grouped into various assessment
+dimensions, such as ``Documentation'' and ``Installability''. Each dimension in turn
+consists of assessment criteria, mostly formulated as a series of questions. This
 makes them directly applicable as an instrument for software quality
 assessment. 
 
@@ -223,14 +249,20 @@ formulate the questions as plainly as possible, a certain degree of technical
 expertise is demanded of all of these in order to attain a successful
 assessment.
 
-% TODO-rdv: issue #2. open vragen vs meetbare punten: likertschaal + toelichting  
-Each question, can be be answered with ``yes'', ``no'' or ``not applicable'' in
-case the guideline has no relevance for the software. The correct answer is
-always the affirmative. This will lead to measurable quality levels. Full
-compliance with the guidelines is achieved when all questions are answered
-affirmatively.  In practice, however, this is not realistic to happen.
+Each criterion can be answered on a 5-point scale to indicate compliance. In
+addition, a criterion may also be deemed \emph{not applicable}. The response scale is as follows:
+
+\begin{enumerate}
+    \setcounter{enumi}{-1} %count from 0
+    \item No -- \emph{The criterion is not met}
+    \item Minimal -- \emph{The criterion is met only minimally. This is not a good score and better compliance is recommended}
+    \item Adequate -- \emph{The criterion is met adequately. This is not a great score but it is sufficient}
+    \item Good -- \emph{The criterion is complied to well}
+    \item Perfect -- \emph{The criterion is complied to completely}
+\end{enumerate}
+
 Evaluators will need to determine for themselves what compliance level, per
-category, constitutes an acceptable passing threshold.
+dimension, constitutes an acceptable passing threshold.
 
 The criteria we yield are  to a large extent adopted from the
 \emph{Criteria-based Software Evaluation Guide} \citep{SSIGUIDE} by the Software
@@ -257,7 +289,7 @@ large portion of these guidelines is therefore applicable in the broader context
 of software quality in academics, software quality for open source projects, and
 software quality in general.
 
-The criteria used by the SSI are shown in Table~\ref{tab:criteria}.
+The dimensions used by the SSI are shown in Table~\ref{tab:criteria}.
 
 \begin{table}[hbt]
 \begin{tabular}{l|l}
@@ -287,7 +319,7 @@ Evolvability & Evidence of current/future development? \\
 Interoperability & Interoperable with other required/related software? \\
 \hline
 \end{tabular}
-\caption{Software quality criteria according to the SSI \citep{SSIGUIDE} (with some minor paraphrasing).}
+\caption{Software quality dimensions according to the SSI \citep{SSIGUIDE} (with some minor paraphrasing).}
 \label{tab:criteria}
 \end{table}
 
@@ -296,9 +328,9 @@ We adopt this scheme with the following changes:
 \begin{itemize}
 \item Copyright \& Licensing are merged.
 \item Evolvability was merged into Changeability.
-\item Security \& Privacy criterion is added to Sustainability \& Manageability
-\item Performance criterion was added to Usability.
-\item Reusability criterion was added to Sustainability \& Manageability: To what extend is the software reusable?
+\item Security \& Privacy dimension is added to Sustainability \& Manageability
+\item Performance dimension was added to Usability.
+\item Reusability dimension was added to Sustainability \& Manageability: To what extend is the software reusable?
 % * <reinierdevalk@gmail.com> 2016-03-30T15:28:10.134Z:
 %
 % > Reusability
@@ -309,33 +341,46 @@ We adopt this scheme with the following changes:
 % <proycon@anaproy.nl> 2016-04-06: As I see it, reusability is more a property
 % of the way the software is set-up, with respect to reuse of its components,
 % whilst sustainability is a broader concept.
-\item The Interoperability criterion is split into a generic section and a CLARIAH-specific section. The latter provides indicators to assess
+\item The Interoperability dimension is split into a generic section and a
+    CLARIAH-specific section. The latter provides criteria to assess
 whether the software complies to requirements for integration into the CLARIAH infrastructure.
 \end{itemize}
 
 %The next sections
-Sections \ref{sec:usab} and \ref{sec:sustAndMaint} lay out all criteria with the individual assessment
-indicators. The individual indicators are inspired by the SSI guidelines but
-are not directly copied. Our indicators are generally more condensed and may
-group issues that were expressed as multiple indicators in the SSI guide.
-Various indicators have also been added that did not exist in the SSI guide,
-and there were various indicators we found too specific to use.
+Sections \ref{sec:usab} and \ref{sec:sustAndMaint} lay out all dimensions with the individual assessment
+criteria. The individual criteria are inspired by the SSI guidelines but
+are not directly copied. Our criteria are generally more condensed and may
+group issues that were expressed as multiple criteria in the SSI guide.
+Various criteria have also been added that did not exist in the SSI guide,
+and there were a few we found too specific to use.
 
-Each indicator carries an ID code for easy reference. Cross-references will be
-made whenever there is a relationship between indicators.
+Each criterion carries an ID code for easy reference. Cross-references will be
+made whenever there is a relationship between criteria.
 
-Before the description of these more generic guidelines, a number of strict, minimal, requirements that software should adhere to (see Section \ref{sec:struc}), are described in the now following Section \ref{sec:req}.
+Before the description of the full assessment criteria, a number of strict,
+minimal, requirements that software should adhere to (see Section
+\ref{sec:struc}), are described in the now following Section \ref{sec:req}.
 
-\section{Minimal Requirements}\label{sec:req}
+\section{Developer Guidelines: Minimal Requirements}\label{sec:req}
 
-This section describes a set of guidelines that are very straightforward to implement. They follow common practice where possible, and take a firm stand where interoperability benefits when a choice must be made. However, depending on the context, more (or less) may be expected from peers or collaborators.
+This section describes a set of guidelines for developers to adhere to, they
+very straightforward to implement, follow common practice where possible,
+and take a firm stand where interoperability benefits when a choice must be
+made. However, depending on the context, more (or less) may be expected from
+peers or collaborators.
 
-It should be noted that there are two sets of opposing scenarios: the first concerns end user software versus experimental software, and the second software receiving active support versus unsupported software.  
+It should be noted that there are two sets of opposing scenarios: the first
+concerns end user software versus experimental software, and the second
+software receiving active support versus unsupported software.  
+
 \begin{itemize}
 	\item Not all software is intended exclusively for \textbf{end users}: some software is \textbf{experimental}, and intended only for people who can modify the code. This makes such software less usable---but when the goal of a project is to verify if something is at all possible, this might be a valid trade-off.
 	\item While everyone wants the software they use to receive \textbf{active support}, in practice this is not always feasible. It is acceptable to release \textbf{unsupported} software---provided that users are notified clearly and in advance.
 \end{itemize} 
-Which of the following requirements apply depends on which configuration of these two sets of opposing scenarios is applicable. Below are written out all four configurations: in each case, non-applicable guidelines are grayed-out.
+
+Which of the following requirements apply depends on which configuration of
+these two sets of opposing scenarios is applicable.  Below are written out all four configurations: in each case, non-applicable guidelines are grayed-out. 
+
 
 %TODO-rdv add (altered) ID(s) where appropriate
 \newcommand{\one}{The software must be stored in a \textbf{version control system} (VCS).
@@ -390,62 +435,58 @@ in the VCS.}
 \newcommand{\fifteen}{Almost every application provides an API. This \textbf{API must be discoverable}. For a Java project this means adding Javadoc where needed, and using descriptive names otherwise. For Javascript this means providing a document containing the API. What must be provided is a list of function names, their parameter names, and the constraints placed on their values. It would be helpful to know under what condition which function is expected to be called.}
 \newcommand{\sixteen}{If the software contains a configuration file, then the root of the repository must contain a \textbf{configuration file containing all options} set to the sane defaults or commented out containing a description when you want to use them.} %TODO-rdv deze snap ik niet
 \newcommand{\seventeen}{The software must be \textbf{distributed under an OSI approved licence} in a LICENSE file in root. Also copyright holder} %TODO-rdv wat wordt met dat laatste zinnetje bedoeld?
-\newcommand{\eighteen}{The software must have a \textbf{CONTRIBUTING file}. (The template could be used---but it must be noted that that means one must be open to all PRs. Specifying some details in this file thus is very useful.} %TODO-rdv wat zijn PRs?
-\newcommand{\nineteen}{Data must be made available as \textbf{a log or rdf quads}.} %TODO-rdv of --> or: OK?
+\newcommand{\eighteen}{The software must have a \textbf{CONTRIBUTING file}.
+    (The template could be used---but it must be noted that that means one must
+    be open to all pull requests. Specifying some details in this file thus is very useful.} 
+\newcommand{\nineteen}{Data must be made available as \textbf{a log or rdf quads}.} %TODO-rdv OK?
 \newcommand{\twenty}{The software must \textbf{not store usernames and passwords}; instead, it must use the instruments provided by the project.}
 \newcommand{\twentyOne}{Experimental software MUST NOT allow external users to store data (for this renders it production software).}
 \newcommand{\twentyTwo}{This list of requirements must be \textbf{distributed alongside the code}.}
 
 %TODO-rdv add kopje "Implementation Patterns" met voorbeeld van README file?
+\subsection{Configuration 1: Actively Supported End User Software} 
 
-\subsection{Configuration 1: Actively Supported End User Software}
-\begin{enumerate} 
-\item \one 
-\item \two 
-\item \three 
-\item \four 
-\item \five 
-\item \six 
-\item \seven 
-\color{lightgray}\item \eight \color{black} 
-\item \nine 
-	\begin{enumerate} [1.]
-	\color{lightgray} \item \nineOne \color{black} 
-	\item \nineTwo 
-	\color{lightgray} \item \nineThree \color{black} 
-	\item \nineFour 
-	\item \nineFive 
-	\item \nineSix 
-	\item \nineSeven 
-	\item \nineEight 
-	\item \nineNine 
-	\item \nineTen 
-	\item \nineEleven 
-	\item \nineTwelve 
-	\item \nineThirteen
-	\end{enumerate} 
-\item \ten 
-\item \eleven 
-\item \twelve 
-	\begin{enumerate}
-	\item \twelveA 
-	\item \twelveB 
-	\item \twelveC 
-	\item \twelveD 
-	\item \twelveE 
-	\item \twelveF
-	\end{enumerate}
-	\twelveNB
-\item \thirteen 
-\item \fourteen
-\item \fifteen 
-\item \sixteen 
-\item \seventeen 
-\item \eighteen 
-\item \nineteen 
-\item \twenty 
-\color{lightgray} \item \twentyOne \color{black} 
-\item \twentyTwo 
+\begin{enumerate}
+    \item \one 
+    \item \two 
+    \item \three
+    \item \four
+    \item \five
+    \item \six
+    \item \seven 
+    \color{lightgray} \item \eight \color{black}
+    \item \nine
+    \begin{enumerate}[1.]
+       \color{lightgray} \item \nineOne \color{black}
+        \item \nineTwo 
+        \color{lightgray}\item \nineThree \color{black}
+        \item \nineFour 
+        \item \nineFive 
+        \item \nineSix 
+        \item \nineSeven 
+        \item \nineEight
+        \item \nineNine 
+        \item \nineTen 
+        \item \nineEleven 
+        \item \nineTwelve 
+        \item \nineThirteen
+    \end{enumerate}
+    \item \ten
+    \item \eleven
+    \item \twelve
+    \item \thirteen
+    \item \fourteen
+    \item \fifteen
+    % weer toegevoegd-rdv --->
+    \item \sixteen 
+    \item \seventeen 
+    \item \eighteen 
+    \item \nineteen 
+    \item \twenty 
+    \color{lightgray} \item \twentyOne \color{black} 
+    \item \twentyTwo
+    % <--- 
+    
 \end{enumerate}
 
 \subsection{Configuration 2: Unsupported End User Software} 
@@ -604,22 +645,20 @@ in the VCS.}
 
 \subsection{Understandability}\label{sec:und}
 
-\newcommand{\uOneName}{U1}
-\newcommand{\uOneID}{\uOneName}
+\newcommand{\uOneID}{U1}
 \newcommand{\uOneText}{Is it clear what the software does?}
-\indicator{\uOneName{ }--{ }\uOneText}\label{id:u1}
-%\indicator{U1 -- Is it clear what the software does?}
+\criterion{\uOneID}{\uOneText}
 
 Software must be accompanied be a clear and concise high-level description,
 describing what exactly it does. Both the \texttt{README} file that ships with
 the software (see IS7) as well as the project website (see ID2) should contain
 this information. 
 
-\newcommand{\uTwoName}{U2}
-\newcommand{\uTwoID}{\uTwoName}
+\CheckTable
+
+\newcommand{\uTwoID}{U2}
 \newcommand{\uTwoText}{Is it clear for whom the software is intended?}
-\indicator{\uTwoName{ }--{ }\uTwoText}\label{id:u2}
-%\indicator{U2 -- Is it clear for whom the software is intended?}
+\criterion{\uTwoID}{\uTwoText}
 
 It should be clear who are the intended users for the software. Software is
 usually not appropriate for all audiences. Gearing software at multiple
@@ -628,26 +667,28 @@ line interface (CLI) , graphical user interface (GUI), web-user interface
 (WUI), web service) is good practice. References to projects already using the
 software are recommended (see also CM1).
 
-\newcommand{\uThreeName}{U3}
-\newcommand{\uThreeID}{\uThreeName}
+\CheckTable
+
+\newcommand{\uThreeID}{U3}
 \newcommand{\uThreeText}{Is it clear how the software works?}
-\indicator{\uThreeName{ }--{ }\uThreeText}\label{id:u3}
-%\indicator{U3 -- Is it clear how the software works?}
+\criterion{\uThreeID}{\uThreeText}
 
 There should be a high-level description explaining how the software
 accomplishes its task. Links to publications are recommended. Also, a schema
 offering an architectural overview is suggested where appropriate. 
 
-\newcommand{\uFourName}{U4}
-\newcommand{\uFourID}{\uFourName}
+\CheckTable
+
+\newcommand{\uFourID}{U4}
 \newcommand{\uFourText}{Is the software motivated?}
-\indicator{\uFourName{ }--{ }\uFourText}\label{id:u4}
-%\indicator{U4 -- Is the software motivated?}
+\criterion{\uFourID}{\uFourText}
 
 There should be a written motivation for why the software does things the way
 it does and why it was designed in the first place. It should be clear what
 problems are solved by it. Links to publications and comparisons to similar
 software are strongly recommended.
+
+\CheckTable
 
 \subsection{Documentation}\label{sec:doc}
 
@@ -655,17 +696,17 @@ When we refer to documentation, we refer to the set of all documentation
 available for the software. This may consists of different types of
 documentation for different audiences, and may include published papers.
 
-\newcommand{\dOneName}{D1}
-\newcommand{\dOneID}{\dOneName}
-\newcommand{\dOneText}{Is there documentation?}
-\indicator{\dOneName{ }--{ }\dOneText}\label{id:d1}
-%\indicator{D1 -- Is there documentation?}
+\newcommand{\dOneID}{D1}
+\newcommand{\dOneText}{Is the software documented?}
+\criterion{\dOneID}{\dOneText}
 
 All software should be properly documented. Software without any documentation
 is as good as useless. At the very least, there should be some documentation at
 a minimum level, targeted at the intended audience. A README (see IS7) that
 attempts to meet some of guidelines in this section (such as D6,D8,D9) can be
 considered a bare minimum level of documentation.
+
+\CheckTable
 
 % * <reinierdevalk@gmail.com> 2016-03-30T15:35:50.608Z:
 %
@@ -677,20 +718,18 @@ considered a bare minimum level of documentation.
 % <proycon@anaproy.nl> 2016-04-06: No, I intended to mean a minimum level
 % targetted for the appropriate audience. I added to the text 
 
-\newcommand{\dTwoName}{D2}
-\newcommand{\dTwoID}{\dTwoName}
+\newcommand{\dTwoID}{D2}
 \newcommand{\dTwoText}{Is the documentation accessible?}
-\indicator{\dTwoName{ }--{ }\dTwoText}\label{id:d2}
-%\indicator{D2 -- Is the documentation accessible?}
+\criterion{\dTwoID}{\dTwoText}
 
 Documentation must be publicly accessible and in an acceptable standard format
 such as HTML or PDF.
 
-\newcommand{\dThreeName}{D3}
-\newcommand{\dThreeID}{\dThreeName}
+\CheckTable
+
+\newcommand{\dThreeID}{D3}
 \newcommand{\dThreeText}{Is the documentation clear?}
-\indicator{\dThreeName{ }--{ }\dThreeText}\label{id:d3}
-%\indicator{D3 -- Is the documentation clear?}
+\criterion{\dThreeID}{\dThreeText}
 
 Documentation should be written in clear language, use proper spelling, and
 clearly describe the software. Step-by-step and task-oriented instructions are
@@ -698,11 +737,11 @@ recommended.
 
 See also D7.
 
-\newcommand{\dFourName}{D4}
-\newcommand{\dFourID}{\dFourName}
+\CheckTable
+
+\newcommand{\dFourID}{D4}
 \newcommand{\dFourText}{Is the documentation complete?}
-\indicator{\dFourName{ }--{ }\dFourText}\label{id:d4}
-%\indicator{D4 -- Is the documentation complete?}
+\criterion{\dFourID}{\dFourText}
 
 Documentation should cover the entire software, including advanced features.
 Features that are not documented in any way are generally useless. If the
@@ -723,21 +762,21 @@ software can perform that are not properly explained?
 % least also offer a high-level view before it goes into the finer details, not that it
 % should go beyond a high-level view (it should). I rephrased D6.
 
-\newcommand{\dFiveName}{D5}
-\newcommand{\dFiveID}{\dFiveName}
+\CheckTable
+
+\newcommand{\dFiveID}{D5}
 \newcommand{\dFiveText}{Is the documentation accurate?}
-\indicator{\dFiveName{ }--{ }\dFiveText}\label{id:d5}
-%\indicator{D5 -- Is the documentation accurate?}
+\criterion{\dFiveID}{\dFiveText}
 
 Documentation should describe the advertised version and not be out-of-date
 with the latest release. Examples should be in line with how the tool looks and
 behaves.
 
-\newcommand{\dSixName}{D6}
-\newcommand{\dSixID}{\dSixName}
+\CheckTable
+
+\newcommand{\dSixID}{D6}
 \newcommand{\dSixText}{Does the documentation provide a high-level overview of the software?}
-\indicator{\dSixName{ }--{ }\dSixText}\label{id:d6}
-%\indicator{D6 -- Does the documentation provide a high-level overview of the software?}
+\criterion{\dSixID}{\dSixText}
 
 A high-level overview of the software should be an integral part of the
 documentation, alongside more detailed instruction where appropriate.
@@ -747,74 +786,77 @@ these details form a part of the larger picture.
 
 % <proycon@anaproy.nl> 2016-04-06: I rephrased this after Reinier's comment for D4.
 
-\newcommand{\dSevenName}{D7}
-\newcommand{\dSevenID}{\dSevenName}
+\CheckTable
+
+\newcommand{\dSevenID}{D7}
 \newcommand{\dSevenText}{Are all the necessary audiences addressed, at their appropriate levels?}
-\indicator{\dSevenName{ }--{ }\dSevenText}\label{id:d7}
-%\indicator{D7 -- Are all the necessary audiences addressed, at their appropriate levels?}
+\criterion{\dSevenID}{\dSevenText}
 
 Different groups of users require different documentation. Developers require
 APIs if the software is a library (see L4), end-users require a walkthrough of the GUI
 if the software has one. A different level of expertise may be expected of
 different user groups, the documentation should assume the appropriate level.
 
-\newcommand{\dEightName}{D8}
-\newcommand{\dEightID}{\dEightName}
+\CheckTable
+
+\newcommand{\dEightID}{D8}
 \newcommand{\dEightText}{Does the documentation make use of adequate examples?}
-\indicator{\dEightName{ }--{ }\dEightText}\label{id:d8}
-%\indicator{D8 -- Does the documentation make use of adequate examples?}
+\criterion{\dEightID}{\dEightText}
 
 Documentation should contain examples appropriate for the interface that is
 described. Command-line interfaces should see examples of invocation and input
 and output. Graphical user interfaces should be illustrated through screenshots or
 screencasts. API references should contain source code examples of usage.
 
-\newcommand{\dNineName}{D9}
-\newcommand{\dNineID}{\dNineName}
-\newcommand{\dNineText}{Is there adequate troubleshooting information?}
-\indicator{\dNineName{ }--{ }\dNineText}\label{id:d9}
-%\indicator{D9 -- Is there adequate troubleshooting information?}
+\CheckTable
+
+\newcommand{\dNineID}{D9}
+\newcommand{\dNineText}{Is there troubleshooting information?}
+\criterion{\dNineID}{\dNineText}
 
 Documentation should include information on troubleshooting, i.e.\ a
 specification of possible error messages and explanation for resolution. A
 frequently asked questions (FAQ) section is appropriate to cover questions
 that are repeatedly asked by the user base.
 
-\newcommand{\dTenName}{D10}
-\newcommand{\dTenID}{\dTenName}
+\CheckTable
+
+\newcommand{\dTenID}{D10}
 \newcommand{\dTenText}{Is the documentation available from the project website?}
-\indicator{\dTenName{ }--{ }\dTenText}\label{id:d10}
-%\indicator{D10 -- Is the documentation available from the project website?}
+\criterion{\dTenID}{\dTenText}
 
 Documentation must be clearly linked from the project website.
 
-\newcommand{\dElevenName}{D11}
-\newcommand{\dElevenID}{\dElevenName}
+\CheckTable
+
+\newcommand{\dElevenID}{D11}
 \newcommand{\dElevenText}{Is the documentation under version control?}
-\indicator{\dElevenName{ }--{ }\dElevenText}\label{id:d11}
-%\indicator{D11 -- Is the documentation under version control?}
+\criterion{\dElevenID}{\dElevenText}
 
 The sources for documentation must be under version control like the source
 code, preferably alongside the code itself.
+
+\CheckTable
 
 \subsection{Learnability}\label{sec:lea}
 
 This category partially overlaps with the documentation criterion, but explicitly
 focusses on how straightforward it is to learn to use the software.
 
-\newcommand{\lOneName}{L1}
-\newcommand{\lOneID}{\lOneName}
+\newcommand{\lOneID}{L1}
 \newcommand{\lOneText}{Is there a \textit{Getting started} guide?}
-\indicator{\lOneName{ }--{ }\lOneText}\label{id:l1} %TODO italics!
-%\indicator{L1 -- Is there a getting started guide?}
+\criterion{\lOneID}{\lOneText}
 
-A \textit{Getting started} guide outlines how to quickly get started with the software using a basic example.
+A \textit{Getting started} guide, or similar, outlines how to quickly get
+started with the software using a basic yet practical example and is usually task-oriented.
+It helps people to quickly get their hands dirty prior to diving in the
+remainder of the documentation. 
 
-\newcommand{\lTwoName}{L2}
-\newcommand{\lTwoID}{\lTwoName}
+\CheckTable
+
+\newcommand{\lTwoID}{L2}
 \newcommand{\lTwoText}{Are there instructions for basic use cases?}
-\indicator{\lTwoName{ }--{ }\lTwoText}\label{id:l2} 
-%\indicator{L2 -- Are there instructions for basic use cases?}
+\criterion{\lTwoID}{\lTwoText}
 
 Instructions should be provided for at least basic use cases, and ideally for
 all possible use cases if this is feasible.
@@ -831,32 +873,32 @@ all possible use cases if this is feasible.
 % adverb ``ideally'' for that reason, I added another qualifier ``if this is
 % feasible''.
 
-\newcommand{\lThreeName}{L3}
-\newcommand{\lThreeID}{\lThreeName}
-\newcommand{\lThreeText}{Does the interface provide a help reference?}
-\indicator{\lThreeName{ }--{ }\lThreeText}\label{id:l3} 
-%\indicator{L3 -- Does the interface provide a help reference?}
+\CheckTable
 
-Help options should be provided by the interface. Command line interfaces must
-have a -h/--help pair describing usage and all options. GUIs should use tooltips/hints to clarify
+\newcommand{\lThreeID}{L3}
+\newcommand{\lThreeText}{Does the interface provide a help reference?}
+\criterion{\lThreeID}{\lThreeText}
+
+Help options should be provided by the interface. Command line interfaces
+\emph{must} have a \texttt{-h}/\texttt{--help} pair describing usage and all options. GUIs should use tooltips/hints to clarify
 their widgets (or through whatever convention is customary for the
 platform/ecosystem). Alternatively, they can provide a help option referring to
 the documentation.
 
-\newcommand{\lFourName}{L4}
-\newcommand{\lFourID}{\lFourName}
+\CheckTable
+
+\newcommand{\lFourID}{L4}
 \newcommand{\lFourText}{Is there API documentation for developers?}
-\indicator{\lFourName{ }--{ }\lFourText}\label{id:l4} 
-%\indicator{L4 -- Is there API documentation for developers?}
+\criterion{\lFourID}{\lFourText}
 
 If the software is a programming library, API documentation must be provided.
 If the software is a web service, a specification of the web API must be provided.
 
-\newcommand{\lFiveName}{L5}
-\newcommand{\lFiveID}{\lFiveName}
+\CheckTable
+
+\newcommand{\lFiveID}{L5}
 \newcommand{\lFiveText}{If the software is configurable, are the configuration options clearly explained?}
-\indicator{\lFiveName{ }--{ }\lFiveText}\label{id:l5} 
-%\indicator{L5 -- If the software is configurable, are the configuration options clearly explained?}
+\criterion{\lFiveID}{\lFiveText}
 
 % * <reinierdevalk@gmail.com> 2016-03-30T15:46:17.721Z:
 %
@@ -870,7 +912,7 @@ files, a preferences window in a GUI, or by any other means, then the
 configuration options and their effect should be clearly documented.
 
 Moreover, default values for configuration parameters, and their effect, should be
-clearly explained.
+made clear.
 
 \subsection{Buildability}\label{sec:bui}
 
@@ -882,11 +924,11 @@ Java, Pascal, Haskell, Scala, Rust, Cython but not to scripting language such
 as Python, Ruby, Perl, Go.  Note that buildability does not include
 installation, packaging, or deployment.
 
-\newcommand{\bOneName}{B1}
-\newcommand{\bOneID}{\bOneName}
+\CheckTable
+
+\newcommand{\bOneID}{B1}
 \newcommand{\bOneText}{Are there good instructions for building/compiling the software?}
-\indicator{\bOneName{ }--{ }\bOneText}\label{id:b1} 
-%\indicator{B1 -- Are there good instructions for building/compiling the software?}
+\criterion{\bOneID}{\bOneText}
 
 Build/compilation instruction should be available and clear enough. They should
 be distributed alongside the software's source distribution (as part of an
@@ -894,11 +936,11 @@ be distributed alongside the software's source distribution (as part of an
 source distribution is the primary means of distribution, then build
 instructions should be prominently displayed on the project website as well.
 
-\newcommand{\bTwoName}{B2}
-\newcommand{\bTwoID}{\bTwoName}
+\CheckTable
+
+\newcommand{\bTwoID}{B2}
 \newcommand{\bTwoText}{Is an established automated build system used?}
-\indicator{\bTwoName{ }--{ }\bTwoText}\label{id:b2} 
-%\indicator{B2 -- Is an established automated build system used?}
+\criterion{\bTwoID}{\bTwoText}
 
 Established build systems should be used. For example the GNU Build
 System\footnote{Also known as the autotools.} or CMake for C/C++ (this is
@@ -906,11 +948,11 @@ preferred over a static Makefile); or Ant or Maven for Java.
 
 Solutions that are not tied to a single IDE are always preferred.
 
-\newcommand{\bThreeName}{B3}
-\newcommand{\bThreeID}{\bThreeName}
-\newcommand{\bThreeText}{Are all dependencies listed and available?}
-\indicator{\bThreeName{ }--{ }\bThreeText}\label{id:b3}
-%\indicator{B3 -- Are all dependencies listed and available?}
+\CheckTable
+
+\newcommand{\bThreeID}{B3}
+\newcommand{\bThreeText}{Are the dependencies listed and available?}
+\criterion{\bThreeID}{\bThreeText}
 (related to IS2)
 
 All required or optional dependencies should be listed, including those by
@@ -922,24 +964,24 @@ instructions (i.e. package names) to accomplish this.
 Moreover, all listed dependencies should be available, unobtainable software
 can not be used as a dependency. Higher-order dependencies need not be listed.
 
-\newcommand{\bFourName}{B4}
-\newcommand{\bFourID}{\bFourName}
+\CheckTable
+
+\newcommand{\bFourID}{B4}
 \newcommand{\bFourText}{Are there tests to verify the build has succeeded?}
-\indicator{\bFourName{ }--{ }\bFourText}\label{id:b4} 
-%\indicator{B4 -- Are there tests to verify the build has succeeded?}
+\criterion{\bFourID}{\bFourText}
 
 A build process should terminate with a testing stage that verifies its success.
+
+\CheckTable
 
 \subsection{Installability}\label{sec:ins}
 
 Installability concerns the deployment of software on the target platform, also
 including configuration of the software to the user's needs.
 
-\newcommand{\isOneName}{IS1}
-\newcommand{\isOneID}{\isOneName}
+\newcommand{\isOneID}{IS1}
 \newcommand{\isOneText}{Are there easily accessible installation instructions?}
-\indicator{\isOneName{ }--{ }\isOneText}\label{id:is1} 
-%\indicator{IS1 -- Are there easily accessible installation instructions?}
+\criterion{\isOneID}{\isOneText}
 
 All software must come with installation instructions. Those instructions should
 be easily accessible and presented on the project website as well as shipped
@@ -947,11 +989,11 @@ with the software in the README or INSTALL file (see also IS7). Build and instal
 instructions can be combined if the software is published as a source
 distribution.
 
-\newcommand{\isTwoName}{IS2}
-\newcommand{\isTwoID}{\isTwoName}
-\newcommand{\isTwoText}{Are all dependencies listed and available?}
-\indicator{\isTwoName{ }--{ }\isTwoText}\label{id:is2} 
-%\indicator{IS2 -- Are all dependencies listed and available?}
+\CheckTable
+
+\newcommand{\isTwoID}{IS2}
+\newcommand{\isTwoText}{Are the dependencies listed and available?}
+\criterion{\isTwoID}{\isTwoText}
 (related to B3)
 
 All required or optional dependencies should be listed, including those by
@@ -973,11 +1015,12 @@ can not be used as a dependency. Higher-order dependencies need not be listed.
 %The text is much the same indeed though, cross-referencing may be a solution
 %here, not sure what would be best.
 
-\newcommand{\isThreeName}{IS3}
-\newcommand{\isThreeID}{\isThreeName}
+\CheckTable
+
+\newcommand{\isThreeID}{IS3}
 \newcommand{\isThreeText}{Are programming language's best installation practices followed?}
-\indicator{\isThreeName{ }--{ }\isThreeText}\label{id:is3} 
-%\indicator{IS3 -- Does the installation procedure comply to best practices in the ecosystem around the programming language?}
+\criterion{\isThreeID}{\isThreeText}
+%\criterion{IS3 -- Does the installation procedure comply to best practices in the ecosystem around the programming language?}
 
 The ecosystem surrounding programming languages may come with standard
 procedures for installation. Software should comply to these rather than use
@@ -1000,11 +1043,11 @@ Complying to these installation practices often means your installable package
 is fit for inclusion into the programming language's public package repository
 (see AC5).
 
-\newcommand{\isFourName}{IS4}
-\newcommand{\isFourID}{\isFourName}
+\CheckTable
+
+\newcommand{\isFourID}{IS4}
 \newcommand{\isFourText}{Is the software packaged according to standards for the target platform?}
-\indicator{\isFourName{ }--{ }\isFourText}\label{id:is4} 
-%\indicator{IS4 -- Is the software packaged according to standards for the target platform?}
+\criterion{\isFourID}{\isFourText}
 
 If the software has a well-defined target platform and is intended for adoption
 by a wider audience, it is recommended to package it in the appropriate form.
@@ -1040,11 +1083,11 @@ software.
 It is not always time- and cost-effective to package the software, especially not
 when there are multiple target platforms. 
 
-\newcommand{\isFiveName}{IS5}
-\newcommand{\isFiveID}{\isFiveName}
+\CheckTable
+
+\newcommand{\isFiveID}{IS5}
 \newcommand{\isFiveText}{Is the software package properly structured?}
-\indicator{\isFiveName{ }--{ }\isFiveText}\label{id:is5} 
-%\indicator{IS5 -- Is the software package properly structured?}
+\criterion{\isFiveID}{\isFiveText}
 
 The contents of the package should be properly organised in sub-directories
 (for documentation, headers, source, etc..). Conventions may differ between
@@ -1054,21 +1097,21 @@ If software is distributed as a plain archive (tar.gz, tar.bz2, zip or otherwise
 it must create a single directory when unpacked rather than spread its contents
 over the current working directory.
 
-\newcommand{\isSixName}{IS6}
-\newcommand{\isSixID}{\isSixName}
+\CheckTable
+
+\newcommand{\isSixID}{IS6}
 \newcommand{\isSixText}{Is the software properly structured when installed?}
-\indicator{\isSixName{ }--{ }\isSixText}\label{id:is6} 
-%\indicator{IS6 -- Is the software properly structured when installed?}
+\criterion{\isSixID}{\isSixText}
 
 When the software is installed, it should adhere to file placement standards set
 by the target platform. On Unix-like operating systems (excluding Mac OS X), the Filesystem
 Hierarchy Standard\footnote{\url{http://refspecs.linuxfoundation.org/fhs.shtml}} (FHS) should be followed.
 
-\newcommand{\isSevenName}{IS7}
-\newcommand{\isSevenID}{\isSevenName}
+\CheckTable
+
+\newcommand{\isSevenID}{IS7}
 \newcommand{\isSevenText}{The software must include a README.}
-\indicator{\isSevenName{ }--{ }\isSevenText}\label{id:is7} 
-%\indicator{IS7 -- The software must include a README.}
+\criterion{\isSevenID}{\isSevenText}
 
 The \texttt{README} file must contain links to the project website, as well as
 license and copyright information. The README should be either plain-text or
@@ -1079,36 +1122,36 @@ ReStructuredText\footnote{\url{http://docutils.sourceforge.net/rst.html}}.
 If a public version control platform such as GitHub is used (see AC2), the
 README will usually be visualised on the repository page.
 
-\newcommand{\isEightName}{IS8}
-\newcommand{\isEightID}{\isEightName}
+\CheckTable
+
+\newcommand{\isEightID}{IS8}
 \newcommand{\isEightText}{Are there facilities to uninstall the software?}
-\indicator{\isEightName{ }--{ }\isEightText}\label{id:is8} 
-%\indicator{IS8 -- Are there facilities to uninstall the software?}
+\criterion{\isEightID}{\isEightText}
 
 This is usually trivial when the software complies to IS4 and/or IS3, or if the
 software installation is self-contained in a single directory. In all other
 instances, proper uninstallation facilities should be explicitly implemented.
 
-\newcommand{\isNineName}{IS9}
-\newcommand{\isNineID}{\isNineName}
+\CheckTable
+
+\newcommand{\isNineID}{IS9}
 \newcommand{\isNineText}{Are the system requirements such as target platform clearly advertised?}
-\indicator{\isNineName{ }--{ }\isNineText}\label{id:is9} 
-%\indicator{IS9 -- Are the system requirements such as target platform clearly advertised?}
+\criterion{\isNineID}{\isNineText}
 
 The project website must state clearly state what target platform(s) the software is expected to run on.
 System requirements in terms of computing resources must be stated if the software employs more than insignificant resources (see PF2).
 (related also to B3 and IS2)
+
+\CheckTable
 
 \subsection{Performance}\label{sec:per}
 
 The guidelines in this category are typically hard to assess, as they require
 an intricate knowledge of the design of the system. 
 
-\newcommand{\pfOneName}{PF1}
-\newcommand{\pfOneID}{\pfOneName}
+\newcommand{\pfOneID}{PF1}
 \newcommand{\pfOneText}{Does the software perform its function(s) efficiently?}
-\indicator{\pfOneName{ }--{ }\pfOneText}\label{id:pf1} 
-%\indicator{PF1 -- Does the software perform its function(s) as efficiently as can be expected?}
+\criterion{\pfOneID}{\pfOneText}
 
 Software should employ efficient algorithms to perform its task. This is quite
 non-trivial to assess, especially from a third party perspective, but obvious
@@ -1128,11 +1171,11 @@ choices.
 %an indication that such a deeper check is warranted.
 (Consider also U4)
 
-\newcommand{\pfTwoName}{PF2}
-\newcommand{\pfTwoID}{\pfTwoName}
+\CheckTable
+
+\newcommand{\pfTwoID}{PF2}
 \newcommand{\pfTwoText}{Does the software make a reasonable demand on computing resources?}
-\indicator{\pfTwoName{ }--{ }\pfTwoText}\label{id:pf2} 
-%\indicator{PF2 -- Does the software make a reasonable demand on computing resources?}
+\criterion{\pfTwoID}{\pfTwoText}
 
 Software should not place an unreasonable demand on computing resource (memory,
 CPU time). Overuse of resources \emph{may} be an indication of sub-optimal
@@ -1145,22 +1188,22 @@ Be aware that there is often a trade-off between speed and memory usage. The
 developer of the decision must make an appropriate decision favouring one or the other
 given the task at hand. 
 
-\newcommand{\pfThreeName}{PF3}
-\newcommand{\pfThreeID}{\pfThreeName}
+\CheckTable
+
+\newcommand{\pfThreeID}{PF3}
 \newcommand{\pfThreeText}{Does the software make efficient use of available resources?}
-\indicator{\pfThreeName{ }--{ }\pfThreeText}\label{id:pf3} 
-%\indicator{PF3 -- Does the software make efficient use of available resources?}
+\criterion{\pfThreeID}{\pfThreeText}
 
 Software should make use of available resources if it helps getting the job
 done faster. For instance, if multiple CPU cores are available and the task at hand
 would benefit significantly from parallelisation, then the implementation should be
 multithreaded to make use of said cores.
 
-\newcommand{\pfFourName}{PF4}
-\newcommand{\pfFourID}{\pfFourName}
+\CheckTable
+
+\newcommand{\pfFourID}{PF4}
 \newcommand{\pfFourText}{Is the interface responsive?}
-\indicator{\pfFourName{ }--{ }\pfFourText}\label{id:pf4}
-%\indicator{PF4 -- Is the interface responsive?}
+\criterion{\pfFourID}{\pfFourText}
 
 GUIs and WUIs should be responsive and deliver clear feedback when the user is
 to await the completion of the task. GUIs and WUIs should use asynchronous methods for
@@ -1170,11 +1213,11 @@ be blocked needlessly.
 Webservice interfaces need to be similarly responsive and not time out. Server interfaces furthermore demand multi-threading and need to be able to handle
 multiple clients concurrently.
 
-\newcommand{\pfFiveName}{PF5}
-\newcommand{\pfFiveID}{\pfFiveName}
+\CheckTable
+
+\newcommand{\pfFiveID}{PF5}
 \newcommand{\pfFiveText}{Does the software scale as intended?}
-\indicator{\pfFiveName{ }--{ }\pfFiveText}\label{id:pf5} 
-%\indicator{PF5 - Does the software scale as intended?}
+\criterion{\pfFiveID}{\pfFiveText}
 
 Proper facilities should be implemented to allow scaling \emph{if} the software is
 intended to handle big data and/or large user bases. Performance should remain
@@ -1183,24 +1226,24 @@ or multiple machines are put to work to distribute the load, or vertically by
 simply adding more resources. In a data-sense, horizontal scaling often implies
 a partitioning of the data.
 
+\CheckTable
+
 \section{Quality Assessment Criteria - Sustainability and Maintainability}\label{sec:sustAndMaint}
 
 \subsection{Identity}\label{sec:ide}
 
-\newcommand{\idOneName}{ID1}
-\newcommand{\idOneID}{\idOneName}
+\newcommand{\idOneID}{ID1}
 \newcommand{\idOneText}{Does the software provide a clear and unique identity?}
-\indicator{\idOneName{ }--{ }\idOneText}\label{id:id1} 
-%\indicator{ID1 -- Does the software provide a clear and unique identity?}
+\criterion{\idOneID}{\idOneText}
 
 Software should be identifiable by a clear name that does not clash with others
 in its application domain and in the wider generic software domain. 
 
-\newcommand{\idTwoName}{ID2}
-\newcommand{\idTwoID}{\idTwoName}
+\CheckTable
+
+\newcommand{\idTwoID}{ID2}
 \newcommand{\idTwoText}{Does the software have a website?}
-\indicator{\idTwoName{ }--{ }\idTwoText}\label{id:id2} 
-%\indicator{ID2 -- Does the software have a website?}
+\criterion{\idTwoID}{\idTwoText}
 
 The software should have a website that describes it, allows users to obtain
 it as well as its documentation. The website should be a portal to everything
@@ -1208,21 +1251,21 @@ related to the software.
 
 It is recommended to have a dedicated domain name or subdomain.
 
-\newcommand{\idThreeName}{ID3}
-\newcommand{\idThreeID}{\idThreeName}
+\CheckTable
+
+\newcommand{\idThreeID}{ID3}
 \newcommand{\idThreeText}{Does the project name not violate an existing trade-mark?}
-\indicator{\idThreeName{ }--{ }\idThreeText}\label{id:id3} 
-%\indicator{ID3 -- Does the project name not violate an existing trade-mark?}
+\criterion{\idThreeID}{\idThreeText}
 
 The project name should not infringe on existing trade-marks.
 
+\CheckTable
+
 \subsection{Copyright \& Licensing}\label{sec:cop}
 
-\newcommand{\cpOneName}{CP1}
-\newcommand{\cpOneID}{\cpOneName}
+\newcommand{\cpOneID}{CP1}
 \newcommand{\cpOneText}{Has an appropriate open-source license been adopted?}
-\indicator{\cpOneName{ }--{ }\cpOneText}\label{id:cp1} 
-%\indicator{CP1 -- Has an appropriate open-source license been adopted?}
+\criterion{\cpOneID}{\cpOneText}
 
 Software should be released as open source under an appropriate license. The
 license should be recognised by the Open Source Initiative\footnote{https://opensource.org} or Free Software
@@ -1247,42 +1290,42 @@ open source and ``aims to create an inclusive open-source engineering community
 that will carry on providing new tools and support for users after the end of
 the CLARIAH project'' \citep{CLARIAHTECHPLAN1}.
 
-\newcommand{\cpTwoName}{CP2}
-\newcommand{\cpTwoID}{\cpTwoName}
+\CheckTable
+
+\newcommand{\cpTwoID}{CP2}
 \newcommand{\cpTwoText}{Is it clear who wrote the software, who owns the copyright, and what the license is?}
-\indicator{\cpTwoName{ }--{ }\cpTwoText}\label{id:cp2} 
-%\indicator{CP2 -- Is it clear who wrote the software, who owns the copyright, and what the license is?}
+\criterion{\cpTwoID}{\cpTwoText}
 
 Authors, copyright and license should be clearly mentioned on the project
 website, as well as in the source code.  We strongly recommend each source file to contain a comment header stating this information.
 
-\newcommand{\cpThreeName}{CP3}
-\newcommand{\cpThreeID}{\cpThreeName}
+\CheckTable
+
+\newcommand{\cpThreeID}{CP3}
 \newcommand{\cpThreeText}{Are the funders acknowledged?}
-\indicator{\cpThreeName{ }--{ }\cpThreeText}\label{id:cp3} 
-%\indicator{CP3 -- Are the funders acknowledged?}
+\criterion{\cpThreeID}{\cpThreeText}
 
 Any external funders of the software should be publicly acknowledged on the project
 website, and in the \texttt{README}.
 
+\CheckTable
+
 \subsection{Accessibility}\label{sec:acc}
 
-\newcommand{\acOneName}{AC1}
-\newcommand{\acOneID}{\acOneName}
+\newcommand{\acOneID}{AC1}
 \newcommand{\acOneText}{Is the source code maintained in a version control system?}
-\indicator{\acOneName{ }--{ }\acOneText}\label{id:ac1} 
-%\indicator{AC1 -- Is the source code maintained in a version control system?}
+\criterion{\acOneID}{\acOneText}
 
 Source code must always be kept under version control. This enables developers
 to collaborate, maintains a perfect version history, and allows everyone keep a
 track of changes. Absence of version control is bad development practice and
 unsustainable.
 
-\newcommand{\acTwoName}{AC2}
-\newcommand{\acTwoID}{\acTwoName}
+\CheckTable
+
+\newcommand{\acTwoID}{AC2}
 \newcommand{\acTwoText}{Is the source code in a public version-controlled repository?}
-\indicator{\acTwoName{ }--{ }\acTwoText}\label{id:ac2} 
-%\indicator{AC2 -- Is the source code in a public version-controlled repository?}
+\criterion{\acTwoID}{\acTwoText}
 
 The version control repository should be public (read only) in the spirit of both open
 source, as well as the scientific method (transparency, peer review,
@@ -1313,20 +1356,20 @@ We motivate our reasoning in favour of public version control repositories as fo
 
 (depends on AC1)
 
-\newcommand{\acThreeName}{AC3}
-\newcommand{\acThreeID}{\acThreeName}
+\CheckTable
+
+\newcommand{\acThreeID}{AC3}
 \newcommand{\acThreeText}{Is there no restricted data in the public source code repository?}
-\indicator{\acThreeName{ }--{ }\acThreeText}\label{id:ac3} 
-%\indicator{AC3 -- Is there no restricted data in the public source code repository?}
+\criterion{\acThreeID}{\acThreeText}
 
 Privacy and security sensitive data (passwords, API keys), as well as other
 restricted data, should never be checked into public version control systems.
 
-\newcommand{\acFourName}{AC4}
-\newcommand{\acFourID}{\acFourName}
+\CheckTable
+
+\newcommand{\acFourID}{AC4}
 \newcommand{\acFourText}{Are there clearly marked formal releases of the software?}
-\indicator{\acFourName{ }--{ }\acFourText}\label{id:ac4} 
-%\indicator{AC4 -- Are there clearly marked formal releases of software?}
+\criterion{\acFourID}{\acFourText}
 
 The software should be formally released when the developers deem it a good
 time. Each release should be clearly marked with the version number of the
@@ -1334,11 +1377,11 @@ software, according to a consistent scheme. The version control system should
 also have clearly identifiable tags that mark the state of the repository at
 the time of this release.
 
-\newcommand{\acFiveName}{AC5}
-\newcommand{\acFiveID}{\acFiveName}
+\CheckTable
+
+\newcommand{\acFiveID}{AC5}
 \newcommand{\acFiveText}{Is the software deposited in a public repository for the language?}
-\indicator{\acFiveName{ }--{ }\acFiveText}\label{id:ac5} 
-%\indicator{AC5 -- Is the software deposited in a public repository for the language?}
+\criterion{\acFiveID}{\acFiveText}
 
 The ecosystems surrounding various high-level programming languages offer
 public repositories in which installable software release packages should be
@@ -1362,11 +1405,11 @@ Use of these repositories is strongly recommended practice if available.
         RubyGems: \url{https://rubygems.org}
 \end{itemize}
 
-\newcommand{\acSixName}{AC6}
-\newcommand{\acSixID}{\acSixName}
+\CheckTable
+
+\newcommand{\acSixID}{AC6}
 \newcommand{\acSixText}{Is the software available in the target platform's software repository?}
-\indicator{\acSixName{ }--{ }\acSixText}\label{id:ac6} 
-%\indicator{AC6 - Is the software available in the target platform's software repository?}
+\criterion{\acSixID}{\acSixText}
 
 If the software has a well-defined target platform and the target platform has
 a public software repository available, then it is recommended to submit the
@@ -1398,11 +1441,11 @@ especially not when there are multiple target platforms. When the software is
 not intended for adoption by a wider audience, it can be considered to ignore
 this guideline.
 
-\newcommand{\acSevenName}{AC7}
-\newcommand{\acSevenID}{\acSevenName}
+\CheckTable
+
+\newcommand{\acSevenID}{AC7}
 \newcommand{\acSevenText}{Is each software release deposited in a persistent store with a unique DOI?}
-\indicator{\acSevenName{ }--{ }\acSevenText}\label{id:ac7} 
-%\indicator{AC7 -- Is each software release deposited in a persistent store with a unique DOI?}
+\criterion{\acSevenID}{\acSevenText}
 
 Persistent stores aim to preserve research output. They aim for a longevity
 that can not be guaranteed by normal software repositories. Each software
@@ -1416,16 +1459,16 @@ for this is provided at https://guides.github.com/activities/citable-code/.}.
 Any releases made on GitHub will then automatically transfer to Zenodo and
 receive a DOI, no user intervention is necessary. 
 
+\CheckTable
+
 \subsection{Community}\label{sec:com}
 
 This aspect concerns to what extent an active user community exists for the
 software.
 
-\newcommand{\cmOneName}{CM1}
-\newcommand{\cmOneID}{\cmOneName}
+\newcommand{\cmOneID}{CM1}
 \newcommand{\cmOneText}{Is there evidence of the software being in use by others?}
-\indicator{\cmOneName{ }--{ }\cmOneText}\label{id:cm1} 
-%\indicator{CM1 - Is there evidence of the software being in use by others?}
+\criterion{\cmOneID}{\cmOneText}
 
 It is recommended to list on the project website if the software has 
 users aside from the primary developers and their immediate institution, this
@@ -1442,35 +1485,35 @@ In addition to the aforementioned, evidence for this activity may also be sought
 in contributions to the software by external developers (assuming
 compliance with AC2), or questions in the issue/bug tracker or mailing lists.
 
-\newcommand{\cmTwoName}{CM2}
-\newcommand{\cmTwoID}{\cmTwoName}
+\CheckTable
+
+\newcommand{\cmTwoID}{CM2}
 \newcommand{\cmTwoText}{Is there evidence of external developers?}
-\indicator{\cmTwoName{ }--{ }\cmTwoText}\label{id:cm2} 
-%\indicator{CM2 - Is there evidence of external developers?}
+\criterion{\cmTwoID}{\cmTwoText}
 
 External developers, not related to the original developers or their
 institution, are a good sign of community interest. The threshold for
-contributing is relatively high. Compliance with this indicator is greatly
+contributing is relatively high. Compliance with this criterion is greatly
 facilitated by compliance with AC2.
 
-\newcommand{\cmThreeName}{CM3}
-\newcommand{\cmThreeID}{\cmThreeName}
+\CheckTable
+
+\newcommand{\cmThreeID}{CM3}
 \newcommand{\cmThreeText}{Are there statistics available on software use?}
-\indicator{\cmThreeName{ }--{ }\cmThreeText}\label{id:cm3} 
-%\indicator{CM3 - Are there statistics available on software use?}
+\criterion{\cmThreeID}{\cmThreeText}
 
 To gain an impression of user interest, it is recommended to have statistics
 available on how often the software is downloaded or how often the project page
 is visited. Public availability of these statistics (stripped of any privacy
 sensitive information), is recommended.
 
+\CheckTable
+
 \subsection{Testability}\label{sec:tes}
 
-\newcommand{\tsOneName}{TS1}
-\newcommand{\tsOneID}{\tsOneName}
+\newcommand{\tsOneID}{TS1}
 \newcommand{\tsOneText}{Does the project have unit tests, is there sufficient coverage?}
-\indicator{\tsOneName{ }--{ }\tsOneText}\label{id:ts1} 
-%\indicator{TS1 -- Does the project have unit tests, is there sufficient coverage?}
+\criterion{\tsOneID}{\tsOneText}
 
 Software should have unit tests that automatically test individual units of the
 source code. They verify the data and logic flow by testing whether the output,
@@ -1481,29 +1524,29 @@ trivial to assess, but automated tools
 and platforms are available that can help in this assessment, such as
 \url{https://coveralls.io} and \url{https://codacy.com}.
 
-\newcommand{\tsTwoName}{TS2}
-\newcommand{\tsTwoID}{\tsTwoName}
+\CheckTable
+
+\newcommand{\tsTwoID}{TS2}
 \newcommand{\tsTwoText}{Does the project have integration tests, is there sufficient coverage?}
-\indicator{\tsTwoName{ }--{ }\tsTwoText}\label{id:ts2} 
-%\indicator{TS2 -- Does the project have integration tests, is there sufficient coverage?}
+\criterion{\tsTwoID}{\tsTwoText}
 
 Software should have integration tests that combine invididual parts of modules and see how they function
 as a group.
 
-\newcommand{\tsThreeName}{TS3}
-\newcommand{\tsThreeID}{\tsThreeName}
+\CheckTable
+
+\newcommand{\tsThreeID}{TS3}
 \newcommand{\tsThreeText}{Does the project have automated GUI tests?}
-\indicator{\tsThreeName{ }--{ }\tsThreeText}\label{id:ts3} 
-%\indicator{TS3 -- Does the project have automated GUI tests?}
+\criterion{\tsThreeID}{\tsThreeText}
 
 If the software offers a non-trivial GUI or WUI, it should have automated tests
 that verify whether the interface functions as intended.
 
-\newcommand{\tsFourName}{TS4}
-\newcommand{\tsFourID}{\tsFourName}
+\CheckTable
+
+\newcommand{\tsFourID}{TS4}
 \newcommand{\tsFourText}{Are tests run automatically?}
-\indicator{\tsFourName{ }--{ }\tsFourText}\label{id:ts4} 
-%\indicator{TS4 -- Are tests run automatically?}
+\criterion{\tsFourID}{\tsFourText}
 
 It is recommended that tests be run automatically, either through continuous
 integration testing or periodically at a predefined interval. Free public
@@ -1522,29 +1565,27 @@ can more quickly assess software quality.
 Portability concerns the extent to which software can be used on multiple
 platforms. 
 
-\newcommand{\pbOneName}{PB1}
-\newcommand{\pbOneID}{\pbOneName}
+\newcommand{\pbOneID}{PB1}
 \newcommand{\pbOneText}{Is it clear for what platforms the software is written?}
-\indicator{\pbOneName{ }--{ }\pbOneText}\label{id:pb1} 
-%\indicator{PB1 -- Is it clear for what platforms the software is written?}
+\criterion{\pbOneID}{\pbOneText}
 
 It should be clear, from at least the project website, for what platforms the software
 is intended.
 
-\newcommand{\pbTwoName}{PB2}
-\newcommand{\pbTwoID}{\pbTwoName}
+\CheckTable
+
+\newcommand{\pbTwoID}{PB2}
 \newcommand{\pbTwoText}{Is the software portable for multiple platforms?}
-\indicator{\pbTwoName{ }--{ }\pbTwoText}\label{id:pb2} 
-%\indicator{PB2 -- Is the software portable for multiple platforms?}
+\criterion{\pbTwoID}{\pbTwoText}
 
 It is recommended to support a wide variety of platforms rather than a single
 one. This, however, is not always feasible or cost and time effective.
 
-\newcommand{\pbThreeName}{PB3}
-\newcommand{\pbThreeID}{\pbThreeName}
+\CheckTable
+
+\newcommand{\pbThreeID}{PB3}
 \newcommand{\pbThreeText}{Does the software work on multiple browsers?}
-\indicator{\pbThreeName{ }--{ }\pbThreeText}\label{id:pb3} 
-%\indicator{PB3 -- Does the software work on multiple browsers?}
+\criterion{\pbThreeID}{\pbThreeText}
 
 This concerns only web-based software with a significant client-side component.
 Such software should function under recent versions of all major browsers
@@ -1556,25 +1597,25 @@ are themselves not portable. Adobe Flash or Microsoft Silverlight are two
 examples of badly portable legacy technologies that should be avoided, always use
 modern substitutes (HTML5) instead.
 
+\CheckTable
+
 \subsection{Supportability}\label{sec:sup}
 
 To what extent will the product be supported currently and in the future?
 
-\newcommand{\spOneName}{SP1}
-\newcommand{\spOneID}{\spOneName}
+\newcommand{\spOneID}{SP1}
 \newcommand{\spOneText}{Is it clear whom to contact for support?}
-\indicator{\spOneName{ }--{ }\spOneText}\label{id:sp1} 
-%\indicator{SP1 -- Is it clear whom to contact for support?}
+\criterion{\spOneID}{\spOneText}
 
 It should be clear where to go for support. A project must have a contact
 e-mail address. If an issue tracker is present (SP2), it should be clearly advertised
 as well.
 
-\newcommand{\spTwoName}{SP2}
-\newcommand{\spTwoID}{\spTwoName}
+\CheckTable
+
+\newcommand{\spTwoID}{SP2}
 \newcommand{\spTwoText}{Are there public support channels available?}
-\indicator{\spTwoName{ }--{ }\spTwoText}\label{id:sp2} 
-%\indicator{SP2 -- Is there a public issue tracker?}
+\criterion{\spTwoID}{\spTwoText}
 
 A public issue/bug tracker is strongly recommended. It allows everyone to post
 bugs or features requests and allows users to see what issues are current, how
@@ -1591,16 +1632,16 @@ Other extra support channels may take the form of an IRC channel or services
 such as Slack\footnote{\url{https://slack.com/}} or
 Gitter\footnote{\url{https://gitter.com}}.
 
+\CheckTable
+
 \subsection{Analysability}\label{sec:ana}
 
 This section concerns the extent to which the source code can be understood. At
 this level, the source code is inspected in closer detail.
 
-\newcommand{\anOneName}{AN1}
-\newcommand{\anOneID}{\anOneName}
+\newcommand{\anOneID}{AN1}
 \newcommand{\anOneText}{Is the source code structured adequately?}
-\indicator{\anOneName{ }--{ }\anOneText}\label{id:an1} 
-%\indicator{AN1 -- Is the source code structured adequately?}
+\criterion{\anOneID}{\anOneText}
 
 Source code should be modular, i.e. it should be structured into multiple
 modules/packages, following the requirements and conventions of the programming
@@ -1611,19 +1652,19 @@ architecture or design of the software.
 
 (See also R3)
 
-\newcommand{\anTwoName}{AN2}
-\newcommand{\anTwoID}{\anTwoName}
+\CheckTable
+
+\newcommand{\anTwoID}{AN2}
 \newcommand{\anTwoText}{Is the source code commented adequately?}
-\indicator{\anTwoName{ }--{ }\anTwoText}\label{id:an2} 
-%\indicator{AN2 -- Is the source code commented adequately?}
+\criterion{\anTwoID}{\anTwoText}
 
 The source code should contain comments explaining what major blocks do.
 
-\newcommand{\anThreeName}{AN3}
-\newcommand{\anThreeID}{\anThreeName}
+\CheckTable
+
+\newcommand{\anThreeID}{AN3}
 \newcommand{\anThreeText}{Do the comments generate API documentation?}
-\indicator{\anThreeName{ }--{ }\anThreeText}\label{id:an3} 
-%\indicator{AN3 -- Do the comments generate API documentation?}
+\criterion{\anThreeID}{\anThreeText}
 
 The comments use a mark-up that allows them to be used directly as the
 source for the generation of the API reference documentation. This is
@@ -1638,48 +1679,48 @@ source for the generation of the API reference documentation. This is
 accomplished using document generation tools such as Doxygen\footnote{\url{http://www.doxygen.org}}, Sphinx\footnote{\url{http://www.sphinx-doc.org}} or
 Javadoc\footnote{\url{http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html}}.
 
-\newcommand{\anFourName}{AN4}
-\newcommand{\anFourID}{\anFourName}
+\CheckTable
+
+\newcommand{\anFourID}{AN4}
 \newcommand{\anFourText}{Is the source code cleanly laid out?}
-\indicator{\anFourName{ }--{ }\anFourText}\label{id:an4} 
-%\indicator{AN4 -- Is the source code cleanly laid out?}
+\criterion{\anFourID}{\anFourText}
 
 The source code should follow a proper indentation convention. 
 
-\newcommand{\anFiveName}{AN5}
-\newcommand{\anFiveID}{\anFiveName}
+\CheckTable
+
+\newcommand{\anFiveID}{AN5}
 \newcommand{\anFiveText}{Are sensible names used?}
-\indicator{\anFiveName{ }--{ }\anFiveText}\label{id:an5} 
-%\indicator{AN5 -- Are sensible names used?}
+\criterion{\anFiveID}{\anFiveText}
 
 Do the classes, functions and variables in the source code use sensible names
 and do they follow a consistent naming scheme that is conventional for the
 programming language?
 
-\newcommand{\anSixName}{AN6}
-\newcommand{\anSixID}{\anSixName}
+\CheckTable
+
+\newcommand{\anSixID}{AN6}
 \newcommand{\anSixText}{Are there no (large) blocks of commented out code or obsolete files?}
-\indicator{\anSixName{ }--{ }\anSixText}\label{id:an6} 
-%\indicator{AN6 -- Are there no blocks of commented out code or obsolete files?}
+\criterion{\anSixID}{\anSixText}
 
 There should be no large blocks of commented-out code, nor obsolete or
 alternate versions of files that bypass proper version control.
 (this depends on compliance with AC1)
 
-\newcommand{\anSevenName}{AN7}
-\newcommand{\anSevenID}{\anSevenName}
+\CheckTable
+
+\newcommand{\anSevenID}{AN7}
 \newcommand{\anSevenText}{Are all TODO comments resolved?}
-\indicator{\anSevenName{ }--{ }\anSevenText}\label{id:an7} 
-%\indicator{AN7 -- Are all TODO comments resolved?}
+\criterion{\anSevenID}{\anSevenText}
 
 There should be no important TODO comments, if there are they should at least be
 clearly described in the issue tracker (SP2).
 
-\newcommand{\anEightName}{AN8}
-\newcommand{\anEightID}{\anEightName}
+\CheckTable
+
+\newcommand{\anEightID}{AN8}
 \newcommand{\anEightText}{Does the project have recommended coding standards?}
-\indicator{\anEightName{ }--{ }\anEightText}\label{id:an8} 
-%\indicator{AN8 -- Does the project have recommended coding standards?}
+\criterion{\anEightID}{\anEightText}
 
 A project should have recommended coding standards to which contributors
 should adhere. These standards should be consistent with the larger community
@@ -1711,32 +1752,32 @@ of generic coding standards for the programming language.
 %Outside contribution also generally improves the quality as people generally
 %come with a fresher perspective and see things the original developers may not have spotted.
 
-\newcommand{\chOneName}{CH1}
-\newcommand{\chOneID}{\chOneName}
+\CheckTable
+
+\newcommand{\chOneID}{CH1}
 \newcommand{\chOneText}{Is the project open to contributions from third parties?}
-\indicator{\chOneName{ }--{ }\chOneText}\label{id:ch1} 
-%\indicator{CH1 -- Is the project open to contributions from third parties?}
+\criterion{\chOneID}{\chOneText}
 
 A project is recommended to be open to outside contributions. Community
 involvement is a major factor in the success of a software project. 
 
 This depends on AC1, AC2, and facilitates COM1 and COM2. 
 
-\newcommand{\chTwoName}{CH2}
-\newcommand{\chTwoID}{\chTwoName}
+\CheckTable
+
+\newcommand{\chTwoID}{CH2}
 \newcommand{\chTwoText}{Does the project have guidelines for contributions?}
-\indicator{\chTwoName{ }--{ }\chTwoText}\label{id:ch2} 
-%\indicator{CH2 -- Does the project have guidelines for contributions?}
+\criterion{\chTwoID}{\chTwoText}
 
 If contributions are desired, a project is recommended to have guidelines for
 contributors. These must be publicly available.
 See also AN8.
 
-\newcommand{\chThreeName}{CH3}
-\newcommand{\chThreeID}{\chThreeName}
+\CheckTable
+
+\newcommand{\chThreeID}{CH3}
 \newcommand{\chThreeText}{Are all source code changes, and their authorship, publicly visible?}
-\indicator{\chThreeName{ }--{ }\chThreeText}\label{id:ch3} 
-%\indicator{CH3 -- Are all source code changes, and their authorship, publicly visible?} 
+\criterion{\chThreeID}{\chThreeText}
 
 Collaboration requires awareness of what changes, when it changes, and who
 changes it. This depends on AC1, heavily facilitated by AC2.
@@ -1744,42 +1785,42 @@ changes it. This depends on AC1, heavily facilitated by AC2.
 Alternatively, commit messages can be forwarded to mailing lists, Slack, IRC chat, or
 whatever is deemed appropriate.
 
-\newcommand{\chFourName}{CH4}
-\newcommand{\chFourID}{\chFourName}
+\CheckTable
+
+\newcommand{\chFourID}{CH4}
 \newcommand{\chFourText}{Is the software sufficiently backward compatible?}
-\indicator{\chFourName{ }--{ }\chFourText}\label{id:ch4} 
-%\indicator{CH4 -- Is the software sufficiently backward compatible?}
+\criterion{\chFourID}{\chFourText}
 
 Software should be backward compatible with old versions of itself with respect
 to public interfaces and data input. Backward compatibility changes and
 deprecation may occur but should always be clearly announced ahead of time.
 
-\newcommand{\chFiveName}{CH5}
-\newcommand{\chFiveID}{\chFiveName}
+\CheckTable
+
+\newcommand{\chFiveID}{CH5}
 \newcommand{\chFiveText}{Is there a roadmap for future changes?}
-\indicator{\chFiveName{ }--{ }\chFiveText}\label{id:ch5} 
-%\indicator{CH5 -- Is there a roadmap for future changes?}
+\criterion{\chFiveID}{\chFiveText}
 
 Software still under active development should have a roadmap. This may take
 shape either as an explicit roadmap or implicit in the issue tracker
 (SP2) through the assignment of milestones.
 
-\newcommand{\chSixName}{CH6}
-\newcommand{\chSixID}{\chSixName}
+\CheckTable
+
+\newcommand{\chSixID}{CH6}
 \newcommand{\chSixText}{Does the website mention how the software is funded and when funding ends?}
-\indicator{\chSixName{ }--{ }\chSixText}\label{id:ch6} 
-%\indicator{CH6 -- Does the website mention how the software is funded and when funding ends?}
+\criterion{\chSixID}{\chSixText}
 
 Funders should be acknowledged publicly and people should be aware when
 software is no longer actively developed.
 
+\CheckTable
+
 \subsection{Reusability}\label{sec:reu}
 
-\newcommand{\rOneName}{R1}
-\newcommand{\rOneID}{\rOneName}
+\newcommand{\rOneID}{R1}
 \newcommand{\rOneText}{Does the software offer all the appropriate interfaces?}
-\indicator{\rOneName{ }--{ }\rOneText}\label{id:r1} 
-%\indicator{R1 -- Does the software offer all the appropriate interfaces?}
+\criterion{\rOneID}{\rOneText}
 
 The use of multiple interfaces enables reusability. Different users should be
 able to access the software at different levels. End-users usually require a
@@ -1789,11 +1830,11 @@ webservice interface, developers needs a software library with API.
 Assessment of this depends greatly on the intended audience of the software
 (see U2) and desired level of reusability.
 
-\newcommand{\rTwoName}{R2}
-\newcommand{\rTwoID}{\rTwoName}
+\CheckTable
+
+\newcommand{\rTwoID}{R2}
 \newcommand{\rTwoText}{Is the software modular, can the software support multiple interfaces?}
-\indicator{\rTwoName{ }--{ }\rTwoText}\label{id:r2} 
-%\indicator{R2 -- Is the software modular, can the software support multiple interfaces?}
+\criterion{\rTwoID}{\rTwoText}
 
 Software should be set up in such a manner that higher-level interfaces can be
 constructed on its lower-level components. This implies that there should be a
@@ -1819,11 +1860,11 @@ Maximum reusability is not always desired or time- and cost-effective. The
 desired degree of modularity and reusability is to be assessed on an
 individual basis.
 
-\newcommand{\rThreeName}{R3}
-\newcommand{\rThreeID}{\rThreeName}
+\CheckTable
+
+\newcommand{\rThreeID}{R3}
 \newcommand{\rThreeText}{Is the software's source code set up in a modular fashion?}
-\indicator{\rThreeName{ }--{ }\rThreeText}\label{id:r3} 
-%\indicator{R3 -- Is the software's source code set up in a modular fashion?}
+\criterion{\rThreeID}{\rThreeText}
 % * <reinierdevalk@gmail.com> 2016-03-31T09:08:08.123Z:
 %
 % > R3 -- Is the software's source code set up in a modular fashion?
@@ -1839,13 +1880,13 @@ functions, following the paradigm of the programming language.
 
 (See also AN1)
 
+\CheckTable
+
 \subsection{Security \& Privacy}\label{sec:sec}
 
-\newcommand{\scOneName}{SC1}
-\newcommand{\scOneID}{\scOneName}
+\newcommand{\scOneID}{SC1}
 \newcommand{\scOneText}{Is the software free of obvious security flaws?}
-\indicator{\scOneName{ }--{ }\scOneText}\label{id:sc1} 
-%\indicator{SC1 -- Is the software free of obvious security flaws?}
+\criterion{\scOneID}{\scOneText}
 
 Software should be secure and have no holes that allow unauthorised users to
 gain access. Developers should take care to avoid common attack vectors such as
@@ -1854,24 +1895,24 @@ Proper validation of user input is a major factor in preventing security holes
 
 Assessment of security is an art in itself and non-trivial. 
 
-\newcommand{\scTwoName}{SC2}
-\newcommand{\scTwoID}{\scTwoName}
+\CheckTable
+
+\newcommand{\scTwoID}{SC2}
 \newcommand{\scTwoText}{Is user privacy secured effectively?}
-\indicator{\scTwoName{ }--{ }\scTwoText}\label{id:sc2} 
-%\indicator{SC2 -- Is user privacy secured effectively?}
+\criterion{\scTwoID}{\scTwoText}
 
 Privacy-sensitive user data must be treated with care. Passwords must never be
 stored in unhashed form, private keys must never be shared. Any compromises to
 privacy must be clearly laid out in a privacy policy.  Strongly related to SC1.
 Also see AC3.
 
+\CheckTable
+
 \subsection{Interoperability}\label{sec:int}
 
-\newcommand{\ipOneName}{IP1}
-\newcommand{\ipOneID}{\ipOneName}
+\newcommand{\ipOneID}{IP1}
 \newcommand{\ipOneText}{Does the software use appropriate open standards for data?}
-\indicator{\ipOneName{ }--{ }\ipOneText}\label{id:ip1} 
-%\indicator{IP1 -- Does the software use appropriate open standards for data?}
+\criterion{\ipOneID}{\ipOneText}
 
 Software should adhere to appropriate open standards as much as possible, i.e.
 it should be able to read input files and write output files in open
@@ -1879,6 +1920,8 @@ standards. Support of multiple open standards is recommended. Conversion may
 also be mediated through other third party tools. A counter indication for this
 is when software uses its own ad hoc format when decent open alternatives
 already exist.
+
+\CheckTable
 
 \subsection{Interoperability for CLARIAH}\label{sec:intCLA}
 
@@ -1906,7 +1949,7 @@ appreciated here!
 
 
 \begin{TODO} 
-What are quality indicators for how software projects are run and
+What are quality criteria for how software projects are run and
 managed? This is more on a high-level organizational level.
 \end{TODO}
 
@@ -1915,17 +1958,21 @@ managed? This is more on a high-level organizational level.
 \section{Quality Measurement}
 
 To achieve a measure of quality, evaluators can compute a quality score ($Q$,
-expressed as a percentage) per criterion, by counting how many of the
-indicators are answered with ``yes'' ($p$), and how many with ``no`` ($n$),
-following the simple formula in Equation~\ref{eq1}.
+expressed as a percentage) per dimension, by taking the sum of the scores for
+the individual criteria. Responses yield scores on a scale from 0 (No) to 4 (Perfect). 
+
+A score for the dimension can be computed following the simple formula in
+Equation~\ref{eq1}, here $s$ corresponds to the cummulative score, and $n$ is
+the number of questions, except those that are deemed not applicable.
 
 \begin{equation}
 \label{eq1}
-Q = (p / (p + n)) \cdot 100
+Q = (s / (4n)) \cdot 100
 \end{equation}
 
-A passing threshold can be defined, either on a per-criterion basis or just
-by applying the same threshold for all. 
+A score of 100 is achieved if all criteria are adhered to perfectly. This
+threshold may be lowered by using for instance $2n$ or $3n$ instead of $4n$, in
+which case scores over $100$ are possible.
 
 \begin{TODO}
 What quality thresholds do we set for CLARIAH, or is it up
@@ -1944,7 +1991,7 @@ We are currently taking a closer look at the guidelines and looking for input
 from people in CLARIAH and beyond.The connection between data and software has
 to be worked out still.
 
-The criteria and indicators will eventually be published as an interactive
+The criteria will eventually be published as an interactive
 survey as well. The idea is that developers can self-assess their projects, and
 adopters of software can assess whether software is of sufficient quality for
 their usage.
@@ -1956,9 +2003,9 @@ people throughout CLARIAH with the request for initial feedback.
 \begin{itemize}
     \item Do these guidelines seem helpful in the assessment of software
         quality and sustainability? Does it fill a need?
-    \item Are there specific criteria/indicators missing? Is there something more substantial missing?
-    \item Are there specific criteria/indicators you disagree with?
-    \item Which criteria/indicators would you consider particularly important?  Which not?
+    \item Are there specific criteria/dimensions missing? Is there something more substantial missing?
+    \item Are there specific criteria/dimensions you disagree with?
+    \item Which criteria/dimensions would you consider particularly important?  Which not?
     \item Do you have input on any of the TODO items?
     \item Do you have suggestions for improvement?
 \end{itemize}
@@ -2001,48 +2048,51 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 
 \pagebreak % force appendix on new page for printing convenience
 \appendix
-\newcommand{\appname}{Appendix A: Checklist}
+\newcommand{\appname}{Appendix A: Assessment Form}
 \section*{\appname}
 \addcontentsline{toc}{section}{\appname}
 \begin{table}[hbt]
 	\begin{tabular}
 		{ p{0.1\textwidth-2\tabcolsep} | 
-		  p{0.6\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} }
+		  p{0.5\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} }
 %		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
 		\hline
-		\textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{No} & \textbf{Min} & \textbf{Adq} & \textbf{Good} & \textbf{Perfect} \\
+                                        & & \emph{0} & \emph{1} & \emph{2} & \emph{3} & \emph{4} \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:und}{ }\nameref{sec:und}} \\
+		\multicolumn{7}{l}{\ref{sec:und}{ }\nameref{sec:und}} \\
 		\hline
-		\hyperref[id:u1]{\uOneID} & \uOneText & & & \\
-		\hyperref[id:u2]{\uTwoID} & \uTwoText & & & \\
-		\hyperref[id:u3]{\uThreeID} & \uThreeText & & & \\
-		\hyperref[id:u4]{\uFourID} & \uFourText & & & \\
+        \hyperref[id:U1]{\uOneID} & \uOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:U2]{\uTwoID} & \uTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:U3]{\uThreeID} & \uThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:U4]{\uFourID} & \uFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:doc}{ }\nameref{sec:doc}} \\
+		\multicolumn{7}{l}{\ref{sec:doc}{ }\nameref{sec:doc}} \\
 		\hline
-		\hyperref[id:d1]{\dOneID} & \dOneText & & & \\
-		\hyperref[id:d2]{\dTwoID} & \dTwoText & & & \\
-		\hyperref[id:d3]{\dThreeID} & \dThreeText & & & \\
-		\hyperref[id:d4]{\dFourID} & \dFourText & & & \\
-		\hyperref[id:d5]{\dFiveID} & \dFiveText & & & \\
-		\hyperref[id:d6]{\dSixID} & \dSixText & & & \\
-		\hyperref[id:d7]{\dSevenID} & \dSevenText & & & \\
-		\hyperref[id:d8]{\dEightID} & \dEightText & & & \\
-		\hyperref[id:d9]{\dNineID} & \dNineText & & & \\
-		\hyperref[id:d10]{\dTenID} & \dTenText & & & \\
-		\hyperref[id:d11]{\dElevenID} & \dElevenText & & & \\
+		\hyperref[id:D1]{\dOneID} & \dOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:D2]{\dTwoID} & \dTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:D3]{\dThreeID} & \dThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:D4]{\dFourID} & \dFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:D5]{\dFiveID} & \dFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:D6]{\dSixID} & \dSixText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:D7]{\dSevenID} & \dSevenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:D8]{\dEightID} & \dEightText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:D9]{\dNineID} & \dNineText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:D10]{\dTenID} & \dTenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:D11]{\dElevenID} & \dElevenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:lea}{ }\nameref{sec:lea}} \\
+		\multicolumn{7}{l}{\ref{sec:lea}{ }\nameref{sec:lea}} \\
 		\hline
-		\hyperref[id:l1]{\lOneID} & \lOneText & & & \\
-		\hyperref[id:l2]{\lTwoID} & \lTwoText & & & \\
-		\hyperref[id:l3]{\lThreeID} & \lThreeText & & & \\
-		\hyperref[id:l4]{\lFourID} & \lFourText & & & \\
-		\hyperref[id:l5]{\lFiveID} & \lFiveText & & & \\
+		\hyperref[id:L1]{\lOneID} & \lOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:L2]{\lTwoID} & \lTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:L3]{\lThreeID} & \lThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:L4]{\lFourID} & \lFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:L5]{\lFiveID} & \lFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
 		\end{tabular}
 		\caption{Quality Assessment Criteria - Usability (1)}
@@ -2052,40 +2102,43 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 \begin{table}[hbt]
 	\begin{tabular}
 		{ p{0.1\textwidth-2\tabcolsep} | 
-			p{0.6\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} }
+		  p{0.5\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} }
 		%		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
 		\hline
-		\textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{No} & \textbf{Min} & \textbf{Adq} & \textbf{Good} & \textbf{Perfect} \\
+                                        & & \emph{0} & \emph{1} & \emph{2} & \emph{3} & \emph{4} \\
         \hline
-        \multicolumn{5}{l}{\ref{sec:bui}{ }\nameref{sec:bui}} \\
+        \multicolumn{7}{l}{\ref{sec:bui}{ }\nameref{sec:bui}} \\
 		\hline
-		\hyperref[id:b1]{\bOneID} & \bOneText & & & \\
-		\hyperref[id:b2]{\bTwoID} & \bTwoText & & & \\
-		\hyperref[id:b3]{\bThreeID} & \bThreeText & & & \\
-		\hyperref[id:b4]{\bFourID} & \bFourText & & & \\
+		\hyperref[id:B1]{\bOneID} & \bOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:B2]{\bTwoID} & \bTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:B3]{\bThreeID} & \bThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:B4]{\bFourID} & \bFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline			
-		\multicolumn{5}{l}{\ref{sec:ins}{ }\nameref{sec:ins}} \\
+		\multicolumn{7}{l}{\ref{sec:ins}{ }\nameref{sec:ins}} \\
 		\hline
-		\hyperref[id:is1]{\isOneID} & \isOneText & & & \\
-		\hyperref[id:is2]{\isTwoID} & \isTwoText & & & \\
-		\hyperref[id:is3]{\isThreeID} & \isThreeText & & & \\
-		\hyperref[id:is4]{\isFourID} & \isFourText & & & \\
-		\hyperref[id:is5]{\isFiveID} & \isFiveText & & & \\
-		\hyperref[id:is6]{\isSixID} & \isSixText & & & \\
-		\hyperref[id:is7]{\isSevenID} & \isSevenText & & & \\
-		\hyperref[id:is8]{\isEightID} & \isEightText & & & \\
-		\hyperref[id:is9]{\isNineID} & \isNineText & & & \\
+		\hyperref[id:IS1]{\isOneID} & \isOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:IS2]{\isTwoID} & \isTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:IS3]{\isThreeID} & \isThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:IS4]{\isFourID} & \isFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:IS5]{\isFiveID} & \isFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:IS6]{\isSixID} & \isSixText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:IS7]{\isSevenID} & \isSevenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:IS8]{\isEightID} & \isEightText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:IS9]{\isNineID} & \isNineText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:per}{ }\nameref{sec:per}} \\
+		\multicolumn{7}{l}{\ref{sec:per}{ }\nameref{sec:per}} \\
 		\hline	
-		\hyperref[id:pf1]{\pfOneID} & \pfOneText & & & \\
-		\hyperref[id:pf2]{\pfTwoID} & \pfTwoText & & & \\
-		\hyperref[id:pf3]{\pfThreeID} & \pfThreeText & & & \\
-		\hyperref[id:pf4]{\pfFourID} & \pfFourText & & & \\
-		\hyperref[id:pf5]{\pfFiveID} & \pfFiveText & & & \\
+		\hyperref[id:PF1]{\pfOneID} & \pfOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:PF2]{\pfTwoID} & \pfTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:PF3]{\pfThreeID} & \pfThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:PF4]{\pfFourID} & \pfFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:PF5]{\pfFiveID} & \pfFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline		
 		\end{tabular}
 		\caption{Quality Assessment Criteria - Usability (2)}
@@ -2095,41 +2148,44 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 \begin{table}[hbt]
 	\begin{tabular}
 		{ p{0.1\textwidth-2\tabcolsep} | 
-		  p{0.6\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} |
-		  p{0.1\textwidth-2\tabcolsep} }
+		  p{0.5\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} }
 		%		{ p{narr} p{wide} p{narr} p{narr} p{narr} }
 		\hline
-		\textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{No} & \textbf{Min} & \textbf{Adq} & \textbf{Good} & \textbf{Perfect} \\
+                                        & & \emph{0} & \emph{1} & \emph{2} & \emph{3} & \emph{4} \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:ide}{ }\nameref{sec:ide}} \\
+		\multicolumn{7}{l}{\ref{sec:ide}{ }\nameref{sec:ide}} \\
 		\hline
-		\hyperref[id:id1]{\idOneID} & \idOneText & & & \\
-		\hyperref[id:id2]{\idTwoID} & \idTwoText & & & \\
-		\hyperref[id:id3]{\idThreeID} & \idThreeText & & & \\
+		\hyperref[id:ID1]{\idOneID} & \idOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ID2]{\idTwoID} & \idTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:ID3]{\idThreeID} & \idThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:cop}{ }\nameref{sec:cop}} \\
+		\multicolumn{7}{l}{\ref{sec:cop}{ }\nameref{sec:cop}} \\
 		\hline
-		\hyperref[id:cp1]{\cpOneID} & \cpOneText & & & \\
-		\hyperref[id:cp2]{\cpTwoID} & \cpTwoText & & & \\
-		\hyperref[id:cp3]{\cpThreeID} & \cpThreeText & & & \\
+		\hyperref[id:CP1]{\cpOneID} & \cpOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:CP2]{\cpTwoID} & \cpTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:CP3]{\cpThreeID} & \cpThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:acc}{ }\nameref{sec:acc}} \\
+		\multicolumn{7}{l}{\ref{sec:acc}{ }\nameref{sec:acc}} \\
 		\hline
-		\hyperref[id:ac1]{\acOneID} & \acOneText & & & \\
-		\hyperref[id:ac2]{\acTwoID} & \acTwoText & & & \\
-		\hyperref[id:ac3]{\acThreeID} & \acThreeText & & & \\
-		\hyperref[id:ac4]{\acFourID} & \acFourText & & & \\
-		\hyperref[id:ac5]{\acFiveID} & \acFiveText & & & \\
-		\hyperref[id:ac6]{\acSixID} & \acSixText & & & \\
-		\hyperref[id:ac7]{\acSevenID} & \acSevenText & & & \\
+		\hyperref[id:AC1]{\acOneID} & \acOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AC2]{\acTwoID} & \acTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AC3]{\acThreeID} & \acThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AC4]{\acFourID} & \acFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AC5]{\acFiveID} & \acFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AC6]{\acSixID} & \acSixText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AC7]{\acSevenID} & \acSevenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:com}{ }\nameref{sec:com}} \\
+		\multicolumn{7}{l}{\ref{sec:com}{ }\nameref{sec:com}} \\
 		\hline
-		\hyperref[id:cm1]{\cmOneID} & \cmOneText & & & \\
-		\hyperref[id:cm2]{\cmTwoID} & \cmTwoText & & & \\
-		\hyperref[id:cm3]{\cmThreeID} & \cmThreeText & & & \\
+		\hyperref[id:CM1]{\cmOneID} & \cmOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:CM2]{\cmTwoID} & \cmTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:CM3]{\cmThreeID} & \cmThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
 	\end{tabular}
 	\caption{Quality Assessment Criteria - Sustainability and Maintainability (1)}
@@ -2139,41 +2195,44 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 \begin{table}[hbt]
 	\begin{tabular}
 		{ p{0.1\textwidth-2\tabcolsep} | 
-			p{0.6\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} }
+		  p{0.5\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} }
         \hline
-        \textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{No} & \textbf{Min} & \textbf{Adq} & \textbf{Good} & \textbf{Perfect} \\
+                                        & & \emph{0} & \emph{1} & \emph{2} & \emph{3} & \emph{4} \\
         \hline 
-        		\multicolumn{5}{l}{\ref{sec:tes}{ }\nameref{sec:tes}} \\
+        		\multicolumn{7}{l}{\ref{sec:tes}{ }\nameref{sec:tes}} \\
 		\hline
-		\hyperref[id:ts1]{\tsOneID} & \tsOneText & & & \\
-		\hyperref[id:ts2]{\tsTwoID} & \tsTwoText & & & \\
-		\hyperref[id:ts3]{\tsThreeID} & \tsThreeText & & & \\
-		\hyperref[id:ts4]{\tsFourID} & \tsFourText & & & \\
+		\hyperref[id:TS1]{\tsOneID} & \tsOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:TS2]{\tsTwoID} & \tsTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:TS3]{\tsThreeID} & \tsThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:TS4]{\tsFourID} & \tsFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-        \multicolumn{5}{l}{\ref{sec:por}{ }\nameref{sec:por}} \\
+        \multicolumn{7}{l}{\ref{sec:por}{ }\nameref{sec:por}} \\
 		\hline	
-		\hyperref[id:pb1]{\pbOneID} & \pbOneText & & & \\
-		\hyperref[id:pb2]{\pbTwoID} & \pbTwoText & & & \\
-		\hyperref[id:pb3]{\pbThreeID} & \pbThreeText & & & \\
+		\hyperref[id:PB1]{\pbOneID} & \pbOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:PB2]{\pbTwoID} & \pbTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:PB3]{\pbThreeID} & \pbThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline	
-		\multicolumn{5}{l}{\ref{sec:sup}{ }\nameref{sec:sup}} \\
+		\multicolumn{7}{l}{\ref{sec:sup}{ }\nameref{sec:sup}} \\
 		\hline	
-		\hyperref[id:sp1]{\spOneID} & \spOneText & & & \\
-		\hyperref[id:sp2]{\spTwoID} & \spTwoText & & & \\
+		\hyperref[id:SP1]{\spOneID} & \spOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:SP2]{\spTwoID} & \spTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:ana}{ }\nameref{sec:ana}} \\
+		\multicolumn{7}{l}{\ref{sec:ana}{ }\nameref{sec:ana}} \\
 		\hline	
-		\hyperref[id:an1]{\anOneID} & \anOneText & & & \\
-		\hyperref[id:an2]{\anTwoID} & \anTwoText & & & \\
-		\hyperref[id:an3]{\anThreeID} & \anThreeText & & & \\
-		\hyperref[id:an4]{\anFourID} & \anFourText & & & \\
-		\hyperref[id:an5]{\anFiveID} & \anFiveText & & & \\
-		\hyperref[id:an6]{\anSixID} & \anSixText & & & \\
-		\hyperref[id:an7]{\anSevenID} & \anSevenText & & & \\
-		\hyperref[id:an8]{\anEightID} & \anEightText & & & \\
+		\hyperref[id:AN1]{\anOneID} & \anOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AN2]{\anTwoID} & \anTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AN3]{\anThreeID} & \anThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AN4]{\anFourID} & \anFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AN5]{\anFiveID} & \anFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AN6]{\anSixID} & \anSixText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AN7]{\anSevenID} & \anSevenText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:AN8]{\anEightID} & \anEightText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
 	\end{tabular}
 	\caption{Quality Assessment Criteria - Sustainability and Maintainability (2)}
@@ -2183,44 +2242,47 @@ Please send your feedback to proycon@anaproy.nl, reinier.de.valk@dans.knaw.nl an
 \begin{table}[hbt]
 	\begin{tabular}
 		{ p{0.1\textwidth-2\tabcolsep} | 
-			p{0.6\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} |
-			p{0.1\textwidth-2\tabcolsep} }
+		  p{0.5\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} |
+		  p{0.08\textwidth-2\tabcolsep} }
         \hline
-        \textbf{ID} & \textbf{Indicator} & \textbf{Y} & \textbf{N} & \textbf{n/a} \\
+		\textbf{ID} & \textbf{Criterion} & \textbf{No} & \textbf{Min} & \textbf{Adq} & \textbf{Good} & \textbf{Perfect} \\
+                                        & & \emph{0} & \emph{1} & \emph{2} & \emph{3} & \emph{4} \\
         \hline 
-		\multicolumn{5}{l}{\ref{sec:cha}{ }\nameref{sec:cha}} \\
+		\multicolumn{7}{l}{\ref{sec:cha}{ }\nameref{sec:cha}} \\
 		\hline	
-		\hyperref[id:ch1]{\chOneID} & \chOneText & & & \\
-		\hyperref[id:ch2]{\chTwoID} & \chTwoText & & & \\
-		\hyperref[id:ch3]{\chThreeID} & \chThreeText & & & \\
-		\hyperref[id:ch4]{\chFourID} & \chFourText & & & \\
-		\hyperref[id:ch5]{\chFiveID} & \chFiveText & & & \\
-		\hyperref[id:ch6]{\chSixID} & \chSixText & & & \\
+		\hyperref[id:CH1]{\chOneID} & \chOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:CH2]{\chTwoID} & \chTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:CH3]{\chThreeID} & \chThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:CH4]{\chFourID} & \chFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:CH5]{\chFiveID} & \chFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:CH6]{\chSixID} & \chSixText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-        \multicolumn{5}{l}{\ref{sec:reu}{ }\nameref{sec:reu}} \\
+        \multicolumn{7}{l}{\ref{sec:reu}{ }\nameref{sec:reu}} \\
 		\hline	
-		\hyperref[id:r1]{\rOneID} & \rOneText & & & \\
-		\hyperref[id:r2]{\rTwoID} & \rTwoText & & & \\
-		\hyperref[id:r3]{\rThreeID} & \rThreeText & & & \\
+		\hyperref[id:R1]{\rOneID} & \rOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:R2]{\rTwoID} & \rTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:R3]{\rThreeID} & \rThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:sec}{ }\nameref{sec:sec}} \\
+		\multicolumn{7}{l}{\ref{sec:sec}{ }\nameref{sec:sec}} \\
 		\hline	
-		\hyperref[id:sc1]{\scOneID} & \scOneText & & & \\
-		\hyperref[id:sc2]{\scTwoID} & \scTwoText & & & \\
+		\hyperref[id:SC1]{\scOneID} & \scOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:SC2]{\scTwoID} & \scTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:int}{ }\nameref{sec:int}} \\
+		\multicolumn{7}{l}{\ref{sec:int}{ }\nameref{sec:int}} \\
 		\hline	
-		\hyperref[id:ip1]{\ipOneID} & \ipOneText & & & \\
+		\hyperref[id:IP1]{\ipOneID} & \ipOneText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:intCLA}{ }\nameref{sec:intCLA}} \\
+		\multicolumn{7}{l}{\ref{sec:intCLA}{ }\nameref{sec:intCLA}} \\
 		\hline	
-		&  [TODO] & & & \\
+		&  [TODO] & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
-		\multicolumn{5}{l}{\ref{sec:gov}{ }\nameref{sec:gov}} \\
+		\multicolumn{7}{l}{\ref{sec:gov}{ }\nameref{sec:gov}} \\
 		\hline	
-		& [TODO] & & & \\
+		& [TODO] & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
 \end{tabular}
 	\caption{Quality Assessment Criteria - Sustainability and Maintainability (3)}
