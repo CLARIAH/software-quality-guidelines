@@ -4,6 +4,41 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>CLARIAH Software Quality Survey</title>
     <style type="text/css" media="all">
+        body {
+            font-family: sans-serif;
+            font-size: 12px;
+        }
+        label {
+            display: inline-block;
+            width: 10%;
+            font-weight: bold;
+        }
+        #submit {
+            display: block;
+            width: 10%;
+            margin-left: 10%;
+            margin-right: auto;
+            font-size: 150%;
+            font-weight: bold;
+        }
+        .colna, .col0,.col1,.col2,.col3,.col4 {
+            width: 5%;
+            text-align: center;
+        }
+        .col0 {
+            background: #ffcbcb;
+
+        }
+        .col4 {
+            background: #cbffd1;
+
+        }
+        .colna {
+            background: #aaa;
+        }
+        table {
+            width: 80%;
+        }
                 
     </style>
  </head>
@@ -12,17 +47,25 @@
 <h1>CLARIAH Software Quality Survey</h1>
 
 <form action="" method="post" accept-charset="utf-8">
+
+<label>Software name:</label> <input name="name" /><br />
+<label>Software version:</label> <input name="version" /><br />
+<label>Assessment by:</label> <input name="creator" /><br />
+
+<br />
+<br />
+
 {% csrf_token %} 
 <table>
 <tr>
-    <th>Code</th>
-    <th>Criterion</th>
-    <th>Not Applicable</th>
-    <th>No</th>
-    <th>Minimal</th>
-    <th>Adequate</th>
-    <th>Good</th>
-    <th>Perfect</th>
+    <th class="colcode">Code</th>
+    <th class="collabel">Criterion</th>
+    <th class="colna">Not Applicable</th>
+    <th class="col0">No</th>
+    <th class="col1">Minimal</th>
+    <th class="col2">Adequate</th>
+    <th class="col3">Good</th>
+    <th class="col4">Perfect</th>
 </tr>
 {% for category, categorydata in criteria.items %}
 <tr>
@@ -32,23 +75,27 @@
 </tr>
 {% for code, itemdata in categorydata.items %}
 <tr>
-    <th>
+    <th class="colcode">
         {{ code }}
     </th>
-    <td>
+    <td class="collabel">
         {{ itemdata.label }}
     </td>
-    <td><input type="radio" name="{{code}}" value="NA" /></td>
-    <td><input type="radio" name="{{code}}" value="0" /></td>
-    <td><input type="radio" name="{{code}}" value="1" /></td>
-    <td><input type="radio" name="{{code}}" value="2" /></td>
-    <td><input type="radio" name="{{code}}" value="3" /></td>
-    <td><input type="radio" name="{{code}}" value="4" /></td>
+    <td class="colna"><input type="radio" name="{{code}}" value="NA" /></td>
+    <td class="col0"><input type="radio" name="{{code}}" value="0" /></td>
+    <td class="col1"><input type="radio" name="{{code}}" value="1" /></td>
+    <td class="col2"><input type="radio" name="{{code}}" value="2" /></td>
+    <td class="col3"><input type="radio" name="{{code}}" value="3" /></td>
+    <td class="col4"><input type="radio" name="{{code}}" value="4" /></td>
 </tr>
 {% endfor %}
 {% endfor %}
 </table>
-<input type="submit" value="Submit" /> 
+<br />
+<br />
+<input id="submit" type="submit" value="Submit" /> 
+<br />
+<br />
 </form>
 
 
