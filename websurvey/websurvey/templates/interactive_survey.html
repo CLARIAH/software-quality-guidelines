@@ -36,9 +36,14 @@
         .colna {
             background: #aaa;
         }
+        .colcomments{
+            width: 25%;
+        }
+        .colcomments input {
+            width: 100%; 
+        }
         table {
             width: 80%;
-            max-width: 1024px;
         }
         td {
             border-bottom: 1px solid white;
@@ -46,6 +51,7 @@
         tr:hover td {
             border-bottom: 1px solid black;
         }
+
                 
     </style>
  </head>
@@ -73,6 +79,7 @@
     <th class="col2">Adequate</th>
     <th class="col3">Good</th>
     <th class="col4">Perfect</th>
+    <th class="colcomments">Comments</th>
 </tr>
 {% for category, categorydata in criteria.items %}
 <tr>
@@ -94,6 +101,7 @@
     <td class="col2"><input type="radio" name="{{code}}" value="2" title="Adequate" /></td>
     <td class="col3"><input type="radio" name="{{code}}" value="3" title="Good" /></td>
     <td class="col4"><input type="radio" name="{{code}}" value="4" title="Perfect" /></td>
+    <td class="colcomments"><input name="comments_{{code}}" title="Comments" /></td>
 </tr>
 {% endfor %}
 {% endfor %}
