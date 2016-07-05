@@ -487,9 +487,10 @@ app, a main page should be provided, or a text file that contains a link to the
 home page should be distributed with the binaries. \refcrit{L3}}
 \newcommand{\fourteen}{The application's \textbf{user interface should point to the contact information} or to a place to report bugs.}
 \newcommand{\fifteen}{Almost every application provides an API. This
-\textbf{API must be discoverable}. For a Java project this means adding Javadoc
-where needed, and using descriptive names otherwise. For Javascript this means
-providing a document containing the API. What must be provided is a list of
+\textbf{API must be discoverable}. API documentation must be written as
+specifically crafted comments in the source code itself, from which API documentation
+can be automatically extracted using tools like
+doxygen, javadoc or sphinx. The result must be published. Use descriptive names. What must be provided is a list of
 function names, their parameter names, and the constraints placed on their
 values. It would be helpful to know under what condition which function is
 expected to be called. \refcrit{L4}}
