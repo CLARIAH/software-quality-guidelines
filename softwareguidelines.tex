@@ -402,8 +402,9 @@ them as part of the build. \refcrit{B1} \refcrit{IS9} \refcrit{TS4}
 artefacts that can be moved to an arbitrary location on the system and still
 work, or it must contain \textbf{one command that will perform the
 installation}. \refcrit{IS1}}
-\newcommand{\five}{The software must be able to \textbf{run in the foreground}
-after installation.} %MvG: Zoals eerder gemaild denk ik dat deze wat nader toegelicht moet worden
+\newcommand{\five}{While a normal process can be easily daemonized, a daemonized process cannot 
+be easily kept in the foreground. The software must be therefore able to \textbf{run in the foreground}
+after installation.}
 \newcommand{\six}{All \textbf{runtime dependencies} must be available after installation.}
 \newcommand{\seven}{If the software can be installed it must also have
 \textbf{one uninstall script}. This script must provide a switch to also remove
@@ -415,10 +416,7 @@ config files and leave them alone by default. \refcrit{IS8}}
     reader must be able to follow along without them. A \textbf{readable plain
     text} file is a file that can be read by a human using both wordpad.exe and
     vi. Formats such as markdown and ReST are readable as plain text, but LaTeX
-    and HTML are not. A UTF-8 encoding should be chosen; however, the use of
-    ANSI, UTf-16 or UCS2 is also acceptable when forced by some technical
-    constraint. (Though you must then mention that using the ascii subset at
-    the start of the file itself.} %TODO-rdv die laatste zin tussen haakjes snap ik niet   (MvG: De uitzondering is wat mij betreft iets te specifiek, ik zou gewoon utf-8 eisen)
+    and HTML are not. The text should be encoded using UTF-8.}
 	\newcommand{\nineOne}{The readme must start by explicitly mentioning the experimental nature of the software.}
 	\newcommand{\nineTwo}{Accurate support contact information must be provided
     at the top of the readme, and an end date, until which this information can
@@ -473,8 +471,8 @@ repository \refcrit{AC2}, as well as a link to where the latest stable release
 can be obtained}
 \newcommand{\twelveD}{contact information, or a link to the bug tracker \refcrit{SP2}}
 \newcommand{\twelveE}{a link to the documentation: either a direct link to the pdf or html, if available, or a browseable list of the text files}
-\newcommand{\twelveF}{the website must be registered on Google, and a link must
-be provided to the project} %MvG: @jauco: Bedoel je met die laatste zin dat CLARIAH een link moet krijgen? Beter expliciet zeggen dan
+\newcommand{\twelveF}{the website must be registered on Google, and a link to the project must
+be provided to the CLARIAH Dissemination & Education workpackage}
 \newcommand{\twelve}{The project must have a \textbf{website}, containing, at
     the very least:	 \refcrit{ID2}
 }
@@ -496,9 +494,9 @@ values. It would be helpful to know under what condition which function is
 expected to be called. If the sofware provides a webservice, it's API should be
 clearly documented as well, usually in a separate document. \refcrit{L4} \refcrit{AN3}}
 \newcommand{\sixteen}{If the software depends on configuration files, then a
-    template or sample must be provided in the repository  for each, \textbf{containing all
+    template or sample must be provided in the repository for each file, \textbf{containing all
 available options} and set to sane defaults. Comments in the configuration file
-should give clear descriptions what the options do. \refcrit{L5}} %TODO-rdv deze snap ik niet (MvG: rephrased, nu wel?)
+should give clear descriptions what the options do. \refcrit{L5}}
 \newcommand{\seventeen}{The software must be \textbf{distributed under an OSI
 approved licence} in a LICENSE file in root. \refcrit{CP1}. The copyright
 holder should be clearly mentioned in the header of each source file \refcrit{CP2}} 
@@ -506,12 +504,10 @@ holder should be clearly mentioned in the header of each source file \refcrit{CP
     \refcrit{CH2}.
     (The template could be used---but it must be noted that that means one must
     be open to all pull requests. Specifying some details in this file thus is very useful.} 
-\newcommand{\nineteen}{Data must be made available as \textbf{a log or rdf
-quads}. \refcrit{IP1}} %TODO-rdv OK? (MvG: Wat mij betreft niet, deze moet een stuk duidelijker worden gemaakt, Jauco?)
+% weggehaald omdat ik hem niet op een manier kan formuleren zodat hij non-trivially implementable is. \newcommand{\nineteen}{The CLARIAH project uses RDF as the format for the exchange of structured data. Structured data, such as a json object from a web-api must therefore\refcrit{IP1}}
 \newcommand{\twenty}{The software must \textbf{not store usernames and
-passwords} \refcrit{SC2}; instead, it must use the instruments provided by the project.}
-\newcommand{\twentyOne}{Experimental software MUST NOT allow external users to
-    store data (for this renders it production software).} %MvG: extra toelichting nodig denk ik
+passwords} \refcrit{SC2}; instead, it must use the federated authentication and group management facilities provided by the project.} %todo-jnj ik merk dat ik het gebruik van "the project" ambigu vindt. Kunnen we niet beter gewoon CLARIAH zeggen?
+\newcommand{\twentyOne}{Experimental software must be provided to end users in a way that makes it impossible for them to mistake the experimental nature. For example: they should be required to build it from source themselves, or it should refuse to store their data for a longer period of time..}
 \newcommand{\twentyTwo}{This list of requirements must be \textbf{distributed
 alongside the code}. If a software quality self-assessment is made using the
 full criteria described in this document, then include these results alongside
