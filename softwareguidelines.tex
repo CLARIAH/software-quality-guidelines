@@ -423,15 +423,18 @@ config files and leave them alone by default. \refcrit{IS8}}
     text} file is a file that can be read by a human using both wordpad.exe and
     vi. Formats such as markdown and ReST are readable as plain text, but LaTeX
     and HTML are not. The text should be encoded using UTF-8.}
-	\newcommand{\nineA}{The readme must start by explicitly mentioning the experimental nature of the software.}
+	\newcommand{\nineA}{The readme must start by explicitly mentioning the
+    experimental nature of the software.. \refcrit{U5}}
     %^-- experimental
 	\newcommand{\nineB}{Accurate support contact information must be provided
     at the top of the readme, and an end date, until which this information can
 be assumed to be valid, must also be added here. A suitable end date is the
 current end time of the project. If no clear end date exists, it should be set
-no further than a year away, and it should be reset regularly. \refcrit{SP1}}
+no further than a year away, and it should be reset regularly. \refcrit{SP1}
+\refcrit{U6}}
     %^-- supported
-	\newcommand{\nineC}{It must be mentioned explicitly that the software is unsupported }
+	\newcommand{\nineC}{It must be mentioned explicitly that the software is
+    unsupported. \refcrit{U6} }
     %^-- unsupported
 	\newcommand{\nineD}{The readme must contain an explanation of the
     intended audience of the software, where the different user groups should
@@ -788,6 +791,27 @@ There should be a written motivation for why the software does things the way
 it does and why it was designed in the first place. It should be clear what
 problems are solved by it. Links to publications and comparisons to similar
 software are strongly recommended.
+
+\newcommand{\uFiveID}{U5}
+\newcommand{\uFiveText}{Is the development status of the software clear?}
+\criterion{\uFiveID}{\uFiveText}
+
+It should be clear in what stage of development the software is. Is it ready for
+production use or is it experimental software and in a alpha or beta stage? If
+the software is not ready for production use, the README/documentation should clearly state
+so.
+
+\newcommand{\uSixID}{U6}
+\newcommand{\uSixText}{Is the support status of the software clear?}
+\criterion{\uSixID}{\uSixText}
+
+It should be clear whether the software is actively supported, and if so until
+when. Actively supported software should have clear support structures in
+places (\refcrit{SP1}, \refcrit{SP2}).
+
+Unsupported supported should be clearly marked as such in the
+README/documentation. If the software likely ceases to be supported after project
+funding ends, this should be indicated as well.
 
 %\CheckTable
 
@@ -2164,6 +2188,8 @@ software's version control repository.
 		\hyperref[id:U2]{\uTwoID} & \uTwoText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hyperref[id:U3]{\uThreeID} & \uThreeText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hyperref[id:U4]{\uFourID} & \uFourText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:U5]{\uFiveID} & \uFiveText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+		\hyperref[id:U6]{\uSixID} & \uSixText & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
 		\hline
 		\multicolumn{7}{l}{\ref{sec:doc}{ }\nameref{sec:doc}} \\
 		\hline
