@@ -12,6 +12,7 @@ TEXSOURCE = os.path.join(BASE_DIR,'../softwareguidelines.tex')
 if not os.path.exists(TEXSOURCE):
     raise FileNotFoundError("Tex source not found: " + TEXSOURCE)
 
+RESULTDIR = BASE_DIR + '/results/'
 
 
 # Quick-start development settings - unsuitable for production

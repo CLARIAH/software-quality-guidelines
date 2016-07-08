@@ -49,7 +49,7 @@ context, your peers will expect more or less from you.
  
 {% for requirementtext, secondorder, requirementconstraints, hassublist, closesublist in requirements %}
 {% if secondorder %}
-   * {{ requirementtext|safe }}
+    * {{ requirementtext|safe }}
 {% else %}
 * {{ requirementtext|safe }}
 {% endif %}

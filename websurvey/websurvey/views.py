@@ -2,14 +2,18 @@
 # https://github.com/CLARIAH/software-quality-guidelines
 # Licenced under GNU Public Licence v3
 
+import sys
+import os
+import re
+import hashlib
+import json
+import markdown
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.template import RequestContext
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.conf import settings
 from collections import OrderedDict, defaultdict
-import re
-import sys
 
 def converttex(s, target):
     if target == 'markdown':
@@ -45,6 +49,12 @@ def converttex(s, target):
         s = s.replace('\\end{enumerate}','</ol>')
         s = s.replace('\\',' ')
         return s.replace('\\&','&amp;')
+
+def csvsafe(s):
+    if s is None: return ""
+    s = s.replace('\n',' ')
+    s = s.replace('"',"'")
+    return s
 
 responseoptions = OrderedDict((('NA', 'Not applicable'), (0,'No'), (1,'Minimal'), (2,'Adequate'), (3,'Good'), (4,'Perfect')))
 
@@ -135,13 +145,18 @@ def parsetexsource(texfile,target='markdown',supported=None,experimental=None):
 
     return criteria, requirements
 
-def render_markdown(request, context):
+def get_markdown(request, context):
     context_instance = RequestContext(request) if request else None
     data = render_to_string('survey_template.md', context, context_instance)
     data = '\n'.join([ line for line in data.split('\n') if line != '' ])
-    return HttpResponse(data, content_type='text/markdown; charset=UTF-8')
+    return data
+
+def render_markdown(request, context):
+    return HttpResponse(get_markdown(request, context), content_type='text/markdown; charset=UTF-8')
 
 def interactive_survey(request):
+    if not os.path.exists(settings.RESULTDIR):
+        os.mkdir(settings.RESULTDIR)
     if request.method == 'GET':
         criteria, requirements = parsetexsource(settings.TEXSOURCE, 'html', None,None)
         return render(request, 'interactive_survey.html', { 'criteria': criteria, 'requirements': requirements })
@@ -149,6 +164,8 @@ def interactive_survey(request):
         supported = (request.POST.get('supported',"1") == "1")
         experimental = (request.POST.get('experimental',"0") == 0)
         criteria, requirements = parsetexsource(settings.TEXSOURCE, 'markdown', supported,experimental)
+        responses = {}
+        comments = {}
         for categorydata in criteria.values():
             for code, itemdata in categorydata.items():
                 if code in request.POST:
@@ -156,13 +173,64 @@ def interactive_survey(request):
                     key = int(request.POST[code]) if request.POST[code].isnumeric() else request.POST[code]
                     if key in responseoptions:
                         itemdata['response'] = responseoptions[key]
+                        responses[code] = itemdata['response']
                     else:
                         raise KeyError(key)
                 if 'comments_'+code in request.POST:
                     itemdata['comments'] = request.POST['comments_'+code]
-        return render_markdown(request, { 'criteria': criteria, 'requirements': requirements, 'name': request.POST.get('name','unspecified'), 'version': request.POST.get('version','unspecified'),'experimental': experimental, 'supported': supported, 'responded':True })
+                    comments[code] = itemdata['comments']
 
+        name = request.POST.get('name','')
+        version = request.POST.get('version','')
+        creator = request.POST.get('creator','')
+        if not creator: creator = 'anonymous'
+        if not name: name =  'unspecified'
+        if not version: version =  'unspecified'
+        result_id = name + '-' + version + '-' + creator + '-' + request.META.get('REMOTE_ADDR')
+        result_id = hashlib.md5(result_id.encode('utf-8')).hexdigest()
+        markdowndata = get_markdown(request, { 'criteria': criteria, 'requirements': requirements, 'name': name, 'version': version,'creator':creator,'experimental': experimental, 'supported': supported, 'responded':True })
+        with open(settings.RESULTDIR + '/' + result_id + '.md', 'w',encoding='utf-8') as f:
+            f.write(markdowndata)
+        with open(settings.RESULTDIR + '/' + result_id + '.json', 'w',encoding='utf-8') as f:
+            json.dump({'name': name, 'version': version, 'creator':creator, 'supported': supported, 'experimental': experimental, 'results': responses,'comments': comments },f)
+        with open(settings.RESULTDIR + '/' + result_id + '.csv', 'w', encoding='utf-8') as f:
+            f.write('"Criterion","Label","Response","Comment"\n')
+            for categorydata in criteria.values():
+                for code, itemdata in categorydata.items():
+                    f.write('"' + code + '","' + itemdata['label'] + '","' + csvsafe(itemdata.get('response',''))+ '","' + csvsafe(itemdata.get('comments','')) + '"\n')
+        return result(request, result_id)
 
 def survey_template(request):
     return render_markdown(request, { 'criteria': parsetexsource(settings.TEXSOURCE),'responsed': False })
 
+def result(request, result_id):
+    try:
+        with open(settings.RESULTDIR + '/' + result_id + '.md', 'r',encoding='utf-8') as f:
+            markdowndata = f.read()
+    except FileNotFoundError:
+        raise Http404("No such result")
+    return render(request, 'result.html', { 'result_id': result_id, 'markdown': markdown.markdown(markdowndata) })
+
+def resultmarkdown(request, result_id):
+    try:
+        with open(settings.RESULTDIR + '/' + result_id + '.md', 'r',encoding='utf-8') as f:
+            markdowndata = f.read()
+    except FileNotFoundError:
+        raise Http404("No such result")
+    return HttpResponse(markdowndata, content_type='text/markdown; charset=UTF-8')
+
+def resultjson(request, result_id):
+    try:
+        with open(settings.RESULTDIR + '/' + result_id + '.json', 'r',encoding='utf-8') as f:
+            data = f.read()
+    except FileNotFoundError:
+        raise Http404("No such result")
+    return HttpResponse(data, content_type='application/javascript')
+
+def resultcsv(request, result_id):
+    try:
+        with open(settings.RESULTDIR + '/' + result_id + '.csv', 'r',encoding='utf-8') as f:
+            data = f.read()
+    except FileNotFoundError:
+        raise Http404("No such result")
+    return HttpResponse(data, content_type='text/csv')

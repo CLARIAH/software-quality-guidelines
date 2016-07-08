@@ -14,11 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from websurvey.views import interactive_survey, survey_template
+from websurvey.views import interactive_survey, survey_template, result, resultmarkdown, resultjson, resultcsv
 #from django.contrib import admin
 
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     url(r'^$', interactive_survey,name='interactive_survey'),
     url(r'^template.md$', survey_template, name='survey_template'),
+    url(r'^result/(?P<result_id>[\w\d]+)/?$', result, name='result'),
+    url(r'^result/(?P<result_id>[\w\d]+).md$', resultmarkdown, name='resultmarkdown'),
+    url(r'^result/(?P<result_id>[\w\d]+).json$', resultjson, name='resultjson'),
+    url(r'^result/(?P<result_id>[\w\d]+).csv$', resultcsv, name='resultcsv'),
 ]
