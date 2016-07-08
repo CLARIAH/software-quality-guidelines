@@ -100,8 +100,8 @@ def interactive_survey(request):
         criteria, requirements = parsetexsource(settings.TEXSOURCE, True,False)
         return render(request, 'interactive_survey.html', { 'criteria': criteria })
     elif request.method == 'POST':
-        supported = request.POST.get('supported',True)
-        experimental = request.POST.get('experimental',False)
+        supported = (request.POST.get('supported',"1") == "1")
+        experimental = (request.POST.get('experimental',"0") == 0)
         criteria, requirements = parsetexsource(settings.TEXSOURCE, supported,experimental)
         for categorydata in criteria.values():
             for code, itemdata in categorydata.items():
