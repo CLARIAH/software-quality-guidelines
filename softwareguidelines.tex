@@ -408,7 +408,8 @@ installation}. \refcrit{IS1}}
 be easily kept in the foreground. The software must be therefore able to \textbf{run in the foreground}
 after installation.}
 %^-- production
-\newcommand{\six}{All \textbf{runtime dependencies} must be available after installation.}
+\newcommand{\six}{All \textbf{runtime dependencies} must be available after
+installation. \refcrit{IS2}}
 %^-- production
 \newcommand{\seven}{If the software can be installed it must also have
 \textbf{one uninstall script}. This script must provide a switch to also remove
@@ -458,7 +459,8 @@ commands will work on. Alternatively, this may be described in a separate
     %^-- production
 	\newcommand{\nineJ}{The readme must specify system requirements, i.e.\ observed
     memory/file/processing usage while doing the happy path and a moderate load
-path. \refcrit{PF2} \refcrit{PF3}}
+path. \refcrit{PF2} \refcrit{PF3} It should also clearly specify the platforms it is
+designed to work on. \refcrit{IS9}}
     %^-- production
 	\newcommand{\nineK}{The readme must contain a description of how the
     software scales (the load can be shared over multiple instances, explicitly
@@ -807,7 +809,7 @@ so.
 
 It should be clear whether the software is actively supported, and if so until
 when. Actively supported software should have clear support structures in
-places (\refcrit{SP1}, \refcrit{SP2}).
+place (\refcrit{SP1}, \refcrit{SP2}).
 
 Unsupported supported should be clearly marked as such in the
 README/documentation. If the software likely ceases to be supported after project
