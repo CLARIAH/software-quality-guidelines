@@ -16,6 +16,10 @@ Features
 Installation
 ----------------
 
-(TODO, see django documentation for now)
+1. It is recommended to create a Python virtual environment for the installation.  Make sure you use Python 3: ``$ virtualenv --python=python3 env``
+2. Activate the virtual environment: ``. env/bin/activate``
+3. Install the necessary dependencies: ``pip install -r requirements.txt``
+4. Launch the development server: ``$ ./manage.py runserver``
 
+For production environments, use ``uwsgi`` or ``mod_uwsgi``, consult the Django documentation for now.
 
