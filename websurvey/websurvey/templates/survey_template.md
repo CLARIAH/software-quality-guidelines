@@ -47,7 +47,7 @@ simply implement. They follow common practice where possible and take a firm
 choice where interoperability benefits from one. However, depending on the
 context, your peers will expect more or less from you. 
  
-{% for requirementtext, secondorder in requirements %}
+{% for requirementtext, secondorder, requirementconstraints, hassublist, closesublist in requirements %}
 {% if secondorder %}
    * {{ requirementtext|safe }}
 {% else %}

@@ -6,7 +6,7 @@
     <style type="text/css" media="all">
         body {
             font-family: sans-serif;
-            font-size: 12px;
+            font-size: 13px;
         }
         label {
             display: inline-block;
@@ -58,6 +58,30 @@
             width: 100%;
             min-height: 20px;
             max-height: 120px;
+        }
+        .description {
+            display: none;
+            position: fixed;
+            width: 40%;
+            color: white;
+            background: #343434; /*#FCFFD0;*/
+            padding: 20px;
+        }
+        .collabel:hover .description {
+            display: block;
+            font-size: 13px;
+            left: 240px;
+            top: 2em;
+            opacity: 0.95; filter: alpha(opacity = 95);
+            border: 1px solid #628f8b;
+            text-decoration: none !important;
+            text-align: left;
+        }
+        .description a, .description a:hover, .description a:visited {
+            color: #aedff4;
+        }
+        div.requirements {
+            max-width: 1024px;
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -112,6 +136,7 @@
     </th>
     <td class="collabel">
         {{ itemdata.label }}
+        <span class="description">{{ itemdata.description|safe }}</span>
     </td>
     <td class="colna"><input type="radio" name="{{code}}" value="NA" title="Not available" /></td>
     <td class="col0"><input type="radio" name="{{code}}" value="0" title="No" /></td>
@@ -131,6 +156,35 @@
 <br />
 </form>
 
+<h2>Developer Guidelines: Minimal Requirements</h2>
+
+<div class="requirements">
+ 
+<p>
+This section contains a set of minimal guidelines for developers that you can
+simply implement. They follow common practice where possible and take a firm
+choice where interoperability benefits from one. However, depending on the
+context, your peers will expect more or less from you. 
+</p>
+
+<p>
+Requirements that are not applicable will be grayed out.
+</p>
+ 
+<ol class="requirements">
+{% for requirementtext, secondorder, requirementconstraints, hassublist, closesublist in requirements %}
+<li class="{{ requirementconstraints }}">{{ requirementtext|safe }}
+{% if hassublist %}
+<ol>
+{% elif closesublist %}
+</ol></li>
+{% else %}
+</li>
+{% endif %}
+{% endfor %}
+</ol>
+
+</div>
 
 </body>
 </html>

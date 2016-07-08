@@ -385,9 +385,10 @@ The guidelines in these configurations may summarise one or more of the full ass
     system} (VCS). \refcrit{AC1} \refcrit{CH3}
     The source code must be published. \refcrit{AC2}
 To lower the barrier of entry the VCS must be either in a Git, Mercurial or SVN repository. 
-As much as possible should be stored alongside the code %TODO-rdv add link to "Everything in VCS" (as in html)/add text here
+As much as possible should be stored alongside the code 
 in the VCS. CLARIAH is registered as an organization on
 Github (\url{https://github.com/CLARIAH/}), it is recommended to host your VCS here. }
+%TODO-rdv add link to "Everything in VCS" (as in html)/add text here
 \newcommand{\two}{There must be \textbf{one command that installs all
 dependencies} on the supported operating systems (OSs). \refcrit{IS2} }
 \newcommand{\three}{The software must be \textbf{built with one command}. This
@@ -482,6 +483,7 @@ still be readable in ten years' time. Such formats are readable plain text (see
 above), HTML that does not depend on external stylesheets or scripts, and PDF/A. In the case of
 PDF/A, the source format must also be included---though it may be a
 non-archivable format such as a Word file, a LaTeX file, etc. \refcrit{D2}}
+\newcommand{\twelve}{The project must have a \textbf{website}, containing, at the very least:	 \refcrit{ID2} }
 \newcommand{\twelveA}{a typeset version of the readme}
 \newcommand{\twelveB}{screenshots/screencasts of the application, if applicable \refcrit{D8}}
 \newcommand{\twelveC}{a link to the source code, i.e. the version controlled
@@ -492,9 +494,6 @@ can be obtained}
 \newcommand{\twelveE}{a link to the documentation: either a direct link to the pdf or html, if available, or a browseable list of the text files}
 \newcommand{\twelveF}{the website must be registered on Google, and a link to the project must
 be provided to the CLARIAH Dissemination \& Education workpackage}
-\newcommand{\twelve}{The project must have a \textbf{website}, containing, at
-    the very least:	 \refcrit{ID2}
-}
 \newcommand{\twelveNB}{Note that the readme as typeset by GitHub fulfils almost all these criteria.} 
 
 \newcommand{\thirteen}{The \textbf{user interface of the application should
@@ -1164,14 +1163,10 @@ ad-hoc mechanisms. If the ecosystem has facilities for dependency management
 (automatic download of dependencies), these should be used.
 
 \begin{itemize}
- \item Python software should have a \texttt{setup.py} based on Distutils,
-     Setuptools, or their relatives.
- \item Installation of C/C++ software is generally an extension of the build
-     process, often culminating in a \texttt{make install}.
+ \item Python software should have a \texttt{setup.py} based on Distutils, Setuptools, or their relatives.
+ \item Installation of C/C++ software is generally an extension of the build process, often culminating in a \texttt{make install}.
  \item Java software is delivered as a \texttt{jar} file.
- \item Perl software should use systems such as \texttt{Module::Build},
-     \texttt{ExtUtils::MakeMaker}, or \texttt{Module::Install}. Resulting in a
-     \texttt{Build.PL} or \texttt{Makefile.PL}.
+ \item Perl software should use systems such as \texttt{Module::Build}, \texttt{ExtUtils::MakeMaker}, or \texttt{Module::Install}. Resulting in a \texttt{Build.PL} or \texttt{Makefile.PL}.
  %TODO: add more languages (R?)
 \end{itemize}
 
@@ -1210,8 +1205,7 @@ software.
         \item Debian/Ubuntu (and other derivates): Use Debian Packages (deb)
         \item RedHat/CentOS/Fedora (and other derivates): Use Red Hat Packages (rpm)
     \end{itemize}
-    \item Mac OS X: Use PKG or DMG for traditional Mac applications intended for end-users; for the more Unix-style
-        software, use a system such as Homebrew or MacPorts
+    \item Mac OS X: Use PKG or DMG for traditional Mac applications intended for end-users; for the more Unix-style software, use a system such as Homebrew or MacPorts
     \item Android: Use Android Application Packages (APK)
     \item iOS: (TODO) 
     \item Windows: (TODO) 
@@ -1275,7 +1269,7 @@ instances, proper uninstallation facilities should be explicitly implemented.
 \newcommand{\isNineText}{Are the system requirements such as target platform clearly advertised?}
 \criterion{\isNineID}{\isNineText}
 
-The project website must state clearly state what target platform(s) the software is expected to run on.
+The project website must clearly state what target platform(s) the software is expected to run on.
 System requirements in terms of computing resources must be stated if the
 software employs more than insignificant resources (see \refcrit{PF2}).
 (related also to \refcrit{B3} and \refcrit{IS2})
@@ -1621,7 +1615,7 @@ website.
 
 In addition to the aforementioned, evidence for this activity may also be sought
 in contributions to the software by external developers (assuming
-compliance with AC2), or questions in the issue/bug tracker or mailing lists.
+compliance with \refcrit{AC2}), or questions in the issue/bug tracker or mailing lists.
 
 %\CheckTable
 
@@ -1632,7 +1626,7 @@ compliance with AC2), or questions in the issue/bug tracker or mailing lists.
 External developers, not related to the original developers or their
 institution, are a good sign of community interest. The threshold for
 contributing is relatively high. Compliance with this criterion is greatly
-facilitated by compliance with AC2.
+facilitated by compliance with \refcrit{AC2}.
 
 %\CheckTable
 
