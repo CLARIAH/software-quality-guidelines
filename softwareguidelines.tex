@@ -380,6 +380,7 @@ Which of the following requirements apply depends on which configuration of
 these two sets of opposing scenarios is applicable.  Below are written out all four configurations: in each case, non-applicable guidelines are grayed-out. 
 The guidelines in these configurations may summarise one or more of the full assessment criteria, as indicated by the codes.
 
+%BEGINREQUIREMENTS
 \newcommand{\one}{The software must be stored in a \textbf{version control
     system} (VCS). \refcrit{AC1} \refcrit{CH3}
     The source code must be published. \refcrit{AC2}
@@ -402,14 +403,19 @@ them as part of the build. \refcrit{B1} \refcrit{IS9} \refcrit{TS4}
 artefacts that can be moved to an arbitrary location on the system and still
 work, or it must contain \textbf{one command that will perform the
 installation}. \refcrit{IS1}}
+%^-- production
 \newcommand{\five}{While a normal process can be easily daemonized, a daemonized process cannot 
 be easily kept in the foreground. The software must be therefore able to \textbf{run in the foreground}
 after installation.}
+%^-- production
 \newcommand{\six}{All \textbf{runtime dependencies} must be available after installation.}
+%^-- production
 \newcommand{\seven}{If the software can be installed it must also have
 \textbf{one uninstall script}. This script must provide a switch to also remove
 config files and leave them alone by default. \refcrit{IS8}}
+%^-- production
 \newcommand{\eight}{The above requirements regarding installation can be omitted if the software can be run from the source directory and during running will not write outside of the source directory or temporary directories.}
+%^-- experimental
 \newcommand{\nine}{The root folder of the software project contains a file
     called \textbf{README} (fully capitalised) \refcrit{D1} \refcrit{IS7},
     which must be a readable plain text file. It may link to images, but the
@@ -417,41 +423,48 @@ config files and leave them alone by default. \refcrit{IS8}}
     text} file is a file that can be read by a human using both wordpad.exe and
     vi. Formats such as markdown and ReST are readable as plain text, but LaTeX
     and HTML are not. The text should be encoded using UTF-8.}
-	\newcommand{\nineOne}{The readme must start by explicitly mentioning the experimental nature of the software.}
-	\newcommand{\nineTwo}{Accurate support contact information must be provided
+	\newcommand{\nineA}{The readme must start by explicitly mentioning the experimental nature of the software.}
+    %^-- experimental
+	\newcommand{\nineB}{Accurate support contact information must be provided
     at the top of the readme, and an end date, until which this information can
 be assumed to be valid, must also be added here. A suitable end date is the
 current end time of the project. If no clear end date exists, it should be set
 no further than a year away, and it should be reset regularly. \refcrit{SP1}}
-	\newcommand{\nineThree}{It must be mentioned explicitly that the software is unsupported }
-	\newcommand{\nineFour}{The readme must contain an explanation of the
+    %^-- supported
+	\newcommand{\nineC}{It must be mentioned explicitly that the software is unsupported }
+    %^-- unsupported
+	\newcommand{\nineD}{The readme must contain an explanation of the
     intended audience of the software, where the different user groups should
 be clearly named and described. \refcrit{U2}}
-	\newcommand{\nineFive}{The readme must describe the problems that these
+	\newcommand{\nineE}{The readme must describe the problems that these
     users face, which resulted in the software. \refcrit{U4}}
-	\newcommand{\nineSix}{The readme must describe what the software does to
+	\newcommand{\nineF}{The readme must describe what the software does to
     help solving these problems. \refcrit{U1} \refcrit{U4} \refcrit{D6}
 \refcrit{D7}}
-	\newcommand{\nineSeven}{The readme must contain a list of similar or
+	\newcommand{\nineG}{The readme must contain a list of similar or
     related software, and a description how the current software fits in.
 \refcrit{U4}}
-	\newcommand{\nineEight}{The readme must specify the commands used to build
+	\newcommand{\nineH}{The readme must specify the commands used to build
     and install from point 2-6 above. Also, it should specifiy the OSes the
 commands will work on. Alternatively, this may be described in a separate
 \textbf{INSTALL} file, but the README must then clearly state this.}
-	\newcommand{\nineNine}{The readme must contain either a quick start,
+	\newcommand{\nineI}{The readme must contain either a quick start,
     explaining how the first task can be performed with the system, or, in the
     more extensive documentation, a link to the quick start. \refcrit{U3}
 \refcrit{L1}}
-	\newcommand{\nineTen}{The readme must specify system requirements, i.e.\ observed
+    %^-- production
+	\newcommand{\nineJ}{The readme must specify system requirements, i.e.\ observed
     memory/file/processing usage while doing the happy path and a moderate load
 path. \refcrit{PF2} \refcrit{PF3}}
-	\newcommand{\nineEleven}{The readme must contain a description of how the
+    %^-- production
+	\newcommand{\nineK}{The readme must contain a description of how the
     software scales (the load can be shared over multiple instances, explicitly
 mentioning if this is not possible). \refcrit{PF5}}
-	\newcommand{\nineTwelve}{The readme must contain a non-exhaustive list of
+    %^-- production
+	\newcommand{\nineL}{The readme must contain a non-exhaustive list of
     places where the software is running. \refcrit{CM1}}
-	\newcommand{\nineThirteen}{The readme must specify until when the project
+    %^-- production
+	\newcommand{\nineM}{The readme must specify until when the project
     is currently funded, as well as a list of the funders. \refcrit{CP3}}
 \newcommand{\ten}{Any \textbf{documentation must be stored alongside the code}.
 Long-form texts should live in the folder \texttt{docs/} in the root of the
@@ -470,6 +483,7 @@ non-archivable format such as a Word file, a LaTeX file, etc. \refcrit{D2}}
 repository \refcrit{AC2}, as well as a link to where the latest stable release
 can be obtained}
 \newcommand{\twelveD}{contact information, or a link to the bug tracker \refcrit{SP2}}
+%^-- supported
 \newcommand{\twelveE}{a link to the documentation: either a direct link to the pdf or html, if available, or a browseable list of the text files}
 \newcommand{\twelveF}{the website must be registered on Google, and a link to the project must
 be provided to the CLARIAH Dissemination \& Education workpackage}
@@ -483,7 +497,9 @@ point to the website}. If this user interface is a website, where possible, a
 link should be visible on every page. If the user interface is a command line
 tool, a man page should ideally be provided that mentions the website. The help output
 should mention it as well. \refcrit{L3}}
+%^-- production
 \newcommand{\fourteen}{The application's \textbf{user interface should point to the contact information} or to a place to report bugs.}
+%^-- supported
 \newcommand{\fifteen}{Almost every application provides an API. This
 \textbf{API must be discoverable}. API documentation must be written as
 specifically crafted comments in the source code itself, from which API documentation
@@ -493,10 +509,12 @@ function names, their parameter names, and the constraints placed on their
 values. It would be helpful to know under what condition which function is
 expected to be called. If the sofware provides a webservice, it's API should be
 clearly documented as well, usually in a separate document. \refcrit{L4} \refcrit{AN3}}
+%^-- production
 \newcommand{\sixteen}{If the software depends on configuration files, then a
     template or sample must be provided in the repository for each file, \textbf{containing all
 available options} and set to sane defaults. Comments in the configuration file
 should give clear descriptions what the options do. \refcrit{L5}}
+%^-- production
 \newcommand{\seventeen}{The software must be \textbf{distributed under an OSI
 approved licence} in a LICENSE file in root. \refcrit{CP1}. The copyright
 holder should be clearly mentioned in the header of each source file \refcrit{CP2}} 
@@ -504,6 +522,7 @@ holder should be clearly mentioned in the header of each source file \refcrit{CP
     \refcrit{CH2}.
     (The template could be used---but it must be noted that that means one must
     be open to all pull requests. Specifying some details in this file thus is very useful.} 
+%^-- supported
 % weggehaald omdat ik hem niet op een manier kan formuleren zodat hij non-trivially implementable is. \newcommand{\nineteen}{The CLARIAH project uses RDF as the format for the exchange of structured data. Structured data, such as a json object from a web-api must therefore\refcrit{IP1}}
 \newcommand{\twenty}{The software must \textbf{not store usernames and
 passwords} \refcrit{SC2}; instead, it must use the federated authentication and
@@ -514,6 +533,7 @@ alongside the code}. If a software quality self-assessment is made using the
 full criteria described in this document, then include these results alongside
 the code as well. All of this can be achieved by simply filling our web-based
 survey at \url{http://applejack.science.ru.nl/clariah-software-quality}, and committing the resulting markdown document to your VCS. }
+%ENDREQUIREMENTS
 
 %TODO-rdv add kopje "Implementation Patterns" met voorbeeld van README file?
 \subsection{Configuration 1: Actively Supported End User Software} 
@@ -528,20 +548,20 @@ survey at \url{http://applejack.science.ru.nl/clariah-software-quality}, and com
     \item \seven 
     \color{lightgray} \item \eight \color{black}
     \item \nine
-    \begin{enumerate}[1.]
-       \color{lightgray} \item \nineOne \color{black}
-        \item \nineTwo 
-        \color{lightgray}\item \nineThree \color{black}
-        \item \nineFour 
-        \item \nineFive 
-        \item \nineSix 
-        \item \nineSeven 
-        \item \nineEight
-        \item \nineNine 
-        \item \nineTen 
-        \item \nineEleven 
-        \item \nineTwelve 
-        \item \nineThirteen
+    \begin{enumerate}
+       \color{lightgray} \item \nineA \color{black}
+        \item \nineB 
+        \color{lightgray}\item \nineC \color{black}
+        \item \nineD 
+        \item \nineE 
+        \item \nineF 
+        \item \nineG 
+        \item \nineH
+        \item \nineI 
+        \item \nineJ 
+        \item \nineK 
+        \item \nineL 
+        \item \nineM
     \end{enumerate}
     \item \ten
     \item \eleven
@@ -580,20 +600,20 @@ survey at \url{http://applejack.science.ru.nl/clariah-software-quality}, and com
 	\item \seven 
 	\color{lightgray}\item \eight \color{black} 
 	\item \nine 
-	\begin{enumerate} [1.]
-		\color{lightgray} \item \nineOne  
-		\item \nineTwo \color{black}
-		\item \nineThree  
-		\item \nineFour 
-		\item \nineFive 
-		\item \nineSix 
-		\item \nineSeven 
-		\item \nineEight 
-		\item \nineNine 
-		\item \nineTen 
-		\item \nineEleven 
-		\item \nineTwelve 
-		\item \nineThirteen
+	\begin{enumerate}
+		\color{lightgray} \item \nineA  
+		\item \nineB \color{black}
+		\item \nineC  
+		\item \nineD 
+		\item \nineE 
+		\item \nineF 
+		\item \nineG 
+		\item \nineH 
+		\item \nineI 
+		\item \nineJ 
+		\item \nineK 
+		\item \nineL 
+		\item \nineM
 	\end{enumerate} 
 	\item \ten 
 	\item \eleven 
@@ -630,20 +650,20 @@ survey at \url{http://applejack.science.ru.nl/clariah-software-quality}, and com
 	\item \seven \color{black}  
 	\item \eight 
 	\item \nine 
-	\begin{enumerate} [1.]
-		\item \nineOne 
-		\item \nineTwo 
-		\color{lightgray} \item \nineThree \color{black} 
-		\item \nineFour 
-		\item \nineFive 
-		\item \nineSix 
-		\item \nineSeven 
-		\item \nineEight 
-		\color{lightgray} \item \nineNine 
-		\item \nineTen 
-		\item \nineEleven 
-		\item \nineTwelve \color{black}  
-		\item \nineThirteen
+	\begin{enumerate}
+		\item \nineA 
+		\item \nineB 
+		\color{lightgray} \item \nineC \color{black} 
+		\item \nineD 
+		\item \nineE 
+		\item \nineF 
+		\item \nineG 
+		\item \nineH 
+		\color{lightgray} \item \nineI 
+		\item \nineJ 
+		\item \nineK 
+		\item \nineL \color{black}  
+		\item \nineM
 	\end{enumerate} 
 	\item \ten 
 	\item \eleven 
@@ -680,20 +700,20 @@ survey at \url{http://applejack.science.ru.nl/clariah-software-quality}, and com
 	\item \seven \color{black}  
 	\item \eight 
 	\item \nine 
-	\begin{enumerate} [1.]
-		\item \nineOne 
-		\color{lightgray} \item \nineTwo \color{black}
-		\item \nineThree 
-		\item \nineFour 
-		\item \nineFive 
-		\item \nineSix 
-		\item \nineSeven 
-		\item \nineEight 
-		\color{lightgray} \item \nineNine 
-		\item \nineTen 
-		\item \nineEleven 
-		\item \nineTwelve \color{black}  
-		\item \nineThirteen
+	\begin{enumerate}
+		\item \nineA 
+		\color{lightgray} \item \nineB \color{black}
+		\item \nineC 
+		\item \nineD 
+		\item \nineE 
+		\item \nineF 
+		\item \nineG 
+		\item \nineH 
+		\color{lightgray} \item \nineI 
+		\item \nineJ 
+		\item \nineK 
+		\item \nineL \color{black}  
+		\item \nineM
 	\end{enumerate} 
 	\item \ten 
 	\item \eleven 
