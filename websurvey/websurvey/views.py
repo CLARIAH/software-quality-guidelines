@@ -1,3 +1,7 @@
+# by Maarten van Gompel, Radboud University Nijmegen
+# https://github.com/CLARIAH/software-quality-guidelines
+# Licenced under GNU Public Licence v3
+
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.template import RequestContext
