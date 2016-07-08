@@ -51,18 +51,15 @@ def parsetexsource(texfile,supported=True,experimental=False):
     with open(texfile,'r',encoding='utf-8') as f:
         for line in f:
             if line.startswith('%BEGINCRITERIA'):
-                print("BEGIN CRITERIA",file=sys.stderr)
                 begincriteria = True
             elif line.startswith('%ENDCRITERIA'):
                 begincriteria = False
             if line.startswith('%BEGINREQUIREMENTS'):
-                print("BEGIN REQUIREMENTS",file=sys.stderr)
                 beginrequirements = True
             elif line.startswith('%ENDREQUIREMENTS'):
                 if requirementtext and requirement_is_relevant(requirementconstraints,supported, experimental):
                     secondorder = requirementcode[-1] == requirementcode[-1].upper()
                     requirements.append( (latextomarkdown(requirementtext.strip('\n }')), secondorder) )
-                print("END REQUIREMENTS",file=sys.stderr)
                 beginrequirements = False
             elif line.startswith('\\subsection') and begincriteria:
                 category = latextomarkdown(line[12:line.find('}')])
@@ -71,7 +68,6 @@ def parsetexsource(texfile,supported=True,experimental=False):
                 code = buffer[-2][buffer[-2].rfind('{')+1:-1]
                 label = buffer[-1][buffer[-1].rfind('{')+1:-1]
                 criteria[category][code] = {'label': latextomarkdown(label), 'response':None, 'comments': None}
-                print("FOUND CRITERION " + code,file=sys.stderr)
             elif line.strip().startswith('\\newcommand') and beginrequirements:
                 line = line.strip()
                 if requirementtext and requirement_is_relevant(requirementconstraints,supported, experimental):
@@ -90,8 +86,6 @@ def parsetexsource(texfile,supported=True,experimental=False):
             else:
                 buffer.append(line.strip())
 
-    print("Returning " + str(len(requirements)) + " requirements",file=sys.stderr)
-    print("Returning " + str(len(criteria)) + " criteria",file=sys.stderr)
     return criteria, requirements
 
 def render_markdown(request, context):
