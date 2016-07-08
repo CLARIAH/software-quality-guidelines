@@ -52,8 +52,20 @@
             border-bottom: 1px solid black;
         }
 
-                
+        textarea {
+            resize: none;
+            overflow: hidden;
+            width: 100%;
+            min-height: 20px;
+            max-height: 120px;
+        }
     </style>
+    <script type="text/javascript" charset="utf-8">
+        function auto_grow(element) {
+            element.style.height = "5px";
+            element.style.height = (element.scrollHeight)+"px";
+        }
+    </script>
  </head>
 </html>
 <body>
@@ -61,12 +73,18 @@
 
 <form action="" method="post" accept-charset="utf-8">
 
+<h2>General Information</h2>
+
 <label>Software name:</label> <input name="name" /><br />
 <label>Software version:</label> <input name="version" /><br />
+<label>Is the software actively supported?</label> <select  name="supported"><option value="1">Yes</option><option value="0">No</option></select><br />
+<label>Is the software experimental?</label> <select  name="experimental"><option value="1">Yes</option><option value="0" selected="selected">No</option></select><br />
 <label>Assessment by:</label> <input name="creator" /><br />
 
 <br />
 <br />
+
+<h2>Assessment Survey</h2>
 
 {% csrf_token %} 
 <table>
@@ -101,7 +119,7 @@
     <td class="col2"><input type="radio" name="{{code}}" value="2" title="Adequate" /></td>
     <td class="col3"><input type="radio" name="{{code}}" value="3" title="Good" /></td>
     <td class="col4"><input type="radio" name="{{code}}" value="4" title="Perfect" /></td>
-    <td class="colcomments"><input name="comments_{{code}}" title="Comments" /></td>
+    <td class="colcomments"><textarea onkeyup="auto_grow(this)" name="comments_{{code}}" title="Comments"></textarea></td>
 </tr>
 {% endfor %}
 {% endfor %}
