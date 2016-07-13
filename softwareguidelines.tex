@@ -238,8 +238,8 @@ consists of assessment criteria, mostly formulated as a series of questions. Thi
 makes them directly applicable as an instrument for software quality
 assessment. 
 
-% TODO-rdv: issue #5. consumer vs developer
-These guidelines target developers, managers and users of software.
+% TODO-rdv: issue #5. consumer vs developer. Ik weet niet precies hoe ik dit moet integereren. Volgens de comment in issue 5 is de tekst geschreven vanuit een consumer perspectief, maar hieronder staat dat we ook ontwikkelaars etc. willen bedoenen. Ik heb nu even voor de simpelste oplossing gekozen door "and, primarily," toe te voegen aan de eerste zin...  
+These guidelines target developers, managers, and, primarily, users of software.
 Developers will be more aware of the targets to meet, and able to identify and
 remedy weak areas. Managers and users will be able to assess whether software
 is of sufficient quality for their purposes. Although we intend to
@@ -387,8 +387,8 @@ The guidelines in these configurations may summarise one or more of the full ass
 To lower the barrier of entry the VCS must be either in a Git, Mercurial or SVN repository. 
 As much as possible should be stored alongside the code 
 in the VCS. CLARIAH is registered as an organization on
-Github (\url{https://github.com/CLARIAH/}), it is recommended to host your VCS here. }
-%TODO-rdv add link to "Everything in VCS" (as in html)/add text here
+Github (\url{https://github.com/CLARIAH/}), it is recommended to host the VCS here. }
+%TODO-rdv write an explanation what should go into the VCS and what shouldn't (docs: yes, issues-tracker: no, data: depends)
 \newcommand{\two}{There must be \textbf{one command that installs all
 dependencies} on the supported operating systems (OSs). \refcrit{IS2} }
 \newcommand{\three}{The software must be \textbf{built with one command}. This
@@ -424,7 +424,7 @@ config files and leave them alone by default. \refcrit{IS8}}
     reader must be able to follow along without them. A \textbf{readable plain
     text} file is a file that can be read by a human using both wordpad.exe and
     vi. Formats such as markdown and ReST are readable as plain text, but LaTeX
-    and HTML are not. The text should be encoded using UTF-8.}
+    and HTML are not. The text should be encoded using UTF-8.} %TODO-rdv add examples of README and related files. Show how the install script requirements can easily be fulfilled with Docker.
 	\newcommand{\nineA}{The readme must start by explicitly mentioning the
     experimental nature of the software.. \refcrit{U5}}
     %^-- experimental
@@ -539,7 +539,6 @@ the code as well. All of this can be achieved by simply filling our web-based
 survey at \url{http://applejack.science.ru.nl/clariah-software-quality}, and committing the resulting markdown document to your VCS. }
 %ENDREQUIREMENTS
 
-%TODO-rdv add kopje "Implementation Patterns" met voorbeeld van README file?
 \subsection{Configuration 1: Actively Supported End User Software} 
 
 \begin{enumerate}
