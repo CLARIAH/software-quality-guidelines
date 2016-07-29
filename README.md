@@ -4,7 +4,7 @@ Software Quality Guidelines
 
 This repository contains guidelines for software quality & sustainability for
 [CLARIAH](http://www.clariah.nl). It has been composed as a part of WP2 task 54.100. Please access the
-[PDF document](https://github.com/CLARIAH/software-quality-guidelines/blob/master/softwareguidelines.pdf) in this repository to read the latest version. The guidelines themselves are also available in the form of an [interactive web-survey](http://applejack.science.ru.nl/clariah-software-quality).
+[PDF document](https://github.com/CLARIAH/software-quality-guidelines/blob/master/softwareguidelines.pdf) in this repository to read the latest version. The guidelines themselves are also available in the form of an [interactive web-survey](http://softwarequality.clariah.nl).
 
 The document came about in response to the need for increasing attention to
 software quality and sustainability in the academic world, as software is such
