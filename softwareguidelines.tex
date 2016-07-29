@@ -1184,16 +1184,8 @@ by a wider audience, it is recommended to package it in the appropriate form.
 This may however conflict with IS3, be rendered obsolete by \refcrit{IS3}, or
 render \refcrit{IS3}
 obsolete. The decision whether to use packaging methods for the target platform
-and/or packaging methods for the ecosystem surrunding the programming language
+and/or packaging methods for the ecosystem surrounding the programming language
 (\refcrit{IS3}) should be
-% * <reinierdevalk@gmail.com> 2016-03-30T15:58:41.118Z:
-%
-% > decision form of installation that takes precedence
-%
-% I don't understand this sentence; it looks something is either missing or superfluous?
-%
-% ^.
-%<proycon@anaproy.nl> 2016-04-06:  Right, I rephrased it completely
 made on an individual basis, considering the nature and audience of the
 software.
 
@@ -1272,6 +1264,37 @@ The project website must clearly state what target platform(s) the software is e
 System requirements in terms of computing resources must be stated if the
 software employs more than insignificant resources (see \refcrit{PF2}).
 (related also to \refcrit{B3} and \refcrit{IS2})
+
+\newcommand{\isTenID}{IS10}
+\newcommand{\isTenText}{Is the software deployable through an established container or virtualisation solution?}
+\criterion{\isTenID}{\isTenText}
+
+Certain software projects benefit from being installable either in a
+containerised form, or in fully virtualised form (i.e. a virtual machine). This
+applies particularly to software that instead of being a standalone tool, is a
+complex interplay between different components. Such software is often a web
+application or webservice that builds on a large number of dependencies that
+are may be non-trivial to install or configure. A container or virtual machine
+offers a solution to facilitate deployment. For CLARIAH this usually implies
+easier deployment by a CLARIN centre.
+
+Containerisation solutions:
+
+\begin{itemize}
+    \item Docker -- \url{https://docker.com}
+    \item Ansible -- \url{https://ansible.com}
+\end{itemize}
+
+Virtualisation solutions:
+
+\begin{itemize}
+    \item Vagrant -- \url{https://www.vagrantup.com} (builds on VirtualBox or VMWare)
+\end{itemize}
+
+This criterion can either complement or completely replace \refcrit{IS3} and
+\refcrit{IS4}. In such a case, the solutions offered by \refcrit{IS3} and
+\refcrit{IS4} are often not sufficient for a simple deployment. For simple
+standalone tools, however, this guideline is generally not applicable.
 
 %\CheckTable
 
