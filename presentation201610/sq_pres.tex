@@ -133,7 +133,7 @@ of the development process rather than an afterthought.
         \begin{itemize}
             \item Software is not data: software \textbf{must adapt} to the constant changes in its environment or will decay.
         \end{itemize}
-    \item Software Sustainability Institute (UK): \url{http://software.ac.uk}
+        \item Software Sustainability Institute (UK): \url{http://software.ac.uk}
         \end{itemize}
     \end{block}
 \end{frame}
@@ -155,45 +155,32 @@ of the development process rather than an afterthought.
     \end{block}
 \end{frame}
 
-\section{Dimensions}
+\section{Usage}
 
-\begin{frame}{Dimensions (1/2)}
-    \begin{block}{Usability Dimensions}
-        \begin{itemize}    
-            \item \textbf{Understandability} - Is the software easily understood? 
-            \item \textbf{Documentation} -- Comprehensive well-structured documentation?
-            \item \textbf{Buildability}  -- Straightforward to build from source on a supported system?
-            \item \textbf{Installability} -- Straightforward to install and deploy on a supported system?
-            \item \textbf{Learnability} -- Easy/intuitive to learn how to use its functions?
+\begin{frame}{Usage of the guidelines}
+    \begin{block}{How to use the guidelines?}
+        For developers..
+        \begin{itemize}
+            \item self-assessment using the web-survey (\url{http://softwarequality.clariah.nl})
+            \item add the survey results to your VC repository so others can see it
+            \item provide us with feedback through our issue tracker!
+                (\url{https://github.com/CLARIAH/software-quality-guidelines/issues})
         \end{itemize}
     \end{block}
-    \begin{block}{Sustainability \& Manageability Dimensions}
-        \begin{itemize}    
-            \item \textbf{Identity} -- Project/software identity is clear and unique? 
-            \item \textbf{Copyright} -- Licencing and ownership Adoption of appropriate open-source license
-            \item ...
-        \end{itemize}
-    \end{block}
-\end{frame}
 
-\begin{frame}{Dimensions (2/2)}
-    \begin{block}{Sustainability \& Manageability Dimensions}
-        \begin{itemize}    
-            \item \textbf{Community} -- Evidence of current/future community
-            \item \textbf{Accessibility} -- Good facilities to obtain versions of the software?
-            \item \textbf{Testability} -- Easy to verify if the software functions correctly?
-            \item \textbf{Portability} -- Usable on multiple platforms?
-            \item \textbf{Supportability} -- Evidence of current/future developer support?
-            \item \textbf{Analysability} -- Easy to understand at the source-code level?
-            \item \textbf{Changeability} -- Easy to modify and contribute changes? 
-            \item \textbf{Performance} -- Resource demands/consumption
-            \item \textbf{Interoperability} 
-            \item \textbf{Security \& Privacy}
+    \begin{block}{Future}
+        \begin{itemize}
+            \item Revision of guidelines based on feedback after usage
+            \item Incorporation of CLARIAH-specific interoperability criteria
+            \item A software seal of approval?
         \end{itemize}
     \end{block}
 \end{frame}
 
 \section{Highlights}
+
+\begin{frame}{Highlights}
+\end{frame}
 
 \begin{frame}{Accessibility: Version Control}
 \begin{figure}
@@ -210,7 +197,7 @@ of the development process rather than an afterthought.
         \item encourages contribution and interaction.
         \item provides infrastructure with issue trackers (bug reports), release management facilities
         \item transparency: allows users to assess the project's activity
-        \item https://github.com/CLARIAH
+        \item \url{https://github.com/CLARIAH}
     \end{itemize}
     \item Periodically publish releases of your software, using a sane version
         numbering scheme, accompanied with release notes or a changelog.
@@ -296,7 +283,7 @@ of the development process rather than an afterthought.
         \item If you didn't test it, it most likely doesn't work.
         \item Write automated tests (unit \& integration tests) for your software.
         \item Ensure automated tests cover all enough of your software.
-        \item Use continuous integrations platforms such as Travis-CI (https://travis-ci.org), Jenkins (http://jenkins.io) or others.
+        \item Use continuous integration platforms such as Travis-CI (https://travis-ci.org), Jenkins (http://jenkins.io) or others.
             \begin{itemize}
                 \item These automatically run tests each time you commit code to your VC repo.
             \end{itemize}
@@ -399,27 +386,6 @@ of the development process rather than an afterthought.
 
 \end{frame}
 
-\section{Implementation}
-
-\begin{frame}{Implementation of the guidelines}
-    \begin{block}{How to implement the guidelines?}
-        For developers..
-        \begin{itemize}
-            \item self-assessment using the web-survey (\url{http://softwarequality.clariah.nl})
-            \item add the survey results to your VC repository so others can see it
-            \item provide us with feedback on our issue tracker!
-                (\url{https://github.com/CLARIAH/software-quality-guidelines/issues})
-        \end{itemize}
-    \end{block}
-
-    \begin{block}{Future}
-        \begin{itemize}
-            \item Revision of guidelines based on feedback after usage
-            \item Incorporation of CLARIAH-specific interoperability criteria
-            \item A software seal of approval?
-        \end{itemize}
-    \end{block}
-\end{frame}
 
 \begin{frame}
 \begin{center}
@@ -436,10 +402,51 @@ of the development process rather than an afterthought.
 \end{frame}
 
 
+
+\section{References}
+
 \begin{frame}
 \footnotesize
 \bibliographystyle{apalike}
 \bibliography{../softwareguidelines}
+\end{frame}
+
+\section{Extra}
+
+\begin{frame}{Extra: Dimensions (1/2)}
+    \begin{block}{Usability Dimensions}
+        \begin{itemize}    
+            \item \textbf{Understandability} - Is the software easily understood? 
+            \item \textbf{Documentation} -- Comprehensive well-structured documentation?
+            \item \textbf{Buildability}  -- Straightforward to build from source on a supported system?
+            \item \textbf{Installability} -- Straightforward to install and deploy on a supported system?
+            \item \textbf{Learnability} -- Easy/intuitive to learn how to use its functions?
+        \end{itemize}
+    \end{block}
+    \begin{block}{Sustainability \& Manageability Dimensions}
+        \begin{itemize}    
+            \item \textbf{Identity} -- Project/software identity is clear and unique? 
+            \item \textbf{Copyright} -- Licencing and ownership Adoption of appropriate open-source license
+            \item ...
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Extra: Dimensions (2/2)}
+    \begin{block}{Sustainability \& Manageability Dimensions}
+        \begin{itemize}    
+            \item \textbf{Community} -- Evidence of current/future community
+            \item \textbf{Accessibility} -- Good facilities to obtain versions of the software?
+            \item \textbf{Testability} -- Easy to verify if the software functions correctly?
+            \item \textbf{Portability} -- Usable on multiple platforms?
+            \item \textbf{Supportability} -- Evidence of current/future developer support?
+            \item \textbf{Analysability} -- Easy to understand at the source-code level?
+            \item \textbf{Changeability} -- Easy to modify and contribute changes? 
+            \item \textbf{Performance} -- Resource demands/consumption
+            \item \textbf{Interoperability} 
+            \item \textbf{Security \& Privacy}
+        \end{itemize}
+    \end{block}
 \end{frame}
 \end{document}
 
