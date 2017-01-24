@@ -19,7 +19,13 @@ RESULTDIR = BASE_DIR + '/results/'
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@==_3!)4ig190q49hheexz(n+%h5cz0j-&kq+17t+73t9x4%c*'
+SECRET_KEY_FILE = os.path.join(BASE_DIR,'../.secretkey')
+if os.path.exists(SECRET_KEY_FILE):
+    with open(SECRET_KEY_FILE, 'r') as f:
+        SECRET_KEY = f.read().strip()
+else:
+    #not safe
+    SECRET_KEY = '@==_3!)4ig190q49hheexz(n+%h5cz0j-&kq+17t+73t9x4%c*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
