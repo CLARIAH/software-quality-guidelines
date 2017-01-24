@@ -146,8 +146,8 @@ def parsetexsource(texfile,target='markdown',supported=None,experimental=None):
     return criteria, requirements
 
 def get_markdown(request, context):
-    context_instance = RequestContext(request) if request else None
-    data = render_to_string('survey_template.md', context, context_instance)
+    #context_instance = RequestContext(request) if request else None
+    data = render_to_string('survey_template.md', context, request=request if request else None)
     data = '\n'.join([ line for line in data.split('\n') if line != '' ])
     return data
 
