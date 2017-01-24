@@ -11,8 +11,7 @@ import markdown
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.template import RequestContext
-from django.http import HttpResponse, Http404
-from django.core.exceptions import PermissionDenied
+from django.http import HttpResponse, Http404, HttpResponseForbidden
 from django.conf import settings
 from collections import OrderedDict, defaultdict
 
@@ -185,18 +184,18 @@ def interactive_survey(request):
                     itemdata['comments'] = request.POST['comments_'+code]
                     comments[code] = itemdata['comments']
                     if not validate(comments[code]):
-                        return PermissionDenied("One or more fields have invalid input, any form of HTML or URLs are not allowed in any input fields (spam protection,  not use < or > in any input)")
+                        return HttpResponseForbidden("One or more comments have invalid input, any form of HTML or link are not allowed in any input fields (spam protection, do not use < or > in any input), press back and try again")
 
         name = request.POST.get('name','')
         version = request.POST.get('version','')
         creator = request.POST.get('creator','')
         if not validate(name) or not validate(version) or not validate(creator):
-            return PermissionDenied("One or more fields have invalid input, any form of HTML or URLs are not allowed in any input fields (spam protection,  not use < or > in any input)")
+            return HttpResponseForbidden("One or more fields have invalid input, any form of HTML or URLs are not allowed in any input fields (spam protection, do not use < or > in any input)")
         if not creator: creator = 'anonymous'
         if not name:
-            return PermissionDenied("No software name specified (press back and try again)")
+            return HttpResponseForbidden("No software name specified (press back and try again)")
         if not version:
-            return PermissionDenied("No software version specified (press back and try again)")
+            return HttpResponseForbidden("No software version specified (press back and try again)")
         result_id = name + '-' + version + '-' + creator + '-' + request.META.get('REMOTE_ADDR')
         result_id = hashlib.md5(result_id.encode('utf-8')).hexdigest()
         markdowndata = get_markdown(request, { 'criteria': criteria, 'requirements': requirements, 'name': name, 'version': version,'creator':creator,'experimental': experimental, 'supported': supported, 'responded':True })
