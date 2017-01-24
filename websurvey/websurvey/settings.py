@@ -28,7 +28,7 @@ else:
     SECRET_KEY = '@==_3!)4ig190q49hheexz(n+%h5cz0j-&kq+17t+73t9x4%c*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
