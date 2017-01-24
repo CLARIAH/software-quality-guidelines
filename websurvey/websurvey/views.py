@@ -12,6 +12,7 @@ from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.template import RequestContext
 from django.http import HttpResponse, Http404
+from django.core.exceptions import PermissionDenied
 from django.conf import settings
 from collections import OrderedDict, defaultdict
 
@@ -154,6 +155,10 @@ def get_markdown(request, context):
 def render_markdown(request, context):
     return HttpResponse(get_markdown(request, context), content_type='text/markdown; charset=UTF-8')
 
+
+def validate(s):
+    return re.search('(https|ftp)?://', s) is None and re.search('www\.', s) is None and re.search('[<>]',s) is None
+
 def interactive_survey(request):
     if not os.path.exists(settings.RESULTDIR):
         os.mkdir(settings.RESULTDIR)
@@ -179,13 +184,19 @@ def interactive_survey(request):
                 if 'comments_'+code in request.POST:
                     itemdata['comments'] = request.POST['comments_'+code]
                     comments[code] = itemdata['comments']
+                    if not validate(comments[code]):
+                        return PermissionDenied("One or more fields have invalid input, any form of HTML or URLs are not allowed in any input fields (spam protection,  not use < or > in any input)")
 
         name = request.POST.get('name','')
         version = request.POST.get('version','')
         creator = request.POST.get('creator','')
+        if not validate(name) or not validate(version) or not validate(creator):
+            return PermissionDenied("One or more fields have invalid input, any form of HTML or URLs are not allowed in any input fields (spam protection,  not use < or > in any input)")
         if not creator: creator = 'anonymous'
-        if not name: name =  'unspecified'
-        if not version: version =  'unspecified'
+        if not name:
+            return PermissionDenied("No software name specified (press back and try again)")
+        if not version:
+            return PermissionDenied("No software version specified (press back and try again)")
         result_id = name + '-' + version + '-' + creator + '-' + request.META.get('REMOTE_ADDR')
         result_id = hashlib.md5(result_id.encode('utf-8')).hexdigest()
         markdowndata = get_markdown(request, { 'criteria': criteria, 'requirements': requirements, 'name': name, 'version': version,'creator':creator,'experimental': experimental, 'supported': supported, 'responded':True })
